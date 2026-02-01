@@ -22,44 +22,6 @@ func Test_berth_OperationLogsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test OperationLogsAPIService ApiV1AdminOperationLogsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.OperationLogsAPI.ApiV1AdminOperationLogsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OperationLogsAPIService ApiV1AdminOperationLogsIdGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.OperationLogsAPI.ApiV1AdminOperationLogsIdGet(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OperationLogsAPIService ApiV1AdminOperationLogsStatsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.OperationLogsAPI.ApiV1AdminOperationLogsStatsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test OperationLogsAPIService ApiV1OperationLogsByOperationIdOperationIdGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

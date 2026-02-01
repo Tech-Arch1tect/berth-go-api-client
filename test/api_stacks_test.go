@@ -64,36 +64,6 @@ func Test_berth_StacksAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test StacksAPIService ApiV1ServersServeridStacksStacknameComposeGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serverid int32
-		var stackname string
-
-		resp, httpRes, err := apiClient.StacksAPI.ApiV1ServersServeridStacksStacknameComposeGet(context.Background(), serverid, stackname).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test StacksAPIService ApiV1ServersServeridStacksStacknameComposePatch", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serverid int32
-		var stackname string
-
-		resp, httpRes, err := apiClient.StacksAPI.ApiV1ServersServeridStacksStacknameComposePatch(context.Background(), serverid, stackname).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test StacksAPIService ApiV1ServersServeridStacksStacknameEnvironmentGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

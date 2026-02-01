@@ -76,7 +76,6 @@ paths:
       summary: Export data
       tags:
       - admin
-      - migration
   /api/v1/admin/migration/import:
     post:
       description: "Import configuration data from an encrypted backup file. WARNING:\
@@ -129,7 +128,6 @@ paths:
       summary: Import data
       tags:
       - admin
-      - migration
   /api/v1/admin/operation-logs:
     get:
       description: Returns paginated list of all operation logs. Requires admin permissions.
@@ -243,7 +241,6 @@ paths:
       summary: List all operation logs
       tags:
       - admin
-      - operation-logs
   /api/v1/admin/operation-logs/stats:
     get:
       description: Returns aggregated statistics for all operation logs. Requires
@@ -282,7 +279,6 @@ paths:
       summary: Get operation logs statistics
       tags:
       - admin
-      - operation-logs
   /api/v1/admin/operation-logs/{id}:
     get:
       description: Returns detailed information about a specific operation log including
@@ -342,7 +338,6 @@ paths:
       summary: Get operation log details
       tags:
       - admin
-      - operation-logs
   /api/v1/admin/roles:
     get:
       description: List all roles. Requires admin permissions.
@@ -380,7 +375,6 @@ paths:
       summary: List all roles
       tags:
       - admin
-      - roles
     post:
       description: Creates a new role. Requires admin permissions.
       requestBody:
@@ -430,7 +424,6 @@ paths:
       summary: Create a new role
       tags:
       - admin
-      - roles
   /api/v1/admin/roles/{id}:
     delete:
       description: Deletes a role. Requires admin permissions.
@@ -483,7 +476,6 @@ paths:
       summary: Delete a role
       tags:
       - admin
-      - roles
     put:
       description: Updates an existing role. Requires admin permissions.
       parameters:
@@ -542,7 +534,6 @@ paths:
       summary: Update a role
       tags:
       - admin
-      - roles
   /api/v1/admin/roles/{roleId}/stack-permissions:
     get:
       description: "Returns the role details, available servers, permissions, and\
@@ -602,7 +593,6 @@ paths:
       summary: List role stack permissions
       tags:
       - admin
-      - roles
     post:
       description: Creates a new permission rule for a role on a server with a stack
         pattern. Requires admin permissions.
@@ -662,7 +652,6 @@ paths:
       summary: Create a role stack permission
       tags:
       - admin
-      - roles
   /api/v1/admin/roles/{roleId}/stack-permissions/{permissionId}:
     delete:
       description: Deletes a permission rule from a role. Requires admin permissions.
@@ -723,7 +712,6 @@ paths:
       summary: Delete a role stack permission
       tags:
       - admin
-      - roles
   /api/v1/admin/security-audit-logs:
     get:
       description: Returns paginated list of security audit logs. Requires admin permissions.
@@ -853,7 +841,6 @@ paths:
       summary: List security audit logs
       tags:
       - admin
-      - security-audit
   /api/v1/admin/security-audit-logs/stats:
     get:
       description: Returns aggregated statistics for security audit logs. Requires
@@ -892,7 +879,6 @@ paths:
       summary: Get security audit statistics
       tags:
       - admin
-      - security-audit
   /api/v1/admin/security-audit-logs/{id}:
     get:
       description: Returns detailed information about a specific security audit log.
@@ -952,7 +938,6 @@ paths:
       summary: Get security audit log details
       tags:
       - admin
-      - security-audit
   /api/v1/admin/servers:
     get:
       description: Returns list of all servers. Requires admin access.
@@ -990,7 +975,6 @@ paths:
       summary: List all servers
       tags:
       - admin
-      - servers
     post:
       description: Create a new server connection. Requires admin access.
       requestBody:
@@ -1040,7 +1024,6 @@ paths:
       summary: Create a new server
       tags:
       - admin
-      - servers
   /api/v1/admin/servers/{id}:
     delete:
       description: Delete a server connection. Requires admin access.
@@ -1093,7 +1076,6 @@ paths:
       summary: Delete a server
       tags:
       - admin
-      - servers
     put:
       description: Update an existing server connection. Requires admin access.
       parameters:
@@ -1158,7 +1140,6 @@ paths:
       summary: Update a server
       tags:
       - admin
-      - servers
   /api/v1/admin/servers/{id}/test:
     post:
       description: Test the connection to a server. Requires admin access.
@@ -1211,7 +1192,6 @@ paths:
       summary: Test server connection
       tags:
       - admin
-      - servers
   /api/v1/admin/users:
     get:
       description: List all users. Requires admin permissions.
@@ -1249,7 +1229,6 @@ paths:
       summary: List all users
       tags:
       - admin
-      - users
     post:
       description: Creates a new user account. Requires admin permissions.
       requestBody:
@@ -1299,7 +1278,6 @@ paths:
       summary: Create a new user
       tags:
       - admin
-      - users
   /api/v1/admin/users/assign-role:
     post:
       description: Assigns a role to a user. Requires admin permissions.
@@ -1350,7 +1328,6 @@ paths:
       summary: Assign a role to a user
       tags:
       - admin
-      - users
   /api/v1/admin/users/revoke-role:
     post:
       description: Revokes a role from a user. Requires admin permissions.
@@ -1401,7 +1378,6 @@ paths:
       summary: Revoke a role from a user
       tags:
       - admin
-      - users
   /api/v1/admin/users/{id}/roles:
     get:
       description: Returns user details and all available roles. Requires admin permissions.
@@ -1454,7 +1430,6 @@ paths:
       summary: Get user with roles
       tags:
       - admin
-      - users
   /api/v1/api-keys:
     get:
       description: Returns all API keys belonging to the authenticated user.
@@ -3119,7 +3094,6 @@ paths:
       - session: []
       summary: Get compose configuration
       tags:
-      - stacks
       - compose
     patch:
       description: Updates the Docker Compose configuration with the specified changes.
@@ -3188,7 +3162,6 @@ paths:
       - session: []
       summary: Update compose configuration
       tags:
-      - stacks
       - compose
   /api/v1/servers/{serverid}/stacks/{stackname}/containers/{containerName}/logs:
     get:

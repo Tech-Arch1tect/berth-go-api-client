@@ -65,17 +65,11 @@ type APIClient struct {
 
 	MaintenanceAPI *MaintenanceAPIService
 
-	MigrationAPI *MigrationAPIService
-
 	OperationLogsAPI *OperationLogsAPIService
 
 	ProfileAPI *ProfileAPIService
 
 	RegistriesAPI *RegistriesAPIService
-
-	RolesAPI *RolesAPIService
-
-	SecurityAuditAPI *SecurityAuditAPIService
 
 	ServersAPI *ServersAPIService
 
@@ -86,8 +80,6 @@ type APIClient struct {
 	SystemAPI *SystemAPIService
 
 	TotpAPI *TotpAPIService
-
-	UsersAPI *UsersAPIService
 
 	VulnscanAPI *VulnscanAPIService
 }
@@ -116,18 +108,14 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ImageUpdatesAPI = (*ImageUpdatesAPIService)(&c.common)
 	c.LogsAPI = (*LogsAPIService)(&c.common)
 	c.MaintenanceAPI = (*MaintenanceAPIService)(&c.common)
-	c.MigrationAPI = (*MigrationAPIService)(&c.common)
 	c.OperationLogsAPI = (*OperationLogsAPIService)(&c.common)
 	c.ProfileAPI = (*ProfileAPIService)(&c.common)
 	c.RegistriesAPI = (*RegistriesAPIService)(&c.common)
-	c.RolesAPI = (*RolesAPIService)(&c.common)
-	c.SecurityAuditAPI = (*SecurityAuditAPIService)(&c.common)
 	c.ServersAPI = (*ServersAPIService)(&c.common)
 	c.SessionsAPI = (*SessionsAPIService)(&c.common)
 	c.StacksAPI = (*StacksAPIService)(&c.common)
 	c.SystemAPI = (*SystemAPIService)(&c.common)
 	c.TotpAPI = (*TotpAPIService)(&c.common)
-	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.VulnscanAPI = (*VulnscanAPIService)(&c.common)
 
 	return c

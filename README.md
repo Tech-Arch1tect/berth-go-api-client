@@ -136,11 +136,6 @@ Class | Method | HTTP request | Description
 *MaintenanceAPI* | [**ApiV1ServersServeridMaintenancePermissionsGet**](docs/MaintenanceAPI.md#apiv1serversserveridmaintenancepermissionsget) | **Get** /api/v1/servers/{serverid}/maintenance/permissions | Check maintenance permissions
 *MaintenanceAPI* | [**ApiV1ServersServeridMaintenancePrunePost**](docs/MaintenanceAPI.md#apiv1serversserveridmaintenanceprunepost) | **Post** /api/v1/servers/{serverid}/maintenance/prune | Prune Docker resources
 *MaintenanceAPI* | [**ApiV1ServersServeridMaintenanceResourceDelete**](docs/MaintenanceAPI.md#apiv1serversserveridmaintenanceresourcedelete) | **Delete** /api/v1/servers/{serverid}/maintenance/resource | Delete Docker resource
-*MigrationAPI* | [**ApiV1AdminMigrationExportPost**](docs/MigrationAPI.md#apiv1adminmigrationexportpost) | **Post** /api/v1/admin/migration/export | Export data
-*MigrationAPI* | [**ApiV1AdminMigrationImportPost**](docs/MigrationAPI.md#apiv1adminmigrationimportpost) | **Post** /api/v1/admin/migration/import | Import data
-*OperationLogsAPI* | [**ApiV1AdminOperationLogsGet**](docs/OperationLogsAPI.md#apiv1adminoperationlogsget) | **Get** /api/v1/admin/operation-logs | List all operation logs
-*OperationLogsAPI* | [**ApiV1AdminOperationLogsIdGet**](docs/OperationLogsAPI.md#apiv1adminoperationlogsidget) | **Get** /api/v1/admin/operation-logs/{id} | Get operation log details
-*OperationLogsAPI* | [**ApiV1AdminOperationLogsStatsGet**](docs/OperationLogsAPI.md#apiv1adminoperationlogsstatsget) | **Get** /api/v1/admin/operation-logs/stats | Get operation logs statistics
 *OperationLogsAPI* | [**ApiV1OperationLogsByOperationIdOperationIdGet**](docs/OperationLogsAPI.md#apiv1operationlogsbyoperationidoperationidget) | **Get** /api/v1/operation-logs/by-operation-id/{operationId} | Get operation log details by operation ID
 *OperationLogsAPI* | [**ApiV1OperationLogsGet**](docs/OperationLogsAPI.md#apiv1operationlogsget) | **Get** /api/v1/operation-logs | List user&#39;s operation logs
 *OperationLogsAPI* | [**ApiV1OperationLogsIdGet**](docs/OperationLogsAPI.md#apiv1operationlogsidget) | **Get** /api/v1/operation-logs/{id} | Get operation log details
@@ -152,21 +147,6 @@ Class | Method | HTTP request | Description
 *RegistriesAPI* | [**ApiV1ServersServeridRegistriesIdGet**](docs/RegistriesAPI.md#apiv1serversserveridregistriesidget) | **Get** /api/v1/servers/{serverid}/registries/{id} | Get registry credential
 *RegistriesAPI* | [**ApiV1ServersServeridRegistriesIdPut**](docs/RegistriesAPI.md#apiv1serversserveridregistriesidput) | **Put** /api/v1/servers/{serverid}/registries/{id} | Update registry credential
 *RegistriesAPI* | [**ApiV1ServersServeridRegistriesPost**](docs/RegistriesAPI.md#apiv1serversserveridregistriespost) | **Post** /api/v1/servers/{serverid}/registries | Create registry credential
-*RolesAPI* | [**ApiV1AdminRolesGet**](docs/RolesAPI.md#apiv1adminrolesget) | **Get** /api/v1/admin/roles | List all roles
-*RolesAPI* | [**ApiV1AdminRolesIdDelete**](docs/RolesAPI.md#apiv1adminrolesiddelete) | **Delete** /api/v1/admin/roles/{id} | Delete a role
-*RolesAPI* | [**ApiV1AdminRolesIdPut**](docs/RolesAPI.md#apiv1adminrolesidput) | **Put** /api/v1/admin/roles/{id} | Update a role
-*RolesAPI* | [**ApiV1AdminRolesPost**](docs/RolesAPI.md#apiv1adminrolespost) | **Post** /api/v1/admin/roles | Create a new role
-*RolesAPI* | [**ApiV1AdminRolesRoleIdStackPermissionsGet**](docs/RolesAPI.md#apiv1adminrolesroleidstackpermissionsget) | **Get** /api/v1/admin/roles/{roleId}/stack-permissions | List role stack permissions
-*RolesAPI* | [**ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete**](docs/RolesAPI.md#apiv1adminrolesroleidstackpermissionspermissioniddelete) | **Delete** /api/v1/admin/roles/{roleId}/stack-permissions/{permissionId} | Delete a role stack permission
-*RolesAPI* | [**ApiV1AdminRolesRoleIdStackPermissionsPost**](docs/RolesAPI.md#apiv1adminrolesroleidstackpermissionspost) | **Post** /api/v1/admin/roles/{roleId}/stack-permissions | Create a role stack permission
-*SecurityAuditAPI* | [**ApiV1AdminSecurityAuditLogsGet**](docs/SecurityAuditAPI.md#apiv1adminsecurityauditlogsget) | **Get** /api/v1/admin/security-audit-logs | List security audit logs
-*SecurityAuditAPI* | [**ApiV1AdminSecurityAuditLogsIdGet**](docs/SecurityAuditAPI.md#apiv1adminsecurityauditlogsidget) | **Get** /api/v1/admin/security-audit-logs/{id} | Get security audit log details
-*SecurityAuditAPI* | [**ApiV1AdminSecurityAuditLogsStatsGet**](docs/SecurityAuditAPI.md#apiv1adminsecurityauditlogsstatsget) | **Get** /api/v1/admin/security-audit-logs/stats | Get security audit statistics
-*ServersAPI* | [**ApiV1AdminServersGet**](docs/ServersAPI.md#apiv1adminserversget) | **Get** /api/v1/admin/servers | List all servers
-*ServersAPI* | [**ApiV1AdminServersIdDelete**](docs/ServersAPI.md#apiv1adminserversiddelete) | **Delete** /api/v1/admin/servers/{id} | Delete a server
-*ServersAPI* | [**ApiV1AdminServersIdPut**](docs/ServersAPI.md#apiv1adminserversidput) | **Put** /api/v1/admin/servers/{id} | Update a server
-*ServersAPI* | [**ApiV1AdminServersIdTestPost**](docs/ServersAPI.md#apiv1adminserversidtestpost) | **Post** /api/v1/admin/servers/{id}/test | Test server connection
-*ServersAPI* | [**ApiV1AdminServersPost**](docs/ServersAPI.md#apiv1adminserverspost) | **Post** /api/v1/admin/servers | Create a new server
 *ServersAPI* | [**ApiV1ServersGet**](docs/ServersAPI.md#apiv1serversget) | **Get** /api/v1/servers | List accessible servers
 *ServersAPI* | [**ApiV1ServersServeridStatisticsGet**](docs/ServersAPI.md#apiv1serversserveridstatisticsget) | **Get** /api/v1/servers/{serverid}/statistics | Get server statistics
 *SessionsAPI* | [**ApiV1SessionsPost**](docs/SessionsAPI.md#apiv1sessionspost) | **Post** /api/v1/sessions | List user sessions
@@ -175,8 +155,6 @@ Class | Method | HTTP request | Description
 *StacksAPI* | [**ApiV1ServersServeridStacksCanCreateGet**](docs/StacksAPI.md#apiv1serversserveridstackscancreateget) | **Get** /api/v1/servers/{serverid}/stacks/can-create | Check if user can create stacks
 *StacksAPI* | [**ApiV1ServersServeridStacksGet**](docs/StacksAPI.md#apiv1serversserveridstacksget) | **Get** /api/v1/servers/{serverid}/stacks | List server stacks
 *StacksAPI* | [**ApiV1ServersServeridStacksPost**](docs/StacksAPI.md#apiv1serversserveridstackspost) | **Post** /api/v1/servers/{serverid}/stacks | Create a new stack
-*StacksAPI* | [**ApiV1ServersServeridStacksStacknameComposeGet**](docs/StacksAPI.md#apiv1serversserveridstacksstacknamecomposeget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/compose | Get compose configuration
-*StacksAPI* | [**ApiV1ServersServeridStacksStacknameComposePatch**](docs/StacksAPI.md#apiv1serversserveridstacksstacknamecomposepatch) | **Patch** /api/v1/servers/{serverid}/stacks/{stackname}/compose | Update compose configuration
 *StacksAPI* | [**ApiV1ServersServeridStacksStacknameEnvironmentGet**](docs/StacksAPI.md#apiv1serversserveridstacksstacknameenvironmentget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/environment | Get stack environment variables
 *StacksAPI* | [**ApiV1ServersServeridStacksStacknameGet**](docs/StacksAPI.md#apiv1serversserveridstacksstacknameget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname} | Get stack details
 *StacksAPI* | [**ApiV1ServersServeridStacksStacknameImagesGet**](docs/StacksAPI.md#apiv1serversserveridstacksstacknameimagesget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/images | Get container image details
@@ -189,11 +167,6 @@ Class | Method | HTTP request | Description
 *TotpAPI* | [**ApiV1TotpEnablePost**](docs/TotpAPI.md#apiv1totpenablepost) | **Post** /api/v1/totp/enable | Enable TOTP
 *TotpAPI* | [**ApiV1TotpSetupGet**](docs/TotpAPI.md#apiv1totpsetupget) | **Get** /api/v1/totp/setup | Get TOTP setup information
 *TotpAPI* | [**ApiV1TotpStatusGet**](docs/TotpAPI.md#apiv1totpstatusget) | **Get** /api/v1/totp/status | Get TOTP status
-*UsersAPI* | [**ApiV1AdminUsersAssignRolePost**](docs/UsersAPI.md#apiv1adminusersassignrolepost) | **Post** /api/v1/admin/users/assign-role | Assign a role to a user
-*UsersAPI* | [**ApiV1AdminUsersGet**](docs/UsersAPI.md#apiv1adminusersget) | **Get** /api/v1/admin/users | List all users
-*UsersAPI* | [**ApiV1AdminUsersIdRolesGet**](docs/UsersAPI.md#apiv1adminusersidrolesget) | **Get** /api/v1/admin/users/{id}/roles | Get user with roles
-*UsersAPI* | [**ApiV1AdminUsersPost**](docs/UsersAPI.md#apiv1adminuserspost) | **Post** /api/v1/admin/users | Create a new user
-*UsersAPI* | [**ApiV1AdminUsersRevokeRolePost**](docs/UsersAPI.md#apiv1adminusersrevokerolepost) | **Post** /api/v1/admin/users/revoke-role | Revoke a role from a user
 *VulnscanAPI* | [**ApiV1ServersServeridStacksStacknameVulnscanGet**](docs/VulnscanAPI.md#apiv1serversserveridstacksstacknamevulnscanget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/vulnscan | Get latest scan for stack
 *VulnscanAPI* | [**ApiV1ServersServeridStacksStacknameVulnscanHistoryGet**](docs/VulnscanAPI.md#apiv1serversserveridstacksstacknamevulnscanhistoryget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/vulnscan/history | Get scan history for stack
 *VulnscanAPI* | [**ApiV1ServersServeridStacksStacknameVulnscanPost**](docs/VulnscanAPI.md#apiv1serversserveridstacksstacknamevulnscanpost) | **Post** /api/v1/servers/{serverid}/stacks/{stackname}/vulnscan | Start vulnerability scan
