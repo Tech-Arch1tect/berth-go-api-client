@@ -16095,10 +16095,10 @@ components:
       type: object
   securitySchemes:
     apiKey:
-      description: API key from user settings
-      in: header
-      name: X-API-Key
-      type: apiKey
+      bearerFormat: JWT
+      description: API key
+      scheme: bearer
+      type: http
     bearerAuth:
       bearerFormat: JWT
       description: JWT token

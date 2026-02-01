@@ -481,22 +481,12 @@ Class | Method | HTTP request | Description
 Authentication schemes defined for the API:
 ### apiKey
 
-- **Type**: API key
-- **API key parameter name**: X-API-Key
-- **Location**: HTTP header
-
-Note, each API key must be added to a map of `map[string]APIKey` where the key is: apiKey and passed in as the auth context for each request.
+- **Type**: HTTP Bearer token authentication
 
 Example
 
 ```go
-auth := context.WithValue(
-		context.Background(),
-		berth.ContextAPIKeys,
-		map[string]berth.APIKey{
-			"apiKey": {Key: "API_KEY_STRING"},
-		},
-	)
+auth := context.WithValue(context.Background(), berth.ContextAccessToken, "BEARER_TOKEN_STRING")
 r, err := client.Service.Operation(auth, args)
 ```
 
