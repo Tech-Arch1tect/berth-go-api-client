@@ -1,0 +1,259 @@
+# User
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**CreatedAt** | **time.Time** |  | 
+**DeletedAt** | Pointer to [**DeletedAt**](DeletedAt.md) |  | [optional] 
+**Email** | **string** |  | 
+**EmailVerifiedAt** | Pointer to **NullableTime** |  | [optional] 
+**Id** | **int32** |  | 
+**LastLoginAt** | Pointer to **NullableTime** |  | [optional] 
+**Roles** | Pointer to [**[]Role**](Role.md) |  | [optional] 
+**UpdatedAt** | **time.Time** |  | 
+**Username** | **string** |  | 
+
+## Methods
+
+### NewUser
+
+`func NewUser(createdAt time.Time, email string, id int32, updatedAt time.Time, username string, ) *User`
+
+NewUser instantiates a new User object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewUserWithDefaults
+
+`func NewUserWithDefaults() *User`
+
+NewUserWithDefaults instantiates a new User object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCreatedAt
+
+`func (o *User) GetCreatedAt() time.Time`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *User) GetCreatedAtOk() (*time.Time, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *User) SetCreatedAt(v time.Time)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+
+### GetDeletedAt
+
+`func (o *User) GetDeletedAt() DeletedAt`
+
+GetDeletedAt returns the DeletedAt field if non-nil, zero value otherwise.
+
+### GetDeletedAtOk
+
+`func (o *User) GetDeletedAtOk() (*DeletedAt, bool)`
+
+GetDeletedAtOk returns a tuple with the DeletedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeletedAt
+
+`func (o *User) SetDeletedAt(v DeletedAt)`
+
+SetDeletedAt sets DeletedAt field to given value.
+
+### HasDeletedAt
+
+`func (o *User) HasDeletedAt() bool`
+
+HasDeletedAt returns a boolean if a field has been set.
+
+### GetEmail
+
+`func (o *User) GetEmail() string`
+
+GetEmail returns the Email field if non-nil, zero value otherwise.
+
+### GetEmailOk
+
+`func (o *User) GetEmailOk() (*string, bool)`
+
+GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmail
+
+`func (o *User) SetEmail(v string)`
+
+SetEmail sets Email field to given value.
+
+
+### GetEmailVerifiedAt
+
+`func (o *User) GetEmailVerifiedAt() time.Time`
+
+GetEmailVerifiedAt returns the EmailVerifiedAt field if non-nil, zero value otherwise.
+
+### GetEmailVerifiedAtOk
+
+`func (o *User) GetEmailVerifiedAtOk() (*time.Time, bool)`
+
+GetEmailVerifiedAtOk returns a tuple with the EmailVerifiedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmailVerifiedAt
+
+`func (o *User) SetEmailVerifiedAt(v time.Time)`
+
+SetEmailVerifiedAt sets EmailVerifiedAt field to given value.
+
+### HasEmailVerifiedAt
+
+`func (o *User) HasEmailVerifiedAt() bool`
+
+HasEmailVerifiedAt returns a boolean if a field has been set.
+
+### SetEmailVerifiedAtNil
+
+`func (o *User) SetEmailVerifiedAtNil(b bool)`
+
+ SetEmailVerifiedAtNil sets the value for EmailVerifiedAt to be an explicit nil
+
+### UnsetEmailVerifiedAt
+`func (o *User) UnsetEmailVerifiedAt()`
+
+UnsetEmailVerifiedAt ensures that no value is present for EmailVerifiedAt, not even an explicit nil
+### GetId
+
+`func (o *User) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *User) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *User) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+
+### GetLastLoginAt
+
+`func (o *User) GetLastLoginAt() time.Time`
+
+GetLastLoginAt returns the LastLoginAt field if non-nil, zero value otherwise.
+
+### GetLastLoginAtOk
+
+`func (o *User) GetLastLoginAtOk() (*time.Time, bool)`
+
+GetLastLoginAtOk returns a tuple with the LastLoginAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastLoginAt
+
+`func (o *User) SetLastLoginAt(v time.Time)`
+
+SetLastLoginAt sets LastLoginAt field to given value.
+
+### HasLastLoginAt
+
+`func (o *User) HasLastLoginAt() bool`
+
+HasLastLoginAt returns a boolean if a field has been set.
+
+### SetLastLoginAtNil
+
+`func (o *User) SetLastLoginAtNil(b bool)`
+
+ SetLastLoginAtNil sets the value for LastLoginAt to be an explicit nil
+
+### UnsetLastLoginAt
+`func (o *User) UnsetLastLoginAt()`
+
+UnsetLastLoginAt ensures that no value is present for LastLoginAt, not even an explicit nil
+### GetRoles
+
+`func (o *User) GetRoles() []Role`
+
+GetRoles returns the Roles field if non-nil, zero value otherwise.
+
+### GetRolesOk
+
+`func (o *User) GetRolesOk() (*[]Role, bool)`
+
+GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoles
+
+`func (o *User) SetRoles(v []Role)`
+
+SetRoles sets Roles field to given value.
+
+### HasRoles
+
+`func (o *User) HasRoles() bool`
+
+HasRoles returns a boolean if a field has been set.
+
+### GetUpdatedAt
+
+`func (o *User) GetUpdatedAt() time.Time`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *User) GetUpdatedAtOk() (*time.Time, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *User) SetUpdatedAt(v time.Time)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
+
+
+### GetUsername
+
+`func (o *User) GetUsername() string`
+
+GetUsername returns the Username field if non-nil, zero value otherwise.
+
+### GetUsernameOk
+
+`func (o *User) GetUsernameOk() (*string, bool)`
+
+GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsername
+
+`func (o *User) SetUsername(v string)`
+
+SetUsername sets Username field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
