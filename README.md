@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *AdminAPI* | [**ApiV1AdminOperationLogsGet**](docs/AdminAPI.md#apiv1adminoperationlogsget) | **Get** /api/v1/admin/operation-logs | List all operation logs
 *AdminAPI* | [**ApiV1AdminOperationLogsIdGet**](docs/AdminAPI.md#apiv1adminoperationlogsidget) | **Get** /api/v1/admin/operation-logs/{id} | Get operation log details
 *AdminAPI* | [**ApiV1AdminOperationLogsStatsGet**](docs/AdminAPI.md#apiv1adminoperationlogsstatsget) | **Get** /api/v1/admin/operation-logs/stats | Get operation logs statistics
+*AdminAPI* | [**ApiV1AdminPermissionsGet**](docs/AdminAPI.md#apiv1adminpermissionsget) | **Get** /api/v1/admin/permissions | List all permissions
 *AdminAPI* | [**ApiV1AdminRolesGet**](docs/AdminAPI.md#apiv1adminrolesget) | **Get** /api/v1/admin/roles | List all roles
 *AdminAPI* | [**ApiV1AdminRolesIdDelete**](docs/AdminAPI.md#apiv1adminrolesiddelete) | **Delete** /api/v1/admin/roles/{id} | Delete a role
 *AdminAPI* | [**ApiV1AdminRolesIdPut**](docs/AdminAPI.md#apiv1adminrolesidput) | **Put** /api/v1/admin/roles/{id} | Update a role
@@ -313,6 +314,8 @@ Class | Method | HTTP request | Description
  - [ListCredentialsResponse](docs/ListCredentialsResponse.md)
  - [ListLogsAPIResponse](docs/ListLogsAPIResponse.md)
  - [ListLogsResponseData](docs/ListLogsResponseData.md)
+ - [ListPermissionsResponse](docs/ListPermissionsResponse.md)
+ - [ListPermissionsResponseData](docs/ListPermissionsResponseData.md)
  - [ListRoleStackPermissionsData](docs/ListRoleStackPermissionsData.md)
  - [ListRoleStackPermissionsResponse](docs/ListRoleStackPermissionsResponse.md)
  - [ListRolesResponse](docs/ListRolesResponse.md)

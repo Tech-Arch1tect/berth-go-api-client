@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ApiV1AdminOperationLogsGet**](AdminAPI.md#ApiV1AdminOperationLogsGet) | **Get** /api/v1/admin/operation-logs | List all operation logs
 [**ApiV1AdminOperationLogsIdGet**](AdminAPI.md#ApiV1AdminOperationLogsIdGet) | **Get** /api/v1/admin/operation-logs/{id} | Get operation log details
 [**ApiV1AdminOperationLogsStatsGet**](AdminAPI.md#ApiV1AdminOperationLogsStatsGet) | **Get** /api/v1/admin/operation-logs/stats | Get operation logs statistics
+[**ApiV1AdminPermissionsGet**](AdminAPI.md#ApiV1AdminPermissionsGet) | **Get** /api/v1/admin/permissions | List all permissions
 [**ApiV1AdminRolesGet**](AdminAPI.md#ApiV1AdminRolesGet) | **Get** /api/v1/admin/roles | List all roles
 [**ApiV1AdminRolesIdDelete**](AdminAPI.md#ApiV1AdminRolesIdDelete) | **Delete** /api/v1/admin/roles/{id} | Delete a role
 [**ApiV1AdminRolesIdPut**](AdminAPI.md#ApiV1AdminRolesIdPut) | **Put** /api/v1/admin/roles/{id} | Update a role
@@ -362,6 +363,72 @@ Other parameters are passed through a pointer to a apiApiV1AdminOperationLogsSta
 ### Return type
 
 [**OperationLogStatsResponse**](OperationLogStatsResponse.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1AdminPermissionsGet
+
+> ListPermissionsResponse ApiV1AdminPermissionsGet(ctx).Type_(type_).Execute()
+
+List all permissions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	type_ := "type__example" // string | Filter type - use 'role' to exclude API-key-only permissions (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminPermissionsGet(context.Background()).Type_(type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminPermissionsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminPermissionsGet`: ListPermissionsResponse
+	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminPermissionsGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminPermissionsGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | **string** | Filter type - use &#39;role&#39; to exclude API-key-only permissions | 
+
+### Return type
+
+[**ListPermissionsResponse**](ListPermissionsResponse.md)
 
 ### Authorization
 

@@ -338,6 +338,53 @@ paths:
       summary: Get operation log details
       tags:
       - admin
+  /api/v1/admin/permissions:
+    get:
+      description: Returns list of all permissions. Use ?type=role to filter out API-key-only
+        permissions. Requires admin access.
+      parameters:
+      - description: Filter type - use 'role' to exclude API-key-only permissions
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListPermissionsResponse"
+          description: List of permissions
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Admin access required
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: List all permissions
+      tags:
+      - admin
   /api/v1/admin/roles:
     get:
       description: List all roles. Requires admin permissions.
@@ -9832,6 +9879,55 @@ components:
       - per_page
       - total
       - total_pages
+      type: object
+    ListPermissionsResponse:
+      example:
+        data:
+          permissions:
+          - resource: resource
+            is_api_key_only: true
+            name: name
+            action: action
+            description: description
+            id: 0
+          - resource: resource
+            is_api_key_only: true
+            name: name
+            action: action
+            description: description
+            id: 0
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/ListPermissionsResponseData"
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    ListPermissionsResponseData:
+      example:
+        permissions:
+        - resource: resource
+          is_api_key_only: true
+          name: name
+          action: action
+          description: description
+          id: 0
+        - resource: resource
+          is_api_key_only: true
+          name: name
+          action: action
+          description: description
+          id: 0
+      properties:
+        permissions:
+          items:
+            $ref: "#/components/schemas/PermissionInfo"
+          type: array
+      required:
+      - permissions
       type: object
     ListRoleStackPermissionsData:
       example:

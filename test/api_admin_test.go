@@ -84,6 +84,18 @@ func Test_berth_AdminAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test AdminAPIService ApiV1AdminPermissionsGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPI.ApiV1AdminPermissionsGet(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AdminAPIService ApiV1AdminRolesGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
