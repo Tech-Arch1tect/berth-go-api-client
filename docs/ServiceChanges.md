@@ -372,6 +372,16 @@ SetPorts sets Ports field to given value.
 
 HasPorts returns a boolean if a field has been set.
 
+### SetPortsNil
+
+`func (o *ServiceChanges) SetPortsNil(b bool)`
+
+ SetPortsNil sets the value for Ports to be an explicit nil
+
+### UnsetPorts
+`func (o *ServiceChanges) UnsetPorts()`
+
+UnsetPorts ensures that no value is present for Ports, not even an explicit nil
 ### GetRestart
 
 `func (o *ServiceChanges) GetRestart() string`
@@ -432,6 +442,16 @@ SetVolumes sets Volumes field to given value.
 
 HasVolumes returns a boolean if a field has been set.
 
+### SetVolumesNil
+
+`func (o *ServiceChanges) SetVolumesNil(b bool)`
+
+ SetVolumesNil sets the value for Volumes to be an explicit nil
+
+### UnsetVolumes
+`func (o *ServiceChanges) UnsetVolumes()`
+
+UnsetVolumes ensures that no value is present for Volumes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

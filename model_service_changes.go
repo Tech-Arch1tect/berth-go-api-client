@@ -431,9 +431,9 @@ func (o *ServiceChanges) SetNetworks(v map[string]ServiceNetworkConfig) {
 	o.Networks = v
 }
 
-// GetPorts returns the Ports field value if set, zero value otherwise.
+// GetPorts returns the Ports field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ServiceChanges) GetPorts() []PortMapping {
-	if o == nil || IsNil(o.Ports) {
+	if o == nil {
 		var ret []PortMapping
 		return ret
 	}
@@ -442,6 +442,7 @@ func (o *ServiceChanges) GetPorts() []PortMapping {
 
 // GetPortsOk returns a tuple with the Ports field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ServiceChanges) GetPortsOk() ([]PortMapping, bool) {
 	if o == nil || IsNil(o.Ports) {
 		return nil, false
@@ -505,9 +506,9 @@ func (o *ServiceChanges) UnsetRestart() {
 	o.Restart.Unset()
 }
 
-// GetVolumes returns the Volumes field value if set, zero value otherwise.
+// GetVolumes returns the Volumes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ServiceChanges) GetVolumes() []VolumeMount2 {
-	if o == nil || IsNil(o.Volumes) {
+	if o == nil {
 		var ret []VolumeMount2
 		return ret
 	}
@@ -516,6 +517,7 @@ func (o *ServiceChanges) GetVolumes() []VolumeMount2 {
 
 // GetVolumesOk returns a tuple with the Volumes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ServiceChanges) GetVolumesOk() ([]VolumeMount2, bool) {
 	if o == nil || IsNil(o.Volumes) {
 		return nil, false
@@ -577,13 +579,13 @@ func (o ServiceChanges) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Networks) {
 		toSerialize["networks"] = o.Networks
 	}
-	if !IsNil(o.Ports) {
+	if o.Ports != nil {
 		toSerialize["ports"] = o.Ports
 	}
 	if o.Restart.IsSet() {
 		toSerialize["restart"] = o.Restart.Get()
 	}
-	if !IsNil(o.Volumes) {
+	if o.Volumes != nil {
 		toSerialize["volumes"] = o.Volumes
 	}
 	return toSerialize, nil
