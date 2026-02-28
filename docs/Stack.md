@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComposeFile** | **string** |  | 
+**HealthDetails** | Pointer to [**NullableStackHealthDetails**](StackHealthDetails.md) |  | [optional] 
 **IsHealthy** | **bool** |  | 
 **Name** | **string** |  | 
 **Path** | **string** |  | 
@@ -52,6 +53,41 @@ and a boolean to check if the value has been set.
 SetComposeFile sets ComposeFile field to given value.
 
 
+### GetHealthDetails
+
+`func (o *Stack) GetHealthDetails() StackHealthDetails`
+
+GetHealthDetails returns the HealthDetails field if non-nil, zero value otherwise.
+
+### GetHealthDetailsOk
+
+`func (o *Stack) GetHealthDetailsOk() (*StackHealthDetails, bool)`
+
+GetHealthDetailsOk returns a tuple with the HealthDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHealthDetails
+
+`func (o *Stack) SetHealthDetails(v StackHealthDetails)`
+
+SetHealthDetails sets HealthDetails field to given value.
+
+### HasHealthDetails
+
+`func (o *Stack) HasHealthDetails() bool`
+
+HasHealthDetails returns a boolean if a field has been set.
+
+### SetHealthDetailsNil
+
+`func (o *Stack) SetHealthDetailsNil(b bool)`
+
+ SetHealthDetailsNil sets the value for HealthDetails to be an explicit nil
+
+### UnsetHealthDetails
+`func (o *Stack) UnsetHealthDetails()`
+
+UnsetHealthDetails ensures that no value is present for HealthDetails, not even an explicit nil
 ### GetIsHealthy
 
 `func (o *Stack) GetIsHealthy() bool`

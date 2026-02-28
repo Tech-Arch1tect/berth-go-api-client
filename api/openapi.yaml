@@ -10246,6 +10246,7 @@ components:
           total_containers: 1
           name: name
           compose_file: compose_file
+          health_details: ""
           server_id: 0
         - is_healthy: true
           running_containers: 0
@@ -10254,6 +10255,7 @@ components:
           total_containers: 1
           name: name
           compose_file: compose_file
+          health_details: ""
           server_id: 0
       properties:
         stacks:
@@ -10274,6 +10276,7 @@ components:
             total_containers: 1
             name: name
             compose_file: compose_file
+            health_details: ""
             server_id: 0
           - is_healthy: true
             running_containers: 0
@@ -10282,6 +10285,7 @@ components:
             total_containers: 1
             name: name
             compose_file: compose_file
+            health_details: ""
             server_id: 0
         success: true
       properties:
@@ -13961,10 +13965,15 @@ components:
         total_containers: 1
         name: name
         compose_file: compose_file
+        health_details: ""
         server_id: 0
       properties:
         compose_file:
           type: string
+        health_details:
+          allOf:
+          - $ref: "#/components/schemas/StackHealthDetails"
+          nullable: true
         is_healthy:
           type: boolean
         name:
@@ -14334,6 +14343,27 @@ components:
       required:
       - data
       - success
+      type: object
+    StackHealthDetails:
+      properties:
+        healthy_count:
+          type: integer
+        percentage:
+          type: integer
+        reasons:
+          items:
+            type: string
+          type: array
+        stopped_count:
+          type: integer
+        unhealthy_count:
+          type: integer
+      required:
+      - healthy_count
+      - percentage
+      - reasons
+      - stopped_count
+      - unhealthy_count
       type: object
     StackImagesData:
       example:

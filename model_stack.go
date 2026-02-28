@@ -22,6 +22,7 @@ var _ MappedNullable = &Stack{}
 // Stack struct for Stack
 type Stack struct {
 	ComposeFile string `json:"compose_file"`
+	HealthDetails NullableStackHealthDetails `json:"health_details,omitempty"`
 	IsHealthy bool `json:"is_healthy"`
 	Name string `json:"name"`
 	Path string `json:"path"`
@@ -80,6 +81,48 @@ func (o *Stack) GetComposeFileOk() (*string, bool) {
 // SetComposeFile sets field value
 func (o *Stack) SetComposeFile(v string) {
 	o.ComposeFile = v
+}
+
+// GetHealthDetails returns the HealthDetails field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Stack) GetHealthDetails() StackHealthDetails {
+	if o == nil || IsNil(o.HealthDetails.Get()) {
+		var ret StackHealthDetails
+		return ret
+	}
+	return *o.HealthDetails.Get()
+}
+
+// GetHealthDetailsOk returns a tuple with the HealthDetails field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Stack) GetHealthDetailsOk() (*StackHealthDetails, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HealthDetails.Get(), o.HealthDetails.IsSet()
+}
+
+// HasHealthDetails returns a boolean if a field has been set.
+func (o *Stack) HasHealthDetails() bool {
+	if o != nil && o.HealthDetails.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHealthDetails gets a reference to the given NullableStackHealthDetails and assigns it to the HealthDetails field.
+func (o *Stack) SetHealthDetails(v StackHealthDetails) {
+	o.HealthDetails.Set(&v)
+}
+// SetHealthDetailsNil sets the value for HealthDetails to be an explicit nil
+func (o *Stack) SetHealthDetailsNil() {
+	o.HealthDetails.Set(nil)
+}
+
+// UnsetHealthDetails ensures that no value is present for HealthDetails, not even an explicit nil
+func (o *Stack) UnsetHealthDetails() {
+	o.HealthDetails.Unset()
 }
 
 // GetIsHealthy returns the IsHealthy field value
@@ -261,6 +304,9 @@ func (o Stack) MarshalJSON() ([]byte, error) {
 func (o Stack) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["compose_file"] = o.ComposeFile
+	if o.HealthDetails.IsSet() {
+		toSerialize["health_details"] = o.HealthDetails.Get()
+	}
 	toSerialize["is_healthy"] = o.IsHealthy
 	toSerialize["name"] = o.Name
 	toSerialize["path"] = o.Path
