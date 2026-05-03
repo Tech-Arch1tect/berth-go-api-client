@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersServeridRegistriesGet
 
-> ListCredentialsResponse ApiV1ServersServeridRegistriesGet(ctx, serverid).Execute()
+> ResponseListCredentialsData ApiV1ServersServeridRegistriesGet(ctx, serverid).Execute()
 
 List registry credentials
 
@@ -42,7 +42,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RegistriesAPI.ApiV1ServersServeridRegistriesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridRegistriesGet`: ListCredentialsResponse
+	// response from `ApiV1ServersServeridRegistriesGet`: ResponseListCredentialsData
 	fmt.Fprintf(os.Stdout, "Response from `RegistriesAPI.ApiV1ServersServeridRegistriesGet`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListCredentialsResponse**](ListCredentialsResponse.md)
+[**ResponseListCredentialsData**](ResponseListCredentialsData.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridRegistriesIdDelete
 
-> DeleteCredentialResponse ApiV1ServersServeridRegistriesIdDelete(ctx, serverid, id).Execute()
+> ResponseDeleteCredentialMessageData ApiV1ServersServeridRegistriesIdDelete(ctx, serverid, id).Execute()
 
 Delete registry credential
 
@@ -113,7 +113,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RegistriesAPI.ApiV1ServersServeridRegistriesIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridRegistriesIdDelete`: DeleteCredentialResponse
+	// response from `ApiV1ServersServeridRegistriesIdDelete`: ResponseDeleteCredentialMessageData
 	fmt.Fprintf(os.Stdout, "Response from `RegistriesAPI.ApiV1ServersServeridRegistriesIdDelete`: %v\n", resp)
 }
 ```
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteCredentialResponse**](DeleteCredentialResponse.md)
+[**ResponseDeleteCredentialMessageData**](ResponseDeleteCredentialMessageData.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridRegistriesIdGet
 
-> GetCredentialResponse ApiV1ServersServeridRegistriesIdGet(ctx, serverid, id).Execute()
+> ResponseGetCredentialData ApiV1ServersServeridRegistriesIdGet(ctx, serverid, id).Execute()
 
 Get registry credential
 
@@ -186,7 +186,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RegistriesAPI.ApiV1ServersServeridRegistriesIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridRegistriesIdGet`: GetCredentialResponse
+	// response from `ApiV1ServersServeridRegistriesIdGet`: ResponseGetCredentialData
 	fmt.Fprintf(os.Stdout, "Response from `RegistriesAPI.ApiV1ServersServeridRegistriesIdGet`: %v\n", resp)
 }
 ```
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCredentialResponse**](GetCredentialResponse.md)
+[**ResponseGetCredentialData**](ResponseGetCredentialData.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridRegistriesIdPut
 
-> UpdateCredentialResponse ApiV1ServersServeridRegistriesIdPut(ctx, serverid, id).UpdateCredentialRequest(updateCredentialRequest).Execute()
+> ResponseGetCredentialData ApiV1ServersServeridRegistriesIdPut(ctx, serverid, id).UpdateCredentialRequest(updateCredentialRequest).Execute()
 
 Update registry credential
 
@@ -260,7 +260,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RegistriesAPI.ApiV1ServersServeridRegistriesIdPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridRegistriesIdPut`: UpdateCredentialResponse
+	// response from `ApiV1ServersServeridRegistriesIdPut`: ResponseGetCredentialData
 	fmt.Fprintf(os.Stdout, "Response from `RegistriesAPI.ApiV1ServersServeridRegistriesIdPut`: %v\n", resp)
 }
 ```
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateCredentialResponse**](UpdateCredentialResponse.md)
+[**ResponseGetCredentialData**](ResponseGetCredentialData.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridRegistriesPost
 
-> CreateCredentialResponse ApiV1ServersServeridRegistriesPost(ctx, serverid).CreateCredentialRequest(createCredentialRequest).Execute()
+> ResponseGetCredentialData ApiV1ServersServeridRegistriesPost(ctx, serverid).CreateCredentialRequest(createCredentialRequest).Execute()
 
 Create registry credential
 
@@ -334,7 +334,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RegistriesAPI.ApiV1ServersServeridRegistriesPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridRegistriesPost`: CreateCredentialResponse
+	// response from `ApiV1ServersServeridRegistriesPost`: ResponseGetCredentialData
 	fmt.Fprintf(os.Stdout, "Response from `RegistriesAPI.ApiV1ServersServeridRegistriesPost`: %v\n", resp)
 }
 ```
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCredentialResponse**](CreateCredentialResponse.md)
+[**ResponseGetCredentialData**](ResponseGetCredentialData.md)
 
 ### Authorization
 

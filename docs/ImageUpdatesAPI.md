@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ApiV1ImageUpdatesGet
 
-> ImageUpdatesResponse ApiV1ImageUpdatesGet(ctx).Execute()
+> ResponseImageUpdatesData ApiV1ImageUpdatesGet(ctx).Execute()
 
 List available image updates
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageUpdatesAPI.ApiV1ImageUpdatesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ImageUpdatesGet`: ImageUpdatesResponse
+	// response from `ApiV1ImageUpdatesGet`: ResponseImageUpdatesData
 	fmt.Fprintf(os.Stdout, "Response from `ImageUpdatesAPI.ApiV1ImageUpdatesGet`: %v\n", resp)
 }
 ```
@@ -54,7 +54,7 @@ Other parameters are passed through a pointer to a apiApiV1ImageUpdatesGetReques
 
 ### Return type
 
-[**ImageUpdatesResponse**](ImageUpdatesResponse.md)
+[**ResponseImageUpdatesData**](ResponseImageUpdatesData.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Other parameters are passed through a pointer to a apiApiV1ImageUpdatesGetReques
 
 ## ApiV1ServersServeridImageUpdatesGet
 
-> ImageUpdatesResponse ApiV1ServersServeridImageUpdatesGet(ctx, serverid).Execute()
+> ResponseImageUpdatesData ApiV1ServersServeridImageUpdatesGet(ctx, serverid).Execute()
 
 List server image updates
 
@@ -100,7 +100,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageUpdatesAPI.ApiV1ServersServeridImageUpdatesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridImageUpdatesGet`: ImageUpdatesResponse
+	// response from `ApiV1ServersServeridImageUpdatesGet`: ResponseImageUpdatesData
 	fmt.Fprintf(os.Stdout, "Response from `ImageUpdatesAPI.ApiV1ServersServeridImageUpdatesGet`: %v\n", resp)
 }
 ```
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ImageUpdatesResponse**](ImageUpdatesResponse.md)
+[**ResponseImageUpdatesData**](ResponseImageUpdatesData.md)
 
 ### Authorization
 

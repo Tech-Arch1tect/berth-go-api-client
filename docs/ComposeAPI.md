@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersServeridStacksStacknameComposeGet
 
-> RawComposeConfig ApiV1ServersServeridStacksStacknameComposeGet(ctx, serverid, stackname).Execute()
+> ResponseRawComposeConfig ApiV1ServersServeridStacksStacknameComposeGet(ctx, serverid, stackname).Execute()
 
 Get compose configuration
 
@@ -40,7 +40,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComposeAPI.ApiV1ServersServeridStacksStacknameComposeGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameComposeGet`: RawComposeConfig
+	// response from `ApiV1ServersServeridStacksStacknameComposeGet`: ResponseRawComposeConfig
 	fmt.Fprintf(os.Stdout, "Response from `ComposeAPI.ApiV1ServersServeridStacksStacknameComposeGet`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RawComposeConfig**](RawComposeConfig.md)
+[**ResponseRawComposeConfig**](ResponseRawComposeConfig.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameComposePatch
 
-> UpdateComposeResponse ApiV1ServersServeridStacksStacknameComposePatch(ctx, serverid, stackname).UpdateComposeRequest(updateComposeRequest).Execute()
+> ResponseUpdateComposeResponse ApiV1ServersServeridStacksStacknameComposePatch(ctx, serverid, stackname).UpdateComposeRequest(updateComposeRequest).Execute()
 
 Update compose configuration
 
@@ -114,7 +114,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComposeAPI.ApiV1ServersServeridStacksStacknameComposePatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameComposePatch`: UpdateComposeResponse
+	// response from `ApiV1ServersServeridStacksStacknameComposePatch`: ResponseUpdateComposeResponse
 	fmt.Fprintf(os.Stdout, "Response from `ComposeAPI.ApiV1ServersServeridStacksStacknameComposePatch`: %v\n", resp)
 }
 ```
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateComposeResponse**](UpdateComposeResponse.md)
+[**ResponseUpdateComposeResponse**](ResponseUpdateComposeResponse.md)
 
 ### Authorization
 

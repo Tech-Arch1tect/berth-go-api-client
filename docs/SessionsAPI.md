@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ApiV1SessionsPost
 
-> GetSessionsResponse ApiV1SessionsPost(ctx).GetSessionsRequest(getSessionsRequest).Execute()
+> ResponseGetSessionsData ApiV1SessionsPost(ctx).GetSessionsRequest(getSessionsRequest).Execute()
 
 List user sessions
 
@@ -40,7 +40,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPI.ApiV1SessionsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1SessionsPost`: GetSessionsResponse
+	// response from `ApiV1SessionsPost`: ResponseGetSessionsData
 	fmt.Fprintf(os.Stdout, "Response from `SessionsAPI.ApiV1SessionsPost`: %v\n", resp)
 }
 ```
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSessionsResponse**](GetSessionsResponse.md)
+[**ResponseGetSessionsData**](ResponseGetSessionsData.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1SessionsRevokeAllOthersPost
 
-> SessionMessageResponse ApiV1SessionsRevokeAllOthersPost(ctx).RevokeAllOtherSessionsRequest(revokeAllOtherSessionsRequest).Execute()
+> ResponseSessionMessageData ApiV1SessionsRevokeAllOthersPost(ctx).RevokeAllOtherSessionsRequest(revokeAllOtherSessionsRequest).Execute()
 
 Revoke all other sessions
 
@@ -106,7 +106,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPI.ApiV1SessionsRevokeAllOthersPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1SessionsRevokeAllOthersPost`: SessionMessageResponse
+	// response from `ApiV1SessionsRevokeAllOthersPost`: ResponseSessionMessageData
 	fmt.Fprintf(os.Stdout, "Response from `SessionsAPI.ApiV1SessionsRevokeAllOthersPost`: %v\n", resp)
 }
 ```
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SessionMessageResponse**](SessionMessageResponse.md)
+[**ResponseSessionMessageData**](ResponseSessionMessageData.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1SessionsRevokePost
 
-> SessionMessageResponse ApiV1SessionsRevokePost(ctx).RevokeSessionRequest(revokeSessionRequest).Execute()
+> ResponseSessionMessageData ApiV1SessionsRevokePost(ctx).RevokeSessionRequest(revokeSessionRequest).Execute()
 
 Revoke a session
 
@@ -172,7 +172,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPI.ApiV1SessionsRevokePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1SessionsRevokePost`: SessionMessageResponse
+	// response from `ApiV1SessionsRevokePost`: ResponseSessionMessageData
 	fmt.Fprintf(os.Stdout, "Response from `SessionsAPI.ApiV1SessionsRevokePost`: %v\n", resp)
 }
 ```
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SessionMessageResponse**](SessionMessageResponse.md)
+[**ResponseSessionMessageData**](ResponseSessionMessageData.md)
 
 ### Authorization
 

@@ -29,7 +29,7 @@ type ApiApiV1ServersServeridStacksCanCreateGetRequest struct {
 	serverid int32
 }
 
-func (r ApiApiV1ServersServeridStacksCanCreateGetRequest) Execute() (*CanCreateStackResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksCanCreateGetRequest) Execute() (*ResponseCanCreateStackData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksCanCreateGetExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksCanCreateGet(ctx context.Co
 }
 
 // Execute executes the request
-//  @return CanCreateStackResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksCanCreateGetExecute(r ApiApiV1ServersServeridStacksCanCreateGetRequest) (*CanCreateStackResponse, *http.Response, error) {
+//  @return ResponseCanCreateStackData
+func (a *StacksAPIService) ApiV1ServersServeridStacksCanCreateGetExecute(r ApiApiV1ServersServeridStacksCanCreateGetRequest) (*ResponseCanCreateStackData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CanCreateStackResponse
+		localVarReturnValue  *ResponseCanCreateStackData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksCanCreateGet")
@@ -112,7 +112,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksCanCreateGetExecute(r ApiAp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -123,7 +123,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksCanCreateGetExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -154,7 +154,7 @@ type ApiApiV1ServersServeridStacksGetRequest struct {
 	serverid int32
 }
 
-func (r ApiApiV1ServersServeridStacksGetRequest) Execute() (*ListStacksResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksGetRequest) Execute() (*ResponseListStacksData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksGetExecute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksGet(ctx context.Context, se
 }
 
 // Execute executes the request
-//  @return ListStacksResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksGetExecute(r ApiApiV1ServersServeridStacksGetRequest) (*ListStacksResponse, *http.Response, error) {
+//  @return ResponseListStacksData
+func (a *StacksAPIService) ApiV1ServersServeridStacksGetExecute(r ApiApiV1ServersServeridStacksGetRequest) (*ResponseListStacksData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListStacksResponse
+		localVarReturnValue  *ResponseListStacksData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksGet")
@@ -237,7 +237,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksGetExecute(r ApiApiV1Server
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -248,7 +248,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksGetExecute(r ApiApiV1Server
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -286,7 +286,7 @@ func (r ApiApiV1ServersServeridStacksPostRequest) CreateStackRequest(createStack
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksPostRequest) Execute() (*CreateStackResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksPostRequest) Execute() (*ResponseCreateStackData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksPostExecute(r)
 }
 
@@ -308,13 +308,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksPost(ctx context.Context, s
 }
 
 // Execute executes the request
-//  @return CreateStackResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1ServersServeridStacksPostRequest) (*CreateStackResponse, *http.Response, error) {
+//  @return ResponseCreateStackData
+func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1ServersServeridStacksPostRequest) (*ResponseCreateStackData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateStackResponse
+		localVarReturnValue  *ResponseCreateStackData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksPost")
@@ -374,7 +374,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1Serve
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -385,7 +385,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1Serve
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -396,7 +396,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1Serve
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -407,7 +407,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1Serve
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -418,7 +418,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1Serve
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -457,7 +457,7 @@ func (r ApiApiV1ServersServeridStacksStacknameEnvironmentGetRequest) Unmask(unma
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameEnvironmentGetRequest) Execute() (*StackEnvironmentResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameEnvironmentGetRequest) Execute() (*ResponseStackEnvironmentData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameEnvironmentGetExecute(r)
 }
 
@@ -481,13 +481,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameEnvironmentGet(ctx
 }
 
 // Execute executes the request
-//  @return StackEnvironmentResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameEnvironmentGetExecute(r ApiApiV1ServersServeridStacksStacknameEnvironmentGetRequest) (*StackEnvironmentResponse, *http.Response, error) {
+//  @return ResponseStackEnvironmentData
+func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameEnvironmentGetExecute(r ApiApiV1ServersServeridStacksStacknameEnvironmentGetRequest) (*ResponseStackEnvironmentData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StackEnvironmentResponse
+		localVarReturnValue  *ResponseStackEnvironmentData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksStacknameEnvironmentGet")
@@ -546,7 +546,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameEnvironmentGetExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -557,7 +557,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameEnvironmentGetExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -568,7 +568,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameEnvironmentGetExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -600,7 +600,7 @@ type ApiApiV1ServersServeridStacksStacknameGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameGetRequest) Execute() (*StackDetails, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameGetRequest) Execute() (*ResponseStackDetails, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameGetExecute(r)
 }
 
@@ -624,13 +624,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameGet(ctx context.Co
 }
 
 // Execute executes the request
-//  @return StackDetails
-func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameGetExecute(r ApiApiV1ServersServeridStacksStacknameGetRequest) (*StackDetails, *http.Response, error) {
+//  @return ResponseStackDetails
+func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameGetExecute(r ApiApiV1ServersServeridStacksStacknameGetRequest) (*ResponseStackDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StackDetails
+		localVarReturnValue  *ResponseStackDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksStacknameGet")
@@ -686,7 +686,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameGetExecute(r ApiAp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -697,7 +697,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameGetExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -708,7 +708,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameGetExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -740,7 +740,7 @@ type ApiApiV1ServersServeridStacksStacknameImagesGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameImagesGetRequest) Execute() (*StackImagesResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameImagesGetRequest) Execute() (*ResponseStackImagesData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameImagesGetExecute(r)
 }
 
@@ -764,13 +764,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameImagesGet(ctx cont
 }
 
 // Execute executes the request
-//  @return StackImagesResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameImagesGetExecute(r ApiApiV1ServersServeridStacksStacknameImagesGetRequest) (*StackImagesResponse, *http.Response, error) {
+//  @return ResponseStackImagesData
+func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameImagesGetExecute(r ApiApiV1ServersServeridStacksStacknameImagesGetRequest) (*ResponseStackImagesData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StackImagesResponse
+		localVarReturnValue  *ResponseStackImagesData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksStacknameImagesGet")
@@ -826,7 +826,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameImagesGetExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -837,7 +837,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameImagesGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -848,7 +848,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameImagesGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -880,7 +880,7 @@ type ApiApiV1ServersServeridStacksStacknameNetworksGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameNetworksGetRequest) Execute() (*StackNetworksResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameNetworksGetRequest) Execute() (*ResponseStackNetworksData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameNetworksGetExecute(r)
 }
 
@@ -904,13 +904,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameNetworksGet(ctx co
 }
 
 // Execute executes the request
-//  @return StackNetworksResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameNetworksGetExecute(r ApiApiV1ServersServeridStacksStacknameNetworksGetRequest) (*StackNetworksResponse, *http.Response, error) {
+//  @return ResponseStackNetworksData
+func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameNetworksGetExecute(r ApiApiV1ServersServeridStacksStacknameNetworksGetRequest) (*ResponseStackNetworksData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StackNetworksResponse
+		localVarReturnValue  *ResponseStackNetworksData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksStacknameNetworksGet")
@@ -966,7 +966,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameNetworksGetExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -977,7 +977,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameNetworksGetExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -988,7 +988,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameNetworksGetExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1020,7 +1020,7 @@ type ApiApiV1ServersServeridStacksStacknamePermissionsGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknamePermissionsGetRequest) Execute() (*StackPermissionsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknamePermissionsGetRequest) Execute() (*ResponseStackPermissionsData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknamePermissionsGetExecute(r)
 }
 
@@ -1044,13 +1044,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknamePermissionsGet(ctx
 }
 
 // Execute executes the request
-//  @return StackPermissionsResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksStacknamePermissionsGetExecute(r ApiApiV1ServersServeridStacksStacknamePermissionsGetRequest) (*StackPermissionsResponse, *http.Response, error) {
+//  @return ResponseStackPermissionsData
+func (a *StacksAPIService) ApiV1ServersServeridStacksStacknamePermissionsGetExecute(r ApiApiV1ServersServeridStacksStacknamePermissionsGetRequest) (*ResponseStackPermissionsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StackPermissionsResponse
+		localVarReturnValue  *ResponseStackPermissionsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksStacknamePermissionsGet")
@@ -1106,7 +1106,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknamePermissionsGetExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1117,7 +1117,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknamePermissionsGetExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1149,7 +1149,7 @@ type ApiApiV1ServersServeridStacksStacknameStatsGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameStatsGetRequest) Execute() (*StackStatsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameStatsGetRequest) Execute() (*ResponseStackStats, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameStatsGetExecute(r)
 }
 
@@ -1173,13 +1173,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameStatsGet(ctx conte
 }
 
 // Execute executes the request
-//  @return StackStatsResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameStatsGetExecute(r ApiApiV1ServersServeridStacksStacknameStatsGetRequest) (*StackStatsResponse, *http.Response, error) {
+//  @return ResponseStackStats
+func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameStatsGetExecute(r ApiApiV1ServersServeridStacksStacknameStatsGetRequest) (*ResponseStackStats, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StackStatsResponse
+		localVarReturnValue  *ResponseStackStats
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksStacknameStatsGet")
@@ -1235,7 +1235,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameStatsGetExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1246,7 +1246,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameStatsGetExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1257,7 +1257,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameStatsGetExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1289,7 +1289,7 @@ type ApiApiV1ServersServeridStacksStacknameVolumesGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameVolumesGetRequest) Execute() (*StackVolumesResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameVolumesGetRequest) Execute() (*ResponseStackVolumesData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameVolumesGetExecute(r)
 }
 
@@ -1313,13 +1313,13 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameVolumesGet(ctx con
 }
 
 // Execute executes the request
-//  @return StackVolumesResponse
-func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameVolumesGetExecute(r ApiApiV1ServersServeridStacksStacknameVolumesGetRequest) (*StackVolumesResponse, *http.Response, error) {
+//  @return ResponseStackVolumesData
+func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameVolumesGetExecute(r ApiApiV1ServersServeridStacksStacknameVolumesGetRequest) (*ResponseStackVolumesData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StackVolumesResponse
+		localVarReturnValue  *ResponseStackVolumesData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StacksAPIService.ApiV1ServersServeridStacksStacknameVolumesGet")
@@ -1375,7 +1375,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameVolumesGetExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1386,7 +1386,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameVolumesGetExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1397,7 +1397,7 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameVolumesGetExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

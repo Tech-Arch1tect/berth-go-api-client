@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## ApiV1AuthLoginPost
 
-> AuthTOTPRequiredResponse ApiV1AuthLoginPost(ctx).AuthLoginRequest(authLoginRequest).Execute()
+> ResponseAuthLoginData ApiV1AuthLoginPost(ctx).AuthLoginRequest(authLoginRequest).Execute()
 
 Login with username and password
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.ApiV1AuthLoginPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AuthLoginPost`: AuthTOTPRequiredResponse
+	// response from `ApiV1AuthLoginPost`: ResponseAuthLoginData
 	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.ApiV1AuthLoginPost`: %v\n", resp)
 }
 ```
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthTOTPRequiredResponse**](AuthTOTPRequiredResponse.md)
+[**ResponseAuthLoginData**](ResponseAuthLoginData.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ No authorization required
 
 ## ApiV1AuthLogoutPost
 
-> AuthLogoutResponse ApiV1AuthLogoutPost(ctx).AuthLogoutRequest(authLogoutRequest).Execute()
+> ResponseAuthLogoutData ApiV1AuthLogoutPost(ctx).AuthLogoutRequest(authLogoutRequest).Execute()
 
 Logout and revoke tokens
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.ApiV1AuthLogoutPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AuthLogoutPost`: AuthLogoutResponse
+	// response from `ApiV1AuthLogoutPost`: ResponseAuthLogoutData
 	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.ApiV1AuthLogoutPost`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthLogoutResponse**](AuthLogoutResponse.md)
+[**ResponseAuthLogoutData**](ResponseAuthLogoutData.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AuthRefreshPost
 
-> AuthRefreshResponse ApiV1AuthRefreshPost(ctx).AuthRefreshRequest(authRefreshRequest).Execute()
+> ResponseAuthRefreshData ApiV1AuthRefreshPost(ctx).AuthRefreshRequest(authRefreshRequest).Execute()
 
 Refresh access token
 
@@ -173,7 +173,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.ApiV1AuthRefreshPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AuthRefreshPost`: AuthRefreshResponse
+	// response from `ApiV1AuthRefreshPost`: ResponseAuthRefreshData
 	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.ApiV1AuthRefreshPost`: %v\n", resp)
 }
 ```
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthRefreshResponse**](AuthRefreshResponse.md)
+[**ResponseAuthRefreshData**](ResponseAuthRefreshData.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ No authorization required
 
 ## ApiV1AuthTotpVerifyPost
 
-> AuthLoginResponse ApiV1AuthTotpVerifyPost(ctx).AuthTOTPVerifyRequest(authTOTPVerifyRequest).Execute()
+> ResponseAuthLoginData ApiV1AuthTotpVerifyPost(ctx).AuthTOTPVerifyRequest(authTOTPVerifyRequest).Execute()
 
 Verify TOTP code to complete login
 
@@ -239,7 +239,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.ApiV1AuthTotpVerifyPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AuthTotpVerifyPost`: AuthLoginResponse
+	// response from `ApiV1AuthTotpVerifyPost`: ResponseAuthLoginData
 	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.ApiV1AuthTotpVerifyPost`: %v\n", resp)
 }
 ```
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthLoginResponse**](AuthLoginResponse.md)
+[**ResponseAuthLoginData**](ResponseAuthLoginData.md)
 
 ### Authorization
 

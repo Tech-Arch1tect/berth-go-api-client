@@ -34,7 +34,7 @@ func (r ApiApiV1TotpDisablePostRequest) TOTPDisableRequest(tOTPDisableRequest TO
 	return r
 }
 
-func (r ApiApiV1TotpDisablePostRequest) Execute() (*TOTPMessageResponse, *http.Response, error) {
+func (r ApiApiV1TotpDisablePostRequest) Execute() (*ResponseTOTPMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1TotpDisablePostExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *TotpAPIService) ApiV1TotpDisablePost(ctx context.Context) ApiApiV1TotpD
 }
 
 // Execute executes the request
-//  @return TOTPMessageResponse
-func (a *TotpAPIService) ApiV1TotpDisablePostExecute(r ApiApiV1TotpDisablePostRequest) (*TOTPMessageResponse, *http.Response, error) {
+//  @return ResponseTOTPMessageData
+func (a *TotpAPIService) ApiV1TotpDisablePostExecute(r ApiApiV1TotpDisablePostRequest) (*ResponseTOTPMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TOTPMessageResponse
+		localVarReturnValue  *ResponseTOTPMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TotpAPIService.ApiV1TotpDisablePost")
@@ -119,7 +119,7 @@ func (a *TotpAPIService) ApiV1TotpDisablePostExecute(r ApiApiV1TotpDisablePostRe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -130,7 +130,7 @@ func (a *TotpAPIService) ApiV1TotpDisablePostExecute(r ApiApiV1TotpDisablePostRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -141,7 +141,7 @@ func (a *TotpAPIService) ApiV1TotpDisablePostExecute(r ApiApiV1TotpDisablePostRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -178,7 +178,7 @@ func (r ApiApiV1TotpEnablePostRequest) TOTPEnableRequest(tOTPEnableRequest TOTPE
 	return r
 }
 
-func (r ApiApiV1TotpEnablePostRequest) Execute() (*TOTPMessageResponse, *http.Response, error) {
+func (r ApiApiV1TotpEnablePostRequest) Execute() (*ResponseTOTPMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1TotpEnablePostExecute(r)
 }
 
@@ -198,13 +198,13 @@ func (a *TotpAPIService) ApiV1TotpEnablePost(ctx context.Context) ApiApiV1TotpEn
 }
 
 // Execute executes the request
-//  @return TOTPMessageResponse
-func (a *TotpAPIService) ApiV1TotpEnablePostExecute(r ApiApiV1TotpEnablePostRequest) (*TOTPMessageResponse, *http.Response, error) {
+//  @return ResponseTOTPMessageData
+func (a *TotpAPIService) ApiV1TotpEnablePostExecute(r ApiApiV1TotpEnablePostRequest) (*ResponseTOTPMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TOTPMessageResponse
+		localVarReturnValue  *ResponseTOTPMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TotpAPIService.ApiV1TotpEnablePost")
@@ -263,7 +263,7 @@ func (a *TotpAPIService) ApiV1TotpEnablePostExecute(r ApiApiV1TotpEnablePostRequ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -274,7 +274,7 @@ func (a *TotpAPIService) ApiV1TotpEnablePostExecute(r ApiApiV1TotpEnablePostRequ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -285,7 +285,7 @@ func (a *TotpAPIService) ApiV1TotpEnablePostExecute(r ApiApiV1TotpEnablePostRequ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -315,7 +315,7 @@ type ApiApiV1TotpSetupGetRequest struct {
 	ApiService *TotpAPIService
 }
 
-func (r ApiApiV1TotpSetupGetRequest) Execute() (*TOTPSetupResponse, *http.Response, error) {
+func (r ApiApiV1TotpSetupGetRequest) Execute() (*ResponseTOTPSetupData, *http.Response, error) {
 	return r.ApiService.ApiV1TotpSetupGetExecute(r)
 }
 
@@ -335,13 +335,13 @@ func (a *TotpAPIService) ApiV1TotpSetupGet(ctx context.Context) ApiApiV1TotpSetu
 }
 
 // Execute executes the request
-//  @return TOTPSetupResponse
-func (a *TotpAPIService) ApiV1TotpSetupGetExecute(r ApiApiV1TotpSetupGetRequest) (*TOTPSetupResponse, *http.Response, error) {
+//  @return ResponseTOTPSetupData
+func (a *TotpAPIService) ApiV1TotpSetupGetExecute(r ApiApiV1TotpSetupGetRequest) (*ResponseTOTPSetupData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TOTPSetupResponse
+		localVarReturnValue  *ResponseTOTPSetupData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TotpAPIService.ApiV1TotpSetupGet")
@@ -395,7 +395,7 @@ func (a *TotpAPIService) ApiV1TotpSetupGetExecute(r ApiApiV1TotpSetupGetRequest)
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -406,7 +406,7 @@ func (a *TotpAPIService) ApiV1TotpSetupGetExecute(r ApiApiV1TotpSetupGetRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -417,7 +417,7 @@ func (a *TotpAPIService) ApiV1TotpSetupGetExecute(r ApiApiV1TotpSetupGetRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -447,7 +447,7 @@ type ApiApiV1TotpStatusGetRequest struct {
 	ApiService *TotpAPIService
 }
 
-func (r ApiApiV1TotpStatusGetRequest) Execute() (*TOTPStatusResponse, *http.Response, error) {
+func (r ApiApiV1TotpStatusGetRequest) Execute() (*ResponseTOTPStatusData, *http.Response, error) {
 	return r.ApiService.ApiV1TotpStatusGetExecute(r)
 }
 
@@ -467,13 +467,13 @@ func (a *TotpAPIService) ApiV1TotpStatusGet(ctx context.Context) ApiApiV1TotpSta
 }
 
 // Execute executes the request
-//  @return TOTPStatusResponse
-func (a *TotpAPIService) ApiV1TotpStatusGetExecute(r ApiApiV1TotpStatusGetRequest) (*TOTPStatusResponse, *http.Response, error) {
+//  @return ResponseTOTPStatusData
+func (a *TotpAPIService) ApiV1TotpStatusGetExecute(r ApiApiV1TotpStatusGetRequest) (*ResponseTOTPStatusData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TOTPStatusResponse
+		localVarReturnValue  *ResponseTOTPStatusData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TotpAPIService.ApiV1TotpStatusGet")
@@ -527,7 +527,7 @@ func (a *TotpAPIService) ApiV1TotpStatusGetExecute(r ApiApiV1TotpStatusGetReques
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -538,7 +538,7 @@ func (a *TotpAPIService) ApiV1TotpStatusGetExecute(r ApiApiV1TotpStatusGetReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

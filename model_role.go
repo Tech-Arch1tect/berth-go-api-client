@@ -29,7 +29,6 @@ type Role struct {
 	IsAdmin bool `json:"is_admin"`
 	Name string `json:"name"`
 	UpdatedAt time.Time `json:"updated_at"`
-	Users []User `json:"users"`
 }
 
 type _Role Role
@@ -38,7 +37,7 @@ type _Role Role
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRole(createdAt time.Time, description string, id int32, isAdmin bool, name string, updatedAt time.Time, users []User) *Role {
+func NewRole(createdAt time.Time, description string, id int32, isAdmin bool, name string, updatedAt time.Time) *Role {
 	this := Role{}
 	this.CreatedAt = createdAt
 	this.Description = description
@@ -46,7 +45,6 @@ func NewRole(createdAt time.Time, description string, id int32, isAdmin bool, na
 	this.IsAdmin = isAdmin
 	this.Name = name
 	this.UpdatedAt = updatedAt
-	this.Users = users
 	return &this
 }
 
@@ -234,30 +232,6 @@ func (o *Role) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = v
 }
 
-// GetUsers returns the Users field value
-func (o *Role) GetUsers() []User {
-	if o == nil {
-		var ret []User
-		return ret
-	}
-
-	return o.Users
-}
-
-// GetUsersOk returns a tuple with the Users field value
-// and a boolean to check if the value has been set.
-func (o *Role) GetUsersOk() ([]User, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Users, true
-}
-
-// SetUsers sets field value
-func (o *Role) SetUsers(v []User) {
-	o.Users = v
-}
-
 func (o Role) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -277,7 +251,6 @@ func (o Role) ToMap() (map[string]interface{}, error) {
 	toSerialize["is_admin"] = o.IsAdmin
 	toSerialize["name"] = o.Name
 	toSerialize["updated_at"] = o.UpdatedAt
-	toSerialize["users"] = o.Users
 	return toSerialize, nil
 }
 
@@ -292,7 +265,6 @@ func (o *Role) UnmarshalJSON(data []byte) (err error) {
 		"is_admin",
 		"name",
 		"updated_at",
-		"users",
 	}
 
 	allProperties := make(map[string]interface{})

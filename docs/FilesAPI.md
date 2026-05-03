@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersServeridStacksStacknameFilesChmodPost
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesChmodPost(ctx, serverid, stackname).ChmodRequest(chmodRequest).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesChmodPost(ctx, serverid, stackname).ChmodRequest(chmodRequest).Execute()
 
 Change file permissions
 
@@ -51,7 +51,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesChmodPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesChmodPost`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesChmodPost`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesChmodPost`: %v\n", resp)
 }
 ```
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesChownPost
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesChownPost(ctx, serverid, stackname).ChownRequest(chownRequest).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesChownPost(ctx, serverid, stackname).ChownRequest(chownRequest).Execute()
 
 Change file ownership
 
@@ -126,7 +126,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesChownPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesChownPost`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesChownPost`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesChownPost`: %v\n", resp)
 }
 ```
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesCopyPost
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesCopyPost(ctx, serverid, stackname).CopyRequest(copyRequest).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesCopyPost(ctx, serverid, stackname).CopyRequest(copyRequest).Execute()
 
 Copy file or directory
 
@@ -201,7 +201,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesCopyPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesCopyPost`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesCopyPost`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesCopyPost`: %v\n", resp)
 }
 ```
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesDeleteDelete
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesDeleteDelete(ctx, serverid, stackname).DeleteRequest2(deleteRequest2).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesDeleteDelete(ctx, serverid, stackname).DeleteRequest2(deleteRequest2).Execute()
 
 Delete file or directory
 
@@ -276,7 +276,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesDeleteDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesDeleteDelete`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesDeleteDelete`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesDeleteDelete`: %v\n", resp)
 }
 ```
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesGet
 
-> DirectoryListingResponse ApiV1ServersServeridStacksStacknameFilesGet(ctx, serverid, stackname).FilePath(filePath).Execute()
+> ResponseDirectoryListing ApiV1ServersServeridStacksStacknameFilesGet(ctx, serverid, stackname).FilePath(filePath).Execute()
 
 List directory contents
 
@@ -428,7 +428,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesGet`: DirectoryListingResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesGet`: ResponseDirectoryListing
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesGet`: %v\n", resp)
 }
 ```
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DirectoryListingResponse**](DirectoryListingResponse.md)
+[**ResponseDirectoryListing**](ResponseDirectoryListing.md)
 
 ### Authorization
 
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesMkdirPost
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesMkdirPost(ctx, serverid, stackname).CreateDirectoryRequest(createDirectoryRequest).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesMkdirPost(ctx, serverid, stackname).CreateDirectoryRequest(createDirectoryRequest).Execute()
 
 Create directory
 
@@ -503,7 +503,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesMkdirPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesMkdirPost`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesMkdirPost`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesMkdirPost`: %v\n", resp)
 }
 ```
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesReadGet
 
-> FileContentResponse ApiV1ServersServeridStacksStacknameFilesReadGet(ctx, serverid, stackname).FilePath(filePath).Execute()
+> ResponseFileContent ApiV1ServersServeridStacksStacknameFilesReadGet(ctx, serverid, stackname).FilePath(filePath).Execute()
 
 Read file contents
 
@@ -578,7 +578,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesReadGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesReadGet`: FileContentResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesReadGet`: ResponseFileContent
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesReadGet`: %v\n", resp)
 }
 ```
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileContentResponse**](FileContentResponse.md)
+[**ResponseFileContent**](ResponseFileContent.md)
 
 ### Authorization
 
@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesRenamePost
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesRenamePost(ctx, serverid, stackname).RenameRequest(renameRequest).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesRenamePost(ctx, serverid, stackname).RenameRequest(renameRequest).Execute()
 
 Rename file or directory
 
@@ -653,7 +653,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesRenamePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesRenamePost`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesRenamePost`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesRenamePost`: %v\n", resp)
 }
 ```
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesStatsGet
 
-> DirectoryStatsResponse ApiV1ServersServeridStacksStacknameFilesStatsGet(ctx, serverid, stackname).FilePath(filePath).Execute()
+> ResponseDirectoryStats ApiV1ServersServeridStacksStacknameFilesStatsGet(ctx, serverid, stackname).FilePath(filePath).Execute()
 
 Get directory statistics
 
@@ -728,7 +728,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesStatsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesStatsGet`: DirectoryStatsResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesStatsGet`: ResponseDirectoryStats
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesStatsGet`: %v\n", resp)
 }
 ```
@@ -755,7 +755,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DirectoryStatsResponse**](DirectoryStatsResponse.md)
+[**ResponseDirectoryStats**](ResponseDirectoryStats.md)
 
 ### Authorization
 
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesUploadPost
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesUploadPost(ctx, serverid, stackname).File(file).FilePath(filePath).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesUploadPost(ctx, serverid, stackname).File(file).FilePath(filePath).Execute()
 
 Upload a file
 
@@ -804,7 +804,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesUploadPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesUploadPost`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesUploadPost`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesUploadPost`: %v\n", resp)
 }
 ```
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 
@@ -850,7 +850,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameFilesWritePost
 
-> FileMessageResponse ApiV1ServersServeridStacksStacknameFilesWritePost(ctx, serverid, stackname).WriteFileRequest(writeFileRequest).Execute()
+> ResponseFileMessageData ApiV1ServersServeridStacksStacknameFilesWritePost(ctx, serverid, stackname).WriteFileRequest(writeFileRequest).Execute()
 
 Write file contents
 
@@ -880,7 +880,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.ApiV1ServersServeridStacksStacknameFilesWritePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameFilesWritePost`: FileMessageResponse
+	// response from `ApiV1ServersServeridStacksStacknameFilesWritePost`: ResponseFileMessageData
 	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.ApiV1ServersServeridStacksStacknameFilesWritePost`: %v\n", resp)
 }
 ```
@@ -907,7 +907,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileMessageResponse**](FileMessageResponse.md)
+[**ResponseFileMessageData**](ResponseFileMessageData.md)
 
 ### Authorization
 

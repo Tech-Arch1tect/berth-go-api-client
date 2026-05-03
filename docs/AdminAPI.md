@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**ApiV1AdminSecurityAuditLogsStatsGet**](AdminAPI.md#ApiV1AdminSecurityAuditLogsStatsGet) | **Get** /api/v1/admin/security-audit-logs/stats | Get security audit statistics
 [**ApiV1AdminServersGet**](AdminAPI.md#ApiV1AdminServersGet) | **Get** /api/v1/admin/servers | List all servers
 [**ApiV1AdminServersIdDelete**](AdminAPI.md#ApiV1AdminServersIdDelete) | **Delete** /api/v1/admin/servers/{id} | Delete a server
+[**ApiV1AdminServersIdGet**](AdminAPI.md#ApiV1AdminServersIdGet) | **Get** /api/v1/admin/servers/{id} | Get a server
 [**ApiV1AdminServersIdPut**](AdminAPI.md#ApiV1AdminServersIdPut) | **Put** /api/v1/admin/servers/{id} | Update a server
 [**ApiV1AdminServersIdTestPost**](AdminAPI.md#ApiV1AdminServersIdTestPost) | **Post** /api/v1/admin/servers/{id}/test | Test server connection
 [**ApiV1AdminServersPost**](AdminAPI.md#ApiV1AdminServersPost) | **Post** /api/v1/admin/servers | Create a new server
@@ -101,7 +102,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminMigrationImportPost
 
-> ImportResponse ApiV1AdminMigrationImportPost(ctx).BackupFile(backupFile).Password(password).Execute()
+> ResponseImportData ApiV1AdminMigrationImportPost(ctx).BackupFile(backupFile).Password(password).Execute()
 
 Import data
 
@@ -130,7 +131,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminMigrationImportPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminMigrationImportPost`: ImportResponse
+	// response from `ApiV1AdminMigrationImportPost`: ResponseImportData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminMigrationImportPost`: %v\n", resp)
 }
 ```
@@ -151,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ImportResponse**](ImportResponse.md)
+[**ResponseImportData**](ResponseImportData.md)
 
 ### Authorization
 
@@ -169,7 +170,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminOperationLogsGet
 
-> PaginatedOperationLogsResponse ApiV1AdminOperationLogsGet(ctx).Page(page).PageSize(pageSize).Search(search).ServerId(serverId).StackName(stackName).Command(command).Status(status).DaysBack(daysBack).Execute()
+> ResponseOperationLogInfo ApiV1AdminOperationLogsGet(ctx).Page(page).PageSize(pageSize).Search(search).ServerId(serverId).StackName(stackName).Command(command).Status(status).DaysBack(daysBack).Execute()
 
 List all operation logs
 
@@ -204,7 +205,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminOperationLogsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminOperationLogsGet`: PaginatedOperationLogsResponse
+	// response from `ApiV1AdminOperationLogsGet`: ResponseOperationLogInfo
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminOperationLogsGet`: %v\n", resp)
 }
 ```
@@ -231,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedOperationLogsResponse**](PaginatedOperationLogsResponse.md)
+[**ResponseOperationLogInfo**](ResponseOperationLogInfo.md)
 
 ### Authorization
 
@@ -249,7 +250,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminOperationLogsIdGet
 
-> OperationLogDetailResponse ApiV1AdminOperationLogsIdGet(ctx, id).Execute()
+> ResponseOperationLogDetailData ApiV1AdminOperationLogsIdGet(ctx, id).Execute()
 
 Get operation log details
 
@@ -277,7 +278,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminOperationLogsIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminOperationLogsIdGet`: OperationLogDetailResponse
+	// response from `ApiV1AdminOperationLogsIdGet`: ResponseOperationLogDetailData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminOperationLogsIdGet`: %v\n", resp)
 }
 ```
@@ -301,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OperationLogDetailResponse**](OperationLogDetailResponse.md)
+[**ResponseOperationLogDetailData**](ResponseOperationLogDetailData.md)
 
 ### Authorization
 
@@ -319,7 +320,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminOperationLogsStatsGet
 
-> OperationLogStatsResponse ApiV1AdminOperationLogsStatsGet(ctx).Execute()
+> ResponseOperationLogStatsData ApiV1AdminOperationLogsStatsGet(ctx).Execute()
 
 Get operation logs statistics
 
@@ -346,7 +347,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminOperationLogsStatsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminOperationLogsStatsGet`: OperationLogStatsResponse
+	// response from `ApiV1AdminOperationLogsStatsGet`: ResponseOperationLogStatsData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminOperationLogsStatsGet`: %v\n", resp)
 }
 ```
@@ -362,7 +363,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminOperationLogsSta
 
 ### Return type
 
-[**OperationLogStatsResponse**](OperationLogStatsResponse.md)
+[**ResponseOperationLogStatsData**](ResponseOperationLogStatsData.md)
 
 ### Authorization
 
@@ -380,7 +381,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminOperationLogsSta
 
 ## ApiV1AdminPermissionsGet
 
-> ListPermissionsResponse ApiV1AdminPermissionsGet(ctx).Type_(type_).Execute()
+> ResponseListPermissionsData ApiV1AdminPermissionsGet(ctx).Type_(type_).Execute()
 
 List all permissions
 
@@ -408,7 +409,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminPermissionsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminPermissionsGet`: ListPermissionsResponse
+	// response from `ApiV1AdminPermissionsGet`: ResponseListPermissionsData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminPermissionsGet`: %v\n", resp)
 }
 ```
@@ -428,7 +429,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListPermissionsResponse**](ListPermissionsResponse.md)
+[**ResponseListPermissionsData**](ResponseListPermissionsData.md)
 
 ### Authorization
 
@@ -446,7 +447,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminRolesGet
 
-> ListRolesResponse ApiV1AdminRolesGet(ctx).Execute()
+> ResponseListRolesData ApiV1AdminRolesGet(ctx).Execute()
 
 List all roles
 
@@ -473,7 +474,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminRolesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminRolesGet`: ListRolesResponse
+	// response from `ApiV1AdminRolesGet`: ResponseListRolesData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminRolesGet`: %v\n", resp)
 }
 ```
@@ -489,7 +490,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminRolesGetRequest 
 
 ### Return type
 
-[**ListRolesResponse**](ListRolesResponse.md)
+[**ResponseListRolesData**](ResponseListRolesData.md)
 
 ### Authorization
 
@@ -507,7 +508,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminRolesGetRequest 
 
 ## ApiV1AdminRolesIdDelete
 
-> DeleteRoleResponse ApiV1AdminRolesIdDelete(ctx, id).Execute()
+> ResponseMessageData ApiV1AdminRolesIdDelete(ctx, id).Execute()
 
 Delete a role
 
@@ -535,7 +536,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminRolesIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminRolesIdDelete`: DeleteRoleResponse
+	// response from `ApiV1AdminRolesIdDelete`: ResponseMessageData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminRolesIdDelete`: %v\n", resp)
 }
 ```
@@ -559,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteRoleResponse**](DeleteRoleResponse.md)
+[**ResponseMessageData**](ResponseMessageData.md)
 
 ### Authorization
 
@@ -577,7 +578,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminRolesIdPut
 
-> UpdateRoleResponse ApiV1AdminRolesIdPut(ctx, id).UpdateRoleRequest(updateRoleRequest).Execute()
+> ResponseRoleWithPermissions ApiV1AdminRolesIdPut(ctx, id).UpdateRoleRequest(updateRoleRequest).Execute()
 
 Update a role
 
@@ -606,7 +607,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminRolesIdPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminRolesIdPut`: UpdateRoleResponse
+	// response from `ApiV1AdminRolesIdPut`: ResponseRoleWithPermissions
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminRolesIdPut`: %v\n", resp)
 }
 ```
@@ -631,7 +632,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateRoleResponse**](UpdateRoleResponse.md)
+[**ResponseRoleWithPermissions**](ResponseRoleWithPermissions.md)
 
 ### Authorization
 
@@ -649,7 +650,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminRolesPost
 
-> CreateRoleResponse ApiV1AdminRolesPost(ctx).CreateRoleRequest(createRoleRequest).Execute()
+> ResponseRoleWithPermissions ApiV1AdminRolesPost(ctx).CreateRoleRequest(createRoleRequest).Execute()
 
 Create a new role
 
@@ -677,7 +678,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminRolesPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminRolesPost`: CreateRoleResponse
+	// response from `ApiV1AdminRolesPost`: ResponseRoleWithPermissions
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminRolesPost`: %v\n", resp)
 }
 ```
@@ -697,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateRoleResponse**](CreateRoleResponse.md)
+[**ResponseRoleWithPermissions**](ResponseRoleWithPermissions.md)
 
 ### Authorization
 
@@ -715,7 +716,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminRolesRoleIdStackPermissionsGet
 
-> ListRoleStackPermissionsResponse ApiV1AdminRolesRoleIdStackPermissionsGet(ctx, roleId).Execute()
+> ResponseListRoleStackPermissionsData ApiV1AdminRolesRoleIdStackPermissionsGet(ctx, roleId).Execute()
 
 List role stack permissions
 
@@ -743,7 +744,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminRolesRoleIdStackPermissionsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminRolesRoleIdStackPermissionsGet`: ListRoleStackPermissionsResponse
+	// response from `ApiV1AdminRolesRoleIdStackPermissionsGet`: ResponseListRoleStackPermissionsData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminRolesRoleIdStackPermissionsGet`: %v\n", resp)
 }
 ```
@@ -767,7 +768,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListRoleStackPermissionsResponse**](ListRoleStackPermissionsResponse.md)
+[**ResponseListRoleStackPermissionsData**](ResponseListRoleStackPermissionsData.md)
 
 ### Authorization
 
@@ -785,7 +786,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete
 
-> DeleteStackPermissionResponse ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete(ctx, roleId, permissionId).Execute()
+> ResponseMessageData ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete(ctx, roleId, permissionId).Execute()
 
 Delete a role stack permission
 
@@ -814,7 +815,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete`: DeleteStackPermissionResponse
+	// response from `ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete`: ResponseMessageData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete`: %v\n", resp)
 }
 ```
@@ -840,7 +841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteStackPermissionResponse**](DeleteStackPermissionResponse.md)
+[**ResponseMessageData**](ResponseMessageData.md)
 
 ### Authorization
 
@@ -858,7 +859,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminRolesRoleIdStackPermissionsPost
 
-> CreateStackPermissionResponse ApiV1AdminRolesRoleIdStackPermissionsPost(ctx, roleId).CreateStackPermissionRequest(createStackPermissionRequest).Execute()
+> ResponseMessageData ApiV1AdminRolesRoleIdStackPermissionsPost(ctx, roleId).CreateStackPermissionRequest(createStackPermissionRequest).Execute()
 
 Create a role stack permission
 
@@ -887,7 +888,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminRolesRoleIdStackPermissionsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminRolesRoleIdStackPermissionsPost`: CreateStackPermissionResponse
+	// response from `ApiV1AdminRolesRoleIdStackPermissionsPost`: ResponseMessageData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminRolesRoleIdStackPermissionsPost`: %v\n", resp)
 }
 ```
@@ -912,7 +913,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateStackPermissionResponse**](CreateStackPermissionResponse.md)
+[**ResponseMessageData**](ResponseMessageData.md)
 
 ### Authorization
 
@@ -930,7 +931,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminSecurityAuditLogsGet
 
-> ListLogsAPIResponse ApiV1AdminSecurityAuditLogsGet(ctx).Page(page).PerPage(perPage).EventType(eventType).EventCategory(eventCategory).Severity(severity).ActorUserId(actorUserId).Success(success).StartDate(startDate).EndDate(endDate).Search(search).Execute()
+> ResponseSecurityAuditLogInfo ApiV1AdminSecurityAuditLogsGet(ctx).Page(page).PerPage(perPage).EventType(eventType).EventCategory(eventCategory).Severity(severity).ActorUserId(actorUserId).Success(success).StartDate(startDate).EndDate(endDate).Search(search).Execute()
 
 List security audit logs
 
@@ -967,7 +968,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminSecurityAuditLogsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminSecurityAuditLogsGet`: ListLogsAPIResponse
+	// response from `ApiV1AdminSecurityAuditLogsGet`: ResponseSecurityAuditLogInfo
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminSecurityAuditLogsGet`: %v\n", resp)
 }
 ```
@@ -996,7 +997,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListLogsAPIResponse**](ListLogsAPIResponse.md)
+[**ResponseSecurityAuditLogInfo**](ResponseSecurityAuditLogInfo.md)
 
 ### Authorization
 
@@ -1014,7 +1015,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminSecurityAuditLogsIdGet
 
-> GetLogAPIResponse ApiV1AdminSecurityAuditLogsIdGet(ctx, id).Execute()
+> ResponseSecurityAuditLogInfo2 ApiV1AdminSecurityAuditLogsIdGet(ctx, id).Execute()
 
 Get security audit log details
 
@@ -1042,7 +1043,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminSecurityAuditLogsIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminSecurityAuditLogsIdGet`: GetLogAPIResponse
+	// response from `ApiV1AdminSecurityAuditLogsIdGet`: ResponseSecurityAuditLogInfo2
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminSecurityAuditLogsIdGet`: %v\n", resp)
 }
 ```
@@ -1066,7 +1067,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLogAPIResponse**](GetLogAPIResponse.md)
+[**ResponseSecurityAuditLogInfo2**](ResponseSecurityAuditLogInfo2.md)
 
 ### Authorization
 
@@ -1084,7 +1085,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminSecurityAuditLogsStatsGet
 
-> GetStatsAPIResponse ApiV1AdminSecurityAuditLogsStatsGet(ctx).Execute()
+> ResponseStatsResponseData ApiV1AdminSecurityAuditLogsStatsGet(ctx).Execute()
 
 Get security audit statistics
 
@@ -1111,7 +1112,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminSecurityAuditLogsStatsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminSecurityAuditLogsStatsGet`: GetStatsAPIResponse
+	// response from `ApiV1AdminSecurityAuditLogsStatsGet`: ResponseStatsResponseData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminSecurityAuditLogsStatsGet`: %v\n", resp)
 }
 ```
@@ -1127,7 +1128,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminSecurityAuditLog
 
 ### Return type
 
-[**GetStatsAPIResponse**](GetStatsAPIResponse.md)
+[**ResponseStatsResponseData**](ResponseStatsResponseData.md)
 
 ### Authorization
 
@@ -1145,7 +1146,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminSecurityAuditLog
 
 ## ApiV1AdminServersGet
 
-> AdminListServersResponse ApiV1AdminServersGet(ctx).Execute()
+> ResponseAdminListServersData ApiV1AdminServersGet(ctx).Execute()
 
 List all servers
 
@@ -1172,7 +1173,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminServersGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminServersGet`: AdminListServersResponse
+	// response from `ApiV1AdminServersGet`: ResponseAdminListServersData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminServersGet`: %v\n", resp)
 }
 ```
@@ -1188,7 +1189,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminServersGetReques
 
 ### Return type
 
-[**AdminListServersResponse**](AdminListServersResponse.md)
+[**ResponseAdminListServersData**](ResponseAdminListServersData.md)
 
 ### Authorization
 
@@ -1206,7 +1207,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminServersGetReques
 
 ## ApiV1AdminServersIdDelete
 
-> AdminDeleteServerResponse ApiV1AdminServersIdDelete(ctx, id).Execute()
+> ResponseMessageData2 ApiV1AdminServersIdDelete(ctx, id).Execute()
 
 Delete a server
 
@@ -1234,7 +1235,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminServersIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminServersIdDelete`: AdminDeleteServerResponse
+	// response from `ApiV1AdminServersIdDelete`: ResponseMessageData2
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminServersIdDelete`: %v\n", resp)
 }
 ```
@@ -1258,7 +1259,77 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AdminDeleteServerResponse**](AdminDeleteServerResponse.md)
+[**ResponseMessageData2**](ResponseMessageData2.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1AdminServersIdGet
+
+> ResponseGetServerData ApiV1AdminServersIdGet(ctx, id).Execute()
+
+Get a server
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	id := int32(56) // int32 | Server ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminServersIdGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminServersIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminServersIdGet`: ResponseGetServerData
+	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminServersIdGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | Server ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminServersIdGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ResponseGetServerData**](ResponseGetServerData.md)
 
 ### Authorization
 
@@ -1276,7 +1347,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminServersIdPut
 
-> AdminUpdateServerResponse ApiV1AdminServersIdPut(ctx, id).ServerUpdateRequest(serverUpdateRequest).Execute()
+> ResponseAdminUpdateServerData ApiV1AdminServersIdPut(ctx, id).ServerUpdateRequest(serverUpdateRequest).Execute()
 
 Update a server
 
@@ -1305,7 +1376,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminServersIdPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminServersIdPut`: AdminUpdateServerResponse
+	// response from `ApiV1AdminServersIdPut`: ResponseAdminUpdateServerData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminServersIdPut`: %v\n", resp)
 }
 ```
@@ -1330,7 +1401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AdminUpdateServerResponse**](AdminUpdateServerResponse.md)
+[**ResponseAdminUpdateServerData**](ResponseAdminUpdateServerData.md)
 
 ### Authorization
 
@@ -1348,7 +1419,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminServersIdTestPost
 
-> AdminTestConnectionResponse ApiV1AdminServersIdTestPost(ctx, id).Execute()
+> ResponseMessageData2 ApiV1AdminServersIdTestPost(ctx, id).Execute()
 
 Test server connection
 
@@ -1376,7 +1447,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminServersIdTestPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminServersIdTestPost`: AdminTestConnectionResponse
+	// response from `ApiV1AdminServersIdTestPost`: ResponseMessageData2
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminServersIdTestPost`: %v\n", resp)
 }
 ```
@@ -1400,7 +1471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AdminTestConnectionResponse**](AdminTestConnectionResponse.md)
+[**ResponseMessageData2**](ResponseMessageData2.md)
 
 ### Authorization
 
@@ -1418,7 +1489,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminServersPost
 
-> AdminCreateServerResponse ApiV1AdminServersPost(ctx).ServerCreateRequest(serverCreateRequest).Execute()
+> ResponseAdminCreateServerData ApiV1AdminServersPost(ctx).ServerCreateRequest(serverCreateRequest).Execute()
 
 Create a new server
 
@@ -1446,7 +1517,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminServersPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminServersPost`: AdminCreateServerResponse
+	// response from `ApiV1AdminServersPost`: ResponseAdminCreateServerData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminServersPost`: %v\n", resp)
 }
 ```
@@ -1466,7 +1537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AdminCreateServerResponse**](AdminCreateServerResponse.md)
+[**ResponseAdminCreateServerData**](ResponseAdminCreateServerData.md)
 
 ### Authorization
 
@@ -1484,7 +1555,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminUsersAssignRolePost
 
-> AssignRoleResponse ApiV1AdminUsersAssignRolePost(ctx).AssignRoleRequest(assignRoleRequest).Execute()
+> ResponseMessageData ApiV1AdminUsersAssignRolePost(ctx).AssignRoleRequest(assignRoleRequest).Execute()
 
 Assign a role to a user
 
@@ -1512,7 +1583,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminUsersAssignRolePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminUsersAssignRolePost`: AssignRoleResponse
+	// response from `ApiV1AdminUsersAssignRolePost`: ResponseMessageData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminUsersAssignRolePost`: %v\n", resp)
 }
 ```
@@ -1532,7 +1603,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AssignRoleResponse**](AssignRoleResponse.md)
+[**ResponseMessageData**](ResponseMessageData.md)
 
 ### Authorization
 
@@ -1550,7 +1621,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminUsersGet
 
-> ListUsersResponse ApiV1AdminUsersGet(ctx).Execute()
+> ResponseListUsersData ApiV1AdminUsersGet(ctx).Execute()
 
 List all users
 
@@ -1577,7 +1648,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminUsersGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminUsersGet`: ListUsersResponse
+	// response from `ApiV1AdminUsersGet`: ResponseListUsersData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminUsersGet`: %v\n", resp)
 }
 ```
@@ -1593,7 +1664,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminUsersGetRequest 
 
 ### Return type
 
-[**ListUsersResponse**](ListUsersResponse.md)
+[**ResponseListUsersData**](ResponseListUsersData.md)
 
 ### Authorization
 
@@ -1611,7 +1682,7 @@ Other parameters are passed through a pointer to a apiApiV1AdminUsersGetRequest 
 
 ## ApiV1AdminUsersIdRolesGet
 
-> GetUserRolesResponse ApiV1AdminUsersIdRolesGet(ctx, id).Execute()
+> ResponseGetUserRolesData ApiV1AdminUsersIdRolesGet(ctx, id).Execute()
 
 Get user with roles
 
@@ -1639,7 +1710,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminUsersIdRolesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminUsersIdRolesGet`: GetUserRolesResponse
+	// response from `ApiV1AdminUsersIdRolesGet`: ResponseGetUserRolesData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminUsersIdRolesGet`: %v\n", resp)
 }
 ```
@@ -1663,7 +1734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserRolesResponse**](GetUserRolesResponse.md)
+[**ResponseGetUserRolesData**](ResponseGetUserRolesData.md)
 
 ### Authorization
 
@@ -1681,7 +1752,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminUsersPost
 
-> CreateUserResponse ApiV1AdminUsersPost(ctx).CreateUserRequest(createUserRequest).Execute()
+> ResponseUserInfo ApiV1AdminUsersPost(ctx).CreateUserRequest(createUserRequest).Execute()
 
 Create a new user
 
@@ -1709,7 +1780,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminUsersPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminUsersPost`: CreateUserResponse
+	// response from `ApiV1AdminUsersPost`: ResponseUserInfo
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminUsersPost`: %v\n", resp)
 }
 ```
@@ -1729,7 +1800,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateUserResponse**](CreateUserResponse.md)
+[**ResponseUserInfo**](ResponseUserInfo.md)
 
 ### Authorization
 
@@ -1747,7 +1818,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminUsersRevokeRolePost
 
-> RevokeRoleResponse ApiV1AdminUsersRevokeRolePost(ctx).RevokeRoleRequest(revokeRoleRequest).Execute()
+> ResponseMessageData ApiV1AdminUsersRevokeRolePost(ctx).RevokeRoleRequest(revokeRoleRequest).Execute()
 
 Revoke a role from a user
 
@@ -1775,7 +1846,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminUsersRevokeRolePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1AdminUsersRevokeRolePost`: RevokeRoleResponse
+	// response from `ApiV1AdminUsersRevokeRolePost`: ResponseMessageData
 	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminUsersRevokeRolePost`: %v\n", resp)
 }
 ```
@@ -1795,7 +1866,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RevokeRoleResponse**](RevokeRoleResponse.md)
+[**ResponseMessageData**](ResponseMessageData.md)
 
 ### Authorization
 

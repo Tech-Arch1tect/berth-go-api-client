@@ -29,7 +29,7 @@ type ApiApiV1OperationLogsByOperationIdOperationIdGetRequest struct {
 	operationId string
 }
 
-func (r ApiApiV1OperationLogsByOperationIdOperationIdGetRequest) Execute() (*OperationLogDetailResponse, *http.Response, error) {
+func (r ApiApiV1OperationLogsByOperationIdOperationIdGetRequest) Execute() (*ResponseOperationLogDetailData, *http.Response, error) {
 	return r.ApiService.ApiV1OperationLogsByOperationIdOperationIdGetExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGet(
 }
 
 // Execute executes the request
-//  @return OperationLogDetailResponse
-func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGetExecute(r ApiApiV1OperationLogsByOperationIdOperationIdGetRequest) (*OperationLogDetailResponse, *http.Response, error) {
+//  @return ResponseOperationLogDetailData
+func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGetExecute(r ApiApiV1OperationLogsByOperationIdOperationIdGetRequest) (*ResponseOperationLogDetailData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OperationLogDetailResponse
+		localVarReturnValue  *ResponseOperationLogDetailData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationLogsAPIService.ApiV1OperationLogsByOperationIdOperationIdGet")
@@ -112,7 +112,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGetE
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -123,7 +123,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -134,7 +134,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -145,7 +145,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -231,7 +231,7 @@ func (r ApiApiV1OperationLogsGetRequest) DaysBack(daysBack int32) ApiApiV1Operat
 	return r
 }
 
-func (r ApiApiV1OperationLogsGetRequest) Execute() (*PaginatedOperationLogsResponse, *http.Response, error) {
+func (r ApiApiV1OperationLogsGetRequest) Execute() (*ResponseOperationLogInfo, *http.Response, error) {
 	return r.ApiService.ApiV1OperationLogsGetExecute(r)
 }
 
@@ -251,13 +251,13 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsGet(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return PaginatedOperationLogsResponse
-func (a *OperationLogsAPIService) ApiV1OperationLogsGetExecute(r ApiApiV1OperationLogsGetRequest) (*PaginatedOperationLogsResponse, *http.Response, error) {
+//  @return ResponseOperationLogInfo
+func (a *OperationLogsAPIService) ApiV1OperationLogsGetExecute(r ApiApiV1OperationLogsGetRequest) (*ResponseOperationLogInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PaginatedOperationLogsResponse
+		localVarReturnValue  *ResponseOperationLogInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationLogsAPIService.ApiV1OperationLogsGet")
@@ -343,7 +343,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsGetExecute(r ApiApiV1Operati
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -354,7 +354,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsGetExecute(r ApiApiV1Operati
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -385,7 +385,7 @@ type ApiApiV1OperationLogsIdGetRequest struct {
 	id int32
 }
 
-func (r ApiApiV1OperationLogsIdGetRequest) Execute() (*OperationLogDetailResponse, *http.Response, error) {
+func (r ApiApiV1OperationLogsIdGetRequest) Execute() (*ResponseOperationLogDetailData, *http.Response, error) {
 	return r.ApiService.ApiV1OperationLogsIdGetExecute(r)
 }
 
@@ -407,13 +407,13 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsIdGet(ctx context.Context, i
 }
 
 // Execute executes the request
-//  @return OperationLogDetailResponse
-func (a *OperationLogsAPIService) ApiV1OperationLogsIdGetExecute(r ApiApiV1OperationLogsIdGetRequest) (*OperationLogDetailResponse, *http.Response, error) {
+//  @return ResponseOperationLogDetailData
+func (a *OperationLogsAPIService) ApiV1OperationLogsIdGetExecute(r ApiApiV1OperationLogsIdGetRequest) (*ResponseOperationLogDetailData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OperationLogDetailResponse
+		localVarReturnValue  *ResponseOperationLogDetailData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationLogsAPIService.ApiV1OperationLogsIdGet")
@@ -468,7 +468,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsIdGetExecute(r ApiApiV1Opera
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -479,7 +479,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsIdGetExecute(r ApiApiV1Opera
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -490,7 +490,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsIdGetExecute(r ApiApiV1Opera
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -501,7 +501,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsIdGetExecute(r ApiApiV1Opera
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -531,7 +531,7 @@ type ApiApiV1OperationLogsStatsGetRequest struct {
 	ApiService *OperationLogsAPIService
 }
 
-func (r ApiApiV1OperationLogsStatsGetRequest) Execute() (*OperationLogStatsResponse, *http.Response, error) {
+func (r ApiApiV1OperationLogsStatsGetRequest) Execute() (*ResponseOperationLogStatsData, *http.Response, error) {
 	return r.ApiService.ApiV1OperationLogsStatsGetExecute(r)
 }
 
@@ -551,13 +551,13 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsStatsGet(ctx context.Context
 }
 
 // Execute executes the request
-//  @return OperationLogStatsResponse
-func (a *OperationLogsAPIService) ApiV1OperationLogsStatsGetExecute(r ApiApiV1OperationLogsStatsGetRequest) (*OperationLogStatsResponse, *http.Response, error) {
+//  @return ResponseOperationLogStatsData
+func (a *OperationLogsAPIService) ApiV1OperationLogsStatsGetExecute(r ApiApiV1OperationLogsStatsGetRequest) (*ResponseOperationLogStatsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OperationLogStatsResponse
+		localVarReturnValue  *ResponseOperationLogStatsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationLogsAPIService.ApiV1OperationLogsStatsGet")
@@ -611,7 +611,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsStatsGetExecute(r ApiApiV1Op
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -622,7 +622,7 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsStatsGetExecute(r ApiApiV1Op
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -652,7 +652,7 @@ type ApiApiV1RunningOperationsGetRequest struct {
 	ApiService *OperationLogsAPIService
 }
 
-func (r ApiApiV1RunningOperationsGetRequest) Execute() (*RunningOperationsResponse, *http.Response, error) {
+func (r ApiApiV1RunningOperationsGetRequest) Execute() (*ResponseRunningOperationsData, *http.Response, error) {
 	return r.ApiService.ApiV1RunningOperationsGetExecute(r)
 }
 
@@ -672,13 +672,13 @@ func (a *OperationLogsAPIService) ApiV1RunningOperationsGet(ctx context.Context)
 }
 
 // Execute executes the request
-//  @return RunningOperationsResponse
-func (a *OperationLogsAPIService) ApiV1RunningOperationsGetExecute(r ApiApiV1RunningOperationsGetRequest) (*RunningOperationsResponse, *http.Response, error) {
+//  @return ResponseRunningOperationsData
+func (a *OperationLogsAPIService) ApiV1RunningOperationsGetExecute(r ApiApiV1RunningOperationsGetRequest) (*ResponseRunningOperationsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RunningOperationsResponse
+		localVarReturnValue  *ResponseRunningOperationsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationLogsAPIService.ApiV1RunningOperationsGet")
@@ -732,7 +732,7 @@ func (a *OperationLogsAPIService) ApiV1RunningOperationsGetExecute(r ApiApiV1Run
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -743,7 +743,7 @@ func (a *OperationLogsAPIService) ApiV1RunningOperationsGetExecute(r ApiApiV1Run
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

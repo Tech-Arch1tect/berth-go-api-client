@@ -121,7 +121,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationExportPostExecute(r ApiApiV1AdminMi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -132,7 +132,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationExportPostExecute(r ApiApiV1AdminMi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -143,7 +143,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationExportPostExecute(r ApiApiV1AdminMi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -154,7 +154,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationExportPostExecute(r ApiApiV1AdminMi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -196,7 +196,7 @@ func (r ApiApiV1AdminMigrationImportPostRequest) Password(password string) ApiAp
 	return r
 }
 
-func (r ApiApiV1AdminMigrationImportPostRequest) Execute() (*ImportResponse, *http.Response, error) {
+func (r ApiApiV1AdminMigrationImportPostRequest) Execute() (*ResponseImportData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminMigrationImportPostExecute(r)
 }
 
@@ -216,13 +216,13 @@ func (a *AdminAPIService) ApiV1AdminMigrationImportPost(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return ImportResponse
-func (a *AdminAPIService) ApiV1AdminMigrationImportPostExecute(r ApiApiV1AdminMigrationImportPostRequest) (*ImportResponse, *http.Response, error) {
+//  @return ResponseImportData
+func (a *AdminAPIService) ApiV1AdminMigrationImportPostExecute(r ApiApiV1AdminMigrationImportPostRequest) (*ResponseImportData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ImportResponse
+		localVarReturnValue  *ResponseImportData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminMigrationImportPost")
@@ -298,7 +298,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationImportPostExecute(r ApiApiV1AdminMi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -309,7 +309,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationImportPostExecute(r ApiApiV1AdminMi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -320,7 +320,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationImportPostExecute(r ApiApiV1AdminMi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -331,7 +331,7 @@ func (a *AdminAPIService) ApiV1AdminMigrationImportPostExecute(r ApiApiV1AdminMi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -417,7 +417,7 @@ func (r ApiApiV1AdminOperationLogsGetRequest) DaysBack(daysBack int32) ApiApiV1A
 	return r
 }
 
-func (r ApiApiV1AdminOperationLogsGetRequest) Execute() (*PaginatedOperationLogsResponse, *http.Response, error) {
+func (r ApiApiV1AdminOperationLogsGetRequest) Execute() (*ResponseOperationLogInfo, *http.Response, error) {
 	return r.ApiService.ApiV1AdminOperationLogsGetExecute(r)
 }
 
@@ -437,13 +437,13 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsGet(ctx context.Context) ApiApi
 }
 
 // Execute executes the request
-//  @return PaginatedOperationLogsResponse
-func (a *AdminAPIService) ApiV1AdminOperationLogsGetExecute(r ApiApiV1AdminOperationLogsGetRequest) (*PaginatedOperationLogsResponse, *http.Response, error) {
+//  @return ResponseOperationLogInfo
+func (a *AdminAPIService) ApiV1AdminOperationLogsGetExecute(r ApiApiV1AdminOperationLogsGetRequest) (*ResponseOperationLogInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PaginatedOperationLogsResponse
+		localVarReturnValue  *ResponseOperationLogInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminOperationLogsGet")
@@ -529,7 +529,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsGetExecute(r ApiApiV1AdminOpera
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -540,7 +540,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsGetExecute(r ApiApiV1AdminOpera
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -551,7 +551,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsGetExecute(r ApiApiV1AdminOpera
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -582,7 +582,7 @@ type ApiApiV1AdminOperationLogsIdGetRequest struct {
 	id int32
 }
 
-func (r ApiApiV1AdminOperationLogsIdGetRequest) Execute() (*OperationLogDetailResponse, *http.Response, error) {
+func (r ApiApiV1AdminOperationLogsIdGetRequest) Execute() (*ResponseOperationLogDetailData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminOperationLogsIdGetExecute(r)
 }
 
@@ -604,13 +604,13 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsIdGet(ctx context.Context, id i
 }
 
 // Execute executes the request
-//  @return OperationLogDetailResponse
-func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOperationLogsIdGetRequest) (*OperationLogDetailResponse, *http.Response, error) {
+//  @return ResponseOperationLogDetailData
+func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOperationLogsIdGetRequest) (*ResponseOperationLogDetailData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OperationLogDetailResponse
+		localVarReturnValue  *ResponseOperationLogDetailData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminOperationLogsIdGet")
@@ -665,7 +665,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOpe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -676,7 +676,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOpe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -687,7 +687,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOpe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -698,7 +698,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOpe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -709,7 +709,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOpe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -739,7 +739,7 @@ type ApiApiV1AdminOperationLogsStatsGetRequest struct {
 	ApiService *AdminAPIService
 }
 
-func (r ApiApiV1AdminOperationLogsStatsGetRequest) Execute() (*OperationLogStatsResponse, *http.Response, error) {
+func (r ApiApiV1AdminOperationLogsStatsGetRequest) Execute() (*ResponseOperationLogStatsData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminOperationLogsStatsGetExecute(r)
 }
 
@@ -759,13 +759,13 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsStatsGet(ctx context.Context) A
 }
 
 // Execute executes the request
-//  @return OperationLogStatsResponse
-func (a *AdminAPIService) ApiV1AdminOperationLogsStatsGetExecute(r ApiApiV1AdminOperationLogsStatsGetRequest) (*OperationLogStatsResponse, *http.Response, error) {
+//  @return ResponseOperationLogStatsData
+func (a *AdminAPIService) ApiV1AdminOperationLogsStatsGetExecute(r ApiApiV1AdminOperationLogsStatsGetRequest) (*ResponseOperationLogStatsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OperationLogStatsResponse
+		localVarReturnValue  *ResponseOperationLogStatsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminOperationLogsStatsGet")
@@ -819,7 +819,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsStatsGetExecute(r ApiApiV1Admin
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -830,7 +830,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsStatsGetExecute(r ApiApiV1Admin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -841,7 +841,7 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsStatsGetExecute(r ApiApiV1Admin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -878,7 +878,7 @@ func (r ApiApiV1AdminPermissionsGetRequest) Type_(type_ string) ApiApiV1AdminPer
 	return r
 }
 
-func (r ApiApiV1AdminPermissionsGetRequest) Execute() (*ListPermissionsResponse, *http.Response, error) {
+func (r ApiApiV1AdminPermissionsGetRequest) Execute() (*ResponseListPermissionsData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminPermissionsGetExecute(r)
 }
 
@@ -898,13 +898,13 @@ func (a *AdminAPIService) ApiV1AdminPermissionsGet(ctx context.Context) ApiApiV1
 }
 
 // Execute executes the request
-//  @return ListPermissionsResponse
-func (a *AdminAPIService) ApiV1AdminPermissionsGetExecute(r ApiApiV1AdminPermissionsGetRequest) (*ListPermissionsResponse, *http.Response, error) {
+//  @return ResponseListPermissionsData
+func (a *AdminAPIService) ApiV1AdminPermissionsGetExecute(r ApiApiV1AdminPermissionsGetRequest) (*ResponseListPermissionsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListPermissionsResponse
+		localVarReturnValue  *ResponseListPermissionsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminPermissionsGet")
@@ -961,7 +961,7 @@ func (a *AdminAPIService) ApiV1AdminPermissionsGetExecute(r ApiApiV1AdminPermiss
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -972,7 +972,7 @@ func (a *AdminAPIService) ApiV1AdminPermissionsGetExecute(r ApiApiV1AdminPermiss
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -983,7 +983,7 @@ func (a *AdminAPIService) ApiV1AdminPermissionsGetExecute(r ApiApiV1AdminPermiss
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1013,7 +1013,7 @@ type ApiApiV1AdminRolesGetRequest struct {
 	ApiService *AdminAPIService
 }
 
-func (r ApiApiV1AdminRolesGetRequest) Execute() (*ListRolesResponse, *http.Response, error) {
+func (r ApiApiV1AdminRolesGetRequest) Execute() (*ResponseListRolesData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminRolesGetExecute(r)
 }
 
@@ -1033,13 +1033,13 @@ func (a *AdminAPIService) ApiV1AdminRolesGet(ctx context.Context) ApiApiV1AdminR
 }
 
 // Execute executes the request
-//  @return ListRolesResponse
-func (a *AdminAPIService) ApiV1AdminRolesGetExecute(r ApiApiV1AdminRolesGetRequest) (*ListRolesResponse, *http.Response, error) {
+//  @return ResponseListRolesData
+func (a *AdminAPIService) ApiV1AdminRolesGetExecute(r ApiApiV1AdminRolesGetRequest) (*ResponseListRolesData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListRolesResponse
+		localVarReturnValue  *ResponseListRolesData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminRolesGet")
@@ -1093,7 +1093,7 @@ func (a *AdminAPIService) ApiV1AdminRolesGetExecute(r ApiApiV1AdminRolesGetReque
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1104,7 +1104,7 @@ func (a *AdminAPIService) ApiV1AdminRolesGetExecute(r ApiApiV1AdminRolesGetReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1115,7 +1115,7 @@ func (a *AdminAPIService) ApiV1AdminRolesGetExecute(r ApiApiV1AdminRolesGetReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1146,7 +1146,7 @@ type ApiApiV1AdminRolesIdDeleteRequest struct {
 	id int32
 }
 
-func (r ApiApiV1AdminRolesIdDeleteRequest) Execute() (*DeleteRoleResponse, *http.Response, error) {
+func (r ApiApiV1AdminRolesIdDeleteRequest) Execute() (*ResponseMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminRolesIdDeleteExecute(r)
 }
 
@@ -1168,13 +1168,13 @@ func (a *AdminAPIService) ApiV1AdminRolesIdDelete(ctx context.Context, id int32)
 }
 
 // Execute executes the request
-//  @return DeleteRoleResponse
-func (a *AdminAPIService) ApiV1AdminRolesIdDeleteExecute(r ApiApiV1AdminRolesIdDeleteRequest) (*DeleteRoleResponse, *http.Response, error) {
+//  @return ResponseMessageData
+func (a *AdminAPIService) ApiV1AdminRolesIdDeleteExecute(r ApiApiV1AdminRolesIdDeleteRequest) (*ResponseMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteRoleResponse
+		localVarReturnValue  *ResponseMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminRolesIdDelete")
@@ -1229,7 +1229,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdDeleteExecute(r ApiApiV1AdminRolesIdD
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1240,7 +1240,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdDeleteExecute(r ApiApiV1AdminRolesIdD
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1251,7 +1251,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdDeleteExecute(r ApiApiV1AdminRolesIdD
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1262,7 +1262,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdDeleteExecute(r ApiApiV1AdminRolesIdD
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1300,7 +1300,7 @@ func (r ApiApiV1AdminRolesIdPutRequest) UpdateRoleRequest(updateRoleRequest Upda
 	return r
 }
 
-func (r ApiApiV1AdminRolesIdPutRequest) Execute() (*UpdateRoleResponse, *http.Response, error) {
+func (r ApiApiV1AdminRolesIdPutRequest) Execute() (*ResponseRoleWithPermissions, *http.Response, error) {
 	return r.ApiService.ApiV1AdminRolesIdPutExecute(r)
 }
 
@@ -1322,13 +1322,13 @@ func (a *AdminAPIService) ApiV1AdminRolesIdPut(ctx context.Context, id int32) Ap
 }
 
 // Execute executes the request
-//  @return UpdateRoleResponse
-func (a *AdminAPIService) ApiV1AdminRolesIdPutExecute(r ApiApiV1AdminRolesIdPutRequest) (*UpdateRoleResponse, *http.Response, error) {
+//  @return ResponseRoleWithPermissions
+func (a *AdminAPIService) ApiV1AdminRolesIdPutExecute(r ApiApiV1AdminRolesIdPutRequest) (*ResponseRoleWithPermissions, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateRoleResponse
+		localVarReturnValue  *ResponseRoleWithPermissions
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminRolesIdPut")
@@ -1388,7 +1388,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdPutExecute(r ApiApiV1AdminRolesIdPutR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1399,7 +1399,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdPutExecute(r ApiApiV1AdminRolesIdPutR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1410,7 +1410,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdPutExecute(r ApiApiV1AdminRolesIdPutR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1421,7 +1421,7 @@ func (a *AdminAPIService) ApiV1AdminRolesIdPutExecute(r ApiApiV1AdminRolesIdPutR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1458,7 +1458,7 @@ func (r ApiApiV1AdminRolesPostRequest) CreateRoleRequest(createRoleRequest Creat
 	return r
 }
 
-func (r ApiApiV1AdminRolesPostRequest) Execute() (*CreateRoleResponse, *http.Response, error) {
+func (r ApiApiV1AdminRolesPostRequest) Execute() (*ResponseRoleWithPermissions, *http.Response, error) {
 	return r.ApiService.ApiV1AdminRolesPostExecute(r)
 }
 
@@ -1478,13 +1478,13 @@ func (a *AdminAPIService) ApiV1AdminRolesPost(ctx context.Context) ApiApiV1Admin
 }
 
 // Execute executes the request
-//  @return CreateRoleResponse
-func (a *AdminAPIService) ApiV1AdminRolesPostExecute(r ApiApiV1AdminRolesPostRequest) (*CreateRoleResponse, *http.Response, error) {
+//  @return ResponseRoleWithPermissions
+func (a *AdminAPIService) ApiV1AdminRolesPostExecute(r ApiApiV1AdminRolesPostRequest) (*ResponseRoleWithPermissions, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateRoleResponse
+		localVarReturnValue  *ResponseRoleWithPermissions
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminRolesPost")
@@ -1543,7 +1543,7 @@ func (a *AdminAPIService) ApiV1AdminRolesPostExecute(r ApiApiV1AdminRolesPostReq
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1554,7 +1554,7 @@ func (a *AdminAPIService) ApiV1AdminRolesPostExecute(r ApiApiV1AdminRolesPostReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1565,7 +1565,7 @@ func (a *AdminAPIService) ApiV1AdminRolesPostExecute(r ApiApiV1AdminRolesPostReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1576,7 +1576,7 @@ func (a *AdminAPIService) ApiV1AdminRolesPostExecute(r ApiApiV1AdminRolesPostReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1607,7 +1607,7 @@ type ApiApiV1AdminRolesRoleIdStackPermissionsGetRequest struct {
 	roleId int32
 }
 
-func (r ApiApiV1AdminRolesRoleIdStackPermissionsGetRequest) Execute() (*ListRoleStackPermissionsResponse, *http.Response, error) {
+func (r ApiApiV1AdminRolesRoleIdStackPermissionsGetRequest) Execute() (*ResponseListRoleStackPermissionsData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r)
 }
 
@@ -1629,13 +1629,13 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGet(ctx context.C
 }
 
 // Execute executes the request
-//  @return ListRoleStackPermissionsResponse
-func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiApiV1AdminRolesRoleIdStackPermissionsGetRequest) (*ListRoleStackPermissionsResponse, *http.Response, error) {
+//  @return ResponseListRoleStackPermissionsData
+func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiApiV1AdminRolesRoleIdStackPermissionsGetRequest) (*ResponseListRoleStackPermissionsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListRoleStackPermissionsResponse
+		localVarReturnValue  *ResponseListRoleStackPermissionsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminRolesRoleIdStackPermissionsGet")
@@ -1690,7 +1690,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1701,7 +1701,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1712,7 +1712,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1723,7 +1723,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1734,7 +1734,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1766,7 +1766,7 @@ type ApiApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteRequest struct {
 	permissionId int32
 }
 
-func (r ApiApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteRequest) Execute() (*DeleteStackPermissionResponse, *http.Response, error) {
+func (r ApiApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteRequest) Execute() (*ResponseMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteExecute(r)
 }
 
@@ -1790,13 +1790,13 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelet
 }
 
 // Execute executes the request
-//  @return DeleteStackPermissionResponse
-func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteExecute(r ApiApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteRequest) (*DeleteStackPermissionResponse, *http.Response, error) {
+//  @return ResponseMessageData
+func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteExecute(r ApiApiV1AdminRolesRoleIdStackPermissionsPermissionIdDeleteRequest) (*ResponseMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteStackPermissionResponse
+		localVarReturnValue  *ResponseMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelete")
@@ -1852,7 +1852,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelet
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1863,7 +1863,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1874,7 +1874,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1885,7 +1885,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1923,7 +1923,7 @@ func (r ApiApiV1AdminRolesRoleIdStackPermissionsPostRequest) CreateStackPermissi
 	return r
 }
 
-func (r ApiApiV1AdminRolesRoleIdStackPermissionsPostRequest) Execute() (*CreateStackPermissionResponse, *http.Response, error) {
+func (r ApiApiV1AdminRolesRoleIdStackPermissionsPostRequest) Execute() (*ResponseMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r)
 }
 
@@ -1945,13 +1945,13 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPost(ctx context.
 }
 
 // Execute executes the request
-//  @return CreateStackPermissionResponse
-func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r ApiApiV1AdminRolesRoleIdStackPermissionsPostRequest) (*CreateStackPermissionResponse, *http.Response, error) {
+//  @return ResponseMessageData
+func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r ApiApiV1AdminRolesRoleIdStackPermissionsPostRequest) (*ResponseMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateStackPermissionResponse
+		localVarReturnValue  *ResponseMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminRolesRoleIdStackPermissionsPost")
@@ -2011,7 +2011,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2022,7 +2022,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2033,7 +2033,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2044,7 +2044,7 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2144,7 +2144,7 @@ func (r ApiApiV1AdminSecurityAuditLogsGetRequest) Search(search string) ApiApiV1
 	return r
 }
 
-func (r ApiApiV1AdminSecurityAuditLogsGetRequest) Execute() (*ListLogsAPIResponse, *http.Response, error) {
+func (r ApiApiV1AdminSecurityAuditLogsGetRequest) Execute() (*ResponseSecurityAuditLogInfo, *http.Response, error) {
 	return r.ApiService.ApiV1AdminSecurityAuditLogsGetExecute(r)
 }
 
@@ -2164,13 +2164,13 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGet(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return ListLogsAPIResponse
-func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminSecurityAuditLogsGetRequest) (*ListLogsAPIResponse, *http.Response, error) {
+//  @return ResponseSecurityAuditLogInfo
+func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminSecurityAuditLogsGetRequest) (*ResponseSecurityAuditLogInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListLogsAPIResponse
+		localVarReturnValue  *ResponseSecurityAuditLogInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminSecurityAuditLogsGet")
@@ -2262,7 +2262,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminS
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2273,7 +2273,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2284,7 +2284,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2295,7 +2295,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2326,7 +2326,7 @@ type ApiApiV1AdminSecurityAuditLogsIdGetRequest struct {
 	id int32
 }
 
-func (r ApiApiV1AdminSecurityAuditLogsIdGetRequest) Execute() (*GetLogAPIResponse, *http.Response, error) {
+func (r ApiApiV1AdminSecurityAuditLogsIdGetRequest) Execute() (*ResponseSecurityAuditLogInfo2, *http.Response, error) {
 	return r.ApiService.ApiV1AdminSecurityAuditLogsIdGetExecute(r)
 }
 
@@ -2348,13 +2348,13 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGet(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return GetLogAPIResponse
-func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1AdminSecurityAuditLogsIdGetRequest) (*GetLogAPIResponse, *http.Response, error) {
+//  @return ResponseSecurityAuditLogInfo2
+func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1AdminSecurityAuditLogsIdGetRequest) (*ResponseSecurityAuditLogInfo2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetLogAPIResponse
+		localVarReturnValue  *ResponseSecurityAuditLogInfo2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminSecurityAuditLogsIdGet")
@@ -2409,7 +2409,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1Admi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2420,7 +2420,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1Admi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2431,7 +2431,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1Admi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2442,7 +2442,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1Admi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2453,7 +2453,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1Admi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2483,7 +2483,7 @@ type ApiApiV1AdminSecurityAuditLogsStatsGetRequest struct {
 	ApiService *AdminAPIService
 }
 
-func (r ApiApiV1AdminSecurityAuditLogsStatsGetRequest) Execute() (*GetStatsAPIResponse, *http.Response, error) {
+func (r ApiApiV1AdminSecurityAuditLogsStatsGetRequest) Execute() (*ResponseStatsResponseData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminSecurityAuditLogsStatsGetExecute(r)
 }
 
@@ -2503,13 +2503,13 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsStatsGet(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return GetStatsAPIResponse
-func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsStatsGetExecute(r ApiApiV1AdminSecurityAuditLogsStatsGetRequest) (*GetStatsAPIResponse, *http.Response, error) {
+//  @return ResponseStatsResponseData
+func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsStatsGetExecute(r ApiApiV1AdminSecurityAuditLogsStatsGetRequest) (*ResponseStatsResponseData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetStatsAPIResponse
+		localVarReturnValue  *ResponseStatsResponseData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminSecurityAuditLogsStatsGet")
@@ -2563,7 +2563,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsStatsGetExecute(r ApiApiV1A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2574,7 +2574,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsStatsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2585,7 +2585,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsStatsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2615,7 +2615,7 @@ type ApiApiV1AdminServersGetRequest struct {
 	ApiService *AdminAPIService
 }
 
-func (r ApiApiV1AdminServersGetRequest) Execute() (*AdminListServersResponse, *http.Response, error) {
+func (r ApiApiV1AdminServersGetRequest) Execute() (*ResponseAdminListServersData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminServersGetExecute(r)
 }
 
@@ -2635,13 +2635,13 @@ func (a *AdminAPIService) ApiV1AdminServersGet(ctx context.Context) ApiApiV1Admi
 }
 
 // Execute executes the request
-//  @return AdminListServersResponse
-func (a *AdminAPIService) ApiV1AdminServersGetExecute(r ApiApiV1AdminServersGetRequest) (*AdminListServersResponse, *http.Response, error) {
+//  @return ResponseAdminListServersData
+func (a *AdminAPIService) ApiV1AdminServersGetExecute(r ApiApiV1AdminServersGetRequest) (*ResponseAdminListServersData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AdminListServersResponse
+		localVarReturnValue  *ResponseAdminListServersData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminServersGet")
@@ -2695,7 +2695,7 @@ func (a *AdminAPIService) ApiV1AdminServersGetExecute(r ApiApiV1AdminServersGetR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2706,7 +2706,7 @@ func (a *AdminAPIService) ApiV1AdminServersGetExecute(r ApiApiV1AdminServersGetR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2717,7 +2717,7 @@ func (a *AdminAPIService) ApiV1AdminServersGetExecute(r ApiApiV1AdminServersGetR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2748,7 +2748,7 @@ type ApiApiV1AdminServersIdDeleteRequest struct {
 	id int32
 }
 
-func (r ApiApiV1AdminServersIdDeleteRequest) Execute() (*AdminDeleteServerResponse, *http.Response, error) {
+func (r ApiApiV1AdminServersIdDeleteRequest) Execute() (*ResponseMessageData2, *http.Response, error) {
 	return r.ApiService.ApiV1AdminServersIdDeleteExecute(r)
 }
 
@@ -2770,13 +2770,13 @@ func (a *AdminAPIService) ApiV1AdminServersIdDelete(ctx context.Context, id int3
 }
 
 // Execute executes the request
-//  @return AdminDeleteServerResponse
-func (a *AdminAPIService) ApiV1AdminServersIdDeleteExecute(r ApiApiV1AdminServersIdDeleteRequest) (*AdminDeleteServerResponse, *http.Response, error) {
+//  @return ResponseMessageData2
+func (a *AdminAPIService) ApiV1AdminServersIdDeleteExecute(r ApiApiV1AdminServersIdDeleteRequest) (*ResponseMessageData2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AdminDeleteServerResponse
+		localVarReturnValue  *ResponseMessageData2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminServersIdDelete")
@@ -2831,7 +2831,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdDeleteExecute(r ApiApiV1AdminServer
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2842,7 +2842,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdDeleteExecute(r ApiApiV1AdminServer
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2853,7 +2853,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdDeleteExecute(r ApiApiV1AdminServer
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2864,7 +2864,143 @@ func (a *AdminAPIService) ApiV1AdminServersIdDeleteExecute(r ApiApiV1AdminServer
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV1AdminServersIdGetRequest struct {
+	ctx context.Context
+	ApiService *AdminAPIService
+	id int32
+}
+
+func (r ApiApiV1AdminServersIdGetRequest) Execute() (*ResponseGetServerData, *http.Response, error) {
+	return r.ApiService.ApiV1AdminServersIdGetExecute(r)
+}
+
+/*
+ApiV1AdminServersIdGet Get a server
+
+Returns a single server by ID. Requires admin access.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Server ID
+ @return ApiApiV1AdminServersIdGetRequest
+*/
+func (a *AdminAPIService) ApiV1AdminServersIdGet(ctx context.Context, id int32) ApiApiV1AdminServersIdGetRequest {
+	return ApiApiV1AdminServersIdGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ResponseGetServerData
+func (a *AdminAPIService) ApiV1AdminServersIdGetExecute(r ApiApiV1AdminServersIdGetRequest) (*ResponseGetServerData, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseGetServerData
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminServersIdGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/admin/servers/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2902,7 +3038,7 @@ func (r ApiApiV1AdminServersIdPutRequest) ServerUpdateRequest(serverUpdateReques
 	return r
 }
 
-func (r ApiApiV1AdminServersIdPutRequest) Execute() (*AdminUpdateServerResponse, *http.Response, error) {
+func (r ApiApiV1AdminServersIdPutRequest) Execute() (*ResponseAdminUpdateServerData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminServersIdPutExecute(r)
 }
 
@@ -2924,13 +3060,13 @@ func (a *AdminAPIService) ApiV1AdminServersIdPut(ctx context.Context, id int32) 
 }
 
 // Execute executes the request
-//  @return AdminUpdateServerResponse
-func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersIdPutRequest) (*AdminUpdateServerResponse, *http.Response, error) {
+//  @return ResponseAdminUpdateServerData
+func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersIdPutRequest) (*ResponseAdminUpdateServerData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AdminUpdateServerResponse
+		localVarReturnValue  *ResponseAdminUpdateServerData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminServersIdPut")
@@ -2990,7 +3126,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3001,7 +3137,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersId
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3012,7 +3148,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersId
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3023,7 +3159,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersId
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3034,7 +3170,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersId
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3065,7 +3201,7 @@ type ApiApiV1AdminServersIdTestPostRequest struct {
 	id int32
 }
 
-func (r ApiApiV1AdminServersIdTestPostRequest) Execute() (*AdminTestConnectionResponse, *http.Response, error) {
+func (r ApiApiV1AdminServersIdTestPostRequest) Execute() (*ResponseMessageData2, *http.Response, error) {
 	return r.ApiService.ApiV1AdminServersIdTestPostExecute(r)
 }
 
@@ -3087,13 +3223,13 @@ func (a *AdminAPIService) ApiV1AdminServersIdTestPost(ctx context.Context, id in
 }
 
 // Execute executes the request
-//  @return AdminTestConnectionResponse
-func (a *AdminAPIService) ApiV1AdminServersIdTestPostExecute(r ApiApiV1AdminServersIdTestPostRequest) (*AdminTestConnectionResponse, *http.Response, error) {
+//  @return ResponseMessageData2
+func (a *AdminAPIService) ApiV1AdminServersIdTestPostExecute(r ApiApiV1AdminServersIdTestPostRequest) (*ResponseMessageData2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AdminTestConnectionResponse
+		localVarReturnValue  *ResponseMessageData2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminServersIdTestPost")
@@ -3148,7 +3284,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdTestPostExecute(r ApiApiV1AdminServ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3159,7 +3295,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdTestPostExecute(r ApiApiV1AdminServ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3170,7 +3306,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdTestPostExecute(r ApiApiV1AdminServ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3181,7 +3317,7 @@ func (a *AdminAPIService) ApiV1AdminServersIdTestPostExecute(r ApiApiV1AdminServ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3218,7 +3354,7 @@ func (r ApiApiV1AdminServersPostRequest) ServerCreateRequest(serverCreateRequest
 	return r
 }
 
-func (r ApiApiV1AdminServersPostRequest) Execute() (*AdminCreateServerResponse, *http.Response, error) {
+func (r ApiApiV1AdminServersPostRequest) Execute() (*ResponseAdminCreateServerData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminServersPostExecute(r)
 }
 
@@ -3238,13 +3374,13 @@ func (a *AdminAPIService) ApiV1AdminServersPost(ctx context.Context) ApiApiV1Adm
 }
 
 // Execute executes the request
-//  @return AdminCreateServerResponse
-func (a *AdminAPIService) ApiV1AdminServersPostExecute(r ApiApiV1AdminServersPostRequest) (*AdminCreateServerResponse, *http.Response, error) {
+//  @return ResponseAdminCreateServerData
+func (a *AdminAPIService) ApiV1AdminServersPostExecute(r ApiApiV1AdminServersPostRequest) (*ResponseAdminCreateServerData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AdminCreateServerResponse
+		localVarReturnValue  *ResponseAdminCreateServerData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminServersPost")
@@ -3303,7 +3439,7 @@ func (a *AdminAPIService) ApiV1AdminServersPostExecute(r ApiApiV1AdminServersPos
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3314,7 +3450,7 @@ func (a *AdminAPIService) ApiV1AdminServersPostExecute(r ApiApiV1AdminServersPos
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3325,7 +3461,7 @@ func (a *AdminAPIService) ApiV1AdminServersPostExecute(r ApiApiV1AdminServersPos
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3336,7 +3472,7 @@ func (a *AdminAPIService) ApiV1AdminServersPostExecute(r ApiApiV1AdminServersPos
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3373,7 +3509,7 @@ func (r ApiApiV1AdminUsersAssignRolePostRequest) AssignRoleRequest(assignRoleReq
 	return r
 }
 
-func (r ApiApiV1AdminUsersAssignRolePostRequest) Execute() (*AssignRoleResponse, *http.Response, error) {
+func (r ApiApiV1AdminUsersAssignRolePostRequest) Execute() (*ResponseMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminUsersAssignRolePostExecute(r)
 }
 
@@ -3393,13 +3529,13 @@ func (a *AdminAPIService) ApiV1AdminUsersAssignRolePost(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return AssignRoleResponse
-func (a *AdminAPIService) ApiV1AdminUsersAssignRolePostExecute(r ApiApiV1AdminUsersAssignRolePostRequest) (*AssignRoleResponse, *http.Response, error) {
+//  @return ResponseMessageData
+func (a *AdminAPIService) ApiV1AdminUsersAssignRolePostExecute(r ApiApiV1AdminUsersAssignRolePostRequest) (*ResponseMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AssignRoleResponse
+		localVarReturnValue  *ResponseMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminUsersAssignRolePost")
@@ -3458,7 +3594,7 @@ func (a *AdminAPIService) ApiV1AdminUsersAssignRolePostExecute(r ApiApiV1AdminUs
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3469,7 +3605,7 @@ func (a *AdminAPIService) ApiV1AdminUsersAssignRolePostExecute(r ApiApiV1AdminUs
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3480,7 +3616,7 @@ func (a *AdminAPIService) ApiV1AdminUsersAssignRolePostExecute(r ApiApiV1AdminUs
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3491,7 +3627,7 @@ func (a *AdminAPIService) ApiV1AdminUsersAssignRolePostExecute(r ApiApiV1AdminUs
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3521,7 +3657,7 @@ type ApiApiV1AdminUsersGetRequest struct {
 	ApiService *AdminAPIService
 }
 
-func (r ApiApiV1AdminUsersGetRequest) Execute() (*ListUsersResponse, *http.Response, error) {
+func (r ApiApiV1AdminUsersGetRequest) Execute() (*ResponseListUsersData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminUsersGetExecute(r)
 }
 
@@ -3541,13 +3677,13 @@ func (a *AdminAPIService) ApiV1AdminUsersGet(ctx context.Context) ApiApiV1AdminU
 }
 
 // Execute executes the request
-//  @return ListUsersResponse
-func (a *AdminAPIService) ApiV1AdminUsersGetExecute(r ApiApiV1AdminUsersGetRequest) (*ListUsersResponse, *http.Response, error) {
+//  @return ResponseListUsersData
+func (a *AdminAPIService) ApiV1AdminUsersGetExecute(r ApiApiV1AdminUsersGetRequest) (*ResponseListUsersData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListUsersResponse
+		localVarReturnValue  *ResponseListUsersData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminUsersGet")
@@ -3601,7 +3737,7 @@ func (a *AdminAPIService) ApiV1AdminUsersGetExecute(r ApiApiV1AdminUsersGetReque
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3612,7 +3748,7 @@ func (a *AdminAPIService) ApiV1AdminUsersGetExecute(r ApiApiV1AdminUsersGetReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3623,7 +3759,7 @@ func (a *AdminAPIService) ApiV1AdminUsersGetExecute(r ApiApiV1AdminUsersGetReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3654,7 +3790,7 @@ type ApiApiV1AdminUsersIdRolesGetRequest struct {
 	id int32
 }
 
-func (r ApiApiV1AdminUsersIdRolesGetRequest) Execute() (*GetUserRolesResponse, *http.Response, error) {
+func (r ApiApiV1AdminUsersIdRolesGetRequest) Execute() (*ResponseGetUserRolesData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminUsersIdRolesGetExecute(r)
 }
 
@@ -3676,13 +3812,13 @@ func (a *AdminAPIService) ApiV1AdminUsersIdRolesGet(ctx context.Context, id int3
 }
 
 // Execute executes the request
-//  @return GetUserRolesResponse
-func (a *AdminAPIService) ApiV1AdminUsersIdRolesGetExecute(r ApiApiV1AdminUsersIdRolesGetRequest) (*GetUserRolesResponse, *http.Response, error) {
+//  @return ResponseGetUserRolesData
+func (a *AdminAPIService) ApiV1AdminUsersIdRolesGetExecute(r ApiApiV1AdminUsersIdRolesGetRequest) (*ResponseGetUserRolesData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserRolesResponse
+		localVarReturnValue  *ResponseGetUserRolesData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminUsersIdRolesGet")
@@ -3737,7 +3873,7 @@ func (a *AdminAPIService) ApiV1AdminUsersIdRolesGetExecute(r ApiApiV1AdminUsersI
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3748,7 +3884,7 @@ func (a *AdminAPIService) ApiV1AdminUsersIdRolesGetExecute(r ApiApiV1AdminUsersI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3759,7 +3895,7 @@ func (a *AdminAPIService) ApiV1AdminUsersIdRolesGetExecute(r ApiApiV1AdminUsersI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3770,7 +3906,7 @@ func (a *AdminAPIService) ApiV1AdminUsersIdRolesGetExecute(r ApiApiV1AdminUsersI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3807,7 +3943,7 @@ func (r ApiApiV1AdminUsersPostRequest) CreateUserRequest(createUserRequest Creat
 	return r
 }
 
-func (r ApiApiV1AdminUsersPostRequest) Execute() (*CreateUserResponse, *http.Response, error) {
+func (r ApiApiV1AdminUsersPostRequest) Execute() (*ResponseUserInfo, *http.Response, error) {
 	return r.ApiService.ApiV1AdminUsersPostExecute(r)
 }
 
@@ -3827,13 +3963,13 @@ func (a *AdminAPIService) ApiV1AdminUsersPost(ctx context.Context) ApiApiV1Admin
 }
 
 // Execute executes the request
-//  @return CreateUserResponse
-func (a *AdminAPIService) ApiV1AdminUsersPostExecute(r ApiApiV1AdminUsersPostRequest) (*CreateUserResponse, *http.Response, error) {
+//  @return ResponseUserInfo
+func (a *AdminAPIService) ApiV1AdminUsersPostExecute(r ApiApiV1AdminUsersPostRequest) (*ResponseUserInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateUserResponse
+		localVarReturnValue  *ResponseUserInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminUsersPost")
@@ -3892,7 +4028,7 @@ func (a *AdminAPIService) ApiV1AdminUsersPostExecute(r ApiApiV1AdminUsersPostReq
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3903,7 +4039,7 @@ func (a *AdminAPIService) ApiV1AdminUsersPostExecute(r ApiApiV1AdminUsersPostReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3914,7 +4050,7 @@ func (a *AdminAPIService) ApiV1AdminUsersPostExecute(r ApiApiV1AdminUsersPostReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3925,7 +4061,7 @@ func (a *AdminAPIService) ApiV1AdminUsersPostExecute(r ApiApiV1AdminUsersPostReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3962,7 +4098,7 @@ func (r ApiApiV1AdminUsersRevokeRolePostRequest) RevokeRoleRequest(revokeRoleReq
 	return r
 }
 
-func (r ApiApiV1AdminUsersRevokeRolePostRequest) Execute() (*RevokeRoleResponse, *http.Response, error) {
+func (r ApiApiV1AdminUsersRevokeRolePostRequest) Execute() (*ResponseMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1AdminUsersRevokeRolePostExecute(r)
 }
 
@@ -3982,13 +4118,13 @@ func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePost(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return RevokeRoleResponse
-func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePostExecute(r ApiApiV1AdminUsersRevokeRolePostRequest) (*RevokeRoleResponse, *http.Response, error) {
+//  @return ResponseMessageData
+func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePostExecute(r ApiApiV1AdminUsersRevokeRolePostRequest) (*ResponseMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RevokeRoleResponse
+		localVarReturnValue  *ResponseMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.ApiV1AdminUsersRevokeRolePost")
@@ -4047,7 +4183,7 @@ func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePostExecute(r ApiApiV1AdminUs
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4058,7 +4194,7 @@ func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePostExecute(r ApiApiV1AdminUs
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4069,7 +4205,7 @@ func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePostExecute(r ApiApiV1AdminUs
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4080,7 +4216,7 @@ func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePostExecute(r ApiApiV1AdminUs
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

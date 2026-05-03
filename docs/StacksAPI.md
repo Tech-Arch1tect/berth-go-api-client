@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersServeridStacksCanCreateGet
 
-> CanCreateStackResponse ApiV1ServersServeridStacksCanCreateGet(ctx, serverid).Execute()
+> ResponseCanCreateStackData ApiV1ServersServeridStacksCanCreateGet(ctx, serverid).Execute()
 
 Check if user can create stacks
 
@@ -47,7 +47,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksCanCreateGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksCanCreateGet`: CanCreateStackResponse
+	// response from `ApiV1ServersServeridStacksCanCreateGet`: ResponseCanCreateStackData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksCanCreateGet`: %v\n", resp)
 }
 ```
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CanCreateStackResponse**](CanCreateStackResponse.md)
+[**ResponseCanCreateStackData**](ResponseCanCreateStackData.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksGet
 
-> ListStacksResponse ApiV1ServersServeridStacksGet(ctx, serverid).Execute()
+> ResponseListStacksData ApiV1ServersServeridStacksGet(ctx, serverid).Execute()
 
 List server stacks
 
@@ -117,7 +117,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksGet`: ListStacksResponse
+	// response from `ApiV1ServersServeridStacksGet`: ResponseListStacksData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksGet`: %v\n", resp)
 }
 ```
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListStacksResponse**](ListStacksResponse.md)
+[**ResponseListStacksData**](ResponseListStacksData.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksPost
 
-> CreateStackResponse ApiV1ServersServeridStacksPost(ctx, serverid).CreateStackRequest(createStackRequest).Execute()
+> ResponseCreateStackData ApiV1ServersServeridStacksPost(ctx, serverid).CreateStackRequest(createStackRequest).Execute()
 
 Create a new stack
 
@@ -188,7 +188,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksPost`: CreateStackResponse
+	// response from `ApiV1ServersServeridStacksPost`: ResponseCreateStackData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksPost`: %v\n", resp)
 }
 ```
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateStackResponse**](CreateStackResponse.md)
+[**ResponseCreateStackData**](ResponseCreateStackData.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameEnvironmentGet
 
-> StackEnvironmentResponse ApiV1ServersServeridStacksStacknameEnvironmentGet(ctx, serverid, stackname).Unmask(unmask).Execute()
+> ResponseStackEnvironmentData ApiV1ServersServeridStacksStacknameEnvironmentGet(ctx, serverid, stackname).Unmask(unmask).Execute()
 
 Get stack environment variables
 
@@ -261,7 +261,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksStacknameEnvironmentGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameEnvironmentGet`: StackEnvironmentResponse
+	// response from `ApiV1ServersServeridStacksStacknameEnvironmentGet`: ResponseStackEnvironmentData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksStacknameEnvironmentGet`: %v\n", resp)
 }
 ```
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StackEnvironmentResponse**](StackEnvironmentResponse.md)
+[**ResponseStackEnvironmentData**](ResponseStackEnvironmentData.md)
 
 ### Authorization
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameGet
 
-> StackDetails ApiV1ServersServeridStacksStacknameGet(ctx, serverid, stackname).Execute()
+> ResponseStackDetails ApiV1ServersServeridStacksStacknameGet(ctx, serverid, stackname).Execute()
 
 Get stack details
 
@@ -335,7 +335,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksStacknameGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameGet`: StackDetails
+	// response from `ApiV1ServersServeridStacksStacknameGet`: ResponseStackDetails
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksStacknameGet`: %v\n", resp)
 }
 ```
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StackDetails**](StackDetails.md)
+[**ResponseStackDetails**](ResponseStackDetails.md)
 
 ### Authorization
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameImagesGet
 
-> StackImagesResponse ApiV1ServersServeridStacksStacknameImagesGet(ctx, serverid, stackname).Execute()
+> ResponseStackImagesData ApiV1ServersServeridStacksStacknameImagesGet(ctx, serverid, stackname).Execute()
 
 Get container image details
 
@@ -408,7 +408,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksStacknameImagesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameImagesGet`: StackImagesResponse
+	// response from `ApiV1ServersServeridStacksStacknameImagesGet`: ResponseStackImagesData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksStacknameImagesGet`: %v\n", resp)
 }
 ```
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StackImagesResponse**](StackImagesResponse.md)
+[**ResponseStackImagesData**](ResponseStackImagesData.md)
 
 ### Authorization
 
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameNetworksGet
 
-> StackNetworksResponse ApiV1ServersServeridStacksStacknameNetworksGet(ctx, serverid, stackname).Execute()
+> ResponseStackNetworksData ApiV1ServersServeridStacksStacknameNetworksGet(ctx, serverid, stackname).Execute()
 
 Get stack networks
 
@@ -481,7 +481,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksStacknameNetworksGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameNetworksGet`: StackNetworksResponse
+	// response from `ApiV1ServersServeridStacksStacknameNetworksGet`: ResponseStackNetworksData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksStacknameNetworksGet`: %v\n", resp)
 }
 ```
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StackNetworksResponse**](StackNetworksResponse.md)
+[**ResponseStackNetworksData**](ResponseStackNetworksData.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknamePermissionsGet
 
-> StackPermissionsResponse ApiV1ServersServeridStacksStacknamePermissionsGet(ctx, serverid, stackname).Execute()
+> ResponseStackPermissionsData ApiV1ServersServeridStacksStacknamePermissionsGet(ctx, serverid, stackname).Execute()
 
 Check stack permissions
 
@@ -554,7 +554,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksStacknamePermissionsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknamePermissionsGet`: StackPermissionsResponse
+	// response from `ApiV1ServersServeridStacksStacknamePermissionsGet`: ResponseStackPermissionsData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksStacknamePermissionsGet`: %v\n", resp)
 }
 ```
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StackPermissionsResponse**](StackPermissionsResponse.md)
+[**ResponseStackPermissionsData**](ResponseStackPermissionsData.md)
 
 ### Authorization
 
@@ -598,7 +598,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameStatsGet
 
-> StackStatsResponse ApiV1ServersServeridStacksStacknameStatsGet(ctx, serverid, stackname).Execute()
+> ResponseStackStats ApiV1ServersServeridStacksStacknameStatsGet(ctx, serverid, stackname).Execute()
 
 Get stack statistics
 
@@ -627,7 +627,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksStacknameStatsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameStatsGet`: StackStatsResponse
+	// response from `ApiV1ServersServeridStacksStacknameStatsGet`: ResponseStackStats
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksStacknameStatsGet`: %v\n", resp)
 }
 ```
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StackStatsResponse**](StackStatsResponse.md)
+[**ResponseStackStats**](ResponseStackStats.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameVolumesGet
 
-> StackVolumesResponse ApiV1ServersServeridStacksStacknameVolumesGet(ctx, serverid, stackname).Execute()
+> ResponseStackVolumesData ApiV1ServersServeridStacksStacknameVolumesGet(ctx, serverid, stackname).Execute()
 
 Get stack volumes
 
@@ -700,7 +700,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.ApiV1ServersServeridStacksStacknameVolumesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameVolumesGet`: StackVolumesResponse
+	// response from `ApiV1ServersServeridStacksStacknameVolumesGet`: ResponseStackVolumesData
 	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.ApiV1ServersServeridStacksStacknameVolumesGet`: %v\n", resp)
 }
 ```
@@ -726,7 +726,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StackVolumesResponse**](StackVolumesResponse.md)
+[**ResponseStackVolumesData**](ResponseStackVolumesData.md)
 
 ### Authorization
 

@@ -38,7 +38,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesChmodPostRequest) ChmodReques
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesChmodPostRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesChmodPostRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesChmodPostExecute(r)
 }
 
@@ -62,13 +62,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPost(ctx 
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesChmodPostRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesChmodPostRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesChmodPost")
@@ -129,7 +129,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPostExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -140,7 +140,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -151,7 +151,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -162,7 +162,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -201,7 +201,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesChownPostRequest) ChownReques
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesChownPostRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesChownPostRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesChownPostExecute(r)
 }
 
@@ -225,13 +225,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPost(ctx 
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesChownPostRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesChownPostRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesChownPost")
@@ -292,7 +292,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPostExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -303,7 +303,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -314,7 +314,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -325,7 +325,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -364,7 +364,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesCopyPostRequest) CopyRequest(
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesCopyPostRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesCopyPostRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesCopyPostExecute(r)
 }
 
@@ -388,13 +388,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPost(ctx c
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesCopyPostRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesCopyPostRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesCopyPost")
@@ -455,7 +455,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPostExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -466,7 +466,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPostExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -477,7 +477,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPostExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -488,7 +488,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPostExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -527,7 +527,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesDeleteDeleteRequest) DeleteRe
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesDeleteDeleteRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesDeleteDeleteRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesDeleteDeleteExecute(r)
 }
 
@@ -551,13 +551,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDelete(c
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDeleteExecute(r ApiApiV1ServersServeridStacksStacknameFilesDeleteDeleteRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDeleteExecute(r ApiApiV1ServersServeridStacksStacknameFilesDeleteDeleteRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesDeleteDelete")
@@ -618,7 +618,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDeleteEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -629,7 +629,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDeleteEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -640,7 +640,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDeleteEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -651,7 +651,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDeleteEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -790,7 +790,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDownloadGetExe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -801,7 +801,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDownloadGetExe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -812,7 +812,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDownloadGetExe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -823,7 +823,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDownloadGetExe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -862,7 +862,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesGetRequest) FilePath(filePath
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesGetRequest) Execute() (*DirectoryListingResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesGetRequest) Execute() (*ResponseDirectoryListing, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesGetExecute(r)
 }
 
@@ -886,13 +886,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGet(ctx contex
 }
 
 // Execute executes the request
-//  @return DirectoryListingResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGetExecute(r ApiApiV1ServersServeridStacksStacknameFilesGetRequest) (*DirectoryListingResponse, *http.Response, error) {
+//  @return ResponseDirectoryListing
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGetExecute(r ApiApiV1ServersServeridStacksStacknameFilesGetRequest) (*ResponseDirectoryListing, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DirectoryListingResponse
+		localVarReturnValue  *ResponseDirectoryListing
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesGet")
@@ -951,7 +951,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGetExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -962,7 +962,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -973,7 +973,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -984,7 +984,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1023,7 +1023,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesMkdirPostRequest) CreateDirec
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesMkdirPostRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesMkdirPostRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesMkdirPostExecute(r)
 }
 
@@ -1047,13 +1047,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPost(ctx 
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesMkdirPostRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesMkdirPostRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesMkdirPost")
@@ -1114,7 +1114,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPostExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1125,7 +1125,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1136,7 +1136,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1147,7 +1147,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1186,7 +1186,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesReadGetRequest) FilePath(file
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesReadGetRequest) Execute() (*FileContentResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesReadGetRequest) Execute() (*ResponseFileContent, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesReadGetExecute(r)
 }
 
@@ -1210,13 +1210,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGet(ctx co
 }
 
 // Execute executes the request
-//  @return FileContentResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGetExecute(r ApiApiV1ServersServeridStacksStacknameFilesReadGetRequest) (*FileContentResponse, *http.Response, error) {
+//  @return ResponseFileContent
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGetExecute(r ApiApiV1ServersServeridStacksStacknameFilesReadGetRequest) (*ResponseFileContent, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileContentResponse
+		localVarReturnValue  *ResponseFileContent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesReadGet")
@@ -1276,7 +1276,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGetExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1287,7 +1287,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGetExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1298,7 +1298,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGetExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1309,7 +1309,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGetExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1348,7 +1348,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesRenamePostRequest) RenameRequ
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesRenamePostRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesRenamePostRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesRenamePostExecute(r)
 }
 
@@ -1372,13 +1372,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePost(ctx
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePostExecute(r ApiApiV1ServersServeridStacksStacknameFilesRenamePostRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePostExecute(r ApiApiV1ServersServeridStacksStacknameFilesRenamePostRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesRenamePost")
@@ -1439,7 +1439,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePostExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1450,7 +1450,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1461,7 +1461,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1472,7 +1472,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1511,7 +1511,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesStatsGetRequest) FilePath(fil
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesStatsGetRequest) Execute() (*DirectoryStatsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesStatsGetRequest) Execute() (*ResponseDirectoryStats, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesStatsGetExecute(r)
 }
 
@@ -1535,13 +1535,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesStatsGet(ctx c
 }
 
 // Execute executes the request
-//  @return DirectoryStatsResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesStatsGetExecute(r ApiApiV1ServersServeridStacksStacknameFilesStatsGetRequest) (*DirectoryStatsResponse, *http.Response, error) {
+//  @return ResponseDirectoryStats
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesStatsGetExecute(r ApiApiV1ServersServeridStacksStacknameFilesStatsGetRequest) (*ResponseDirectoryStats, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DirectoryStatsResponse
+		localVarReturnValue  *ResponseDirectoryStats
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesStatsGet")
@@ -1600,7 +1600,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesStatsGetExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1611,7 +1611,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesStatsGetExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1622,7 +1622,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesStatsGetExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1666,7 +1666,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesUploadPostRequest) FilePath(f
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesUploadPostRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesUploadPostRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesUploadPostExecute(r)
 }
 
@@ -1690,13 +1690,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPost(ctx
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesUploadPostRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPostExecute(r ApiApiV1ServersServeridStacksStacknameFilesUploadPostRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesUploadPost")
@@ -1773,7 +1773,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPostExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1784,7 +1784,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1795,7 +1795,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1806,7 +1806,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1845,7 +1845,7 @@ func (r ApiApiV1ServersServeridStacksStacknameFilesWritePostRequest) WriteFileRe
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameFilesWritePostRequest) Execute() (*FileMessageResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameFilesWritePostRequest) Execute() (*ResponseFileMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameFilesWritePostExecute(r)
 }
 
@@ -1869,13 +1869,13 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePost(ctx 
 }
 
 // Execute executes the request
-//  @return FileMessageResponse
-func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePostExecute(r ApiApiV1ServersServeridStacksStacknameFilesWritePostRequest) (*FileMessageResponse, *http.Response, error) {
+//  @return ResponseFileMessageData
+func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePostExecute(r ApiApiV1ServersServeridStacksStacknameFilesWritePostRequest) (*ResponseFileMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FileMessageResponse
+		localVarReturnValue  *ResponseFileMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.ApiV1ServersServeridStacksStacknameFilesWritePost")
@@ -1936,7 +1936,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePostExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1947,7 +1947,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1958,7 +1958,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1969,7 +1969,7 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePostExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

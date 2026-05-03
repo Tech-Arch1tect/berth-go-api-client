@@ -34,7 +34,7 @@ func (r ApiApiV1AuthLoginPostRequest) AuthLoginRequest(authLoginRequest AuthLogi
 	return r
 }
 
-func (r ApiApiV1AuthLoginPostRequest) Execute() (*AuthTOTPRequiredResponse, *http.Response, error) {
+func (r ApiApiV1AuthLoginPostRequest) Execute() (*ResponseAuthLoginData, *http.Response, error) {
 	return r.ApiService.ApiV1AuthLoginPostExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *AuthAPIService) ApiV1AuthLoginPost(ctx context.Context) ApiApiV1AuthLog
 }
 
 // Execute executes the request
-//  @return AuthTOTPRequiredResponse
-func (a *AuthAPIService) ApiV1AuthLoginPostExecute(r ApiApiV1AuthLoginPostRequest) (*AuthTOTPRequiredResponse, *http.Response, error) {
+//  @return ResponseAuthLoginData
+func (a *AuthAPIService) ApiV1AuthLoginPostExecute(r ApiApiV1AuthLoginPostRequest) (*ResponseAuthLoginData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AuthTOTPRequiredResponse
+		localVarReturnValue  *ResponseAuthLoginData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ApiV1AuthLoginPost")
@@ -119,7 +119,7 @@ func (a *AuthAPIService) ApiV1AuthLoginPostExecute(r ApiApiV1AuthLoginPostReques
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -130,7 +130,7 @@ func (a *AuthAPIService) ApiV1AuthLoginPostExecute(r ApiApiV1AuthLoginPostReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -141,7 +141,7 @@ func (a *AuthAPIService) ApiV1AuthLoginPostExecute(r ApiApiV1AuthLoginPostReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -178,7 +178,7 @@ func (r ApiApiV1AuthLogoutPostRequest) AuthLogoutRequest(authLogoutRequest AuthL
 	return r
 }
 
-func (r ApiApiV1AuthLogoutPostRequest) Execute() (*AuthLogoutResponse, *http.Response, error) {
+func (r ApiApiV1AuthLogoutPostRequest) Execute() (*ResponseAuthLogoutData, *http.Response, error) {
 	return r.ApiService.ApiV1AuthLogoutPostExecute(r)
 }
 
@@ -198,13 +198,13 @@ func (a *AuthAPIService) ApiV1AuthLogoutPost(ctx context.Context) ApiApiV1AuthLo
 }
 
 // Execute executes the request
-//  @return AuthLogoutResponse
-func (a *AuthAPIService) ApiV1AuthLogoutPostExecute(r ApiApiV1AuthLogoutPostRequest) (*AuthLogoutResponse, *http.Response, error) {
+//  @return ResponseAuthLogoutData
+func (a *AuthAPIService) ApiV1AuthLogoutPostExecute(r ApiApiV1AuthLogoutPostRequest) (*ResponseAuthLogoutData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AuthLogoutResponse
+		localVarReturnValue  *ResponseAuthLogoutData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ApiV1AuthLogoutPost")
@@ -263,7 +263,7 @@ func (a *AuthAPIService) ApiV1AuthLogoutPostExecute(r ApiApiV1AuthLogoutPostRequ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -274,7 +274,7 @@ func (a *AuthAPIService) ApiV1AuthLogoutPostExecute(r ApiApiV1AuthLogoutPostRequ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -311,7 +311,7 @@ func (r ApiApiV1AuthRefreshPostRequest) AuthRefreshRequest(authRefreshRequest Au
 	return r
 }
 
-func (r ApiApiV1AuthRefreshPostRequest) Execute() (*AuthRefreshResponse, *http.Response, error) {
+func (r ApiApiV1AuthRefreshPostRequest) Execute() (*ResponseAuthRefreshData, *http.Response, error) {
 	return r.ApiService.ApiV1AuthRefreshPostExecute(r)
 }
 
@@ -331,13 +331,13 @@ func (a *AuthAPIService) ApiV1AuthRefreshPost(ctx context.Context) ApiApiV1AuthR
 }
 
 // Execute executes the request
-//  @return AuthRefreshResponse
-func (a *AuthAPIService) ApiV1AuthRefreshPostExecute(r ApiApiV1AuthRefreshPostRequest) (*AuthRefreshResponse, *http.Response, error) {
+//  @return ResponseAuthRefreshData
+func (a *AuthAPIService) ApiV1AuthRefreshPostExecute(r ApiApiV1AuthRefreshPostRequest) (*ResponseAuthRefreshData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AuthRefreshResponse
+		localVarReturnValue  *ResponseAuthRefreshData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ApiV1AuthRefreshPost")
@@ -396,7 +396,7 @@ func (a *AuthAPIService) ApiV1AuthRefreshPostExecute(r ApiApiV1AuthRefreshPostRe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -407,7 +407,7 @@ func (a *AuthAPIService) ApiV1AuthRefreshPostExecute(r ApiApiV1AuthRefreshPostRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -418,7 +418,7 @@ func (a *AuthAPIService) ApiV1AuthRefreshPostExecute(r ApiApiV1AuthRefreshPostRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -455,7 +455,7 @@ func (r ApiApiV1AuthTotpVerifyPostRequest) AuthTOTPVerifyRequest(authTOTPVerifyR
 	return r
 }
 
-func (r ApiApiV1AuthTotpVerifyPostRequest) Execute() (*AuthLoginResponse, *http.Response, error) {
+func (r ApiApiV1AuthTotpVerifyPostRequest) Execute() (*ResponseAuthLoginData, *http.Response, error) {
 	return r.ApiService.ApiV1AuthTotpVerifyPostExecute(r)
 }
 
@@ -475,13 +475,13 @@ func (a *AuthAPIService) ApiV1AuthTotpVerifyPost(ctx context.Context) ApiApiV1Au
 }
 
 // Execute executes the request
-//  @return AuthLoginResponse
-func (a *AuthAPIService) ApiV1AuthTotpVerifyPostExecute(r ApiApiV1AuthTotpVerifyPostRequest) (*AuthLoginResponse, *http.Response, error) {
+//  @return ResponseAuthLoginData
+func (a *AuthAPIService) ApiV1AuthTotpVerifyPostExecute(r ApiApiV1AuthTotpVerifyPostRequest) (*ResponseAuthLoginData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AuthLoginResponse
+		localVarReturnValue  *ResponseAuthLoginData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ApiV1AuthTotpVerifyPost")
@@ -540,7 +540,7 @@ func (a *AuthAPIService) ApiV1AuthTotpVerifyPostExecute(r ApiApiV1AuthTotpVerify
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -551,7 +551,7 @@ func (a *AuthAPIService) ApiV1AuthTotpVerifyPostExecute(r ApiApiV1AuthTotpVerify
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -562,7 +562,7 @@ func (a *AuthAPIService) ApiV1AuthTotpVerifyPostExecute(r ApiApiV1AuthTotpVerify
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

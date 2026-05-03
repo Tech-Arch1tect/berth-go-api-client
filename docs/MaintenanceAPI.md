@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersServeridMaintenanceInfoGet
 
-> MaintenanceInfo ApiV1ServersServeridMaintenanceInfoGet(ctx, serverid).Execute()
+> ResponseMaintenanceInfo ApiV1ServersServeridMaintenanceInfoGet(ctx, serverid).Execute()
 
 Get Docker system information
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MaintenanceAPI.ApiV1ServersServeridMaintenanceInfoGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridMaintenanceInfoGet`: MaintenanceInfo
+	// response from `ApiV1ServersServeridMaintenanceInfoGet`: ResponseMaintenanceInfo
 	fmt.Fprintf(os.Stdout, "Response from `MaintenanceAPI.ApiV1ServersServeridMaintenanceInfoGet`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MaintenanceInfo**](MaintenanceInfo.md)
+[**ResponseMaintenanceInfo**](ResponseMaintenanceInfo.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridMaintenancePermissionsGet
 
-> PermissionsResponse ApiV1ServersServeridMaintenancePermissionsGet(ctx, serverid).Execute()
+> ResponsePermissionsData ApiV1ServersServeridMaintenancePermissionsGet(ctx, serverid).Execute()
 
 Check maintenance permissions
 
@@ -111,7 +111,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MaintenanceAPI.ApiV1ServersServeridMaintenancePermissionsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridMaintenancePermissionsGet`: PermissionsResponse
+	// response from `ApiV1ServersServeridMaintenancePermissionsGet`: ResponsePermissionsData
 	fmt.Fprintf(os.Stdout, "Response from `MaintenanceAPI.ApiV1ServersServeridMaintenancePermissionsGet`: %v\n", resp)
 }
 ```
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PermissionsResponse**](PermissionsResponse.md)
+[**ResponsePermissionsData**](ResponsePermissionsData.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridMaintenancePrunePost
 
-> PruneResult ApiV1ServersServeridMaintenancePrunePost(ctx, serverid).PruneRequest(pruneRequest).Execute()
+> ResponsePruneResult ApiV1ServersServeridMaintenancePrunePost(ctx, serverid).PruneRequest(pruneRequest).Execute()
 
 Prune Docker resources
 
@@ -182,7 +182,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MaintenanceAPI.ApiV1ServersServeridMaintenancePrunePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridMaintenancePrunePost`: PruneResult
+	// response from `ApiV1ServersServeridMaintenancePrunePost`: ResponsePruneResult
 	fmt.Fprintf(os.Stdout, "Response from `MaintenanceAPI.ApiV1ServersServeridMaintenancePrunePost`: %v\n", resp)
 }
 ```
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PruneResult**](PruneResult.md)
+[**ResponsePruneResult**](ResponsePruneResult.md)
 
 ### Authorization
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridMaintenanceResourceDelete
 
-> DeleteResult ApiV1ServersServeridMaintenanceResourceDelete(ctx, serverid).DeleteRequest(deleteRequest).Execute()
+> ResponseDeleteResult ApiV1ServersServeridMaintenanceResourceDelete(ctx, serverid).DeleteRequest(deleteRequest).Execute()
 
 Delete Docker resource
 
@@ -254,7 +254,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MaintenanceAPI.ApiV1ServersServeridMaintenanceResourceDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridMaintenanceResourceDelete`: DeleteResult
+	// response from `ApiV1ServersServeridMaintenanceResourceDelete`: ResponseDeleteResult
 	fmt.Fprintf(os.Stdout, "Response from `MaintenanceAPI.ApiV1ServersServeridMaintenanceResourceDelete`: %v\n", resp)
 }
 ```
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteResult**](DeleteResult.md)
+[**ResponseDeleteResult**](ResponseDeleteResult.md)
 
 ### Authorization
 

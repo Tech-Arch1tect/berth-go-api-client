@@ -30,7 +30,7 @@ type ApiApiV1ServersServeridStacksStacknameVulnscanGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameVulnscanGetRequest) Execute() (*GetLatestScanResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameVulnscanGetRequest) Execute() (*ResponseGetLatestScanData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameVulnscanGetExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGet(ctx 
 }
 
 // Execute executes the request
-//  @return GetLatestScanResponse
-func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGetExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanGetRequest) (*GetLatestScanResponse, *http.Response, error) {
+//  @return ResponseGetLatestScanData
+func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGetExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanGetRequest) (*ResponseGetLatestScanData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetLatestScanResponse
+		localVarReturnValue  *ResponseGetLatestScanData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VulnscanAPIService.ApiV1ServersServeridStacksStacknameVulnscanGet")
@@ -116,7 +116,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGetExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -127,7 +127,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -138,7 +138,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -149,7 +149,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -181,7 +181,7 @@ type ApiApiV1ServersServeridStacksStacknameVulnscanHistoryGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameVulnscanHistoryGetRequest) Execute() (*GetScansHistoryResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameVulnscanHistoryGetRequest) Execute() (*ResponseGetScansHistoryData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameVulnscanHistoryGetExecute(r)
 }
 
@@ -205,13 +205,13 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanHistoryG
 }
 
 // Execute executes the request
-//  @return GetScansHistoryResponse
-func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanHistoryGetExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanHistoryGetRequest) (*GetScansHistoryResponse, *http.Response, error) {
+//  @return ResponseGetScansHistoryData
+func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanHistoryGetExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanHistoryGetRequest) (*ResponseGetScansHistoryData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetScansHistoryResponse
+		localVarReturnValue  *ResponseGetScansHistoryData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VulnscanAPIService.ApiV1ServersServeridStacksStacknameVulnscanHistoryGet")
@@ -267,7 +267,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanHistoryG
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -278,7 +278,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanHistoryG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -289,7 +289,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanHistoryG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -328,7 +328,7 @@ func (r ApiApiV1ServersServeridStacksStacknameVulnscanPostRequest) StartScanRequ
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameVulnscanPostRequest) Execute() (*StartScanResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameVulnscanPostRequest) Execute() (*ResponseStartScanData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameVulnscanPostExecute(r)
 }
 
@@ -352,13 +352,13 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanPost(ctx
 }
 
 // Execute executes the request
-//  @return StartScanResponse
-func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanPostExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanPostRequest) (*StartScanResponse, *http.Response, error) {
+//  @return ResponseStartScanData
+func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanPostExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanPostRequest) (*ResponseStartScanData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StartScanResponse
+		localVarReturnValue  *ResponseStartScanData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VulnscanAPIService.ApiV1ServersServeridStacksStacknameVulnscanPost")
@@ -419,7 +419,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanPostExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -430,7 +430,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -441,7 +441,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -480,7 +480,7 @@ func (r ApiApiV1ServersServeridStacksStacknameVulnscanTrendGetRequest) Limit(lim
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameVulnscanTrendGetRequest) Execute() (*GetScanTrendResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameVulnscanTrendGetRequest) Execute() (*ResponseGetScanTrendData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameVulnscanTrendGetExecute(r)
 }
 
@@ -504,13 +504,13 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanTrendGet
 }
 
 // Execute executes the request
-//  @return GetScanTrendResponse
-func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanTrendGetExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanTrendGetRequest) (*GetScanTrendResponse, *http.Response, error) {
+//  @return ResponseGetScanTrendData
+func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanTrendGetExecute(r ApiApiV1ServersServeridStacksStacknameVulnscanTrendGetRequest) (*ResponseGetScanTrendData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetScanTrendResponse
+		localVarReturnValue  *ResponseGetScanTrendData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VulnscanAPIService.ApiV1ServersServeridStacksStacknameVulnscanTrendGet")
@@ -569,7 +569,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanTrendGet
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -580,7 +580,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanTrendGet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -591,7 +591,7 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanTrendGet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -623,7 +623,7 @@ type ApiApiV1VulnscanCompareBaseScanIdCompareScanIdGetRequest struct {
 	compareScanId int32
 }
 
-func (r ApiApiV1VulnscanCompareBaseScanIdCompareScanIdGetRequest) Execute() (*CompareScanResponse, *http.Response, error) {
+func (r ApiApiV1VulnscanCompareBaseScanIdCompareScanIdGetRequest) Execute() (*ResponseCompareScanData, *http.Response, error) {
 	return r.ApiService.ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecute(r)
 }
 
@@ -647,13 +647,13 @@ func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGet(ctx 
 }
 
 // Execute executes the request
-//  @return CompareScanResponse
-func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecute(r ApiApiV1VulnscanCompareBaseScanIdCompareScanIdGetRequest) (*CompareScanResponse, *http.Response, error) {
+//  @return ResponseCompareScanData
+func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecute(r ApiApiV1VulnscanCompareBaseScanIdCompareScanIdGetRequest) (*ResponseCompareScanData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CompareScanResponse
+		localVarReturnValue  *ResponseCompareScanData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VulnscanAPIService.ApiV1VulnscanCompareBaseScanIdCompareScanIdGet")
@@ -709,7 +709,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -720,7 +720,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -731,7 +731,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -742,7 +742,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -753,7 +753,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -784,7 +784,7 @@ type ApiApiV1VulnscanScanidGetRequest struct {
 	scanid int32
 }
 
-func (r ApiApiV1VulnscanScanidGetRequest) Execute() (*GetScanResponse, *http.Response, error) {
+func (r ApiApiV1VulnscanScanidGetRequest) Execute() (*ResponseGetScanData, *http.Response, error) {
 	return r.ApiService.ApiV1VulnscanScanidGetExecute(r)
 }
 
@@ -806,13 +806,13 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidGet(ctx context.Context, scanid 
 }
 
 // Execute executes the request
-//  @return GetScanResponse
-func (a *VulnscanAPIService) ApiV1VulnscanScanidGetExecute(r ApiApiV1VulnscanScanidGetRequest) (*GetScanResponse, *http.Response, error) {
+//  @return ResponseGetScanData
+func (a *VulnscanAPIService) ApiV1VulnscanScanidGetExecute(r ApiApiV1VulnscanScanidGetRequest) (*ResponseGetScanData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetScanResponse
+		localVarReturnValue  *ResponseGetScanData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VulnscanAPIService.ApiV1VulnscanScanidGet")
@@ -867,7 +867,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidGetExecute(r ApiApiV1VulnscanSca
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -878,7 +878,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidGetExecute(r ApiApiV1VulnscanSca
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -889,7 +889,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidGetExecute(r ApiApiV1VulnscanSca
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -920,7 +920,7 @@ type ApiApiV1VulnscanScanidSummaryGetRequest struct {
 	scanid int32
 }
 
-func (r ApiApiV1VulnscanScanidSummaryGetRequest) Execute() (*GetScanSummaryResponse, *http.Response, error) {
+func (r ApiApiV1VulnscanScanidSummaryGetRequest) Execute() (*ResponseGetScanSummaryData, *http.Response, error) {
 	return r.ApiService.ApiV1VulnscanScanidSummaryGetExecute(r)
 }
 
@@ -942,13 +942,13 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGet(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return GetScanSummaryResponse
-func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGetExecute(r ApiApiV1VulnscanScanidSummaryGetRequest) (*GetScanSummaryResponse, *http.Response, error) {
+//  @return ResponseGetScanSummaryData
+func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGetExecute(r ApiApiV1VulnscanScanidSummaryGetRequest) (*ResponseGetScanSummaryData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetScanSummaryResponse
+		localVarReturnValue  *ResponseGetScanSummaryData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VulnscanAPIService.ApiV1VulnscanScanidSummaryGet")
@@ -1003,7 +1003,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGetExecute(r ApiApiV1Vuln
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1014,7 +1014,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGetExecute(r ApiApiV1Vuln
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1025,7 +1025,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGetExecute(r ApiApiV1Vuln
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1036,7 +1036,7 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGetExecute(r ApiApiV1Vuln
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

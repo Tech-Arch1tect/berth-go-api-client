@@ -29,7 +29,7 @@ type ApiApiV1ServersServeridMaintenanceInfoGetRequest struct {
 	serverid int32
 }
 
-func (r ApiApiV1ServersServeridMaintenanceInfoGetRequest) Execute() (*MaintenanceInfo, *http.Response, error) {
+func (r ApiApiV1ServersServeridMaintenanceInfoGetRequest) Execute() (*ResponseMaintenanceInfo, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridMaintenanceInfoGetExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceInfoGet(ctx conte
 }
 
 // Execute executes the request
-//  @return MaintenanceInfo
-func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceInfoGetExecute(r ApiApiV1ServersServeridMaintenanceInfoGetRequest) (*MaintenanceInfo, *http.Response, error) {
+//  @return ResponseMaintenanceInfo
+func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceInfoGetExecute(r ApiApiV1ServersServeridMaintenanceInfoGetRequest) (*ResponseMaintenanceInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MaintenanceInfo
+		localVarReturnValue  *ResponseMaintenanceInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceAPIService.ApiV1ServersServeridMaintenanceInfoGet")
@@ -112,7 +112,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceInfoGetExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -123,7 +123,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceInfoGetExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -134,7 +134,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceInfoGetExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -165,7 +165,7 @@ type ApiApiV1ServersServeridMaintenancePermissionsGetRequest struct {
 	serverid int32
 }
 
-func (r ApiApiV1ServersServeridMaintenancePermissionsGetRequest) Execute() (*PermissionsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridMaintenancePermissionsGetRequest) Execute() (*ResponsePermissionsData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridMaintenancePermissionsGetExecute(r)
 }
 
@@ -187,13 +187,13 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePermissionsGet(ct
 }
 
 // Execute executes the request
-//  @return PermissionsResponse
-func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePermissionsGetExecute(r ApiApiV1ServersServeridMaintenancePermissionsGetRequest) (*PermissionsResponse, *http.Response, error) {
+//  @return ResponsePermissionsData
+func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePermissionsGetExecute(r ApiApiV1ServersServeridMaintenancePermissionsGetRequest) (*ResponsePermissionsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PermissionsResponse
+		localVarReturnValue  *ResponsePermissionsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceAPIService.ApiV1ServersServeridMaintenancePermissionsGet")
@@ -248,7 +248,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePermissionsGetExe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -259,7 +259,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePermissionsGetExe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -297,7 +297,7 @@ func (r ApiApiV1ServersServeridMaintenancePrunePostRequest) PruneRequest(pruneRe
 	return r
 }
 
-func (r ApiApiV1ServersServeridMaintenancePrunePostRequest) Execute() (*PruneResult, *http.Response, error) {
+func (r ApiApiV1ServersServeridMaintenancePrunePostRequest) Execute() (*ResponsePruneResult, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridMaintenancePrunePostExecute(r)
 }
 
@@ -319,13 +319,13 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePost(ctx con
 }
 
 // Execute executes the request
-//  @return PruneResult
-func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePostExecute(r ApiApiV1ServersServeridMaintenancePrunePostRequest) (*PruneResult, *http.Response, error) {
+//  @return ResponsePruneResult
+func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePostExecute(r ApiApiV1ServersServeridMaintenancePrunePostRequest) (*ResponsePruneResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PruneResult
+		localVarReturnValue  *ResponsePruneResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceAPIService.ApiV1ServersServeridMaintenancePrunePost")
@@ -385,7 +385,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePostExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -396,7 +396,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePostExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -407,7 +407,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePostExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -418,7 +418,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePostExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -456,7 +456,7 @@ func (r ApiApiV1ServersServeridMaintenanceResourceDeleteRequest) DeleteRequest(d
 	return r
 }
 
-func (r ApiApiV1ServersServeridMaintenanceResourceDeleteRequest) Execute() (*DeleteResult, *http.Response, error) {
+func (r ApiApiV1ServersServeridMaintenanceResourceDeleteRequest) Execute() (*ResponseDeleteResult, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridMaintenanceResourceDeleteExecute(r)
 }
 
@@ -478,13 +478,13 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDelete(ct
 }
 
 // Execute executes the request
-//  @return DeleteResult
-func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDeleteExecute(r ApiApiV1ServersServeridMaintenanceResourceDeleteRequest) (*DeleteResult, *http.Response, error) {
+//  @return ResponseDeleteResult
+func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDeleteExecute(r ApiApiV1ServersServeridMaintenanceResourceDeleteRequest) (*ResponseDeleteResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteResult
+		localVarReturnValue  *ResponseDeleteResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceAPIService.ApiV1ServersServeridMaintenanceResourceDelete")
@@ -544,7 +544,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDeleteExe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -555,7 +555,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDeleteExe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -566,7 +566,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDeleteExe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -577,7 +577,7 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDeleteExe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ApiV1OperationLogsByOperationIdOperationIdGet
 
-> OperationLogDetailResponse ApiV1OperationLogsByOperationIdOperationIdGet(ctx, operationId).Execute()
+> ResponseOperationLogDetailData ApiV1OperationLogsByOperationIdOperationIdGet(ctx, operationId).Execute()
 
 Get operation log details by operation ID
 
@@ -42,7 +42,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationLogsAPI.ApiV1OperationLogsByOperationIdOperationIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1OperationLogsByOperationIdOperationIdGet`: OperationLogDetailResponse
+	// response from `ApiV1OperationLogsByOperationIdOperationIdGet`: ResponseOperationLogDetailData
 	fmt.Fprintf(os.Stdout, "Response from `OperationLogsAPI.ApiV1OperationLogsByOperationIdOperationIdGet`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OperationLogDetailResponse**](OperationLogDetailResponse.md)
+[**ResponseOperationLogDetailData**](ResponseOperationLogDetailData.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1OperationLogsGet
 
-> PaginatedOperationLogsResponse ApiV1OperationLogsGet(ctx).Page(page).PageSize(pageSize).Search(search).ServerId(serverId).StackName(stackName).Command(command).Status(status).DaysBack(daysBack).Execute()
+> ResponseOperationLogInfo ApiV1OperationLogsGet(ctx).Page(page).PageSize(pageSize).Search(search).ServerId(serverId).StackName(stackName).Command(command).Status(status).DaysBack(daysBack).Execute()
 
 List user's operation logs
 
@@ -119,7 +119,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationLogsAPI.ApiV1OperationLogsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1OperationLogsGet`: PaginatedOperationLogsResponse
+	// response from `ApiV1OperationLogsGet`: ResponseOperationLogInfo
 	fmt.Fprintf(os.Stdout, "Response from `OperationLogsAPI.ApiV1OperationLogsGet`: %v\n", resp)
 }
 ```
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedOperationLogsResponse**](PaginatedOperationLogsResponse.md)
+[**ResponseOperationLogInfo**](ResponseOperationLogInfo.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1OperationLogsIdGet
 
-> OperationLogDetailResponse ApiV1OperationLogsIdGet(ctx, id).Execute()
+> ResponseOperationLogDetailData ApiV1OperationLogsIdGet(ctx, id).Execute()
 
 Get operation log details
 
@@ -192,7 +192,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationLogsAPI.ApiV1OperationLogsIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1OperationLogsIdGet`: OperationLogDetailResponse
+	// response from `ApiV1OperationLogsIdGet`: ResponseOperationLogDetailData
 	fmt.Fprintf(os.Stdout, "Response from `OperationLogsAPI.ApiV1OperationLogsIdGet`: %v\n", resp)
 }
 ```
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OperationLogDetailResponse**](OperationLogDetailResponse.md)
+[**ResponseOperationLogDetailData**](ResponseOperationLogDetailData.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1OperationLogsStatsGet
 
-> OperationLogStatsResponse ApiV1OperationLogsStatsGet(ctx).Execute()
+> ResponseOperationLogStatsData ApiV1OperationLogsStatsGet(ctx).Execute()
 
 Get user's operation logs statistics
 
@@ -261,7 +261,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationLogsAPI.ApiV1OperationLogsStatsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1OperationLogsStatsGet`: OperationLogStatsResponse
+	// response from `ApiV1OperationLogsStatsGet`: ResponseOperationLogStatsData
 	fmt.Fprintf(os.Stdout, "Response from `OperationLogsAPI.ApiV1OperationLogsStatsGet`: %v\n", resp)
 }
 ```
@@ -277,7 +277,7 @@ Other parameters are passed through a pointer to a apiApiV1OperationLogsStatsGet
 
 ### Return type
 
-[**OperationLogStatsResponse**](OperationLogStatsResponse.md)
+[**ResponseOperationLogStatsData**](ResponseOperationLogStatsData.md)
 
 ### Authorization
 
@@ -295,7 +295,7 @@ Other parameters are passed through a pointer to a apiApiV1OperationLogsStatsGet
 
 ## ApiV1RunningOperationsGet
 
-> RunningOperationsResponse ApiV1RunningOperationsGet(ctx).Execute()
+> ResponseRunningOperationsData ApiV1RunningOperationsGet(ctx).Execute()
 
 Get running operations
 
@@ -322,7 +322,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationLogsAPI.ApiV1RunningOperationsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1RunningOperationsGet`: RunningOperationsResponse
+	// response from `ApiV1RunningOperationsGet`: ResponseRunningOperationsData
 	fmt.Fprintf(os.Stdout, "Response from `OperationLogsAPI.ApiV1RunningOperationsGet`: %v\n", resp)
 }
 ```
@@ -338,7 +338,7 @@ Other parameters are passed through a pointer to a apiApiV1RunningOperationsGetR
 
 ### Return type
 
-[**RunningOperationsResponse**](RunningOperationsResponse.md)
+[**ResponseRunningOperationsData**](ResponseRunningOperationsData.md)
 
 ### Authorization
 

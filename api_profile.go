@@ -27,7 +27,7 @@ type ApiApiV1ProfileGetRequest struct {
 	ApiService *ProfileAPIService
 }
 
-func (r ApiApiV1ProfileGetRequest) Execute() (*GetProfileResponse, *http.Response, error) {
+func (r ApiApiV1ProfileGetRequest) Execute() (*ResponseUserInfo, *http.Response, error) {
 	return r.ApiService.ApiV1ProfileGetExecute(r)
 }
 
@@ -47,13 +47,13 @@ func (a *ProfileAPIService) ApiV1ProfileGet(ctx context.Context) ApiApiV1Profile
 }
 
 // Execute executes the request
-//  @return GetProfileResponse
-func (a *ProfileAPIService) ApiV1ProfileGetExecute(r ApiApiV1ProfileGetRequest) (*GetProfileResponse, *http.Response, error) {
+//  @return ResponseUserInfo
+func (a *ProfileAPIService) ApiV1ProfileGetExecute(r ApiApiV1ProfileGetRequest) (*ResponseUserInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetProfileResponse
+		localVarReturnValue  *ResponseUserInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfileAPIService.ApiV1ProfileGet")
@@ -107,7 +107,7 @@ func (a *ProfileAPIService) ApiV1ProfileGetExecute(r ApiApiV1ProfileGetRequest) 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -118,7 +118,7 @@ func (a *ProfileAPIService) ApiV1ProfileGetExecute(r ApiApiV1ProfileGetRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

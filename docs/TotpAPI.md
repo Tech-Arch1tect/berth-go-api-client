@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## ApiV1TotpDisablePost
 
-> TOTPMessageResponse ApiV1TotpDisablePost(ctx).TOTPDisableRequest(tOTPDisableRequest).Execute()
+> ResponseTOTPMessageData ApiV1TotpDisablePost(ctx).TOTPDisableRequest(tOTPDisableRequest).Execute()
 
 Disable TOTP
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TotpAPI.ApiV1TotpDisablePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1TotpDisablePost`: TOTPMessageResponse
+	// response from `ApiV1TotpDisablePost`: ResponseTOTPMessageData
 	fmt.Fprintf(os.Stdout, "Response from `TotpAPI.ApiV1TotpDisablePost`: %v\n", resp)
 }
 ```
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TOTPMessageResponse**](TOTPMessageResponse.md)
+[**ResponseTOTPMessageData**](ResponseTOTPMessageData.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1TotpEnablePost
 
-> TOTPMessageResponse ApiV1TotpEnablePost(ctx).TOTPEnableRequest(tOTPEnableRequest).Execute()
+> ResponseTOTPMessageData ApiV1TotpEnablePost(ctx).TOTPEnableRequest(tOTPEnableRequest).Execute()
 
 Enable TOTP
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TotpAPI.ApiV1TotpEnablePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1TotpEnablePost`: TOTPMessageResponse
+	// response from `ApiV1TotpEnablePost`: ResponseTOTPMessageData
 	fmt.Fprintf(os.Stdout, "Response from `TotpAPI.ApiV1TotpEnablePost`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TOTPMessageResponse**](TOTPMessageResponse.md)
+[**ResponseTOTPMessageData**](ResponseTOTPMessageData.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1TotpSetupGet
 
-> TOTPSetupResponse ApiV1TotpSetupGet(ctx).Execute()
+> ResponseTOTPSetupData ApiV1TotpSetupGet(ctx).Execute()
 
 Get TOTP setup information
 
@@ -172,7 +172,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TotpAPI.ApiV1TotpSetupGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1TotpSetupGet`: TOTPSetupResponse
+	// response from `ApiV1TotpSetupGet`: ResponseTOTPSetupData
 	fmt.Fprintf(os.Stdout, "Response from `TotpAPI.ApiV1TotpSetupGet`: %v\n", resp)
 }
 ```
@@ -188,7 +188,7 @@ Other parameters are passed through a pointer to a apiApiV1TotpSetupGetRequest s
 
 ### Return type
 
-[**TOTPSetupResponse**](TOTPSetupResponse.md)
+[**ResponseTOTPSetupData**](ResponseTOTPSetupData.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ Other parameters are passed through a pointer to a apiApiV1TotpSetupGetRequest s
 
 ## ApiV1TotpStatusGet
 
-> TOTPStatusResponse ApiV1TotpStatusGet(ctx).Execute()
+> ResponseTOTPStatusData ApiV1TotpStatusGet(ctx).Execute()
 
 Get TOTP status
 
@@ -233,7 +233,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TotpAPI.ApiV1TotpStatusGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1TotpStatusGet`: TOTPStatusResponse
+	// response from `ApiV1TotpStatusGet`: ResponseTOTPStatusData
 	fmt.Fprintf(os.Stdout, "Response from `TotpAPI.ApiV1TotpStatusGet`: %v\n", resp)
 }
 ```
@@ -249,7 +249,7 @@ Other parameters are passed through a pointer to a apiApiV1TotpStatusGetRequest 
 
 ### Return type
 
-[**TOTPStatusResponse**](TOTPStatusResponse.md)
+[**ResponseTOTPStatusData**](ResponseTOTPStatusData.md)
 
 ### Authorization
 

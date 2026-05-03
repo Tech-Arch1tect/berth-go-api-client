@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ApiV1VersionGet
 
-> GetVersionResponse ApiV1VersionGet(ctx).Execute()
+> ResponseVersionData ApiV1VersionGet(ctx).Execute()
 
 Get application version
 
@@ -37,7 +37,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SystemAPI.ApiV1VersionGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1VersionGet`: GetVersionResponse
+	// response from `ApiV1VersionGet`: ResponseVersionData
 	fmt.Fprintf(os.Stdout, "Response from `SystemAPI.ApiV1VersionGet`: %v\n", resp)
 }
 ```
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiApiV1VersionGetRequest str
 
 ### Return type
 
-[**GetVersionResponse**](GetVersionResponse.md)
+[**ResponseVersionData**](ResponseVersionData.md)
 
 ### Authorization
 

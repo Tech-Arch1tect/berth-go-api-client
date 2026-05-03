@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersServeridStacksStacknameVulnscanGet
 
-> GetLatestScanResponse ApiV1ServersServeridStacksStacknameVulnscanGet(ctx, serverid, stackname).Execute()
+> ResponseGetLatestScanData ApiV1ServersServeridStacksStacknameVulnscanGet(ctx, serverid, stackname).Execute()
 
 Get latest scan for stack
 
@@ -45,7 +45,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameVulnscanGet`: GetLatestScanResponse
+	// response from `ApiV1ServersServeridStacksStacknameVulnscanGet`: ResponseGetLatestScanData
 	fmt.Fprintf(os.Stdout, "Response from `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanGet`: %v\n", resp)
 }
 ```
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLatestScanResponse**](GetLatestScanResponse.md)
+[**ResponseGetLatestScanData**](ResponseGetLatestScanData.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameVulnscanHistoryGet
 
-> GetScansHistoryResponse ApiV1ServersServeridStacksStacknameVulnscanHistoryGet(ctx, serverid, stackname).Execute()
+> ResponseGetScansHistoryData ApiV1ServersServeridStacksStacknameVulnscanHistoryGet(ctx, serverid, stackname).Execute()
 
 Get scan history for stack
 
@@ -118,7 +118,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanHistoryGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameVulnscanHistoryGet`: GetScansHistoryResponse
+	// response from `ApiV1ServersServeridStacksStacknameVulnscanHistoryGet`: ResponseGetScansHistoryData
 	fmt.Fprintf(os.Stdout, "Response from `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanHistoryGet`: %v\n", resp)
 }
 ```
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetScansHistoryResponse**](GetScansHistoryResponse.md)
+[**ResponseGetScansHistoryData**](ResponseGetScansHistoryData.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameVulnscanPost
 
-> StartScanResponse ApiV1ServersServeridStacksStacknameVulnscanPost(ctx, serverid, stackname).StartScanRequest(startScanRequest).Execute()
+> ResponseStartScanData ApiV1ServersServeridStacksStacknameVulnscanPost(ctx, serverid, stackname).StartScanRequest(startScanRequest).Execute()
 
 Start vulnerability scan
 
@@ -192,7 +192,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameVulnscanPost`: StartScanResponse
+	// response from `ApiV1ServersServeridStacksStacknameVulnscanPost`: ResponseStartScanData
 	fmt.Fprintf(os.Stdout, "Response from `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanPost`: %v\n", resp)
 }
 ```
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StartScanResponse**](StartScanResponse.md)
+[**ResponseStartScanData**](ResponseStartScanData.md)
 
 ### Authorization
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameVulnscanTrendGet
 
-> GetScanTrendResponse ApiV1ServersServeridStacksStacknameVulnscanTrendGet(ctx, serverid, stackname).Limit(limit).Execute()
+> ResponseGetScanTrendData ApiV1ServersServeridStacksStacknameVulnscanTrendGet(ctx, serverid, stackname).Limit(limit).Execute()
 
 Get scan trend for stack
 
@@ -267,7 +267,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanTrendGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameVulnscanTrendGet`: GetScanTrendResponse
+	// response from `ApiV1ServersServeridStacksStacknameVulnscanTrendGet`: ResponseGetScanTrendData
 	fmt.Fprintf(os.Stdout, "Response from `VulnscanAPI.ApiV1ServersServeridStacksStacknameVulnscanTrendGet`: %v\n", resp)
 }
 ```
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetScanTrendResponse**](GetScanTrendResponse.md)
+[**ResponseGetScanTrendData**](ResponseGetScanTrendData.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1VulnscanCompareBaseScanIdCompareScanIdGet
 
-> CompareScanResponse ApiV1VulnscanCompareBaseScanIdCompareScanIdGet(ctx, baseScanId, compareScanId).Execute()
+> ResponseCompareScanData ApiV1VulnscanCompareBaseScanIdCompareScanIdGet(ctx, baseScanId, compareScanId).Execute()
 
 Compare two scans
 
@@ -341,7 +341,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VulnscanAPI.ApiV1VulnscanCompareBaseScanIdCompareScanIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1VulnscanCompareBaseScanIdCompareScanIdGet`: CompareScanResponse
+	// response from `ApiV1VulnscanCompareBaseScanIdCompareScanIdGet`: ResponseCompareScanData
 	fmt.Fprintf(os.Stdout, "Response from `VulnscanAPI.ApiV1VulnscanCompareBaseScanIdCompareScanIdGet`: %v\n", resp)
 }
 ```
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CompareScanResponse**](CompareScanResponse.md)
+[**ResponseCompareScanData**](ResponseCompareScanData.md)
 
 ### Authorization
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1VulnscanScanidGet
 
-> GetScanResponse ApiV1VulnscanScanidGet(ctx, scanid).Execute()
+> ResponseGetScanData ApiV1VulnscanScanidGet(ctx, scanid).Execute()
 
 Get scan by ID
 
@@ -413,7 +413,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VulnscanAPI.ApiV1VulnscanScanidGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1VulnscanScanidGet`: GetScanResponse
+	// response from `ApiV1VulnscanScanidGet`: ResponseGetScanData
 	fmt.Fprintf(os.Stdout, "Response from `VulnscanAPI.ApiV1VulnscanScanidGet`: %v\n", resp)
 }
 ```
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetScanResponse**](GetScanResponse.md)
+[**ResponseGetScanData**](ResponseGetScanData.md)
 
 ### Authorization
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1VulnscanScanidSummaryGet
 
-> GetScanSummaryResponse ApiV1VulnscanScanidSummaryGet(ctx, scanid).Execute()
+> ResponseGetScanSummaryData ApiV1VulnscanScanidSummaryGet(ctx, scanid).Execute()
 
 Get scan summary
 
@@ -483,7 +483,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VulnscanAPI.ApiV1VulnscanScanidSummaryGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1VulnscanScanidSummaryGet`: GetScanSummaryResponse
+	// response from `ApiV1VulnscanScanidSummaryGet`: ResponseGetScanSummaryData
 	fmt.Fprintf(os.Stdout, "Response from `VulnscanAPI.ApiV1VulnscanScanidSummaryGet`: %v\n", resp)
 }
 ```
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetScanSummaryResponse**](GetScanSummaryResponse.md)
+[**ResponseGetScanSummaryData**](ResponseGetScanSummaryData.md)
 
 ### Authorization
 

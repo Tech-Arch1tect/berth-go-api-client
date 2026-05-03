@@ -29,7 +29,7 @@ type ApiApiV1ServersServeridRegistriesGetRequest struct {
 	serverid int32
 }
 
-func (r ApiApiV1ServersServeridRegistriesGetRequest) Execute() (*ListCredentialsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridRegistriesGetRequest) Execute() (*ResponseListCredentialsData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridRegistriesGetExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesGet(ctx context.Con
 }
 
 // Execute executes the request
-//  @return ListCredentialsResponse
-func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesGetExecute(r ApiApiV1ServersServeridRegistriesGetRequest) (*ListCredentialsResponse, *http.Response, error) {
+//  @return ResponseListCredentialsData
+func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesGetExecute(r ApiApiV1ServersServeridRegistriesGetRequest) (*ResponseListCredentialsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListCredentialsResponse
+		localVarReturnValue  *ResponseListCredentialsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesAPIService.ApiV1ServersServeridRegistriesGet")
@@ -112,7 +112,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesGetExecute(r ApiApi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -123,7 +123,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesGetExecute(r ApiApi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -134,7 +134,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesGetExecute(r ApiApi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -166,7 +166,7 @@ type ApiApiV1ServersServeridRegistriesIdDeleteRequest struct {
 	id int32
 }
 
-func (r ApiApiV1ServersServeridRegistriesIdDeleteRequest) Execute() (*DeleteCredentialResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridRegistriesIdDeleteRequest) Execute() (*ResponseDeleteCredentialMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridRegistriesIdDeleteExecute(r)
 }
 
@@ -190,13 +190,13 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDelete(ctx contex
 }
 
 // Execute executes the request
-//  @return DeleteCredentialResponse
-func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDeleteExecute(r ApiApiV1ServersServeridRegistriesIdDeleteRequest) (*DeleteCredentialResponse, *http.Response, error) {
+//  @return ResponseDeleteCredentialMessageData
+func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDeleteExecute(r ApiApiV1ServersServeridRegistriesIdDeleteRequest) (*ResponseDeleteCredentialMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteCredentialResponse
+		localVarReturnValue  *ResponseDeleteCredentialMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesAPIService.ApiV1ServersServeridRegistriesIdDelete")
@@ -252,7 +252,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDeleteExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -263,7 +263,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDeleteExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -274,7 +274,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDeleteExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -285,7 +285,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDeleteExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -317,7 +317,7 @@ type ApiApiV1ServersServeridRegistriesIdGetRequest struct {
 	id int32
 }
 
-func (r ApiApiV1ServersServeridRegistriesIdGetRequest) Execute() (*GetCredentialResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridRegistriesIdGetRequest) Execute() (*ResponseGetCredentialData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridRegistriesIdGetExecute(r)
 }
 
@@ -341,13 +341,13 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGet(ctx context.C
 }
 
 // Execute executes the request
-//  @return GetCredentialResponse
-func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGetExecute(r ApiApiV1ServersServeridRegistriesIdGetRequest) (*GetCredentialResponse, *http.Response, error) {
+//  @return ResponseGetCredentialData
+func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGetExecute(r ApiApiV1ServersServeridRegistriesIdGetRequest) (*ResponseGetCredentialData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCredentialResponse
+		localVarReturnValue  *ResponseGetCredentialData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesAPIService.ApiV1ServersServeridRegistriesIdGet")
@@ -403,7 +403,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGetExecute(r ApiA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -414,7 +414,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -425,7 +425,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -436,7 +436,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -475,7 +475,7 @@ func (r ApiApiV1ServersServeridRegistriesIdPutRequest) UpdateCredentialRequest(u
 	return r
 }
 
-func (r ApiApiV1ServersServeridRegistriesIdPutRequest) Execute() (*UpdateCredentialResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridRegistriesIdPutRequest) Execute() (*ResponseGetCredentialData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridRegistriesIdPutExecute(r)
 }
 
@@ -499,13 +499,13 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPut(ctx context.C
 }
 
 // Execute executes the request
-//  @return UpdateCredentialResponse
-func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiApiV1ServersServeridRegistriesIdPutRequest) (*UpdateCredentialResponse, *http.Response, error) {
+//  @return ResponseGetCredentialData
+func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiApiV1ServersServeridRegistriesIdPutRequest) (*ResponseGetCredentialData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateCredentialResponse
+		localVarReturnValue  *ResponseGetCredentialData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesAPIService.ApiV1ServersServeridRegistriesIdPut")
@@ -566,7 +566,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -577,7 +577,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -588,7 +588,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -599,7 +599,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -610,7 +610,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -648,7 +648,7 @@ func (r ApiApiV1ServersServeridRegistriesPostRequest) CreateCredentialRequest(cr
 	return r
 }
 
-func (r ApiApiV1ServersServeridRegistriesPostRequest) Execute() (*CreateCredentialResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridRegistriesPostRequest) Execute() (*ResponseGetCredentialData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridRegistriesPostExecute(r)
 }
 
@@ -670,13 +670,13 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPost(ctx context.Co
 }
 
 // Execute executes the request
-//  @return CreateCredentialResponse
-func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPostExecute(r ApiApiV1ServersServeridRegistriesPostRequest) (*CreateCredentialResponse, *http.Response, error) {
+//  @return ResponseGetCredentialData
+func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPostExecute(r ApiApiV1ServersServeridRegistriesPostRequest) (*ResponseGetCredentialData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCredentialResponse
+		localVarReturnValue  *ResponseGetCredentialData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesAPIService.ApiV1ServersServeridRegistriesPost")
@@ -736,7 +736,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPostExecute(r ApiAp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -747,7 +747,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPostExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -758,7 +758,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPostExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -769,7 +769,7 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPostExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

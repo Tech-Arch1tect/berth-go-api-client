@@ -34,7 +34,7 @@ func (r ApiApiV1SessionsPostRequest) GetSessionsRequest(getSessionsRequest GetSe
 	return r
 }
 
-func (r ApiApiV1SessionsPostRequest) Execute() (*GetSessionsResponse, *http.Response, error) {
+func (r ApiApiV1SessionsPostRequest) Execute() (*ResponseGetSessionsData, *http.Response, error) {
 	return r.ApiService.ApiV1SessionsPostExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *SessionsAPIService) ApiV1SessionsPost(ctx context.Context) ApiApiV1Sess
 }
 
 // Execute executes the request
-//  @return GetSessionsResponse
-func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequest) (*GetSessionsResponse, *http.Response, error) {
+//  @return ResponseGetSessionsData
+func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequest) (*ResponseGetSessionsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSessionsResponse
+		localVarReturnValue  *ResponseGetSessionsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionsAPIService.ApiV1SessionsPost")
@@ -119,7 +119,7 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -130,7 +130,7 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -141,7 +141,7 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -152,7 +152,7 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v AuthErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -189,7 +189,7 @@ func (r ApiApiV1SessionsRevokeAllOthersPostRequest) RevokeAllOtherSessionsReques
 	return r
 }
 
-func (r ApiApiV1SessionsRevokeAllOthersPostRequest) Execute() (*SessionMessageResponse, *http.Response, error) {
+func (r ApiApiV1SessionsRevokeAllOthersPostRequest) Execute() (*ResponseSessionMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1SessionsRevokeAllOthersPostExecute(r)
 }
 
@@ -209,13 +209,13 @@ func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPost(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return SessionMessageResponse
-func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1SessionsRevokeAllOthersPostRequest) (*SessionMessageResponse, *http.Response, error) {
+//  @return ResponseSessionMessageData
+func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1SessionsRevokeAllOthersPostRequest) (*ResponseSessionMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SessionMessageResponse
+		localVarReturnValue  *ResponseSessionMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionsAPIService.ApiV1SessionsRevokeAllOthersPost")
@@ -274,7 +274,7 @@ func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1S
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -285,7 +285,7 @@ func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1S
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -296,7 +296,7 @@ func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1S
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -333,7 +333,7 @@ func (r ApiApiV1SessionsRevokePostRequest) RevokeSessionRequest(revokeSessionReq
 	return r
 }
 
-func (r ApiApiV1SessionsRevokePostRequest) Execute() (*SessionMessageResponse, *http.Response, error) {
+func (r ApiApiV1SessionsRevokePostRequest) Execute() (*ResponseSessionMessageData, *http.Response, error) {
 	return r.ApiService.ApiV1SessionsRevokePostExecute(r)
 }
 
@@ -353,13 +353,13 @@ func (a *SessionsAPIService) ApiV1SessionsRevokePost(ctx context.Context) ApiApi
 }
 
 // Execute executes the request
-//  @return SessionMessageResponse
-func (a *SessionsAPIService) ApiV1SessionsRevokePostExecute(r ApiApiV1SessionsRevokePostRequest) (*SessionMessageResponse, *http.Response, error) {
+//  @return ResponseSessionMessageData
+func (a *SessionsAPIService) ApiV1SessionsRevokePostExecute(r ApiApiV1SessionsRevokePostRequest) (*ResponseSessionMessageData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SessionMessageResponse
+		localVarReturnValue  *ResponseSessionMessageData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionsAPIService.ApiV1SessionsRevokePost")
@@ -418,7 +418,7 @@ func (a *SessionsAPIService) ApiV1SessionsRevokePostExecute(r ApiApiV1SessionsRe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -429,7 +429,7 @@ func (a *SessionsAPIService) ApiV1SessionsRevokePostExecute(r ApiApiV1SessionsRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -440,7 +440,7 @@ func (a *SessionsAPIService) ApiV1SessionsRevokePostExecute(r ApiApiV1SessionsRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -30,7 +30,7 @@ type ApiApiV1ServersServeridStacksStacknameComposeGetRequest struct {
 	stackname string
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameComposeGetRequest) Execute() (*RawComposeConfig, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameComposeGetRequest) Execute() (*ResponseRawComposeConfig, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameComposeGetExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposeGet(ctx co
 }
 
 // Execute executes the request
-//  @return RawComposeConfig
-func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposeGetExecute(r ApiApiV1ServersServeridStacksStacknameComposeGetRequest) (*RawComposeConfig, *http.Response, error) {
+//  @return ResponseRawComposeConfig
+func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposeGetExecute(r ApiApiV1ServersServeridStacksStacknameComposeGetRequest) (*ResponseRawComposeConfig, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RawComposeConfig
+		localVarReturnValue  *ResponseRawComposeConfig
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComposeAPIService.ApiV1ServersServeridStacksStacknameComposeGet")
@@ -116,7 +116,7 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposeGetExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -127,7 +127,7 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposeGetExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -138,7 +138,7 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposeGetExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -177,7 +177,7 @@ func (r ApiApiV1ServersServeridStacksStacknameComposePatchRequest) UpdateCompose
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameComposePatchRequest) Execute() (*UpdateComposeResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameComposePatchRequest) Execute() (*ResponseUpdateComposeResponse, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameComposePatchExecute(r)
 }
 
@@ -201,13 +201,13 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatch(ctx 
 }
 
 // Execute executes the request
-//  @return UpdateComposeResponse
-func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatchExecute(r ApiApiV1ServersServeridStacksStacknameComposePatchRequest) (*UpdateComposeResponse, *http.Response, error) {
+//  @return ResponseUpdateComposeResponse
+func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatchExecute(r ApiApiV1ServersServeridStacksStacknameComposePatchRequest) (*ResponseUpdateComposeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateComposeResponse
+		localVarReturnValue  *ResponseUpdateComposeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComposeAPIService.ApiV1ServersServeridStacksStacknameComposePatch")
@@ -268,7 +268,7 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatchExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -279,7 +279,7 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatchExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -290,7 +290,7 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatchExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -301,7 +301,7 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatchExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

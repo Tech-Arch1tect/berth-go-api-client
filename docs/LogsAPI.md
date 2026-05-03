@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet
 
-> LogsResponse ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet(ctx, serverid, stackname, containerName).Tail(tail).Since(since).Timestamps(timestamps).Execute()
+> ResponseLogsData ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet(ctx, serverid, stackname, containerName).Tail(tail).Since(since).Timestamps(timestamps).Execute()
 
 Get container logs
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet`: LogsResponse
+	// response from `ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet`: ResponseLogsData
 	fmt.Fprintf(os.Stdout, "Response from `LogsAPI.ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet`: %v\n", resp)
 }
 ```
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogsResponse**](LogsResponse.md)
+[**ResponseLogsData**](ResponseLogsData.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ServersServeridStacksStacknameLogsGet
 
-> LogsResponse ApiV1ServersServeridStacksStacknameLogsGet(ctx, serverid, stackname).Tail(tail).Since(since).Timestamps(timestamps).Execute()
+> ResponseLogsData ApiV1ServersServeridStacksStacknameLogsGet(ctx, serverid, stackname).Tail(tail).Since(since).Timestamps(timestamps).Execute()
 
 Get stack logs
 
@@ -125,7 +125,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.ApiV1ServersServeridStacksStacknameLogsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStacksStacknameLogsGet`: LogsResponse
+	// response from `ApiV1ServersServeridStacksStacknameLogsGet`: ResponseLogsData
 	fmt.Fprintf(os.Stdout, "Response from `LogsAPI.ApiV1ServersServeridStacksStacknameLogsGet`: %v\n", resp)
 }
 ```
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogsResponse**](LogsResponse.md)
+[**ResponseLogsData**](ResponseLogsData.md)
 
 ### Authorization
 

@@ -28,7 +28,7 @@ type ApiApiV1ImageUpdatesGetRequest struct {
 	ApiService *ImageUpdatesAPIService
 }
 
-func (r ApiApiV1ImageUpdatesGetRequest) Execute() (*ImageUpdatesResponse, *http.Response, error) {
+func (r ApiApiV1ImageUpdatesGetRequest) Execute() (*ResponseImageUpdatesData, *http.Response, error) {
 	return r.ApiService.ApiV1ImageUpdatesGetExecute(r)
 }
 
@@ -48,13 +48,13 @@ func (a *ImageUpdatesAPIService) ApiV1ImageUpdatesGet(ctx context.Context) ApiAp
 }
 
 // Execute executes the request
-//  @return ImageUpdatesResponse
-func (a *ImageUpdatesAPIService) ApiV1ImageUpdatesGetExecute(r ApiApiV1ImageUpdatesGetRequest) (*ImageUpdatesResponse, *http.Response, error) {
+//  @return ResponseImageUpdatesData
+func (a *ImageUpdatesAPIService) ApiV1ImageUpdatesGetExecute(r ApiApiV1ImageUpdatesGetRequest) (*ResponseImageUpdatesData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ImageUpdatesResponse
+		localVarReturnValue  *ResponseImageUpdatesData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageUpdatesAPIService.ApiV1ImageUpdatesGet")
@@ -108,7 +108,7 @@ func (a *ImageUpdatesAPIService) ApiV1ImageUpdatesGetExecute(r ApiApiV1ImageUpda
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -119,7 +119,7 @@ func (a *ImageUpdatesAPIService) ApiV1ImageUpdatesGetExecute(r ApiApiV1ImageUpda
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiApiV1ServersServeridImageUpdatesGetRequest struct {
 	serverid int32
 }
 
-func (r ApiApiV1ServersServeridImageUpdatesGetRequest) Execute() (*ImageUpdatesResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridImageUpdatesGetRequest) Execute() (*ResponseImageUpdatesData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridImageUpdatesGetExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGet(ctx context
 }
 
 // Execute executes the request
-//  @return ImageUpdatesResponse
-func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGetExecute(r ApiApiV1ServersServeridImageUpdatesGetRequest) (*ImageUpdatesResponse, *http.Response, error) {
+//  @return ResponseImageUpdatesData
+func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGetExecute(r ApiApiV1ServersServeridImageUpdatesGetRequest) (*ResponseImageUpdatesData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ImageUpdatesResponse
+		localVarReturnValue  *ResponseImageUpdatesData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageUpdatesAPIService.ApiV1ServersServeridImageUpdatesGet")
@@ -233,7 +233,7 @@ func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGetExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGetExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -255,7 +255,7 @@ func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGetExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -266,7 +266,7 @@ func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGetExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

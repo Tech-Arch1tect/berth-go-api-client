@@ -28,7 +28,7 @@ type ApiApiV1ServersGetRequest struct {
 	ApiService *ServersAPIService
 }
 
-func (r ApiApiV1ServersGetRequest) Execute() (*ListServersResponse, *http.Response, error) {
+func (r ApiApiV1ServersGetRequest) Execute() (*ResponseListServersData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersGetExecute(r)
 }
 
@@ -48,13 +48,13 @@ func (a *ServersAPIService) ApiV1ServersGet(ctx context.Context) ApiApiV1Servers
 }
 
 // Execute executes the request
-//  @return ListServersResponse
-func (a *ServersAPIService) ApiV1ServersGetExecute(r ApiApiV1ServersGetRequest) (*ListServersResponse, *http.Response, error) {
+//  @return ResponseListServersData
+func (a *ServersAPIService) ApiV1ServersGetExecute(r ApiApiV1ServersGetRequest) (*ResponseListServersData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServersResponse
+		localVarReturnValue  *ResponseListServersData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServersAPIService.ApiV1ServersGet")
@@ -108,7 +108,7 @@ func (a *ServersAPIService) ApiV1ServersGetExecute(r ApiApiV1ServersGetRequest) 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -119,7 +119,7 @@ func (a *ServersAPIService) ApiV1ServersGetExecute(r ApiApiV1ServersGetRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiApiV1ServersServeridStatisticsGetRequest struct {
 	serverid int32
 }
 
-func (r ApiApiV1ServersServeridStatisticsGetRequest) Execute() (*ServerStatisticsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStatisticsGetRequest) Execute() (*ResponseServerStatisticsData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStatisticsGetExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *ServersAPIService) ApiV1ServersServeridStatisticsGet(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return ServerStatisticsResponse
-func (a *ServersAPIService) ApiV1ServersServeridStatisticsGetExecute(r ApiApiV1ServersServeridStatisticsGetRequest) (*ServerStatisticsResponse, *http.Response, error) {
+//  @return ResponseServerStatisticsData
+func (a *ServersAPIService) ApiV1ServersServeridStatisticsGetExecute(r ApiApiV1ServersServeridStatisticsGetRequest) (*ResponseServerStatisticsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ServerStatisticsResponse
+		localVarReturnValue  *ResponseServerStatisticsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServersAPIService.ApiV1ServersServeridStatisticsGet")
@@ -233,7 +233,7 @@ func (a *ServersAPIService) ApiV1ServersServeridStatisticsGetExecute(r ApiApiV1S
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,18 +244,7 @@ func (a *ServersAPIService) ApiV1ServersServeridStatisticsGetExecute(r ApiApiV1S
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -266,7 +255,7 @@ func (a *ServersAPIService) ApiV1ServersServeridStatisticsGetExecute(r ApiApiV1S
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

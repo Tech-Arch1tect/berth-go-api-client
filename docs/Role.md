@@ -11,13 +11,12 @@ Name | Type | Description | Notes
 **IsAdmin** | **bool** |  | 
 **Name** | **string** |  | 
 **UpdatedAt** | **time.Time** |  | 
-**Users** | [**[]User**](User.md) |  | 
 
 ## Methods
 
 ### NewRole
 
-`func NewRole(createdAt time.Time, description string, id int32, isAdmin bool, name string, updatedAt time.Time, users []User, ) *Role`
+`func NewRole(createdAt time.Time, description string, id int32, isAdmin bool, name string, updatedAt time.Time, ) *Role`
 
 NewRole instantiates a new Role object
 This constructor will assign default values to properties that have it defined,
@@ -175,26 +174,6 @@ and a boolean to check if the value has been set.
 `func (o *Role) SetUpdatedAt(v time.Time)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
-
-
-### GetUsers
-
-`func (o *Role) GetUsers() []User`
-
-GetUsers returns the Users field if non-nil, zero value otherwise.
-
-### GetUsersOk
-
-`func (o *Role) GetUsersOk() (*[]User, bool)`
-
-GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUsers
-
-`func (o *Role) SetUsers(v []User)`
-
-SetUsers sets Users field to given value.
 
 
 

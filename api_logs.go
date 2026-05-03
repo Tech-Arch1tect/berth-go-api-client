@@ -52,7 +52,7 @@ func (r ApiApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetRequ
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetRequest) Execute() (*LogsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetRequest) Execute() (*ResponseLogsData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetExecute(r)
 }
 
@@ -78,13 +78,13 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerN
 }
 
 // Execute executes the request
-//  @return LogsResponse
-func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetExecute(r ApiApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetRequest) (*LogsResponse, *http.Response, error) {
+//  @return ResponseLogsData
+func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetExecute(r ApiApiV1ServersServeridStacksStacknameContainersContainerNameLogsGetRequest) (*ResponseLogsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *LogsResponse
+		localVarReturnValue  *ResponseLogsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LogsAPIService.ApiV1ServersServeridStacksStacknameContainersContainerNameLogsGet")
@@ -158,7 +158,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerN
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -169,7 +169,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerN
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -180,7 +180,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerN
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -191,7 +191,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerN
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -202,7 +202,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameContainersContainerN
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -255,7 +255,7 @@ func (r ApiApiV1ServersServeridStacksStacknameLogsGetRequest) Timestamps(timesta
 	return r
 }
 
-func (r ApiApiV1ServersServeridStacksStacknameLogsGetRequest) Execute() (*LogsResponse, *http.Response, error) {
+func (r ApiApiV1ServersServeridStacksStacknameLogsGetRequest) Execute() (*ResponseLogsData, *http.Response, error) {
 	return r.ApiService.ApiV1ServersServeridStacksStacknameLogsGetExecute(r)
 }
 
@@ -279,13 +279,13 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameLogsGet(ctx context.
 }
 
 // Execute executes the request
-//  @return LogsResponse
-func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameLogsGetExecute(r ApiApiV1ServersServeridStacksStacknameLogsGetRequest) (*LogsResponse, *http.Response, error) {
+//  @return ResponseLogsData
+func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameLogsGetExecute(r ApiApiV1ServersServeridStacksStacknameLogsGetRequest) (*ResponseLogsData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *LogsResponse
+		localVarReturnValue  *ResponseLogsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LogsAPIService.ApiV1ServersServeridStacksStacknameLogsGet")
@@ -358,7 +358,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameLogsGetExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -369,7 +369,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameLogsGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -380,7 +380,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameLogsGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -391,7 +391,7 @@ func (a *LogsAPIService) ApiV1ServersServeridStacksStacknameLogsGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ResponseEmpty
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

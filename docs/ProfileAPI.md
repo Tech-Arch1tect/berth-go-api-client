@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ApiV1ProfileGet
 
-> GetProfileResponse ApiV1ProfileGet(ctx).Execute()
+> ResponseUserInfo ApiV1ProfileGet(ctx).Execute()
 
 Get current user profile
 
@@ -37,7 +37,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProfileAPI.ApiV1ProfileGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ProfileGet`: GetProfileResponse
+	// response from `ApiV1ProfileGet`: ResponseUserInfo
 	fmt.Fprintf(os.Stdout, "Response from `ProfileAPI.ApiV1ProfileGet`: %v\n", resp)
 }
 ```
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiApiV1ProfileGetRequest str
 
 ### Return type
 
-[**GetProfileResponse**](GetProfileResponse.md)
+[**ResponseUserInfo**](ResponseUserInfo.md)
 
 ### Authorization
 

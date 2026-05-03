@@ -27,7 +27,7 @@ type ApiApiV1VersionGetRequest struct {
 	ApiService *SystemAPIService
 }
 
-func (r ApiApiV1VersionGetRequest) Execute() (*GetVersionResponse, *http.Response, error) {
+func (r ApiApiV1VersionGetRequest) Execute() (*ResponseVersionData, *http.Response, error) {
 	return r.ApiService.ApiV1VersionGetExecute(r)
 }
 
@@ -47,13 +47,13 @@ func (a *SystemAPIService) ApiV1VersionGet(ctx context.Context) ApiApiV1VersionG
 }
 
 // Execute executes the request
-//  @return GetVersionResponse
-func (a *SystemAPIService) ApiV1VersionGetExecute(r ApiApiV1VersionGetRequest) (*GetVersionResponse, *http.Response, error) {
+//  @return ResponseVersionData
+func (a *SystemAPIService) ApiV1VersionGetExecute(r ApiApiV1VersionGetRequest) (*ResponseVersionData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetVersionResponse
+		localVarReturnValue  *ResponseVersionData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemAPIService.ApiV1VersionGet")
@@ -105,6 +105,17 @@ func (a *SystemAPIService) ApiV1VersionGetExecute(r ApiApiV1VersionGetRequest) (
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

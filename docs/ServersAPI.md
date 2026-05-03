@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ApiV1ServersGet
 
-> ListServersResponse ApiV1ServersGet(ctx).Execute()
+> ResponseListServersData ApiV1ServersGet(ctx).Execute()
 
 List accessible servers
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServersAPI.ApiV1ServersGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersGet`: ListServersResponse
+	// response from `ApiV1ServersGet`: ResponseListServersData
 	fmt.Fprintf(os.Stdout, "Response from `ServersAPI.ApiV1ServersGet`: %v\n", resp)
 }
 ```
@@ -54,7 +54,7 @@ Other parameters are passed through a pointer to a apiApiV1ServersGetRequest str
 
 ### Return type
 
-[**ListServersResponse**](ListServersResponse.md)
+[**ResponseListServersData**](ResponseListServersData.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Other parameters are passed through a pointer to a apiApiV1ServersGetRequest str
 
 ## ApiV1ServersServeridStatisticsGet
 
-> ServerStatisticsResponse ApiV1ServersServeridStatisticsGet(ctx, serverid).Execute()
+> ResponseServerStatisticsData ApiV1ServersServeridStatisticsGet(ctx, serverid).Execute()
 
 Get server statistics
 
@@ -100,7 +100,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServersAPI.ApiV1ServersServeridStatisticsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ServersServeridStatisticsGet`: ServerStatisticsResponse
+	// response from `ApiV1ServersServeridStatisticsGet`: ResponseServerStatisticsData
 	fmt.Fprintf(os.Stdout, "Response from `ServersAPI.ApiV1ServersServeridStatisticsGet`: %v\n", resp)
 }
 ```
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerStatisticsResponse**](ServerStatisticsResponse.md)
+[**ResponseServerStatisticsData**](ResponseServerStatisticsData.md)
 
 ### Authorization
 

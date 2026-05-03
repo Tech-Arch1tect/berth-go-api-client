@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## ApiV1ApiKeysGet
 
-> ListAPIKeysResponse ApiV1ApiKeysGet(ctx).Execute()
+> ResponseAPIKeyInfo ApiV1ApiKeysGet(ctx).Execute()
 
 List API keys
 
@@ -43,7 +43,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.ApiV1ApiKeysGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ApiKeysGet`: ListAPIKeysResponse
+	// response from `ApiV1ApiKeysGet`: ResponseAPIKeyInfo
 	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.ApiV1ApiKeysGet`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Other parameters are passed through a pointer to a apiApiV1ApiKeysGetRequest str
 
 ### Return type
 
-[**ListAPIKeysResponse**](ListAPIKeysResponse.md)
+[**ResponseAPIKeyInfo**](ResponseAPIKeyInfo.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Other parameters are passed through a pointer to a apiApiV1ApiKeysGetRequest str
 
 ## ApiV1ApiKeysIdDelete
 
-> MessageResponse ApiV1ApiKeysIdDelete(ctx, id).Execute()
+> ResponseMessageData3 ApiV1ApiKeysIdDelete(ctx, id).Execute()
 
 Revoke API key
 
@@ -105,7 +105,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.ApiV1ApiKeysIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ApiKeysIdDelete`: MessageResponse
+	// response from `ApiV1ApiKeysIdDelete`: ResponseMessageData3
 	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.ApiV1ApiKeysIdDelete`: %v\n", resp)
 }
 ```
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**ResponseMessageData3**](ResponseMessageData3.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ApiKeysIdGet
 
-> GetAPIKeyResponse ApiV1ApiKeysIdGet(ctx, id).Execute()
+> ResponseAPIKeyInfo2 ApiV1ApiKeysIdGet(ctx, id).Execute()
 
 Get API key
 
@@ -175,7 +175,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.ApiV1ApiKeysIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ApiKeysIdGet`: GetAPIKeyResponse
+	// response from `ApiV1ApiKeysIdGet`: ResponseAPIKeyInfo2
 	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.ApiV1ApiKeysIdGet`: %v\n", resp)
 }
 ```
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAPIKeyResponse**](GetAPIKeyResponse.md)
+[**ResponseAPIKeyInfo2**](ResponseAPIKeyInfo2.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ApiKeysIdScopesGet
 
-> ListScopesResponse ApiV1ApiKeysIdScopesGet(ctx, id).Execute()
+> ResponseAPIKeyScopeInfo ApiV1ApiKeysIdScopesGet(ctx, id).Execute()
 
 List API key scopes
 
@@ -245,7 +245,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.ApiV1ApiKeysIdScopesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ApiKeysIdScopesGet`: ListScopesResponse
+	// response from `ApiV1ApiKeysIdScopesGet`: ResponseAPIKeyScopeInfo
 	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.ApiV1ApiKeysIdScopesGet`: %v\n", resp)
 }
 ```
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListScopesResponse**](ListScopesResponse.md)
+[**ResponseAPIKeyScopeInfo**](ResponseAPIKeyScopeInfo.md)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ApiKeysIdScopesPost
 
-> MessageResponse ApiV1ApiKeysIdScopesPost(ctx, id).AddScopeRequest(addScopeRequest).Execute()
+> ResponseMessageData3 ApiV1ApiKeysIdScopesPost(ctx, id).AddScopeRequest(addScopeRequest).Execute()
 
 Add scope to API key
 
@@ -316,7 +316,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.ApiV1ApiKeysIdScopesPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ApiKeysIdScopesPost`: MessageResponse
+	// response from `ApiV1ApiKeysIdScopesPost`: ResponseMessageData3
 	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.ApiV1ApiKeysIdScopesPost`: %v\n", resp)
 }
 ```
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**ResponseMessageData3**](ResponseMessageData3.md)
 
 ### Authorization
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ApiKeysIdScopesScopeIdDelete
 
-> MessageResponse ApiV1ApiKeysIdScopesScopeIdDelete(ctx, id, scopeId).Execute()
+> ResponseMessageData3 ApiV1ApiKeysIdScopesScopeIdDelete(ctx, id, scopeId).Execute()
 
 Remove scope from API key
 
@@ -388,7 +388,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.ApiV1ApiKeysIdScopesScopeIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ApiKeysIdScopesScopeIdDelete`: MessageResponse
+	// response from `ApiV1ApiKeysIdScopesScopeIdDelete`: ResponseMessageData3
 	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.ApiV1ApiKeysIdScopesScopeIdDelete`: %v\n", resp)
 }
 ```
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**ResponseMessageData3**](ResponseMessageData3.md)
 
 ### Authorization
 
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1ApiKeysPost
 
-> CreateAPIKeyResponse ApiV1ApiKeysPost(ctx).CreateAPIKeyRequest(createAPIKeyRequest).Execute()
+> ResponseCreateAPIKeyData ApiV1ApiKeysPost(ctx).CreateAPIKeyRequest(createAPIKeyRequest).Execute()
 
 Create API key
 
@@ -460,7 +460,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.ApiV1ApiKeysPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1ApiKeysPost`: CreateAPIKeyResponse
+	// response from `ApiV1ApiKeysPost`: ResponseCreateAPIKeyData
 	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.ApiV1ApiKeysPost`: %v\n", resp)
 }
 ```
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateAPIKeyResponse**](CreateAPIKeyResponse.md)
+[**ResponseCreateAPIKeyData**](ResponseCreateAPIKeyData.md)
 
 ### Authorization
 
