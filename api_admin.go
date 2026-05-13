@@ -2072,8 +2072,8 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r Api
 type ApiApiV1AdminSecurityAuditLogsGetRequest struct {
 	ctx context.Context
 	ApiService *AdminAPIService
-	page *int32
 	perPage *int32
+	page *int32
 	eventType *string
 	eventCategory *string
 	severity *string
@@ -2084,15 +2084,15 @@ type ApiApiV1AdminSecurityAuditLogsGetRequest struct {
 	search *string
 }
 
-// Page number
-func (r ApiApiV1AdminSecurityAuditLogsGetRequest) Page(page int32) ApiApiV1AdminSecurityAuditLogsGetRequest {
-	r.page = &page
-	return r
-}
-
 // Number of items per page
 func (r ApiApiV1AdminSecurityAuditLogsGetRequest) PerPage(perPage int32) ApiApiV1AdminSecurityAuditLogsGetRequest {
 	r.perPage = &perPage
+	return r
+}
+
+// Page number
+func (r ApiApiV1AdminSecurityAuditLogsGetRequest) Page(page int32) ApiApiV1AdminSecurityAuditLogsGetRequest {
+	r.page = &page
 	return r
 }
 
@@ -2183,6 +2183,12 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminS
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.perPage == nil {
+		return localVarReturnValue, nil, reportError("perPage is required and must be specified")
+	}
+	if *r.perPage < 1 {
+		return localVarReturnValue, nil, reportError("perPage must be greater than 1")
+	}
 
 	if r.page != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
@@ -2191,13 +2197,7 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminS
 		parameterAddToHeaderOrQuery(localVarQueryParams, "page", defaultValue, "form", "")
 		r.page = &defaultValue
 	}
-	if r.perPage != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "form", "")
-	} else {
-		var defaultValue int32 = 50
-		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", defaultValue, "form", "")
-		r.perPage = &defaultValue
-	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "form", "")
 	if r.eventType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "event_type", r.eventType, "form", "")
 	}

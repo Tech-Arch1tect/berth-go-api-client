@@ -931,7 +931,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1AdminSecurityAuditLogsGet
 
-> ResponseSecurityAuditLogInfo ApiV1AdminSecurityAuditLogsGet(ctx).Page(page).PerPage(perPage).EventType(eventType).EventCategory(eventCategory).Severity(severity).ActorUserId(actorUserId).Success(success).StartDate(startDate).EndDate(endDate).Search(search).Execute()
+> ResponseSecurityAuditLogInfo ApiV1AdminSecurityAuditLogsGet(ctx).PerPage(perPage).Page(page).EventType(eventType).EventCategory(eventCategory).Severity(severity).ActorUserId(actorUserId).Success(success).StartDate(startDate).EndDate(endDate).Search(search).Execute()
 
 List security audit logs
 
@@ -950,8 +950,8 @@ import (
 )
 
 func main() {
+	perPage := int32(56) // int32 | Number of items per page
 	page := int32(56) // int32 | Page number (optional) (default to 1)
-	perPage := int32(56) // int32 | Number of items per page (optional) (default to 50)
 	eventType := "eventType_example" // string | Filter by event type (optional)
 	eventCategory := "eventCategory_example" // string | Filter by event category (optional)
 	severity := "severity_example" // string | Filter by severity (optional)
@@ -963,7 +963,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AdminAPI.ApiV1AdminSecurityAuditLogsGet(context.Background()).Page(page).PerPage(perPage).EventType(eventType).EventCategory(eventCategory).Severity(severity).ActorUserId(actorUserId).Success(success).StartDate(startDate).EndDate(endDate).Search(search).Execute()
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminSecurityAuditLogsGet(context.Background()).PerPage(perPage).Page(page).EventType(eventType).EventCategory(eventCategory).Severity(severity).ActorUserId(actorUserId).Success(success).StartDate(startDate).EndDate(endDate).Search(search).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminSecurityAuditLogsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -984,8 +984,8 @@ Other parameters are passed through a pointer to a apiApiV1AdminSecurityAuditLog
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **perPage** | **int32** | Number of items per page | 
  **page** | **int32** | Page number | [default to 1]
- **perPage** | **int32** | Number of items per page | [default to 50]
  **eventType** | **string** | Filter by event type | 
  **eventCategory** | **string** | Filter by event category | 
  **severity** | **string** | Filter by severity | 

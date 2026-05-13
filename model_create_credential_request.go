@@ -21,10 +21,10 @@ var _ MappedNullable = &CreateCredentialRequest{}
 
 // CreateCredentialRequest struct for CreateCredentialRequest
 type CreateCredentialRequest struct {
-	ImagePattern string `json:"image_pattern"`
+	ImagePattern *string `json:"image_pattern,omitempty"`
 	Password string `json:"password"`
 	RegistryUrl string `json:"registry_url"`
-	StackPattern string `json:"stack_pattern"`
+	StackPattern *string `json:"stack_pattern,omitempty"`
 	Username string `json:"username"`
 }
 
@@ -34,12 +34,10 @@ type _CreateCredentialRequest CreateCredentialRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateCredentialRequest(imagePattern string, password string, registryUrl string, stackPattern string, username string) *CreateCredentialRequest {
+func NewCreateCredentialRequest(password string, registryUrl string, username string) *CreateCredentialRequest {
 	this := CreateCredentialRequest{}
-	this.ImagePattern = imagePattern
 	this.Password = password
 	this.RegistryUrl = registryUrl
-	this.StackPattern = stackPattern
 	this.Username = username
 	return &this
 }
@@ -52,28 +50,36 @@ func NewCreateCredentialRequestWithDefaults() *CreateCredentialRequest {
 	return &this
 }
 
-// GetImagePattern returns the ImagePattern field value
+// GetImagePattern returns the ImagePattern field value if set, zero value otherwise.
 func (o *CreateCredentialRequest) GetImagePattern() string {
-	if o == nil {
+	if o == nil || IsNil(o.ImagePattern) {
 		var ret string
 		return ret
 	}
-
-	return o.ImagePattern
+	return *o.ImagePattern
 }
 
-// GetImagePatternOk returns a tuple with the ImagePattern field value
+// GetImagePatternOk returns a tuple with the ImagePattern field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateCredentialRequest) GetImagePatternOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImagePattern) {
 		return nil, false
 	}
-	return &o.ImagePattern, true
+	return o.ImagePattern, true
 }
 
-// SetImagePattern sets field value
+// HasImagePattern returns a boolean if a field has been set.
+func (o *CreateCredentialRequest) HasImagePattern() bool {
+	if o != nil && !IsNil(o.ImagePattern) {
+		return true
+	}
+
+	return false
+}
+
+// SetImagePattern gets a reference to the given string and assigns it to the ImagePattern field.
 func (o *CreateCredentialRequest) SetImagePattern(v string) {
-	o.ImagePattern = v
+	o.ImagePattern = &v
 }
 
 // GetPassword returns the Password field value
@@ -124,28 +130,36 @@ func (o *CreateCredentialRequest) SetRegistryUrl(v string) {
 	o.RegistryUrl = v
 }
 
-// GetStackPattern returns the StackPattern field value
+// GetStackPattern returns the StackPattern field value if set, zero value otherwise.
 func (o *CreateCredentialRequest) GetStackPattern() string {
-	if o == nil {
+	if o == nil || IsNil(o.StackPattern) {
 		var ret string
 		return ret
 	}
-
-	return o.StackPattern
+	return *o.StackPattern
 }
 
-// GetStackPatternOk returns a tuple with the StackPattern field value
+// GetStackPatternOk returns a tuple with the StackPattern field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateCredentialRequest) GetStackPatternOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StackPattern) {
 		return nil, false
 	}
-	return &o.StackPattern, true
+	return o.StackPattern, true
 }
 
-// SetStackPattern sets field value
+// HasStackPattern returns a boolean if a field has been set.
+func (o *CreateCredentialRequest) HasStackPattern() bool {
+	if o != nil && !IsNil(o.StackPattern) {
+		return true
+	}
+
+	return false
+}
+
+// SetStackPattern gets a reference to the given string and assigns it to the StackPattern field.
 func (o *CreateCredentialRequest) SetStackPattern(v string) {
-	o.StackPattern = v
+	o.StackPattern = &v
 }
 
 // GetUsername returns the Username field value
@@ -182,10 +196,14 @@ func (o CreateCredentialRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateCredentialRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["image_pattern"] = o.ImagePattern
+	if !IsNil(o.ImagePattern) {
+		toSerialize["image_pattern"] = o.ImagePattern
+	}
 	toSerialize["password"] = o.Password
 	toSerialize["registry_url"] = o.RegistryUrl
-	toSerialize["stack_pattern"] = o.StackPattern
+	if !IsNil(o.StackPattern) {
+		toSerialize["stack_pattern"] = o.StackPattern
+	}
 	toSerialize["username"] = o.Username
 	return toSerialize, nil
 }
@@ -195,10 +213,8 @@ func (o *CreateCredentialRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"image_pattern",
 		"password",
 		"registry_url",
-		"stack_pattern",
 		"username",
 	}
 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImagePattern** | **string** |  | 
+**ImagePattern** | Pointer to **string** |  | [optional] 
 **Password** | **string** |  | 
 **RegistryUrl** | **string** |  | 
-**StackPattern** | **string** |  | 
+**StackPattern** | Pointer to **string** |  | [optional] 
 **Username** | **string** |  | 
 
 ## Methods
 
 ### NewCreateCredentialRequest
 
-`func NewCreateCredentialRequest(imagePattern string, password string, registryUrl string, stackPattern string, username string, ) *CreateCredentialRequest`
+`func NewCreateCredentialRequest(password string, registryUrl string, username string, ) *CreateCredentialRequest`
 
 NewCreateCredentialRequest instantiates a new CreateCredentialRequest object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetImagePattern sets ImagePattern field to given value.
 
+### HasImagePattern
+
+`func (o *CreateCredentialRequest) HasImagePattern() bool`
+
+HasImagePattern returns a boolean if a field has been set.
 
 ### GetPassword
 
@@ -108,6 +113,11 @@ and a boolean to check if the value has been set.
 
 SetStackPattern sets StackPattern field to given value.
 
+### HasStackPattern
+
+`func (o *CreateCredentialRequest) HasStackPattern() bool`
+
+HasStackPattern returns a boolean if a field has been set.
 
 ### GetUsername
 

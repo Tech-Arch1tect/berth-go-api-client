@@ -251,7 +251,7 @@ import (
 func main() {
 	serverid := int32(56) // int32 | Server ID
 	id := int32(56) // int32 | Credential ID
-	updateCredentialRequest := *openapiclient.NewUpdateCredentialRequest("ImagePattern_example", "Password_example", "RegistryUrl_example", "StackPattern_example", "Username_example") // UpdateCredentialRequest | Updated registry credential details
+	updateCredentialRequest := *openapiclient.NewUpdateCredentialRequest("RegistryUrl_example", "Username_example") // UpdateCredentialRequest | Updated registry credential details
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -325,7 +325,7 @@ import (
 
 func main() {
 	serverid := int32(56) // int32 | Server ID
-	createCredentialRequest := *openapiclient.NewCreateCredentialRequest("ImagePattern_example", "Password_example", "RegistryUrl_example", "StackPattern_example", "Username_example") // CreateCredentialRequest | Registry credential details
+	createCredentialRequest := *openapiclient.NewCreateCredentialRequest("Password_example", "RegistryUrl_example", "Username_example") // CreateCredentialRequest | Registry credential details
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

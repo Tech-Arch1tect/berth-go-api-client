@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImagePattern** | **string** |  | 
-**Password** | **string** |  | 
+**ImagePattern** | Pointer to **string** |  | [optional] 
+**Password** | Pointer to **string** |  | [optional] 
 **RegistryUrl** | **string** |  | 
-**StackPattern** | **string** |  | 
+**StackPattern** | Pointer to **string** |  | [optional] 
 **Username** | **string** |  | 
 
 ## Methods
 
 ### NewUpdateCredentialRequest
 
-`func NewUpdateCredentialRequest(imagePattern string, password string, registryUrl string, stackPattern string, username string, ) *UpdateCredentialRequest`
+`func NewUpdateCredentialRequest(registryUrl string, username string, ) *UpdateCredentialRequest`
 
 NewUpdateCredentialRequest instantiates a new UpdateCredentialRequest object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetImagePattern sets ImagePattern field to given value.
 
+### HasImagePattern
+
+`func (o *UpdateCredentialRequest) HasImagePattern() bool`
+
+HasImagePattern returns a boolean if a field has been set.
 
 ### GetPassword
 
@@ -68,6 +73,11 @@ and a boolean to check if the value has been set.
 
 SetPassword sets Password field to given value.
 
+### HasPassword
+
+`func (o *UpdateCredentialRequest) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
 
 ### GetRegistryUrl
 
@@ -108,6 +118,11 @@ and a boolean to check if the value has been set.
 
 SetStackPattern sets StackPattern field to given value.
 
+### HasStackPattern
+
+`func (o *UpdateCredentialRequest) HasStackPattern() bool`
+
+HasStackPattern returns a boolean if a field has been set.
 
 ### GetUsername
 

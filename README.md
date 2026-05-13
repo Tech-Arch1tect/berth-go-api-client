@@ -188,7 +188,6 @@ Class | Method | HTTP request | Description
  - [AuthRefreshData](docs/AuthRefreshData.md)
  - [AuthRefreshRequest](docs/AuthRefreshRequest.md)
  - [AuthTOTPVerifyRequest](docs/AuthTOTPVerifyRequest.md)
- - [BaseModel](docs/BaseModel.md)
  - [BuildCacheInfo](docs/BuildCacheInfo.md)
  - [BuildCacheSummary](docs/BuildCacheSummary.md)
  - [BuildConfig](docs/BuildConfig.md)
