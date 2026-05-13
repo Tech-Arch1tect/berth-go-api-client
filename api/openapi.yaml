@@ -14994,12 +14994,9 @@ components:
           type: boolean
       required:
       - access_token
-      - description
       - host
-      - is_active
       - name
       - port
-      - skip_ssl_verification
       type: object
     ServerInfo:
       example:
@@ -15111,13 +15108,9 @@ components:
           nullable: true
           type: boolean
       required:
-      - access_token
-      - description
       - host
-      - is_active
       - name
       - port
-      - skip_ssl_verification
       type: object
     ServiceChanges:
       example:

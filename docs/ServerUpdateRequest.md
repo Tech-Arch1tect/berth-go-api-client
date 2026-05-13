@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessToken** | **string** |  | 
-**Description** | **string** |  | 
+**AccessToken** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **Host** | **string** |  | 
-**IsActive** | **bool** |  | 
+**IsActive** | Pointer to **bool** |  | [optional] 
 **Name** | **string** |  | 
 **Port** | **int32** |  | 
-**SkipSslVerification** | **NullableBool** |  | 
+**SkipSslVerification** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
 ### NewServerUpdateRequest
 
-`func NewServerUpdateRequest(accessToken string, description string, host string, isActive bool, name string, port int32, skipSslVerification NullableBool, ) *ServerUpdateRequest`
+`func NewServerUpdateRequest(host string, name string, port int32, ) *ServerUpdateRequest`
 
 NewServerUpdateRequest instantiates a new ServerUpdateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +50,11 @@ and a boolean to check if the value has been set.
 
 SetAccessToken sets AccessToken field to given value.
 
+### HasAccessToken
+
+`func (o *ServerUpdateRequest) HasAccessToken() bool`
+
+HasAccessToken returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -70,6 +75,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *ServerUpdateRequest) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetHost
 
@@ -110,6 +120,11 @@ and a boolean to check if the value has been set.
 
 SetIsActive sets IsActive field to given value.
 
+### HasIsActive
+
+`func (o *ServerUpdateRequest) HasIsActive() bool`
+
+HasIsActive returns a boolean if a field has been set.
 
 ### GetName
 
@@ -170,6 +185,11 @@ and a boolean to check if the value has been set.
 
 SetSkipSslVerification sets SkipSslVerification field to given value.
 
+### HasSkipSslVerification
+
+`func (o *ServerUpdateRequest) HasSkipSslVerification() bool`
+
+HasSkipSslVerification returns a boolean if a field has been set.
 
 ### SetSkipSslVerificationNil
 

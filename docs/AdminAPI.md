@@ -1367,7 +1367,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | Server ID
-	serverUpdateRequest := *openapiclient.NewServerUpdateRequest("AccessToken_example", "Description_example", "Host_example", false, "Name_example", int32(123), false) // ServerUpdateRequest | Server details
+	serverUpdateRequest := *openapiclient.NewServerUpdateRequest("Host_example", "Name_example", int32(123)) // ServerUpdateRequest | Server details
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1508,7 +1508,7 @@ import (
 )
 
 func main() {
-	serverCreateRequest := *openapiclient.NewServerCreateRequest("AccessToken_example", "Description_example", "Host_example", false, "Name_example", int32(123), false) // ServerCreateRequest | Server details
+	serverCreateRequest := *openapiclient.NewServerCreateRequest("AccessToken_example", "Host_example", "Name_example", int32(123)) // ServerCreateRequest | Server details
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

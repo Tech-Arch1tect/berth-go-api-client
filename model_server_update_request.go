@@ -21,13 +21,13 @@ var _ MappedNullable = &ServerUpdateRequest{}
 
 // ServerUpdateRequest struct for ServerUpdateRequest
 type ServerUpdateRequest struct {
-	AccessToken string `json:"access_token"`
-	Description string `json:"description"`
+	AccessToken *string `json:"access_token,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Host string `json:"host"`
-	IsActive bool `json:"is_active"`
+	IsActive *bool `json:"is_active,omitempty"`
 	Name string `json:"name"`
 	Port int32 `json:"port"`
-	SkipSslVerification NullableBool `json:"skip_ssl_verification"`
+	SkipSslVerification NullableBool `json:"skip_ssl_verification,omitempty"`
 }
 
 type _ServerUpdateRequest ServerUpdateRequest
@@ -36,15 +36,11 @@ type _ServerUpdateRequest ServerUpdateRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServerUpdateRequest(accessToken string, description string, host string, isActive bool, name string, port int32, skipSslVerification NullableBool) *ServerUpdateRequest {
+func NewServerUpdateRequest(host string, name string, port int32) *ServerUpdateRequest {
 	this := ServerUpdateRequest{}
-	this.AccessToken = accessToken
-	this.Description = description
 	this.Host = host
-	this.IsActive = isActive
 	this.Name = name
 	this.Port = port
-	this.SkipSslVerification = skipSslVerification
 	return &this
 }
 
@@ -56,52 +52,68 @@ func NewServerUpdateRequestWithDefaults() *ServerUpdateRequest {
 	return &this
 }
 
-// GetAccessToken returns the AccessToken field value
+// GetAccessToken returns the AccessToken field value if set, zero value otherwise.
 func (o *ServerUpdateRequest) GetAccessToken() string {
-	if o == nil {
+	if o == nil || IsNil(o.AccessToken) {
 		var ret string
 		return ret
 	}
-
-	return o.AccessToken
+	return *o.AccessToken
 }
 
-// GetAccessTokenOk returns a tuple with the AccessToken field value
+// GetAccessTokenOk returns a tuple with the AccessToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ServerUpdateRequest) GetAccessTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccessToken) {
 		return nil, false
 	}
-	return &o.AccessToken, true
+	return o.AccessToken, true
 }
 
-// SetAccessToken sets field value
+// HasAccessToken returns a boolean if a field has been set.
+func (o *ServerUpdateRequest) HasAccessToken() bool {
+	if o != nil && !IsNil(o.AccessToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessToken gets a reference to the given string and assigns it to the AccessToken field.
 func (o *ServerUpdateRequest) SetAccessToken(v string) {
-	o.AccessToken = v
+	o.AccessToken = &v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServerUpdateRequest) GetDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ServerUpdateRequest) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *ServerUpdateRequest) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *ServerUpdateRequest) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
 // GetHost returns the Host field value
@@ -128,28 +140,36 @@ func (o *ServerUpdateRequest) SetHost(v string) {
 	o.Host = v
 }
 
-// GetIsActive returns the IsActive field value
+// GetIsActive returns the IsActive field value if set, zero value otherwise.
 func (o *ServerUpdateRequest) GetIsActive() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsActive) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsActive
+	return *o.IsActive
 }
 
-// GetIsActiveOk returns a tuple with the IsActive field value
+// GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ServerUpdateRequest) GetIsActiveOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsActive) {
 		return nil, false
 	}
-	return &o.IsActive, true
+	return o.IsActive, true
 }
 
-// SetIsActive sets field value
+// HasIsActive returns a boolean if a field has been set.
+func (o *ServerUpdateRequest) HasIsActive() bool {
+	if o != nil && !IsNil(o.IsActive) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsActive gets a reference to the given bool and assigns it to the IsActive field.
 func (o *ServerUpdateRequest) SetIsActive(v bool) {
-	o.IsActive = v
+	o.IsActive = &v
 }
 
 // GetName returns the Name field value
@@ -200,18 +220,16 @@ func (o *ServerUpdateRequest) SetPort(v int32) {
 	o.Port = v
 }
 
-// GetSkipSslVerification returns the SkipSslVerification field value
-// If the value is explicit nil, the zero value for bool will be returned
+// GetSkipSslVerification returns the SkipSslVerification field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ServerUpdateRequest) GetSkipSslVerification() bool {
-	if o == nil || o.SkipSslVerification.Get() == nil {
+	if o == nil || IsNil(o.SkipSslVerification.Get()) {
 		var ret bool
 		return ret
 	}
-
 	return *o.SkipSslVerification.Get()
 }
 
-// GetSkipSslVerificationOk returns a tuple with the SkipSslVerification field value
+// GetSkipSslVerificationOk returns a tuple with the SkipSslVerification field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ServerUpdateRequest) GetSkipSslVerificationOk() (*bool, bool) {
@@ -221,9 +239,27 @@ func (o *ServerUpdateRequest) GetSkipSslVerificationOk() (*bool, bool) {
 	return o.SkipSslVerification.Get(), o.SkipSslVerification.IsSet()
 }
 
-// SetSkipSslVerification sets field value
+// HasSkipSslVerification returns a boolean if a field has been set.
+func (o *ServerUpdateRequest) HasSkipSslVerification() bool {
+	if o != nil && o.SkipSslVerification.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipSslVerification gets a reference to the given NullableBool and assigns it to the SkipSslVerification field.
 func (o *ServerUpdateRequest) SetSkipSslVerification(v bool) {
 	o.SkipSslVerification.Set(&v)
+}
+// SetSkipSslVerificationNil sets the value for SkipSslVerification to be an explicit nil
+func (o *ServerUpdateRequest) SetSkipSslVerificationNil() {
+	o.SkipSslVerification.Set(nil)
+}
+
+// UnsetSkipSslVerification ensures that no value is present for SkipSslVerification, not even an explicit nil
+func (o *ServerUpdateRequest) UnsetSkipSslVerification() {
+	o.SkipSslVerification.Unset()
 }
 
 func (o ServerUpdateRequest) MarshalJSON() ([]byte, error) {
@@ -236,13 +272,21 @@ func (o ServerUpdateRequest) MarshalJSON() ([]byte, error) {
 
 func (o ServerUpdateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["access_token"] = o.AccessToken
-	toSerialize["description"] = o.Description
+	if !IsNil(o.AccessToken) {
+		toSerialize["access_token"] = o.AccessToken
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
 	toSerialize["host"] = o.Host
-	toSerialize["is_active"] = o.IsActive
+	if !IsNil(o.IsActive) {
+		toSerialize["is_active"] = o.IsActive
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["port"] = o.Port
-	toSerialize["skip_ssl_verification"] = o.SkipSslVerification.Get()
+	if o.SkipSslVerification.IsSet() {
+		toSerialize["skip_ssl_verification"] = o.SkipSslVerification.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -251,13 +295,9 @@ func (o *ServerUpdateRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"access_token",
-		"description",
 		"host",
-		"is_active",
 		"name",
 		"port",
-		"skip_ssl_verification",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessToken** | **string** |  | 
-**Description** | **string** |  | 
+**Description** | Pointer to **string** |  | [optional] 
 **Host** | **string** |  | 
-**IsActive** | **bool** |  | 
+**IsActive** | Pointer to **bool** |  | [optional] 
 **Name** | **string** |  | 
 **Port** | **int32** |  | 
-**SkipSslVerification** | **NullableBool** |  | 
+**SkipSslVerification** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
 ### NewServerCreateRequest
 
-`func NewServerCreateRequest(accessToken string, description string, host string, isActive bool, name string, port int32, skipSslVerification NullableBool, ) *ServerCreateRequest`
+`func NewServerCreateRequest(accessToken string, host string, name string, port int32, ) *ServerCreateRequest`
 
 NewServerCreateRequest instantiates a new ServerCreateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -70,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *ServerCreateRequest) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetHost
 
@@ -110,6 +115,11 @@ and a boolean to check if the value has been set.
 
 SetIsActive sets IsActive field to given value.
 
+### HasIsActive
+
+`func (o *ServerCreateRequest) HasIsActive() bool`
+
+HasIsActive returns a boolean if a field has been set.
 
 ### GetName
 
@@ -170,6 +180,11 @@ and a boolean to check if the value has been set.
 
 SetSkipSslVerification sets SkipSslVerification field to given value.
 
+### HasSkipSslVerification
+
+`func (o *ServerCreateRequest) HasSkipSslVerification() bool`
+
+HasSkipSslVerification returns a boolean if a field has been set.
 
 ### SetSkipSslVerificationNil
 
