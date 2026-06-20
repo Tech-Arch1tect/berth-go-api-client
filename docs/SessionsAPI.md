@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV1SessionsPost**](SessionsAPI.md#ApiV1SessionsPost) | **Post** /api/v1/sessions | List user sessions
+[**ApiV1SessionsGet**](SessionsAPI.md#ApiV1SessionsGet) | **Get** /api/v1/sessions | List user sessions
 [**ApiV1SessionsRevokeAllOthersPost**](SessionsAPI.md#ApiV1SessionsRevokeAllOthersPost) | **Post** /api/v1/sessions/revoke-all-others | Revoke all other sessions
 [**ApiV1SessionsRevokePost**](SessionsAPI.md#ApiV1SessionsRevokePost) | **Post** /api/v1/sessions/revoke | Revoke a session
 
 
 
-## ApiV1SessionsPost
+## ApiV1SessionsGet
 
-> ResponseGetSessionsData ApiV1SessionsPost(ctx).GetSessionsRequest(getSessionsRequest).Execute()
+> ResponseGetSessionsData ApiV1SessionsGet(ctx).Execute()
 
 List user sessions
 
@@ -31,32 +31,27 @@ import (
 )
 
 func main() {
-	getSessionsRequest := *openapiclient.NewGetSessionsRequest("RefreshToken_example") // GetSessionsRequest | Refresh token to identify current session
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SessionsAPI.ApiV1SessionsPost(context.Background()).GetSessionsRequest(getSessionsRequest).Execute()
+	resp, r, err := apiClient.SessionsAPI.ApiV1SessionsGet(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPI.ApiV1SessionsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPI.ApiV1SessionsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV1SessionsPost`: ResponseGetSessionsData
-	fmt.Fprintf(os.Stdout, "Response from `SessionsAPI.ApiV1SessionsPost`: %v\n", resp)
+	// response from `ApiV1SessionsGet`: ResponseGetSessionsData
+	fmt.Fprintf(os.Stdout, "Response from `SessionsAPI.ApiV1SessionsGet`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV1SessionsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiApiV1SessionsGetRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **getSessionsRequest** | [**GetSessionsRequest**](GetSessionsRequest.md) | Refresh token to identify current session | 
 
 ### Return type
 
@@ -68,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -78,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## ApiV1SessionsRevokeAllOthersPost
 
-> ResponseSessionMessageData ApiV1SessionsRevokeAllOthersPost(ctx).RevokeAllOtherSessionsRequest(revokeAllOtherSessionsRequest).Execute()
+> ResponseSessionMessageData ApiV1SessionsRevokeAllOthersPost(ctx).Body(body).Execute()
 
 Revoke all other sessions
 
@@ -97,11 +92,11 @@ import (
 )
 
 func main() {
-	revokeAllOtherSessionsRequest := *openapiclient.NewRevokeAllOtherSessionsRequest() // RevokeAllOtherSessionsRequest | Refresh token (required for JWT auth, not needed for session auth)
+	body := map[string]interface{}{ ... } // map[string]interface{} | No body required
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SessionsAPI.ApiV1SessionsRevokeAllOthersPost(context.Background()).RevokeAllOtherSessionsRequest(revokeAllOtherSessionsRequest).Execute()
+	resp, r, err := apiClient.SessionsAPI.ApiV1SessionsRevokeAllOthersPost(context.Background()).Body(body).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPI.ApiV1SessionsRevokeAllOthersPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -122,7 +117,7 @@ Other parameters are passed through a pointer to a apiApiV1SessionsRevokeAllOthe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **revokeAllOtherSessionsRequest** | [**RevokeAllOtherSessionsRequest**](RevokeAllOtherSessionsRequest.md) | Refresh token (required for JWT auth, not needed for session auth) | 
+ **body** | **map[string]interface{}** | No body required | 
 
 ### Return type
 

@@ -22,32 +22,25 @@ import (
 // SessionsAPIService SessionsAPI service
 type SessionsAPIService service
 
-type ApiApiV1SessionsPostRequest struct {
+type ApiApiV1SessionsGetRequest struct {
 	ctx context.Context
 	ApiService *SessionsAPIService
-	getSessionsRequest *GetSessionsRequest
 }
 
-// Refresh token to identify current session
-func (r ApiApiV1SessionsPostRequest) GetSessionsRequest(getSessionsRequest GetSessionsRequest) ApiApiV1SessionsPostRequest {
-	r.getSessionsRequest = &getSessionsRequest
-	return r
-}
-
-func (r ApiApiV1SessionsPostRequest) Execute() (*ResponseGetSessionsData, *http.Response, error) {
-	return r.ApiService.ApiV1SessionsPostExecute(r)
+func (r ApiApiV1SessionsGetRequest) Execute() (*ResponseGetSessionsData, *http.Response, error) {
+	return r.ApiService.ApiV1SessionsGetExecute(r)
 }
 
 /*
-ApiV1SessionsPost List user sessions
+ApiV1SessionsGet List user sessions
 
-Returns all active sessions for the authenticated user. The refresh token must be provided to identify the current session.
+Returns all active sessions for the authenticated user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1SessionsPostRequest
+ @return ApiApiV1SessionsGetRequest
 */
-func (a *SessionsAPIService) ApiV1SessionsPost(ctx context.Context) ApiApiV1SessionsPostRequest {
-	return ApiApiV1SessionsPostRequest{
+func (a *SessionsAPIService) ApiV1SessionsGet(ctx context.Context) ApiApiV1SessionsGetRequest {
+	return ApiApiV1SessionsGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,15 +48,15 @@ func (a *SessionsAPIService) ApiV1SessionsPost(ctx context.Context) ApiApiV1Sess
 
 // Execute executes the request
 //  @return ResponseGetSessionsData
-func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequest) (*ResponseGetSessionsData, *http.Response, error) {
+func (a *SessionsAPIService) ApiV1SessionsGetExecute(r ApiApiV1SessionsGetRequest) (*ResponseGetSessionsData, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *ResponseGetSessionsData
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionsAPIService.ApiV1SessionsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionsAPIService.ApiV1SessionsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -73,12 +66,9 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.getSessionsRequest == nil {
-		return localVarReturnValue, nil, reportError("getSessionsRequest is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -94,8 +84,6 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.getSessionsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -117,17 +105,6 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ResponseEmpty
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ResponseEmpty
@@ -180,12 +157,12 @@ func (a *SessionsAPIService) ApiV1SessionsPostExecute(r ApiApiV1SessionsPostRequ
 type ApiApiV1SessionsRevokeAllOthersPostRequest struct {
 	ctx context.Context
 	ApiService *SessionsAPIService
-	revokeAllOtherSessionsRequest *RevokeAllOtherSessionsRequest
+	body *map[string]interface{}
 }
 
-// Refresh token (required for JWT auth, not needed for session auth)
-func (r ApiApiV1SessionsRevokeAllOthersPostRequest) RevokeAllOtherSessionsRequest(revokeAllOtherSessionsRequest RevokeAllOtherSessionsRequest) ApiApiV1SessionsRevokeAllOthersPostRequest {
-	r.revokeAllOtherSessionsRequest = &revokeAllOtherSessionsRequest
+// No body required
+func (r ApiApiV1SessionsRevokeAllOthersPostRequest) Body(body map[string]interface{}) ApiApiV1SessionsRevokeAllOthersPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -196,7 +173,7 @@ func (r ApiApiV1SessionsRevokeAllOthersPostRequest) Execute() (*ResponseSessionM
 /*
 ApiV1SessionsRevokeAllOthersPost Revoke all other sessions
 
-Revokes all sessions except the current one. For JWT authentication, the refresh token must be provided in the request body.
+Revokes all sessions for the authenticated user except the current one.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV1SessionsRevokeAllOthersPostRequest
@@ -228,8 +205,8 @@ func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1S
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.revokeAllOtherSessionsRequest == nil {
-		return localVarReturnValue, nil, reportError("revokeAllOtherSessionsRequest is required and must be specified")
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -250,7 +227,7 @@ func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1S
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.revokeAllOtherSessionsRequest
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

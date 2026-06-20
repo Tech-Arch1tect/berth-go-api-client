@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RefreshToken** | **string** |  | 
+**RefreshToken** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewAuthLogoutRequest
 
-`func NewAuthLogoutRequest(refreshToken string, ) *AuthLogoutRequest`
+`func NewAuthLogoutRequest() *AuthLogoutRequest`
 
 NewAuthLogoutRequest instantiates a new AuthLogoutRequest object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetRefreshToken sets RefreshToken field to given value.
 
+### HasRefreshToken
+
+`func (o *AuthLogoutRequest) HasRefreshToken() bool`
+
+HasRefreshToken returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

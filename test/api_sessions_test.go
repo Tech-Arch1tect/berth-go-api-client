@@ -22,11 +22,11 @@ func Test_berth_SessionsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SessionsAPIService ApiV1SessionsPost", func(t *testing.T) {
+	t.Run("Test SessionsAPIService ApiV1SessionsGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SessionsAPI.ApiV1SessionsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SessionsAPI.ApiV1SessionsGet(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

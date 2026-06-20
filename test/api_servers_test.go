@@ -34,6 +34,20 @@ func Test_berth_ServersAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ServersAPIService ApiV1ServersServeridGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serverid int32
+
+		resp, httpRes, err := apiClient.ServersAPI.ApiV1ServersServeridGet(context.Background(), serverid).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ServersAPIService ApiV1ServersServeridStatisticsGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

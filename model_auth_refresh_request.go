@@ -12,8 +12,6 @@ package berth
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AuthRefreshRequest type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &AuthRefreshRequest{}
 
 // AuthRefreshRequest struct for AuthRefreshRequest
 type AuthRefreshRequest struct {
-	RefreshToken string `json:"refresh_token"`
+	RefreshToken *string `json:"refresh_token,omitempty"`
 }
-
-type _AuthRefreshRequest AuthRefreshRequest
 
 // NewAuthRefreshRequest instantiates a new AuthRefreshRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAuthRefreshRequest(refreshToken string) *AuthRefreshRequest {
+func NewAuthRefreshRequest() *AuthRefreshRequest {
 	this := AuthRefreshRequest{}
-	this.RefreshToken = refreshToken
 	return &this
 }
 
@@ -44,28 +39,36 @@ func NewAuthRefreshRequestWithDefaults() *AuthRefreshRequest {
 	return &this
 }
 
-// GetRefreshToken returns the RefreshToken field value
+// GetRefreshToken returns the RefreshToken field value if set, zero value otherwise.
 func (o *AuthRefreshRequest) GetRefreshToken() string {
-	if o == nil {
+	if o == nil || IsNil(o.RefreshToken) {
 		var ret string
 		return ret
 	}
-
-	return o.RefreshToken
+	return *o.RefreshToken
 }
 
-// GetRefreshTokenOk returns a tuple with the RefreshToken field value
+// GetRefreshTokenOk returns a tuple with the RefreshToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AuthRefreshRequest) GetRefreshTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RefreshToken) {
 		return nil, false
 	}
-	return &o.RefreshToken, true
+	return o.RefreshToken, true
 }
 
-// SetRefreshToken sets field value
+// HasRefreshToken returns a boolean if a field has been set.
+func (o *AuthRefreshRequest) HasRefreshToken() bool {
+	if o != nil && !IsNil(o.RefreshToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetRefreshToken gets a reference to the given string and assigns it to the RefreshToken field.
 func (o *AuthRefreshRequest) SetRefreshToken(v string) {
-	o.RefreshToken = v
+	o.RefreshToken = &v
 }
 
 func (o AuthRefreshRequest) MarshalJSON() ([]byte, error) {
@@ -78,45 +81,10 @@ func (o AuthRefreshRequest) MarshalJSON() ([]byte, error) {
 
 func (o AuthRefreshRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["refresh_token"] = o.RefreshToken
+	if !IsNil(o.RefreshToken) {
+		toSerialize["refresh_token"] = o.RefreshToken
+	}
 	return toSerialize, nil
-}
-
-func (o *AuthRefreshRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"refresh_token",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAuthRefreshRequest := _AuthRefreshRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAuthRefreshRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AuthRefreshRequest(varAuthRefreshRequest)
-
-	return err
 }
 
 type NullableAuthRefreshRequest struct {

@@ -1828,9 +1828,14 @@ paths:
       - api-keys
   /api/v1/auth/login:
     post:
-      description: "Authenticates a user with username and password. If TOTP is enabled,\
-        \ returns a temporary token that must be used with /auth/totp/verify to complete\
-        \ authentication."
+      description: "Authenticates a user with username and password. The 200 response\
+        \ is one of two shapes: AuthLoginData (full access and refresh tokens, plus\
+        \ user info) when login completes immediately, or AuthTOTPRequiredData (totp_required=true\
+        \ with a temporary token) when TOTP is enabled and the caller must complete\
+        \ /auth/totp/verify next. Clients should branch on the totp_required field.\
+        \ On full success the response also sets a `berth_refresh` cookie (HttpOnly,\
+        \ Secure, SameSite=Strict, Path=/api/v1/auth) carrying the refresh token for\
+        \ browser clients; mobile/CLI clients can keep using the body-returned `refresh_token`."
       requestBody:
         content:
           application/json:
@@ -1843,8 +1848,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Response_AuthLoginData"
-          description: Login successful - returns access and refresh tokens
+                $ref: "#/components/schemas/_api_v1_auth_login_post_200_response"
+          description: Login outcome — full tokens or a TOTP challenge
         "400":
           content:
             application/json:
@@ -1870,14 +1875,18 @@ paths:
       - auth
   /api/v1/auth/logout:
     post:
-      description: "Revokes the access token and refresh token, effectively logging\
-        \ the user out. The refresh token must be provided in the request body."
+      description: "Revokes the access token (from the `Authorization` header) and\
+        \ the refresh token, effectively logging the user out. The refresh token may\
+        \ be supplied either in the request body's `refresh_token` field (mobile/CLI)\
+        \ or via the `berth_refresh` cookie (browser); when both are present the body\
+        \ wins. The `berth_refresh` cookie is always cleared on the response."
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/AuthLogoutRequest"
-        description: Refresh token to revoke
+        description: Refresh token to revoke (optional - may be supplied via berth_refresh
+          cookie instead)
         required: true
       responses:
         "200":
@@ -1906,16 +1915,103 @@ paths:
       summary: Logout and revoke tokens
       tags:
       - auth
+  /api/v1/auth/password-reset:
+    post:
+      description: Sends a password reset email to the supplied address if an account
+        exists. Always returns 200 with a generic message to prevent account enumeration.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthPasswordResetRequest"
+        description: Email address to send the reset link to
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_AuthMessageData"
+          description: Generic acknowledgement (regardless of account existence)
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request format
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Failed to send password reset email
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Password reset is disabled
+        default:
+          description: ""
+      summary: Request a password reset email
+      tags:
+      - auth
+  /api/v1/auth/password-reset/confirm:
+    post:
+      description: Resets the user's password using a token previously emailed to
+        them. The token is single-use; subsequent submissions return an error.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthPasswordResetConfirmRequest"
+        description: Reset token plus new password and confirmation
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_AuthMessageData"
+          description: Password reset successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: "Invalid request, invalid/expired/used token, or weak password"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Password reset failed
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Password reset is disabled
+        default:
+          description: ""
+      summary: Complete a password reset
+      tags:
+      - auth
   /api/v1/auth/refresh:
     post:
       description: Exchanges a valid refresh token for new access and refresh tokens.
-        Implements token rotation - the old refresh token is invalidated.
+        Implements token rotation - the old refresh token is invalidated. The refresh
+        token may be supplied either in the request body's `refresh_token` field (mobile/CLI)
+        or via the `berth_refresh` cookie (browser); when both are present the body
+        wins. The rotated refresh token is written back to the `berth_refresh` cookie
+        so browser clients stay current after rotation.
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/AuthRefreshRequest"
-        description: Refresh token
+        description: Refresh token (optional - may be supplied via berth_refresh cookie
+          instead)
         required: true
       responses:
         "200":
@@ -1947,10 +2043,55 @@ paths:
       summary: Refresh access token
       tags:
       - auth
+  /api/v1/auth/resend-verification:
+    post:
+      description: Sends a fresh verification email if an account with the supplied
+        address exists and is unverified. Always returns 200 with a generic message
+        to prevent account enumeration.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthResendVerificationRequest"
+        description: Email address to send the verification link to
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_AuthMessageData"
+          description: Generic acknowledgement (regardless of account state)
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request format
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Failed to send verification email
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Email verification is disabled
+        default:
+          description: ""
+      summary: Request a new email verification link
+      tags:
+      - auth
   /api/v1/auth/totp/verify:
     post:
-      description: Completes the login flow when TOTP is enabled. Requires the temporary
-        token from /auth/login and a valid TOTP code from the authenticator app.
+      description: "Completes the login flow when TOTP is enabled. Requires the temporary\
+        \ token from /auth/login and a valid TOTP code from the authenticator app.\
+        \ On success the response also sets a `berth_refresh` cookie (HttpOnly, Secure,\
+        \ SameSite=Strict, Path=/api/v1/auth) carrying the refresh token for browser\
+        \ clients."
       requestBody:
         content:
           application/json:
@@ -1988,6 +2129,47 @@ paths:
       security:
       - bearerAuth: []
       summary: Verify TOTP code to complete login
+      tags:
+      - auth
+  /api/v1/auth/verify-email:
+    post:
+      description: Marks the email address associated with the supplied token as verified.
+        The token is single-use.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthVerifyEmailRequest"
+        description: Email verification token
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_AuthMessageData"
+          description: Email verified successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: "Invalid request, or invalid/expired/used token"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Email verification failed
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Email verification is disabled
+        default:
+          description: ""
+      summary: Verify an email address
       tags:
       - auth
   /api/v1/image-updates:
@@ -2361,6 +2543,59 @@ paths:
       - apiKey: []
       - session: []
       summary: List accessible servers
+      tags:
+      - servers
+  /api/v1/servers/{serverid}:
+    get:
+      description: Returns the server with the given id when the authenticated user
+        has permission to access it
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_GetServerData"
+          description: Server details
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid server ID
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Server not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Get server
       tags:
       - servers
   /api/v1/servers/{serverid}/image-updates:
@@ -4927,16 +5162,8 @@ paths:
       tags:
       - servers
   /api/v1/sessions:
-    post:
-      description: Returns all active sessions for the authenticated user. The refresh
-        token must be provided to identify the current session.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/GetSessionsRequest"
-        description: Refresh token to identify current session
-        required: true
+    get:
+      description: Returns all active sessions for the authenticated user.
       responses:
         "200":
           content:
@@ -4944,12 +5171,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_GetSessionsData"
           description: List of active sessions
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Response_Empty"
-          description: Invalid request or refresh token
         "401":
           content:
             application/json:
@@ -5022,15 +5243,14 @@ paths:
       - sessions
   /api/v1/sessions/revoke-all-others:
     post:
-      description: "Revokes all sessions except the current one. For JWT authentication,\
-        \ the refresh token must be provided in the request body."
+      description: Revokes all sessions for the authenticated user except the current
+        one.
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/RevokeAllOtherSessionsRequest"
-        description: "Refresh token (required for JWT auth, not needed for session\
-          \ auth)"
+        description: No body required
         required: true
       responses:
         "200":
@@ -5685,8 +5905,41 @@ components:
       properties:
         refresh_token:
           type: string
+      type: object
+    AuthMessageData:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
       required:
-      - refresh_token
+      - message
+      type: object
+    AuthPasswordResetConfirmRequest:
+      example:
+        password: password
+        password_confirmation: password_confirmation
+        token: token
+      properties:
+        password:
+          type: string
+        password_confirmation:
+          type: string
+        token:
+          type: string
+      required:
+      - password
+      - password_confirmation
+      - token
+      type: object
+    AuthPasswordResetRequest:
+      example:
+        email: email
+      properties:
+        email:
+          type: string
+      required:
+      - email
       type: object
     AuthRefreshData:
       example:
@@ -5719,8 +5972,28 @@ components:
       properties:
         refresh_token:
           type: string
+      type: object
+    AuthResendVerificationRequest:
+      example:
+        email: email
+      properties:
+        email:
+          type: string
       required:
-      - refresh_token
+      - email
+      type: object
+    AuthTOTPRequiredData:
+      properties:
+        message:
+          type: string
+        temporary_token:
+          type: string
+        totp_required:
+          type: boolean
+      required:
+      - message
+      - temporary_token
+      - totp_required
       type: object
     AuthTOTPVerifyRequest:
       example:
@@ -5730,6 +6003,15 @@ components:
           type: string
       required:
       - code
+      type: object
+    AuthVerifyEmailRequest:
+      example:
+        token: token
+      properties:
+        token:
+          type: string
+      required:
+      - token
       type: object
     BuildCacheInfo:
       example:
@@ -7701,15 +7983,6 @@ components:
           type: array
       required:
       - sessions
-      type: object
-    GetSessionsRequest:
-      example:
-        refresh_token: refresh_token
-      properties:
-        refresh_token:
-          type: string
-      required:
-      - refresh_token
       type: object
     GetUserRolesData:
       example:
@@ -10513,6 +10786,30 @@ components:
       - data
       - success
       type: object
+    Response_AuthMessageData:
+      example:
+        data:
+          message: message
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/AuthMessageData"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
     Response_AuthRefreshData:
       example:
         data:
@@ -10527,6 +10824,24 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/AuthRefreshData"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_AuthTOTPRequiredData:
+      properties:
+        data:
+          $ref: "#/components/schemas/AuthTOTPRequiredData"
         error:
           allOf:
           - $ref: "#/components/schemas/Error"
@@ -14229,11 +14544,6 @@ components:
           type: string
       type: object
     RevokeAllOtherSessionsRequest:
-      example:
-        refresh_token: refresh_token
-      properties:
-        refresh_token:
-          type: string
       type: object
     RevokeRoleRequest:
       example:
@@ -16963,6 +17273,10 @@ components:
       - backup_file
       - password
       type: object
+    _api_v1_auth_login_post_200_response:
+      oneOf:
+      - $ref: "#/components/schemas/Response_AuthLoginData"
+      - $ref: "#/components/schemas/Response_AuthTOTPRequiredData"
     _api_v1_servers__serverid__stacks__stackname__files_upload_post_request:
       properties:
         file:

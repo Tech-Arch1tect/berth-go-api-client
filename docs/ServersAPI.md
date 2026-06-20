@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ApiV1ServersGet**](ServersAPI.md#ApiV1ServersGet) | **Get** /api/v1/servers | List accessible servers
+[**ApiV1ServersServeridGet**](ServersAPI.md#ApiV1ServersServeridGet) | **Get** /api/v1/servers/{serverid} | Get server
 [**ApiV1ServersServeridStatisticsGet**](ServersAPI.md#ApiV1ServersServeridStatisticsGet) | **Get** /api/v1/servers/{serverid}/statistics | Get server statistics
 
 
@@ -55,6 +56,76 @@ Other parameters are passed through a pointer to a apiApiV1ServersGetRequest str
 ### Return type
 
 [**ResponseListServersData**](ResponseListServersData.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1ServersServeridGet
+
+> ResponseGetServerData ApiV1ServersServeridGet(ctx, serverid).Execute()
+
+Get server
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	serverid := int32(56) // int32 | Server ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServersAPI.ApiV1ServersServeridGet(context.Background(), serverid).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServersAPI.ApiV1ServersServeridGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1ServersServeridGet`: ResponseGetServerData
+	fmt.Fprintf(os.Stdout, "Response from `ServersAPI.ApiV1ServersServeridGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serverid** | **int32** | Server ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1ServersServeridGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ResponseGetServerData**](ResponseGetServerData.md)
 
 ### Authorization
 

@@ -46,6 +46,30 @@ func Test_berth_AuthAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test AuthAPIService ApiV1AuthPasswordResetConfirmPost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AuthAPI.ApiV1AuthPasswordResetConfirmPost(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AuthAPIService ApiV1AuthPasswordResetPost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AuthAPI.ApiV1AuthPasswordResetPost(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AuthAPIService ApiV1AuthRefreshPost", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -58,11 +82,35 @@ func Test_berth_AuthAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test AuthAPIService ApiV1AuthResendVerificationPost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AuthAPI.ApiV1AuthResendVerificationPost(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AuthAPIService ApiV1AuthTotpVerifyPost", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthAPI.ApiV1AuthTotpVerifyPost(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AuthAPIService ApiV1AuthVerifyEmailPost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AuthAPI.ApiV1AuthVerifyEmailPost(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
