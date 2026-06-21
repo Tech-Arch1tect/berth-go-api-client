@@ -2530,6 +2530,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: API key lacks required scope
         "500":
           content:
             application/json:
@@ -2577,6 +2583,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
         "404":
           content:
             application/json:
@@ -5152,6 +5164,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
         "500":
           content:
             application/json:
