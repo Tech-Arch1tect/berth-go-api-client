@@ -5658,6 +5658,124 @@ paths:
       summary: Get scan summary
       tags:
       - vulnscan
+  /ws/api/servers/{serverid}/stacks/{stackname}/events:
+    get:
+      description: "Upgrades to a WebSocket and pushes container_status and stack_status\
+        \ events for the named stack. The URL is the subscription: the stream is one-directional\
+        \ and any client data frame closes the connection. Authenticate with an Authorization\
+        \ Bearer header or the Bearer WebSocket subprotocol."
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "101":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/_ws_api_servers__serverid__stacks__stackname__events_get_101_response"
+          description: WebSocket stream of ContainerStatusEvent and StackStatusEvent
+            messages
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      summary: Per-stack status event stream (WebSocket)
+      tags:
+      - websocket
+      x-websocket: true
+  /ws/api/servers/{serverid}/stacks/{stackname}/operations/{operationId}:
+    get:
+      description: "Upgrades to a WebSocket and pushes the named operation's output\
+        \ as StreamMessage frames (stdout, stderr, progress, complete, error). Requires\
+        \ the same permission that starting the operation required. The stream is\
+        \ one-directional and any client data frame closes the connection. Authenticate\
+        \ with an Authorization Bearer header or the Bearer WebSocket subprotocol."
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Operation ID returned by the start-operation endpoint
+        explode: false
+        in: path
+        name: operationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "101":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StreamMessage"
+          description: WebSocket stream of StreamMessage frames
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Operation not found on this server and stack
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      summary: Operation output stream (WebSocket)
+      tags:
+      - websocket
+      x-websocket: true
 components:
   schemas:
     APIKeyInfo:
@@ -6967,6 +7085,61 @@ components:
       - page_faults
       - page_major_faults
       - service_name
+      type: object
+    ContainerStatusEvent:
+      example:
+        container_id: container_id
+        container_name: container_name
+        health: health
+        image: image
+        ports:
+        - private: 1
+          public: 5
+          type: type
+        - private: 1
+          public: 5
+          type: type
+        server_id: 0
+        service_name: service_name
+        stack_name: stack_name
+        status: status
+        timestamp: timestamp
+        type: type
+      properties:
+        container_id:
+          type: string
+        container_name:
+          type: string
+        health:
+          type: string
+        image:
+          type: string
+        ports:
+          items:
+            $ref: "#/components/schemas/Port"
+          type: array
+        server_id:
+          type: integer
+        service_name:
+          type: string
+        stack_name:
+          type: string
+        status:
+          type: string
+        timestamp:
+          type: string
+        type:
+          type: string
+      required:
+      - container_id
+      - container_name
+      - image
+      - server_id
+      - service_name
+      - stack_name
+      - status
+      - timestamp
+      - type
       type: object
     ContainerSummary:
       example:
@@ -16327,6 +16500,34 @@ components:
       - containers
       - stack_name
       type: object
+    StackStatusEvent:
+      properties:
+        running:
+          type: integer
+        server_id:
+          type: integer
+        services:
+          type: integer
+        stack_name:
+          type: string
+        status:
+          type: string
+        stopped:
+          type: integer
+        timestamp:
+          type: string
+        type:
+          type: string
+      required:
+      - running
+      - server_id
+      - services
+      - stack_name
+      - status
+      - stopped
+      - timestamp
+      - type
+      type: object
     StackVolumesData:
       example:
         volumes:
@@ -16575,6 +16776,31 @@ components:
       - failed_events
       - recent_event_types
       - total_events
+      type: object
+    StreamMessage:
+      example:
+        data: data
+        exitCode: 0
+        success: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        type: type
+      properties:
+        data:
+          type: string
+        exitCode:
+          nullable: true
+          type: integer
+        success:
+          nullable: true
+          type: boolean
+        timestamp:
+          format: date-time
+          type: string
+        type:
+          type: string
+      required:
+      - timestamp
+      - type
       type: object
     SystemInfo:
       example:
@@ -17311,6 +17537,10 @@ components:
       required:
       - file
       type: object
+    _ws_api_servers__serverid__stacks__stackname__events_get_101_response:
+      oneOf:
+      - $ref: "#/components/schemas/ContainerStatusEvent"
+      - $ref: "#/components/schemas/StackStatusEvent"
   securitySchemes:
     apiKey:
       bearerFormat: JWT

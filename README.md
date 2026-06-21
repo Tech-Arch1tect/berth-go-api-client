@@ -175,6 +175,8 @@ Class | Method | HTTP request | Description
 *VulnscanAPI* | [**ApiV1VulnscanCompareBaseScanIdCompareScanIdGet**](docs/VulnscanAPI.md#apiv1vulnscancomparebasescanidcomparescanidget) | **Get** /api/v1/vulnscan/compare/{baseScanId}/{compareScanId} | Compare two scans
 *VulnscanAPI* | [**ApiV1VulnscanScanidGet**](docs/VulnscanAPI.md#apiv1vulnscanscanidget) | **Get** /api/v1/vulnscan/{scanid} | Get scan by ID
 *VulnscanAPI* | [**ApiV1VulnscanScanidSummaryGet**](docs/VulnscanAPI.md#apiv1vulnscanscanidsummaryget) | **Get** /api/v1/vulnscan/{scanid}/summary | Get scan summary
+*WebsocketAPI* | [**WsApiServersServeridStacksStacknameEventsGet**](docs/WebsocketAPI.md#wsapiserversserveridstacksstacknameeventsget) | **Get** /ws/api/servers/{serverid}/stacks/{stackname}/events | Per-stack status event stream (WebSocket)
+*WebsocketAPI* | [**WsApiServersServeridStacksStacknameOperationsOperationIdGet**](docs/WebsocketAPI.md#wsapiserversserveridstacksstacknameoperationsoperationidget) | **Get** /ws/api/servers/{serverid}/stacks/{stackname}/operations/{operationId} | Operation output stream (WebSocket)
 
 
 ## Documentation For Models
@@ -217,6 +219,7 @@ Class | Method | HTTP request | Description
  - [ContainerMount](docs/ContainerMount.md)
  - [ContainerNetwork](docs/ContainerNetwork.md)
  - [ContainerStats](docs/ContainerStats.md)
+ - [ContainerStatusEvent](docs/ContainerStatusEvent.md)
  - [ContainerSummary](docs/ContainerSummary.md)
  - [CopyRequest](docs/CopyRequest.md)
  - [CreateAPIKeyData](docs/CreateAPIKeyData.md)
@@ -426,10 +429,12 @@ Class | Method | HTTP request | Description
  - [StackPermissionsData](docs/StackPermissionsData.md)
  - [StackStatistics](docs/StackStatistics.md)
  - [StackStats](docs/StackStats.md)
+ - [StackStatusEvent](docs/StackStatusEvent.md)
  - [StackVolumesData](docs/StackVolumesData.md)
  - [StartScanData](docs/StartScanData.md)
  - [StartScanRequest](docs/StartScanRequest.md)
  - [StatsResponseData](docs/StatsResponseData.md)
+ - [StreamMessage](docs/StreamMessage.md)
  - [SystemInfo](docs/SystemInfo.md)
  - [TOTPDisableRequest](docs/TOTPDisableRequest.md)
  - [TOTPEnableRequest](docs/TOTPEnableRequest.md)
@@ -453,6 +458,7 @@ Class | Method | HTTP request | Description
  - [VolumeUsage](docs/VolumeUsage.md)
  - [VulnerabilitySummary](docs/VulnerabilitySummary.md)
  - [WriteFileRequest](docs/WriteFileRequest.md)
+ - [WsApiServersServeridStacksStacknameEventsGet101Response](docs/WsApiServersServeridStacksStacknameEventsGet101Response.md)
 
 
 ## Documentation For Authorization

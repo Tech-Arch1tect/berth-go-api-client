@@ -84,6 +84,8 @@ type APIClient struct {
 	TotpAPI *TotpAPIService
 
 	VulnscanAPI *VulnscanAPIService
+
+	WebsocketAPI *WebsocketAPIService
 }
 
 type service struct {
@@ -120,6 +122,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SystemAPI = (*SystemAPIService)(&c.common)
 	c.TotpAPI = (*TotpAPIService)(&c.common)
 	c.VulnscanAPI = (*VulnscanAPIService)(&c.common)
+	c.WebsocketAPI = (*WebsocketAPIService)(&c.common)
 
 	return c
 }
