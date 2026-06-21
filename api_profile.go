@@ -27,14 +27,14 @@ type ApiApiV1ProfileGetRequest struct {
 	ApiService *ProfileAPIService
 }
 
-func (r ApiApiV1ProfileGetRequest) Execute() (*ResponseUserInfo, *http.Response, error) {
+func (r ApiApiV1ProfileGetRequest) Execute() (*ApiV1ProfileGet200Response, *http.Response, error) {
 	return r.ApiService.ApiV1ProfileGetExecute(r)
 }
 
 /*
 ApiV1ProfileGet Get current user profile
 
-Returns the profile information for the authenticated user including roles and TOTP status.
+Returns the authenticated user's profile: UserInfo (including roles and TOTP status) for JWT callers, or UserIdentity (id and username only) for API-key callers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV1ProfileGetRequest
@@ -47,13 +47,13 @@ func (a *ProfileAPIService) ApiV1ProfileGet(ctx context.Context) ApiApiV1Profile
 }
 
 // Execute executes the request
-//  @return ResponseUserInfo
-func (a *ProfileAPIService) ApiV1ProfileGetExecute(r ApiApiV1ProfileGetRequest) (*ResponseUserInfo, *http.Response, error) {
+//  @return ApiV1ProfileGet200Response
+func (a *ProfileAPIService) ApiV1ProfileGetExecute(r ApiApiV1ProfileGetRequest) (*ApiV1ProfileGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ResponseUserInfo
+		localVarReturnValue  *ApiV1ProfileGet200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfileAPIService.ApiV1ProfileGet")

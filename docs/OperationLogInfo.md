@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **OperationId** | **string** |  | 
 **Options** | Pointer to **string** |  | [optional] 
 **PartialDurationMs** | Pointer to **NullableInt32** |  | [optional] 
-**QueuedAt** | Pointer to **NullableTime** |  | [optional] 
 **Server** | [**Server**](Server.md) |  | 
 **ServerId** | **int32** |  | 
 **ServerName** | **string** |  | 
@@ -418,41 +417,6 @@ HasPartialDurationMs returns a boolean if a field has been set.
 `func (o *OperationLogInfo) UnsetPartialDurationMs()`
 
 UnsetPartialDurationMs ensures that no value is present for PartialDurationMs, not even an explicit nil
-### GetQueuedAt
-
-`func (o *OperationLogInfo) GetQueuedAt() time.Time`
-
-GetQueuedAt returns the QueuedAt field if non-nil, zero value otherwise.
-
-### GetQueuedAtOk
-
-`func (o *OperationLogInfo) GetQueuedAtOk() (*time.Time, bool)`
-
-GetQueuedAtOk returns a tuple with the QueuedAt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQueuedAt
-
-`func (o *OperationLogInfo) SetQueuedAt(v time.Time)`
-
-SetQueuedAt sets QueuedAt field to given value.
-
-### HasQueuedAt
-
-`func (o *OperationLogInfo) HasQueuedAt() bool`
-
-HasQueuedAt returns a boolean if a field has been set.
-
-### SetQueuedAtNil
-
-`func (o *OperationLogInfo) SetQueuedAtNil(b bool)`
-
- SetQueuedAtNil sets the value for QueuedAt to be an explicit nil
-
-### UnsetQueuedAt
-`func (o *OperationLogInfo) UnsetQueuedAt()`
-
-UnsetQueuedAt ensures that no value is present for QueuedAt, not even an explicit nil
 ### GetServer
 
 `func (o *OperationLogInfo) GetServer() Server`

@@ -2189,6 +2189,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: API key lacks required scope
         "500":
           content:
             application/json:
@@ -2452,15 +2458,16 @@ paths:
       - operation-logs
   /api/v1/profile:
     get:
-      description: Returns the profile information for the authenticated user including
-        roles and TOTP status.
+      description: "Returns the authenticated user's profile: UserInfo (including\
+        \ roles and TOTP status) for JWT callers, or UserIdentity (id and username\
+        \ only) for API-key callers."
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Response_UserInfo"
-          description: User profile
+                $ref: "#/components/schemas/_api_v1_profile_get_200_response"
+          description: User profile (JWT) or owner identity (API key)
         "401":
           content:
             application/json:
@@ -9731,7 +9738,6 @@ components:
         last_message_at: 2000-01-23T04:56:07.000+00:00
         operation_id: operation_id
         options: options
-        queued_at: 2000-01-23T04:56:07.000+00:00
         server:
           created_at: 2000-01-23T04:56:07.000+00:00
           deleted_at:
@@ -9813,10 +9819,6 @@ components:
           type: string
         options:
           type: string
-        queued_at:
-          format: date-time
-          nullable: true
-          type: string
         server:
           $ref: "#/components/schemas/Server"
         server_id:
@@ -9875,7 +9877,6 @@ components:
           operation_id: operation_id
           options: options
           partial_duration_ms: 5
-          queued_at: 2000-01-23T04:56:07.000+00:00
           server:
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
@@ -9952,7 +9953,6 @@ components:
             last_message_at: 2000-01-23T04:56:07.000+00:00
             operation_id: operation_id
             options: options
-            queued_at: 2000-01-23T04:56:07.000+00:00
             server:
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
@@ -10029,7 +10029,6 @@ components:
             last_message_at: 2000-01-23T04:56:07.000+00:00
             operation_id: operation_id
             options: options
-            queued_at: 2000-01-23T04:56:07.000+00:00
             server:
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
@@ -10115,7 +10114,6 @@ components:
         operation_id: operation_id
         options: options
         partial_duration_ms: 5
-        queued_at: 2000-01-23T04:56:07.000+00:00
         server:
           created_at: 2000-01-23T04:56:07.000+00:00
           deleted_at:
@@ -10209,10 +10207,6 @@ components:
         partial_duration_ms:
           nullable: true
           type: integer
-        queued_at:
-          format: date-time
-          nullable: true
-          type: string
         server:
           $ref: "#/components/schemas/Server"
         server_id:
@@ -10286,7 +10280,6 @@ components:
           last_message_at: 2000-01-23T04:56:07.000+00:00
           operation_id: operation_id
           options: options
-          queued_at: 2000-01-23T04:56:07.000+00:00
           server:
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
@@ -12853,7 +12846,6 @@ components:
             operation_id: operation_id
             options: options
             partial_duration_ms: 5
-            queued_at: 2000-01-23T04:56:07.000+00:00
             server:
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
@@ -12930,7 +12922,6 @@ components:
               last_message_at: 2000-01-23T04:56:07.000+00:00
               operation_id: operation_id
               options: options
-              queued_at: 2000-01-23T04:56:07.000+00:00
               server:
                 created_at: 2000-01-23T04:56:07.000+00:00
                 deleted_at:
@@ -13007,7 +12998,6 @@ components:
               last_message_at: 2000-01-23T04:56:07.000+00:00
               operation_id: operation_id
               options: options
-              queued_at: 2000-01-23T04:56:07.000+00:00
               server:
                 created_at: 2000-01-23T04:56:07.000+00:00
                 deleted_at:
@@ -13103,7 +13093,6 @@ components:
           operation_id: operation_id
           options: options
           partial_duration_ms: 5
-          queued_at: 2000-01-23T04:56:07.000+00:00
           server:
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
@@ -13175,7 +13164,6 @@ components:
           operation_id: operation_id
           options: options
           partial_duration_ms: 5
-          queued_at: 2000-01-23T04:56:07.000+00:00
           server:
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
@@ -13454,7 +13442,6 @@ components:
             operation_id: operation_id
             options: options
             partial_duration_ms: 5
-            queued_at: 2000-01-23T04:56:07.000+00:00
             server:
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
@@ -13526,7 +13513,6 @@ components:
             operation_id: operation_id
             options: options
             partial_duration_ms: 5
-            queued_at: 2000-01-23T04:56:07.000+00:00
             server:
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
@@ -14721,6 +14707,24 @@ components:
       - data
       - success
       type: object
+    Response_UserIdentity:
+      properties:
+        data:
+          $ref: "#/components/schemas/UserIdentity"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
     Response_UserInfo:
       example:
         data:
@@ -14967,7 +14971,6 @@ components:
           operation_id: operation_id
           options: options
           partial_duration_ms: 5
-          queued_at: 2000-01-23T04:56:07.000+00:00
           server:
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
@@ -15039,7 +15042,6 @@ components:
           operation_id: operation_id
           options: options
           partial_duration_ms: 5
-          queued_at: 2000-01-23T04:56:07.000+00:00
           server:
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
@@ -17313,6 +17315,17 @@ components:
       - updated_at
       - username
       type: object
+    UserIdentity:
+      properties:
+        id:
+          minimum: 0
+          type: integer
+        username:
+          type: string
+      required:
+      - id
+      - username
+      type: object
     UserInfo:
       example:
         created_at: created_at
@@ -17718,6 +17731,10 @@ components:
       oneOf:
       - $ref: "#/components/schemas/Response_AuthLoginData"
       - $ref: "#/components/schemas/Response_AuthTOTPRequiredData"
+    _api_v1_profile_get_200_response:
+      oneOf:
+      - $ref: "#/components/schemas/Response_UserInfo"
+      - $ref: "#/components/schemas/Response_UserIdentity"
     _api_v1_servers__serverid__stacks__stackname__files_upload_post_request:
       properties:
         file:

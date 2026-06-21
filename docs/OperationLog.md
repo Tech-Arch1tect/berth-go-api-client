@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **LastMessageAt** | Pointer to **NullableTime** |  | [optional] 
 **OperationId** | **string** |  | 
 **Options** | Pointer to **string** |  | [optional] 
-**QueuedAt** | Pointer to **NullableTime** |  | [optional] 
 **Server** | [**Server**](Server.md) |  | 
 **ServerId** | **int32** |  | 
 **Services** | Pointer to **string** |  | [optional] 
@@ -316,41 +315,6 @@ SetOptions sets Options field to given value.
 
 HasOptions returns a boolean if a field has been set.
 
-### GetQueuedAt
-
-`func (o *OperationLog) GetQueuedAt() time.Time`
-
-GetQueuedAt returns the QueuedAt field if non-nil, zero value otherwise.
-
-### GetQueuedAtOk
-
-`func (o *OperationLog) GetQueuedAtOk() (*time.Time, bool)`
-
-GetQueuedAtOk returns a tuple with the QueuedAt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQueuedAt
-
-`func (o *OperationLog) SetQueuedAt(v time.Time)`
-
-SetQueuedAt sets QueuedAt field to given value.
-
-### HasQueuedAt
-
-`func (o *OperationLog) HasQueuedAt() bool`
-
-HasQueuedAt returns a boolean if a field has been set.
-
-### SetQueuedAtNil
-
-`func (o *OperationLog) SetQueuedAtNil(b bool)`
-
- SetQueuedAtNil sets the value for QueuedAt to be an explicit nil
-
-### UnsetQueuedAt
-`func (o *OperationLog) UnsetQueuedAt()`
-
-UnsetQueuedAt ensures that no value is present for QueuedAt, not even an explicit nil
 ### GetServer
 
 `func (o *OperationLog) GetServer() Server`

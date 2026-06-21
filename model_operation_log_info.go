@@ -36,7 +36,6 @@ type OperationLogInfo struct {
 	OperationId string `json:"operation_id"`
 	Options *string `json:"options,omitempty"`
 	PartialDurationMs NullableInt32 `json:"partial_duration_ms,omitempty"`
-	QueuedAt NullableTime `json:"queued_at,omitempty"`
 	Server Server `json:"server"`
 	ServerId int32 `json:"server_id"`
 	ServerName string `json:"server_name"`
@@ -530,48 +529,6 @@ func (o *OperationLogInfo) UnsetPartialDurationMs() {
 	o.PartialDurationMs.Unset()
 }
 
-// GetQueuedAt returns the QueuedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OperationLogInfo) GetQueuedAt() time.Time {
-	if o == nil || IsNil(o.QueuedAt.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.QueuedAt.Get()
-}
-
-// GetQueuedAtOk returns a tuple with the QueuedAt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OperationLogInfo) GetQueuedAtOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.QueuedAt.Get(), o.QueuedAt.IsSet()
-}
-
-// HasQueuedAt returns a boolean if a field has been set.
-func (o *OperationLogInfo) HasQueuedAt() bool {
-	if o != nil && o.QueuedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetQueuedAt gets a reference to the given NullableTime and assigns it to the QueuedAt field.
-func (o *OperationLogInfo) SetQueuedAt(v time.Time) {
-	o.QueuedAt.Set(&v)
-}
-// SetQueuedAtNil sets the value for QueuedAt to be an explicit nil
-func (o *OperationLogInfo) SetQueuedAtNil() {
-	o.QueuedAt.Set(nil)
-}
-
-// UnsetQueuedAt ensures that no value is present for QueuedAt, not even an explicit nil
-func (o *OperationLogInfo) UnsetQueuedAt() {
-	o.QueuedAt.Unset()
-}
-
 // GetServer returns the Server field value
 func (o *OperationLogInfo) GetServer() Server {
 	if o == nil {
@@ -995,9 +952,6 @@ func (o OperationLogInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if o.PartialDurationMs.IsSet() {
 		toSerialize["partial_duration_ms"] = o.PartialDurationMs.Get()
-	}
-	if o.QueuedAt.IsSet() {
-		toSerialize["queued_at"] = o.QueuedAt.Get()
 	}
 	toSerialize["server"] = o.Server
 	toSerialize["server_id"] = o.ServerId

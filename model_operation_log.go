@@ -32,7 +32,6 @@ type OperationLog struct {
 	LastMessageAt NullableTime `json:"last_message_at,omitempty"`
 	OperationId string `json:"operation_id"`
 	Options *string `json:"options,omitempty"`
-	QueuedAt NullableTime `json:"queued_at,omitempty"`
 	Server Server `json:"server"`
 	ServerId int32 `json:"server_id"`
 	Services *string `json:"services,omitempty"`
@@ -403,48 +402,6 @@ func (o *OperationLog) SetOptions(v string) {
 	o.Options = &v
 }
 
-// GetQueuedAt returns the QueuedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OperationLog) GetQueuedAt() time.Time {
-	if o == nil || IsNil(o.QueuedAt.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.QueuedAt.Get()
-}
-
-// GetQueuedAtOk returns a tuple with the QueuedAt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OperationLog) GetQueuedAtOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.QueuedAt.Get(), o.QueuedAt.IsSet()
-}
-
-// HasQueuedAt returns a boolean if a field has been set.
-func (o *OperationLog) HasQueuedAt() bool {
-	if o != nil && o.QueuedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetQueuedAt gets a reference to the given NullableTime and assigns it to the QueuedAt field.
-func (o *OperationLog) SetQueuedAt(v time.Time) {
-	o.QueuedAt.Set(&v)
-}
-// SetQueuedAtNil sets the value for QueuedAt to be an explicit nil
-func (o *OperationLog) SetQueuedAtNil() {
-	o.QueuedAt.Set(nil)
-}
-
-// UnsetQueuedAt ensures that no value is present for QueuedAt, not even an explicit nil
-func (o *OperationLog) UnsetQueuedAt() {
-	o.QueuedAt.Unset()
-}
-
 // GetServer returns the Server field value
 func (o *OperationLog) GetServer() Server {
 	if o == nil {
@@ -790,9 +747,6 @@ func (o OperationLog) ToMap() (map[string]interface{}, error) {
 	toSerialize["operation_id"] = o.OperationId
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
-	}
-	if o.QueuedAt.IsSet() {
-		toSerialize["queued_at"] = o.QueuedAt.Get()
 	}
 	toSerialize["server"] = o.Server
 	toSerialize["server_id"] = o.ServerId
