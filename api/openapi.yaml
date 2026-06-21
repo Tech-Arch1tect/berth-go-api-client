@@ -5776,6 +5776,72 @@ paths:
       tags:
       - websocket
       x-websocket: true
+  /ws/api/servers/{serverid}/stacks/{stackname}/terminal:
+    get:
+      description: "Upgrades to a bidirectional WebSocket proxied to a terminal session\
+        \ in one of the stack's containers. The client sends TerminalStartMessage\
+        \ to open a session, then TerminalInputMessage, TerminalResizeMessage and\
+        \ TerminalCloseMessage; the server pushes TerminalSuccessMessage, TerminalOutputMessage,\
+        \ TerminalCloseMessage and TerminalErrorMessage. A terminal_start naming a\
+        \ stack other than the URL's is refused. Authenticate with an Authorization\
+        \ Bearer header or the Bearer WebSocket subprotocol."
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "101":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/_ws_api_servers__serverid__stacks__stackname__terminal_get_101_response"
+          description: WebSocket terminal session frames (both directions)
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Server not found
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Agent terminal unreachable
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      summary: Interactive container terminal (WebSocket)
+      tags:
+      - websocket
+      x-websocket: true
 components:
   schemas:
     APIKeyInfo:
@@ -16900,6 +16966,131 @@ components:
       required:
       - enabled
       type: object
+    TerminalCloseMessage:
+      properties:
+        exit_code:
+          type: integer
+        session_id:
+          type: string
+        timestamp:
+          type: string
+        type:
+          description: Always terminal_close
+          type: string
+      required:
+      - session_id
+      - type
+      type: object
+    TerminalErrorMessage:
+      properties:
+        error:
+          type: string
+        timestamp:
+          type: string
+        type:
+          description: Always error
+          type: string
+      required:
+      - error
+      - type
+      type: object
+    TerminalInputMessage:
+      properties:
+        input:
+          description: Raw input bytes as integer values
+          items:
+            type: integer
+          type: array
+        session_id:
+          type: string
+        timestamp:
+          type: string
+        type:
+          description: Always terminal_input
+          type: string
+      required:
+      - input
+      - session_id
+      - type
+      type: object
+    TerminalOutputMessage:
+      properties:
+        output:
+          description: Base64-encoded output bytes
+          type: string
+        session_id:
+          type: string
+        timestamp:
+          type: string
+        type:
+          description: Always terminal_output
+          type: string
+      required:
+      - output
+      - session_id
+      - type
+      type: object
+    TerminalResizeMessage:
+      properties:
+        cols:
+          type: integer
+        rows:
+          type: integer
+        session_id:
+          type: string
+        timestamp:
+          type: string
+        type:
+          description: Always terminal_resize
+          type: string
+      required:
+      - cols
+      - rows
+      - session_id
+      - type
+      type: object
+    TerminalStartMessage:
+      example:
+        cols: 0
+        container_name: container_name
+        rows: 6
+        service_name: service_name
+        stack_name: stack_name
+        type: type
+      properties:
+        cols:
+          type: integer
+        container_name:
+          type: string
+        rows:
+          type: integer
+        service_name:
+          type: string
+        stack_name:
+          description: Optional; must match the URL stack when set
+          type: string
+        type:
+          description: Always terminal_start
+          type: string
+      required:
+      - service_name
+      - type
+      type: object
+    TerminalSuccessMessage:
+      properties:
+        message:
+          type: string
+        session_id:
+          type: string
+        timestamp:
+          type: string
+        type:
+          description: Always success
+          type: string
+      required:
+      - session_id
+      - type
+      type: object
     UpdateComposeRequest:
       example:
         changes:
@@ -17541,6 +17732,15 @@ components:
       oneOf:
       - $ref: "#/components/schemas/ContainerStatusEvent"
       - $ref: "#/components/schemas/StackStatusEvent"
+    _ws_api_servers__serverid__stacks__stackname__terminal_get_101_response:
+      oneOf:
+      - $ref: "#/components/schemas/TerminalStartMessage"
+      - $ref: "#/components/schemas/TerminalInputMessage"
+      - $ref: "#/components/schemas/TerminalResizeMessage"
+      - $ref: "#/components/schemas/TerminalCloseMessage"
+      - $ref: "#/components/schemas/TerminalOutputMessage"
+      - $ref: "#/components/schemas/TerminalSuccessMessage"
+      - $ref: "#/components/schemas/TerminalErrorMessage"
   securitySchemes:
     apiKey:
       bearerFormat: JWT

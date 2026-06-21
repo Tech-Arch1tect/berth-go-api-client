@@ -273,3 +273,143 @@ func (a *WebsocketAPIService) WsApiServersServeridStacksStacknameOperationsOpera
 
 	return localVarHTTPResponse, nil
 }
+
+type ApiWsApiServersServeridStacksStacknameTerminalGetRequest struct {
+	ctx context.Context
+	ApiService *WebsocketAPIService
+	serverid int32
+	stackname string
+}
+
+func (r ApiWsApiServersServeridStacksStacknameTerminalGetRequest) Execute() (*http.Response, error) {
+	return r.ApiService.WsApiServersServeridStacksStacknameTerminalGetExecute(r)
+}
+
+/*
+WsApiServersServeridStacksStacknameTerminalGet Interactive container terminal (WebSocket)
+
+Upgrades to a bidirectional WebSocket proxied to a terminal session in one of the stack's containers. The client sends TerminalStartMessage to open a session, then TerminalInputMessage, TerminalResizeMessage and TerminalCloseMessage; the server pushes TerminalSuccessMessage, TerminalOutputMessage, TerminalCloseMessage and TerminalErrorMessage. A terminal_start naming a stack other than the URL's is refused. Authenticate with an Authorization Bearer header or the Bearer WebSocket subprotocol.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serverid Server ID
+ @param stackname Stack name
+ @return ApiWsApiServersServeridStacksStacknameTerminalGetRequest
+*/
+func (a *WebsocketAPIService) WsApiServersServeridStacksStacknameTerminalGet(ctx context.Context, serverid int32, stackname string) ApiWsApiServersServeridStacksStacknameTerminalGetRequest {
+	return ApiWsApiServersServeridStacksStacknameTerminalGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		serverid: serverid,
+		stackname: stackname,
+	}
+}
+
+// Execute executes the request
+func (a *WebsocketAPIService) WsApiServersServeridStacksStacknameTerminalGetExecute(r ApiWsApiServersServeridStacksStacknameTerminalGetRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebsocketAPIService.WsApiServersServeridStacksStacknameTerminalGet")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ws/api/servers/{serverid}/stacks/{stackname}/terminal"
+	localVarPath = strings.Replace(localVarPath, "{"+"serverid"+"}", url.PathEscape(parameterValueToString(r.serverid, "serverid")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"stackname"+"}", url.PathEscape(parameterValueToString(r.stackname, "stackname")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 502 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}

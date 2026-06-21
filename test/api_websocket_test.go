@@ -51,4 +51,18 @@ func Test_berth_WebsocketAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test WebsocketAPIService WsApiServersServeridStacksStacknameTerminalGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serverid int32
+		var stackname string
+
+		httpRes, err := apiClient.WebsocketAPI.WsApiServersServeridStacksStacknameTerminalGet(context.Background(), serverid, stackname).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

@@ -177,6 +177,7 @@ Class | Method | HTTP request | Description
 *VulnscanAPI* | [**ApiV1VulnscanScanidSummaryGet**](docs/VulnscanAPI.md#apiv1vulnscanscanidsummaryget) | **Get** /api/v1/vulnscan/{scanid}/summary | Get scan summary
 *WebsocketAPI* | [**WsApiServersServeridStacksStacknameEventsGet**](docs/WebsocketAPI.md#wsapiserversserveridstacksstacknameeventsget) | **Get** /ws/api/servers/{serverid}/stacks/{stackname}/events | Per-stack status event stream (WebSocket)
 *WebsocketAPI* | [**WsApiServersServeridStacksStacknameOperationsOperationIdGet**](docs/WebsocketAPI.md#wsapiserversserveridstacksstacknameoperationsoperationidget) | **Get** /ws/api/servers/{serverid}/stacks/{stackname}/operations/{operationId} | Operation output stream (WebSocket)
+*WebsocketAPI* | [**WsApiServersServeridStacksStacknameTerminalGet**](docs/WebsocketAPI.md#wsapiserversserveridstacksstacknameterminalget) | **Get** /ws/api/servers/{serverid}/stacks/{stackname}/terminal | Interactive container terminal (WebSocket)
 
 
 ## Documentation For Models
@@ -441,6 +442,13 @@ Class | Method | HTTP request | Description
  - [TOTPMessageData](docs/TOTPMessageData.md)
  - [TOTPSetupData](docs/TOTPSetupData.md)
  - [TOTPStatusData](docs/TOTPStatusData.md)
+ - [TerminalCloseMessage](docs/TerminalCloseMessage.md)
+ - [TerminalErrorMessage](docs/TerminalErrorMessage.md)
+ - [TerminalInputMessage](docs/TerminalInputMessage.md)
+ - [TerminalOutputMessage](docs/TerminalOutputMessage.md)
+ - [TerminalResizeMessage](docs/TerminalResizeMessage.md)
+ - [TerminalStartMessage](docs/TerminalStartMessage.md)
+ - [TerminalSuccessMessage](docs/TerminalSuccessMessage.md)
  - [UpdateComposeRequest](docs/UpdateComposeRequest.md)
  - [UpdateComposeResponse](docs/UpdateComposeResponse.md)
  - [UpdateCredentialRequest](docs/UpdateCredentialRequest.md)
@@ -459,6 +467,7 @@ Class | Method | HTTP request | Description
  - [VulnerabilitySummary](docs/VulnerabilitySummary.md)
  - [WriteFileRequest](docs/WriteFileRequest.md)
  - [WsApiServersServeridStacksStacknameEventsGet101Response](docs/WsApiServersServeridStacksStacknameEventsGet101Response.md)
+ - [WsApiServersServeridStacksStacknameTerminalGet101Response](docs/WsApiServersServeridStacksStacknameTerminalGet101Response.md)
 
 
 ## Documentation For Authorization
