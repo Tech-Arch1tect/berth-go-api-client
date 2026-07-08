@@ -27,14 +27,18 @@ type ImageScan struct {
 	CreatedAt time.Time `json:"created_at"`
 	DeletedAt *DeletedAt `json:"deleted_at,omitempty"`
 	ErrorMessage *string `json:"error_message,omitempty"`
+	FullCoverage bool `json:"full_coverage"`
 	Id int32 `json:"id"`
 	LastPollError *string `json:"last_poll_error,omitempty"`
 	LastPolledAt NullableTime `json:"last_polled_at,omitempty"`
 	PollFailures int32 `json:"poll_failures"`
 	ScannedImages int32 `json:"scanned_images"`
+	ScannerDbBuilt NullableTime `json:"scanner_db_built,omitempty"`
+	ScannerVersion *string `json:"scanner_version,omitempty"`
 	Scopes []ScanScope `json:"scopes,omitempty"`
 	ServerId int32 `json:"server_id"`
 	ServiceFilter *string `json:"service_filter,omitempty"`
+	ServiceImages []ScanServiceImage `json:"service_images,omitempty"`
 	StackName string `json:"stack_name"`
 	StartedAt time.Time `json:"started_at"`
 	Status string `json:"status"`
@@ -49,10 +53,11 @@ type _ImageScan ImageScan
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageScan(agentScanId string, createdAt time.Time, id int32, pollFailures int32, scannedImages int32, serverId int32, stackName string, startedAt time.Time, status string, totalImages int32, updatedAt time.Time) *ImageScan {
+func NewImageScan(agentScanId string, createdAt time.Time, fullCoverage bool, id int32, pollFailures int32, scannedImages int32, serverId int32, stackName string, startedAt time.Time, status string, totalImages int32, updatedAt time.Time) *ImageScan {
 	this := ImageScan{}
 	this.AgentScanId = agentScanId
 	this.CreatedAt = createdAt
+	this.FullCoverage = fullCoverage
 	this.Id = id
 	this.PollFailures = pollFailures
 	this.ScannedImages = scannedImages
@@ -227,6 +232,30 @@ func (o *ImageScan) SetErrorMessage(v string) {
 	o.ErrorMessage = &v
 }
 
+// GetFullCoverage returns the FullCoverage field value
+func (o *ImageScan) GetFullCoverage() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.FullCoverage
+}
+
+// GetFullCoverageOk returns a tuple with the FullCoverage field value
+// and a boolean to check if the value has been set.
+func (o *ImageScan) GetFullCoverageOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FullCoverage, true
+}
+
+// SetFullCoverage sets field value
+func (o *ImageScan) SetFullCoverage(v bool) {
+	o.FullCoverage = v
+}
+
 // GetId returns the Id field value
 func (o *ImageScan) GetId() int32 {
 	if o == nil {
@@ -373,6 +402,80 @@ func (o *ImageScan) SetScannedImages(v int32) {
 	o.ScannedImages = v
 }
 
+// GetScannerDbBuilt returns the ScannerDbBuilt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageScan) GetScannerDbBuilt() time.Time {
+	if o == nil || IsNil(o.ScannerDbBuilt.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ScannerDbBuilt.Get()
+}
+
+// GetScannerDbBuiltOk returns a tuple with the ScannerDbBuilt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageScan) GetScannerDbBuiltOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ScannerDbBuilt.Get(), o.ScannerDbBuilt.IsSet()
+}
+
+// HasScannerDbBuilt returns a boolean if a field has been set.
+func (o *ImageScan) HasScannerDbBuilt() bool {
+	if o != nil && o.ScannerDbBuilt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetScannerDbBuilt gets a reference to the given NullableTime and assigns it to the ScannerDbBuilt field.
+func (o *ImageScan) SetScannerDbBuilt(v time.Time) {
+	o.ScannerDbBuilt.Set(&v)
+}
+// SetScannerDbBuiltNil sets the value for ScannerDbBuilt to be an explicit nil
+func (o *ImageScan) SetScannerDbBuiltNil() {
+	o.ScannerDbBuilt.Set(nil)
+}
+
+// UnsetScannerDbBuilt ensures that no value is present for ScannerDbBuilt, not even an explicit nil
+func (o *ImageScan) UnsetScannerDbBuilt() {
+	o.ScannerDbBuilt.Unset()
+}
+
+// GetScannerVersion returns the ScannerVersion field value if set, zero value otherwise.
+func (o *ImageScan) GetScannerVersion() string {
+	if o == nil || IsNil(o.ScannerVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ScannerVersion
+}
+
+// GetScannerVersionOk returns a tuple with the ScannerVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImageScan) GetScannerVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ScannerVersion) {
+		return nil, false
+	}
+	return o.ScannerVersion, true
+}
+
+// HasScannerVersion returns a boolean if a field has been set.
+func (o *ImageScan) HasScannerVersion() bool {
+	if o != nil && !IsNil(o.ScannerVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetScannerVersion gets a reference to the given string and assigns it to the ScannerVersion field.
+func (o *ImageScan) SetScannerVersion(v string) {
+	o.ScannerVersion = &v
+}
+
 // GetScopes returns the Scopes field value if set, zero value otherwise.
 func (o *ImageScan) GetScopes() []ScanScope {
 	if o == nil || IsNil(o.Scopes) {
@@ -459,6 +562,38 @@ func (o *ImageScan) HasServiceFilter() bool {
 // SetServiceFilter gets a reference to the given string and assigns it to the ServiceFilter field.
 func (o *ImageScan) SetServiceFilter(v string) {
 	o.ServiceFilter = &v
+}
+
+// GetServiceImages returns the ServiceImages field value if set, zero value otherwise.
+func (o *ImageScan) GetServiceImages() []ScanServiceImage {
+	if o == nil || IsNil(o.ServiceImages) {
+		var ret []ScanServiceImage
+		return ret
+	}
+	return o.ServiceImages
+}
+
+// GetServiceImagesOk returns a tuple with the ServiceImages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImageScan) GetServiceImagesOk() ([]ScanServiceImage, bool) {
+	if o == nil || IsNil(o.ServiceImages) {
+		return nil, false
+	}
+	return o.ServiceImages, true
+}
+
+// HasServiceImages returns a boolean if a field has been set.
+func (o *ImageScan) HasServiceImages() bool {
+	if o != nil && !IsNil(o.ServiceImages) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceImages gets a reference to the given []ScanServiceImage and assigns it to the ServiceImages field.
+func (o *ImageScan) SetServiceImages(v []ScanServiceImage) {
+	o.ServiceImages = v
 }
 
 // GetStackName returns the StackName field value
@@ -634,6 +769,7 @@ func (o ImageScan) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ErrorMessage) {
 		toSerialize["error_message"] = o.ErrorMessage
 	}
+	toSerialize["full_coverage"] = o.FullCoverage
 	toSerialize["id"] = o.Id
 	if !IsNil(o.LastPollError) {
 		toSerialize["last_poll_error"] = o.LastPollError
@@ -643,12 +779,21 @@ func (o ImageScan) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["poll_failures"] = o.PollFailures
 	toSerialize["scanned_images"] = o.ScannedImages
+	if o.ScannerDbBuilt.IsSet() {
+		toSerialize["scanner_db_built"] = o.ScannerDbBuilt.Get()
+	}
+	if !IsNil(o.ScannerVersion) {
+		toSerialize["scanner_version"] = o.ScannerVersion
+	}
 	if !IsNil(o.Scopes) {
 		toSerialize["scopes"] = o.Scopes
 	}
 	toSerialize["server_id"] = o.ServerId
 	if !IsNil(o.ServiceFilter) {
 		toSerialize["service_filter"] = o.ServiceFilter
+	}
+	if !IsNil(o.ServiceImages) {
+		toSerialize["service_images"] = o.ServiceImages
 	}
 	toSerialize["stack_name"] = o.StackName
 	toSerialize["started_at"] = o.StartedAt
@@ -668,6 +813,7 @@ func (o *ImageScan) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"agent_scan_id",
 		"created_at",
+		"full_coverage",
 		"id",
 		"poll_failures",
 		"scanned_images",

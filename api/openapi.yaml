@@ -6410,7 +6410,7 @@ components:
           compare_scan: ""
           fixed_vulnerabilities:
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -6429,7 +6429,7 @@ components:
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerability_id: vulnerability_id
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -6449,7 +6449,7 @@ components:
             vulnerability_id: vulnerability_id
           new_vulnerabilities:
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -6468,7 +6468,7 @@ components:
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerability_id: vulnerability_id
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -7800,17 +7800,21 @@ components:
             Time: 2000-01-23T04:56:07.000+00:00
             Valid: true
           error_message: error_message
+          full_coverage: true
           id: 0
           last_poll_error: last_poll_error
           last_polled_at: 2000-01-23T04:56:07.000+00:00
           poll_failures: 6
           scanned_images: 1
+          scanner_db_built: 2000-01-23T04:56:07.000+00:00
+          scanner_version: scanner_version
           scopes:
           - created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
@@ -7819,19 +7823,41 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
           service_filter: service_filter
+          service_images:
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
-          total_images: 7
+          total_images: 3
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerabilities:
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -7850,7 +7876,7 @@ components:
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerability_id: vulnerability_id
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -7890,17 +7916,21 @@ components:
             Time: 2000-01-23T04:56:07.000+00:00
             Valid: true
           error_message: error_message
+          full_coverage: true
           id: 0
           last_poll_error: last_poll_error
           last_polled_at: 2000-01-23T04:56:07.000+00:00
           poll_failures: 6
           scanned_images: 1
+          scanner_db_built: 2000-01-23T04:56:07.000+00:00
+          scanner_version: scanner_version
           scopes:
           - created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
@@ -7909,19 +7939,41 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
           service_filter: service_filter
+          service_images:
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
-          total_images: 7
+          total_images: 3
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerabilities:
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -7940,7 +7992,7 @@ components:
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerability_id: vulnerability_id
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -8033,17 +8085,21 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             error_message: error_message
+            full_coverage: true
             id: 0
             last_poll_error: last_poll_error
             last_polled_at: 2000-01-23T04:56:07.000+00:00
             poll_failures: 6
             scanned_images: 1
+            scanner_db_built: 2000-01-23T04:56:07.000+00:00
+            scanner_version: scanner_version
             scopes:
             - created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
@@ -8052,19 +8108,41 @@ components:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
             service_filter: service_filter
+            service_images:
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
-            total_images: 7
+            total_images: 3
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerabilities:
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -8083,7 +8161,7 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -8110,17 +8188,21 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             error_message: error_message
+            full_coverage: true
             id: 0
             last_poll_error: last_poll_error
             last_polled_at: 2000-01-23T04:56:07.000+00:00
             poll_failures: 6
             scanned_images: 1
+            scanner_db_built: 2000-01-23T04:56:07.000+00:00
+            scanner_version: scanner_version
             scopes:
             - created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
@@ -8129,19 +8211,41 @@ components:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
             service_filter: service_filter
+            service_images:
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
-            total_images: 7
+            total_images: 3
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerabilities:
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -8160,7 +8264,7 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -8537,17 +8641,21 @@ components:
           Time: 2000-01-23T04:56:07.000+00:00
           Valid: true
         error_message: error_message
+        full_coverage: true
         id: 0
         last_poll_error: last_poll_error
         last_polled_at: 2000-01-23T04:56:07.000+00:00
         poll_failures: 6
         scanned_images: 1
+        scanner_db_built: 2000-01-23T04:56:07.000+00:00
+        scanner_version: scanner_version
         scopes:
         - created_at: 2000-01-23T04:56:07.000+00:00
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
             Valid: true
           id: 0
+          image_digest: image_digest
           image_name: image_name
           scan_id: 0
           updated_at: 2000-01-23T04:56:07.000+00:00
@@ -8556,19 +8664,41 @@ components:
             Time: 2000-01-23T04:56:07.000+00:00
             Valid: true
           id: 0
+          image_digest: image_digest
           image_name: image_name
           scan_id: 0
           updated_at: 2000-01-23T04:56:07.000+00:00
         server_id: 0
         service_filter: service_filter
+        service_images:
+        - created_at: 2000-01-23T04:56:07.000+00:00
+          deleted_at:
+            Time: 2000-01-23T04:56:07.000+00:00
+            Valid: true
+          id: 0
+          image_digest: image_digest
+          image_name: image_name
+          scan_id: 0
+          service_name: service_name
+          updated_at: 2000-01-23T04:56:07.000+00:00
+        - created_at: 2000-01-23T04:56:07.000+00:00
+          deleted_at:
+            Time: 2000-01-23T04:56:07.000+00:00
+            Valid: true
+          id: 0
+          image_digest: image_digest
+          image_name: image_name
+          scan_id: 0
+          service_name: service_name
+          updated_at: 2000-01-23T04:56:07.000+00:00
         stack_name: stack_name
         started_at: 2000-01-23T04:56:07.000+00:00
         status: status
-        total_images: 7
+        total_images: 3
         updated_at: 2000-01-23T04:56:07.000+00:00
         vulnerabilities:
         - created_at: 2000-01-23T04:56:07.000+00:00
-          cvss: 9.301444243932576
+          cvss: 2.027123023002322
           data_source: data_source
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -8587,7 +8717,7 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerability_id: vulnerability_id
         - created_at: 2000-01-23T04:56:07.000+00:00
-          cvss: 9.301444243932576
+          cvss: 2.027123023002322
           data_source: data_source
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -8619,6 +8749,8 @@ components:
           $ref: "#/components/schemas/DeletedAt"
         error_message:
           type: string
+        full_coverage:
+          type: boolean
         id:
           minimum: 0
           type: integer
@@ -8632,6 +8764,12 @@ components:
           type: integer
         scanned_images:
           type: integer
+        scanner_db_built:
+          format: date-time
+          nullable: true
+          type: string
+        scanner_version:
+          type: string
         scopes:
           items:
             $ref: "#/components/schemas/ScanScope"
@@ -8641,6 +8779,10 @@ components:
           type: integer
         service_filter:
           type: string
+        service_images:
+          items:
+            $ref: "#/components/schemas/ScanServiceImage"
+          type: array
         stack_name:
           type: string
         started_at:
@@ -8660,6 +8802,7 @@ components:
       required:
       - agent_scan_id
       - created_at
+      - full_coverage
       - id
       - poll_failures
       - scanned_images
@@ -8837,7 +8980,7 @@ components:
     ImageVulnerability:
       example:
         created_at: 2000-01-23T04:56:07.000+00:00
-        cvss: 9.301444243932576
+        cvss: 2.027123023002322
         data_source: data_source
         deleted_at:
           Time: 2000-01-23T04:56:07.000+00:00
@@ -11153,7 +11296,7 @@ components:
             compare_scan: ""
             fixed_vulnerabilities:
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11172,7 +11315,7 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11192,7 +11335,7 @@ components:
               vulnerability_id: vulnerability_id
             new_vulnerabilities:
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11211,7 +11354,7 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11555,17 +11698,21 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             error_message: error_message
+            full_coverage: true
             id: 0
             last_poll_error: last_poll_error
             last_polled_at: 2000-01-23T04:56:07.000+00:00
             poll_failures: 6
             scanned_images: 1
+            scanner_db_built: 2000-01-23T04:56:07.000+00:00
+            scanner_version: scanner_version
             scopes:
             - created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
@@ -11574,19 +11721,41 @@ components:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
             service_filter: service_filter
+            service_images:
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
-            total_images: 7
+            total_images: 3
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerabilities:
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11605,7 +11774,7 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11655,17 +11824,21 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             error_message: error_message
+            full_coverage: true
             id: 0
             last_poll_error: last_poll_error
             last_polled_at: 2000-01-23T04:56:07.000+00:00
             poll_failures: 6
             scanned_images: 1
+            scanner_db_built: 2000-01-23T04:56:07.000+00:00
+            scanner_version: scanner_version
             scopes:
             - created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
@@ -11674,19 +11847,41 @@ components:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
             service_filter: service_filter
+            service_images:
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
-            total_images: 7
+            total_images: 3
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerabilities:
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11705,7 +11900,7 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -11834,17 +12029,21 @@ components:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               error_message: error_message
+              full_coverage: true
               id: 0
               last_poll_error: last_poll_error
               last_polled_at: 2000-01-23T04:56:07.000+00:00
               poll_failures: 6
               scanned_images: 1
+              scanner_db_built: 2000-01-23T04:56:07.000+00:00
+              scanner_version: scanner_version
               scopes:
               - created_at: 2000-01-23T04:56:07.000+00:00
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
                   Valid: true
                 id: 0
+                image_digest: image_digest
                 image_name: image_name
                 scan_id: 0
                 updated_at: 2000-01-23T04:56:07.000+00:00
@@ -11853,19 +12052,41 @@ components:
                   Time: 2000-01-23T04:56:07.000+00:00
                   Valid: true
                 id: 0
+                image_digest: image_digest
                 image_name: image_name
                 scan_id: 0
                 updated_at: 2000-01-23T04:56:07.000+00:00
               server_id: 0
               service_filter: service_filter
+              service_images:
+              - created_at: 2000-01-23T04:56:07.000+00:00
+                deleted_at:
+                  Time: 2000-01-23T04:56:07.000+00:00
+                  Valid: true
+                id: 0
+                image_digest: image_digest
+                image_name: image_name
+                scan_id: 0
+                service_name: service_name
+                updated_at: 2000-01-23T04:56:07.000+00:00
+              - created_at: 2000-01-23T04:56:07.000+00:00
+                deleted_at:
+                  Time: 2000-01-23T04:56:07.000+00:00
+                  Valid: true
+                id: 0
+                image_digest: image_digest
+                image_name: image_name
+                scan_id: 0
+                service_name: service_name
+                updated_at: 2000-01-23T04:56:07.000+00:00
               stack_name: stack_name
               started_at: 2000-01-23T04:56:07.000+00:00
               status: status
-              total_images: 7
+              total_images: 3
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerabilities:
               - created_at: 2000-01-23T04:56:07.000+00:00
-                cvss: 9.301444243932576
+                cvss: 2.027123023002322
                 data_source: data_source
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
@@ -11884,7 +12105,7 @@ components:
                 updated_at: 2000-01-23T04:56:07.000+00:00
                 vulnerability_id: vulnerability_id
               - created_at: 2000-01-23T04:56:07.000+00:00
-                cvss: 9.301444243932576
+                cvss: 2.027123023002322
                 data_source: data_source
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
@@ -11911,17 +12132,21 @@ components:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               error_message: error_message
+              full_coverage: true
               id: 0
               last_poll_error: last_poll_error
               last_polled_at: 2000-01-23T04:56:07.000+00:00
               poll_failures: 6
               scanned_images: 1
+              scanner_db_built: 2000-01-23T04:56:07.000+00:00
+              scanner_version: scanner_version
               scopes:
               - created_at: 2000-01-23T04:56:07.000+00:00
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
                   Valid: true
                 id: 0
+                image_digest: image_digest
                 image_name: image_name
                 scan_id: 0
                 updated_at: 2000-01-23T04:56:07.000+00:00
@@ -11930,19 +12155,41 @@ components:
                   Time: 2000-01-23T04:56:07.000+00:00
                   Valid: true
                 id: 0
+                image_digest: image_digest
                 image_name: image_name
                 scan_id: 0
                 updated_at: 2000-01-23T04:56:07.000+00:00
               server_id: 0
               service_filter: service_filter
+              service_images:
+              - created_at: 2000-01-23T04:56:07.000+00:00
+                deleted_at:
+                  Time: 2000-01-23T04:56:07.000+00:00
+                  Valid: true
+                id: 0
+                image_digest: image_digest
+                image_name: image_name
+                scan_id: 0
+                service_name: service_name
+                updated_at: 2000-01-23T04:56:07.000+00:00
+              - created_at: 2000-01-23T04:56:07.000+00:00
+                deleted_at:
+                  Time: 2000-01-23T04:56:07.000+00:00
+                  Valid: true
+                id: 0
+                image_digest: image_digest
+                image_name: image_name
+                scan_id: 0
+                service_name: service_name
+                updated_at: 2000-01-23T04:56:07.000+00:00
               stack_name: stack_name
               started_at: 2000-01-23T04:56:07.000+00:00
               status: status
-              total_images: 7
+              total_images: 3
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerabilities:
               - created_at: 2000-01-23T04:56:07.000+00:00
-                cvss: 9.301444243932576
+                cvss: 2.027123023002322
                 data_source: data_source
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
@@ -11961,7 +12208,7 @@ components:
                 updated_at: 2000-01-23T04:56:07.000+00:00
                 vulnerability_id: vulnerability_id
               - created_at: 2000-01-23T04:56:07.000+00:00
-                cvss: 9.301444243932576
+                cvss: 2.027123023002322
                 data_source: data_source
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
@@ -14483,17 +14730,21 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             error_message: error_message
+            full_coverage: true
             id: 0
             last_poll_error: last_poll_error
             last_polled_at: 2000-01-23T04:56:07.000+00:00
             poll_failures: 6
             scanned_images: 1
+            scanner_db_built: 2000-01-23T04:56:07.000+00:00
+            scanner_version: scanner_version
             scopes:
             - created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
@@ -14502,19 +14753,41 @@ components:
                 Time: 2000-01-23T04:56:07.000+00:00
                 Valid: true
               id: 0
+              image_digest: image_digest
               image_name: image_name
               scan_id: 0
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
             service_filter: service_filter
+            service_images:
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
+            - created_at: 2000-01-23T04:56:07.000+00:00
+              deleted_at:
+                Time: 2000-01-23T04:56:07.000+00:00
+                Valid: true
+              id: 0
+              image_digest: image_digest
+              image_name: image_name
+              scan_id: 0
+              service_name: service_name
+              updated_at: 2000-01-23T04:56:07.000+00:00
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
-            total_images: 7
+            total_images: 3
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerabilities:
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -14533,7 +14806,7 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             - created_at: 2000-01-23T04:56:07.000+00:00
-              cvss: 9.301444243932576
+              cvss: 2.027123023002322
               data_source: data_source
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -15120,7 +15393,7 @@ components:
         compare_scan: ""
         fixed_vulnerabilities:
         - created_at: 2000-01-23T04:56:07.000+00:00
-          cvss: 9.301444243932576
+          cvss: 2.027123023002322
           data_source: data_source
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -15139,7 +15412,7 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerability_id: vulnerability_id
         - created_at: 2000-01-23T04:56:07.000+00:00
-          cvss: 9.301444243932576
+          cvss: 2.027123023002322
           data_source: data_source
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -15159,7 +15432,7 @@ components:
           vulnerability_id: vulnerability_id
         new_vulnerabilities:
         - created_at: 2000-01-23T04:56:07.000+00:00
-          cvss: 9.301444243932576
+          cvss: 2.027123023002322
           data_source: data_source
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -15178,7 +15451,7 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerability_id: vulnerability_id
         - created_at: 2000-01-23T04:56:07.000+00:00
-          cvss: 9.301444243932576
+          cvss: 2.027123023002322
           data_source: data_source
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -15249,6 +15522,7 @@ components:
           Time: 2000-01-23T04:56:07.000+00:00
           Valid: true
         id: 0
+        image_digest: image_digest
         image_name: image_name
         scan_id: 0
         updated_at: 2000-01-23T04:56:07.000+00:00
@@ -15261,6 +15535,8 @@ components:
         id:
           minimum: 0
           type: integer
+        image_digest:
+          type: string
         image_name:
           type: string
         scan_id:
@@ -15274,6 +15550,47 @@ components:
       - id
       - image_name
       - scan_id
+      - updated_at
+      type: object
+    ScanServiceImage:
+      example:
+        created_at: 2000-01-23T04:56:07.000+00:00
+        deleted_at:
+          Time: 2000-01-23T04:56:07.000+00:00
+          Valid: true
+        id: 0
+        image_digest: image_digest
+        image_name: image_name
+        scan_id: 0
+        service_name: service_name
+        updated_at: 2000-01-23T04:56:07.000+00:00
+      properties:
+        created_at:
+          format: date-time
+          type: string
+        deleted_at:
+          $ref: "#/components/schemas/DeletedAt"
+        id:
+          minimum: 0
+          type: integer
+        image_digest:
+          type: string
+        image_name:
+          type: string
+        scan_id:
+          minimum: 0
+          type: integer
+        service_name:
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      required:
+      - created_at
+      - id
+      - image_name
+      - scan_id
+      - service_name
       - updated_at
       type: object
     ScanTrendPoint:
@@ -15307,17 +15624,21 @@ components:
             Time: 2000-01-23T04:56:07.000+00:00
             Valid: true
           error_message: error_message
+          full_coverage: true
           id: 0
           last_poll_error: last_poll_error
           last_polled_at: 2000-01-23T04:56:07.000+00:00
           poll_failures: 6
           scanned_images: 1
+          scanner_db_built: 2000-01-23T04:56:07.000+00:00
+          scanner_version: scanner_version
           scopes:
           - created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
@@ -15326,19 +15647,41 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
           service_filter: service_filter
+          service_images:
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
-          total_images: 7
+          total_images: 3
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerabilities:
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -15357,7 +15700,7 @@ components:
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerability_id: vulnerability_id
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -16715,17 +17058,21 @@ components:
             Time: 2000-01-23T04:56:07.000+00:00
             Valid: true
           error_message: error_message
+          full_coverage: true
           id: 0
           last_poll_error: last_poll_error
           last_polled_at: 2000-01-23T04:56:07.000+00:00
           poll_failures: 6
           scanned_images: 1
+          scanner_db_built: 2000-01-23T04:56:07.000+00:00
+          scanner_version: scanner_version
           scopes:
           - created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
@@ -16734,19 +17081,41 @@ components:
               Time: 2000-01-23T04:56:07.000+00:00
               Valid: true
             id: 0
+            image_digest: image_digest
             image_name: image_name
             scan_id: 0
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
           service_filter: service_filter
+          service_images:
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            deleted_at:
+              Time: 2000-01-23T04:56:07.000+00:00
+              Valid: true
+            id: 0
+            image_digest: image_digest
+            image_name: image_name
+            scan_id: 0
+            service_name: service_name
+            updated_at: 2000-01-23T04:56:07.000+00:00
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
-          total_images: 7
+          total_images: 3
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerabilities:
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -16765,7 +17134,7 @@ components:
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerability_id: vulnerability_id
           - created_at: 2000-01-23T04:56:07.000+00:00
-            cvss: 9.301444243932576
+            cvss: 2.027123023002322
             data_source: data_source
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00

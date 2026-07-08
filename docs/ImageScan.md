@@ -9,14 +9,18 @@ Name | Type | Description | Notes
 **CreatedAt** | **time.Time** |  | 
 **DeletedAt** | Pointer to [**DeletedAt**](DeletedAt.md) |  | [optional] 
 **ErrorMessage** | Pointer to **string** |  | [optional] 
+**FullCoverage** | **bool** |  | 
 **Id** | **int32** |  | 
 **LastPollError** | Pointer to **string** |  | [optional] 
 **LastPolledAt** | Pointer to **NullableTime** |  | [optional] 
 **PollFailures** | **int32** |  | 
 **ScannedImages** | **int32** |  | 
+**ScannerDbBuilt** | Pointer to **NullableTime** |  | [optional] 
+**ScannerVersion** | Pointer to **string** |  | [optional] 
 **Scopes** | Pointer to [**[]ScanScope**](ScanScope.md) |  | [optional] 
 **ServerId** | **int32** |  | 
 **ServiceFilter** | Pointer to **string** |  | [optional] 
+**ServiceImages** | Pointer to [**[]ScanServiceImage**](ScanServiceImage.md) |  | [optional] 
 **StackName** | **string** |  | 
 **StartedAt** | **time.Time** |  | 
 **Status** | **string** |  | 
@@ -28,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewImageScan
 
-`func NewImageScan(agentScanId string, createdAt time.Time, id int32, pollFailures int32, scannedImages int32, serverId int32, stackName string, startedAt time.Time, status string, totalImages int32, updatedAt time.Time, ) *ImageScan`
+`func NewImageScan(agentScanId string, createdAt time.Time, fullCoverage bool, id int32, pollFailures int32, scannedImages int32, serverId int32, stackName string, startedAt time.Time, status string, totalImages int32, updatedAt time.Time, ) *ImageScan`
 
 NewImageScan instantiates a new ImageScan object
 This constructor will assign default values to properties that have it defined,
@@ -168,6 +172,26 @@ SetErrorMessage sets ErrorMessage field to given value.
 
 HasErrorMessage returns a boolean if a field has been set.
 
+### GetFullCoverage
+
+`func (o *ImageScan) GetFullCoverage() bool`
+
+GetFullCoverage returns the FullCoverage field if non-nil, zero value otherwise.
+
+### GetFullCoverageOk
+
+`func (o *ImageScan) GetFullCoverageOk() (*bool, bool)`
+
+GetFullCoverageOk returns a tuple with the FullCoverage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFullCoverage
+
+`func (o *ImageScan) SetFullCoverage(v bool)`
+
+SetFullCoverage sets FullCoverage field to given value.
+
+
 ### GetId
 
 `func (o *ImageScan) GetId() int32`
@@ -288,6 +312,66 @@ and a boolean to check if the value has been set.
 SetScannedImages sets ScannedImages field to given value.
 
 
+### GetScannerDbBuilt
+
+`func (o *ImageScan) GetScannerDbBuilt() time.Time`
+
+GetScannerDbBuilt returns the ScannerDbBuilt field if non-nil, zero value otherwise.
+
+### GetScannerDbBuiltOk
+
+`func (o *ImageScan) GetScannerDbBuiltOk() (*time.Time, bool)`
+
+GetScannerDbBuiltOk returns a tuple with the ScannerDbBuilt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScannerDbBuilt
+
+`func (o *ImageScan) SetScannerDbBuilt(v time.Time)`
+
+SetScannerDbBuilt sets ScannerDbBuilt field to given value.
+
+### HasScannerDbBuilt
+
+`func (o *ImageScan) HasScannerDbBuilt() bool`
+
+HasScannerDbBuilt returns a boolean if a field has been set.
+
+### SetScannerDbBuiltNil
+
+`func (o *ImageScan) SetScannerDbBuiltNil(b bool)`
+
+ SetScannerDbBuiltNil sets the value for ScannerDbBuilt to be an explicit nil
+
+### UnsetScannerDbBuilt
+`func (o *ImageScan) UnsetScannerDbBuilt()`
+
+UnsetScannerDbBuilt ensures that no value is present for ScannerDbBuilt, not even an explicit nil
+### GetScannerVersion
+
+`func (o *ImageScan) GetScannerVersion() string`
+
+GetScannerVersion returns the ScannerVersion field if non-nil, zero value otherwise.
+
+### GetScannerVersionOk
+
+`func (o *ImageScan) GetScannerVersionOk() (*string, bool)`
+
+GetScannerVersionOk returns a tuple with the ScannerVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScannerVersion
+
+`func (o *ImageScan) SetScannerVersion(v string)`
+
+SetScannerVersion sets ScannerVersion field to given value.
+
+### HasScannerVersion
+
+`func (o *ImageScan) HasScannerVersion() bool`
+
+HasScannerVersion returns a boolean if a field has been set.
+
 ### GetScopes
 
 `func (o *ImageScan) GetScopes() []ScanScope`
@@ -357,6 +441,31 @@ SetServiceFilter sets ServiceFilter field to given value.
 `func (o *ImageScan) HasServiceFilter() bool`
 
 HasServiceFilter returns a boolean if a field has been set.
+
+### GetServiceImages
+
+`func (o *ImageScan) GetServiceImages() []ScanServiceImage`
+
+GetServiceImages returns the ServiceImages field if non-nil, zero value otherwise.
+
+### GetServiceImagesOk
+
+`func (o *ImageScan) GetServiceImagesOk() (*[]ScanServiceImage, bool)`
+
+GetServiceImagesOk returns a tuple with the ServiceImages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceImages
+
+`func (o *ImageScan) SetServiceImages(v []ScanServiceImage)`
+
+SetServiceImages sets ServiceImages field to given value.
+
+### HasServiceImages
+
+`func (o *ImageScan) HasServiceImages() bool`
+
+HasServiceImages returns a boolean if a field has been set.
 
 ### GetStackName
 

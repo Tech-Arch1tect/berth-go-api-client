@@ -17,46 +17,48 @@ import (
 	"fmt"
 )
 
-// checks if the ScanScope type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ScanScope{}
+// checks if the ScanServiceImage type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ScanServiceImage{}
 
-// ScanScope struct for ScanScope
-type ScanScope struct {
+// ScanServiceImage struct for ScanServiceImage
+type ScanServiceImage struct {
 	CreatedAt time.Time `json:"created_at"`
 	DeletedAt *DeletedAt `json:"deleted_at,omitempty"`
 	Id int32 `json:"id"`
 	ImageDigest *string `json:"image_digest,omitempty"`
 	ImageName string `json:"image_name"`
 	ScanId int32 `json:"scan_id"`
+	ServiceName string `json:"service_name"`
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-type _ScanScope ScanScope
+type _ScanServiceImage ScanServiceImage
 
-// NewScanScope instantiates a new ScanScope object
+// NewScanServiceImage instantiates a new ScanServiceImage object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewScanScope(createdAt time.Time, id int32, imageName string, scanId int32, updatedAt time.Time) *ScanScope {
-	this := ScanScope{}
+func NewScanServiceImage(createdAt time.Time, id int32, imageName string, scanId int32, serviceName string, updatedAt time.Time) *ScanServiceImage {
+	this := ScanServiceImage{}
 	this.CreatedAt = createdAt
 	this.Id = id
 	this.ImageName = imageName
 	this.ScanId = scanId
+	this.ServiceName = serviceName
 	this.UpdatedAt = updatedAt
 	return &this
 }
 
-// NewScanScopeWithDefaults instantiates a new ScanScope object
+// NewScanServiceImageWithDefaults instantiates a new ScanServiceImage object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewScanScopeWithDefaults() *ScanScope {
-	this := ScanScope{}
+func NewScanServiceImageWithDefaults() *ScanServiceImage {
+	this := ScanServiceImage{}
 	return &this
 }
 
 // GetCreatedAt returns the CreatedAt field value
-func (o *ScanScope) GetCreatedAt() time.Time {
+func (o *ScanServiceImage) GetCreatedAt() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -67,7 +69,7 @@ func (o *ScanScope) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ScanScope) GetCreatedAtOk() (*time.Time, bool) {
+func (o *ScanServiceImage) GetCreatedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -75,12 +77,12 @@ func (o *ScanScope) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // SetCreatedAt sets field value
-func (o *ScanScope) SetCreatedAt(v time.Time) {
+func (o *ScanServiceImage) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
 }
 
 // GetDeletedAt returns the DeletedAt field value if set, zero value otherwise.
-func (o *ScanScope) GetDeletedAt() DeletedAt {
+func (o *ScanServiceImage) GetDeletedAt() DeletedAt {
 	if o == nil || IsNil(o.DeletedAt) {
 		var ret DeletedAt
 		return ret
@@ -90,7 +92,7 @@ func (o *ScanScope) GetDeletedAt() DeletedAt {
 
 // GetDeletedAtOk returns a tuple with the DeletedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ScanScope) GetDeletedAtOk() (*DeletedAt, bool) {
+func (o *ScanServiceImage) GetDeletedAtOk() (*DeletedAt, bool) {
 	if o == nil || IsNil(o.DeletedAt) {
 		return nil, false
 	}
@@ -98,7 +100,7 @@ func (o *ScanScope) GetDeletedAtOk() (*DeletedAt, bool) {
 }
 
 // HasDeletedAt returns a boolean if a field has been set.
-func (o *ScanScope) HasDeletedAt() bool {
+func (o *ScanServiceImage) HasDeletedAt() bool {
 	if o != nil && !IsNil(o.DeletedAt) {
 		return true
 	}
@@ -107,12 +109,12 @@ func (o *ScanScope) HasDeletedAt() bool {
 }
 
 // SetDeletedAt gets a reference to the given DeletedAt and assigns it to the DeletedAt field.
-func (o *ScanScope) SetDeletedAt(v DeletedAt) {
+func (o *ScanServiceImage) SetDeletedAt(v DeletedAt) {
 	o.DeletedAt = &v
 }
 
 // GetId returns the Id field value
-func (o *ScanScope) GetId() int32 {
+func (o *ScanServiceImage) GetId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -123,7 +125,7 @@ func (o *ScanScope) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ScanScope) GetIdOk() (*int32, bool) {
+func (o *ScanServiceImage) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -131,12 +133,12 @@ func (o *ScanScope) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *ScanScope) SetId(v int32) {
+func (o *ScanServiceImage) SetId(v int32) {
 	o.Id = v
 }
 
 // GetImageDigest returns the ImageDigest field value if set, zero value otherwise.
-func (o *ScanScope) GetImageDigest() string {
+func (o *ScanServiceImage) GetImageDigest() string {
 	if o == nil || IsNil(o.ImageDigest) {
 		var ret string
 		return ret
@@ -146,7 +148,7 @@ func (o *ScanScope) GetImageDigest() string {
 
 // GetImageDigestOk returns a tuple with the ImageDigest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ScanScope) GetImageDigestOk() (*string, bool) {
+func (o *ScanServiceImage) GetImageDigestOk() (*string, bool) {
 	if o == nil || IsNil(o.ImageDigest) {
 		return nil, false
 	}
@@ -154,7 +156,7 @@ func (o *ScanScope) GetImageDigestOk() (*string, bool) {
 }
 
 // HasImageDigest returns a boolean if a field has been set.
-func (o *ScanScope) HasImageDigest() bool {
+func (o *ScanServiceImage) HasImageDigest() bool {
 	if o != nil && !IsNil(o.ImageDigest) {
 		return true
 	}
@@ -163,12 +165,12 @@ func (o *ScanScope) HasImageDigest() bool {
 }
 
 // SetImageDigest gets a reference to the given string and assigns it to the ImageDigest field.
-func (o *ScanScope) SetImageDigest(v string) {
+func (o *ScanServiceImage) SetImageDigest(v string) {
 	o.ImageDigest = &v
 }
 
 // GetImageName returns the ImageName field value
-func (o *ScanScope) GetImageName() string {
+func (o *ScanServiceImage) GetImageName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -179,7 +181,7 @@ func (o *ScanScope) GetImageName() string {
 
 // GetImageNameOk returns a tuple with the ImageName field value
 // and a boolean to check if the value has been set.
-func (o *ScanScope) GetImageNameOk() (*string, bool) {
+func (o *ScanServiceImage) GetImageNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -187,12 +189,12 @@ func (o *ScanScope) GetImageNameOk() (*string, bool) {
 }
 
 // SetImageName sets field value
-func (o *ScanScope) SetImageName(v string) {
+func (o *ScanServiceImage) SetImageName(v string) {
 	o.ImageName = v
 }
 
 // GetScanId returns the ScanId field value
-func (o *ScanScope) GetScanId() int32 {
+func (o *ScanServiceImage) GetScanId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -203,7 +205,7 @@ func (o *ScanScope) GetScanId() int32 {
 
 // GetScanIdOk returns a tuple with the ScanId field value
 // and a boolean to check if the value has been set.
-func (o *ScanScope) GetScanIdOk() (*int32, bool) {
+func (o *ScanServiceImage) GetScanIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -211,12 +213,36 @@ func (o *ScanScope) GetScanIdOk() (*int32, bool) {
 }
 
 // SetScanId sets field value
-func (o *ScanScope) SetScanId(v int32) {
+func (o *ScanServiceImage) SetScanId(v int32) {
 	o.ScanId = v
 }
 
+// GetServiceName returns the ServiceName field value
+func (o *ScanServiceImage) GetServiceName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ServiceName
+}
+
+// GetServiceNameOk returns a tuple with the ServiceName field value
+// and a boolean to check if the value has been set.
+func (o *ScanServiceImage) GetServiceNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ServiceName, true
+}
+
+// SetServiceName sets field value
+func (o *ScanServiceImage) SetServiceName(v string) {
+	o.ServiceName = v
+}
+
 // GetUpdatedAt returns the UpdatedAt field value
-func (o *ScanScope) GetUpdatedAt() time.Time {
+func (o *ScanServiceImage) GetUpdatedAt() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -227,7 +253,7 @@ func (o *ScanScope) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ScanScope) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *ScanServiceImage) GetUpdatedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -235,11 +261,11 @@ func (o *ScanScope) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // SetUpdatedAt sets field value
-func (o *ScanScope) SetUpdatedAt(v time.Time) {
+func (o *ScanServiceImage) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = v
 }
 
-func (o ScanScope) MarshalJSON() ([]byte, error) {
+func (o ScanServiceImage) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -247,7 +273,7 @@ func (o ScanScope) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ScanScope) ToMap() (map[string]interface{}, error) {
+func (o ScanServiceImage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["created_at"] = o.CreatedAt
 	if !IsNil(o.DeletedAt) {
@@ -259,11 +285,12 @@ func (o ScanScope) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["image_name"] = o.ImageName
 	toSerialize["scan_id"] = o.ScanId
+	toSerialize["service_name"] = o.ServiceName
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }
 
-func (o *ScanScope) UnmarshalJSON(data []byte) (err error) {
+func (o *ScanServiceImage) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -272,6 +299,7 @@ func (o *ScanScope) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"image_name",
 		"scan_id",
+		"service_name",
 		"updated_at",
 	}
 
@@ -289,53 +317,53 @@ func (o *ScanScope) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varScanScope := _ScanScope{}
+	varScanServiceImage := _ScanServiceImage{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varScanScope)
+	err = decoder.Decode(&varScanServiceImage)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ScanScope(varScanScope)
+	*o = ScanServiceImage(varScanServiceImage)
 
 	return err
 }
 
-type NullableScanScope struct {
-	value *ScanScope
+type NullableScanServiceImage struct {
+	value *ScanServiceImage
 	isSet bool
 }
 
-func (v NullableScanScope) Get() *ScanScope {
+func (v NullableScanServiceImage) Get() *ScanServiceImage {
 	return v.value
 }
 
-func (v *NullableScanScope) Set(val *ScanScope) {
+func (v *NullableScanServiceImage) Set(val *ScanServiceImage) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableScanScope) IsSet() bool {
+func (v NullableScanServiceImage) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableScanScope) Unset() {
+func (v *NullableScanServiceImage) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableScanScope(val *ScanScope) *NullableScanScope {
-	return &NullableScanScope{value: val, isSet: true}
+func NewNullableScanServiceImage(val *ScanServiceImage) *NullableScanServiceImage {
+	return &NullableScanServiceImage{value: val, isSet: true}
 }
 
-func (v NullableScanScope) MarshalJSON() ([]byte, error) {
+func (v NullableScanServiceImage) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableScanScope) UnmarshalJSON(src []byte) error {
+func (v *NullableScanServiceImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -1,4 +1,4 @@
-# ScanScope
+# ScanServiceImage
 
 ## Properties
 
@@ -10,173 +10,194 @@ Name | Type | Description | Notes
 **ImageDigest** | Pointer to **string** |  | [optional] 
 **ImageName** | **string** |  | 
 **ScanId** | **int32** |  | 
+**ServiceName** | **string** |  | 
 **UpdatedAt** | **time.Time** |  | 
 
 ## Methods
 
-### NewScanScope
+### NewScanServiceImage
 
-`func NewScanScope(createdAt time.Time, id int32, imageName string, scanId int32, updatedAt time.Time, ) *ScanScope`
+`func NewScanServiceImage(createdAt time.Time, id int32, imageName string, scanId int32, serviceName string, updatedAt time.Time, ) *ScanServiceImage`
 
-NewScanScope instantiates a new ScanScope object
+NewScanServiceImage instantiates a new ScanServiceImage object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewScanScopeWithDefaults
+### NewScanServiceImageWithDefaults
 
-`func NewScanScopeWithDefaults() *ScanScope`
+`func NewScanServiceImageWithDefaults() *ScanServiceImage`
 
-NewScanScopeWithDefaults instantiates a new ScanScope object
+NewScanServiceImageWithDefaults instantiates a new ScanServiceImage object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetCreatedAt
 
-`func (o *ScanScope) GetCreatedAt() time.Time`
+`func (o *ScanServiceImage) GetCreatedAt() time.Time`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *ScanScope) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *ScanServiceImage) GetCreatedAtOk() (*time.Time, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *ScanScope) SetCreatedAt(v time.Time)`
+`func (o *ScanServiceImage) SetCreatedAt(v time.Time)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
 
 ### GetDeletedAt
 
-`func (o *ScanScope) GetDeletedAt() DeletedAt`
+`func (o *ScanServiceImage) GetDeletedAt() DeletedAt`
 
 GetDeletedAt returns the DeletedAt field if non-nil, zero value otherwise.
 
 ### GetDeletedAtOk
 
-`func (o *ScanScope) GetDeletedAtOk() (*DeletedAt, bool)`
+`func (o *ScanServiceImage) GetDeletedAtOk() (*DeletedAt, bool)`
 
 GetDeletedAtOk returns a tuple with the DeletedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeletedAt
 
-`func (o *ScanScope) SetDeletedAt(v DeletedAt)`
+`func (o *ScanServiceImage) SetDeletedAt(v DeletedAt)`
 
 SetDeletedAt sets DeletedAt field to given value.
 
 ### HasDeletedAt
 
-`func (o *ScanScope) HasDeletedAt() bool`
+`func (o *ScanServiceImage) HasDeletedAt() bool`
 
 HasDeletedAt returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *ScanScope) GetId() int32`
+`func (o *ScanServiceImage) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ScanScope) GetIdOk() (*int32, bool)`
+`func (o *ScanServiceImage) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ScanScope) SetId(v int32)`
+`func (o *ScanServiceImage) SetId(v int32)`
 
 SetId sets Id field to given value.
 
 
 ### GetImageDigest
 
-`func (o *ScanScope) GetImageDigest() string`
+`func (o *ScanServiceImage) GetImageDigest() string`
 
 GetImageDigest returns the ImageDigest field if non-nil, zero value otherwise.
 
 ### GetImageDigestOk
 
-`func (o *ScanScope) GetImageDigestOk() (*string, bool)`
+`func (o *ScanServiceImage) GetImageDigestOk() (*string, bool)`
 
 GetImageDigestOk returns a tuple with the ImageDigest field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageDigest
 
-`func (o *ScanScope) SetImageDigest(v string)`
+`func (o *ScanServiceImage) SetImageDigest(v string)`
 
 SetImageDigest sets ImageDigest field to given value.
 
 ### HasImageDigest
 
-`func (o *ScanScope) HasImageDigest() bool`
+`func (o *ScanServiceImage) HasImageDigest() bool`
 
 HasImageDigest returns a boolean if a field has been set.
 
 ### GetImageName
 
-`func (o *ScanScope) GetImageName() string`
+`func (o *ScanServiceImage) GetImageName() string`
 
 GetImageName returns the ImageName field if non-nil, zero value otherwise.
 
 ### GetImageNameOk
 
-`func (o *ScanScope) GetImageNameOk() (*string, bool)`
+`func (o *ScanServiceImage) GetImageNameOk() (*string, bool)`
 
 GetImageNameOk returns a tuple with the ImageName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageName
 
-`func (o *ScanScope) SetImageName(v string)`
+`func (o *ScanServiceImage) SetImageName(v string)`
 
 SetImageName sets ImageName field to given value.
 
 
 ### GetScanId
 
-`func (o *ScanScope) GetScanId() int32`
+`func (o *ScanServiceImage) GetScanId() int32`
 
 GetScanId returns the ScanId field if non-nil, zero value otherwise.
 
 ### GetScanIdOk
 
-`func (o *ScanScope) GetScanIdOk() (*int32, bool)`
+`func (o *ScanServiceImage) GetScanIdOk() (*int32, bool)`
 
 GetScanIdOk returns a tuple with the ScanId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScanId
 
-`func (o *ScanScope) SetScanId(v int32)`
+`func (o *ScanServiceImage) SetScanId(v int32)`
 
 SetScanId sets ScanId field to given value.
 
 
+### GetServiceName
+
+`func (o *ScanServiceImage) GetServiceName() string`
+
+GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+
+### GetServiceNameOk
+
+`func (o *ScanServiceImage) GetServiceNameOk() (*string, bool)`
+
+GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceName
+
+`func (o *ScanServiceImage) SetServiceName(v string)`
+
+SetServiceName sets ServiceName field to given value.
+
+
 ### GetUpdatedAt
 
-`func (o *ScanScope) GetUpdatedAt() time.Time`
+`func (o *ScanServiceImage) GetUpdatedAt() time.Time`
 
 GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
 
 ### GetUpdatedAtOk
 
-`func (o *ScanScope) GetUpdatedAtOk() (*time.Time, bool)`
+`func (o *ScanServiceImage) GetUpdatedAtOk() (*time.Time, bool)`
 
 GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpdatedAt
 
-`func (o *ScanScope) SetUpdatedAt(v time.Time)`
+`func (o *ScanServiceImage) SetUpdatedAt(v time.Time)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
 

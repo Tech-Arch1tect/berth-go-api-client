@@ -407,6 +407,7 @@ Class | Method | HTTP request | Description
  - [RunningOperationsData](docs/RunningOperationsData.md)
  - [ScanComparison](docs/ScanComparison.md)
  - [ScanScope](docs/ScanScope.md)
+ - [ScanServiceImage](docs/ScanServiceImage.md)
  - [ScanTrendPoint](docs/ScanTrendPoint.md)
  - [ScanWithSummary](docs/ScanWithSummary.md)
  - [SecretConfig](docs/SecretConfig.md)
