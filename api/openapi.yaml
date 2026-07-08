@@ -6487,6 +6487,10 @@ components:
             updated_at: 2000-01-23T04:56:07.000+00:00
             vulnerability_id: vulnerability_id
           same_scope: true
+          scanner_db_differs: true
+          service_names:
+          - service_names
+          - service_names
           unchanged_count: 0
       properties:
         comparison:
@@ -8076,6 +8080,8 @@ components:
       type: object
     GetScansHistoryData:
       example:
+        page: 0
+        page_size: 6
         scans:
         - scan:
             agent_scan_id: agent_scan_id
@@ -8283,13 +8289,23 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
           summary: ""
+        total: 1
       properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
         scans:
           items:
             $ref: "#/components/schemas/ScanWithSummary"
           type: array
+        total:
+          type: integer
       required:
+      - page
+      - page_size
       - scans
+      - total
       type: object
     GetServerData:
       example:
@@ -11373,6 +11389,10 @@ components:
               updated_at: 2000-01-23T04:56:07.000+00:00
               vulnerability_id: vulnerability_id
             same_scope: true
+            scanner_db_differs: true
+            service_names:
+            - service_names
+            - service_names
             unchanged_count: 0
         error: ""
         meta: ""
@@ -12020,6 +12040,8 @@ components:
     Response_GetScansHistoryData:
       example:
         data:
+          page: 0
+          page_size: 6
           scans:
           - scan:
               agent_scan_id: agent_scan_id
@@ -12227,6 +12249,7 @@ components:
                 updated_at: 2000-01-23T04:56:07.000+00:00
                 vulnerability_id: vulnerability_id
             summary: ""
+          total: 1
         error: ""
         meta: ""
         success: true
@@ -15470,6 +15493,10 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           vulnerability_id: vulnerability_id
         same_scope: true
+        scanner_db_differs: true
+        service_names:
+        - service_names
+        - service_names
         unchanged_count: 0
       properties:
         base_only_images:
@@ -15502,6 +15529,12 @@ components:
           type: array
         same_scope:
           type: boolean
+        scanner_db_differs:
+          type: boolean
+        service_names:
+          items:
+            type: string
+          type: array
         unchanged_count:
           type: integer
       required:
@@ -15513,6 +15546,8 @@ components:
       - fixed_vulnerabilities
       - new_vulnerabilities
       - same_scope
+      - scanner_db_differs
+      - service_names
       - unchanged_count
       type: object
     ScanScope:

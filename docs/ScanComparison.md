@@ -12,13 +12,15 @@ Name | Type | Description | Notes
 **FixedVulnerabilities** | [**[]ImageVulnerability**](ImageVulnerability.md) |  | 
 **NewVulnerabilities** | [**[]ImageVulnerability**](ImageVulnerability.md) |  | 
 **SameScope** | **bool** |  | 
+**ScannerDbDiffers** | **bool** |  | 
+**ServiceNames** | **[]string** |  | 
 **UnchangedCount** | **int32** |  | 
 
 ## Methods
 
 ### NewScanComparison
 
-`func NewScanComparison(baseOnlyImages []string, baseScan NullableImageScan, commonImages []string, compareOnlyImages []string, compareScan NullableImageScan, fixedVulnerabilities []ImageVulnerability, newVulnerabilities []ImageVulnerability, sameScope bool, unchangedCount int32, ) *ScanComparison`
+`func NewScanComparison(baseOnlyImages []string, baseScan NullableImageScan, commonImages []string, compareOnlyImages []string, compareScan NullableImageScan, fixedVulnerabilities []ImageVulnerability, newVulnerabilities []ImageVulnerability, sameScope bool, scannerDbDiffers bool, serviceNames []string, unchangedCount int32, ) *ScanComparison`
 
 NewScanComparison instantiates a new ScanComparison object
 This constructor will assign default values to properties that have it defined,
@@ -211,6 +213,46 @@ and a boolean to check if the value has been set.
 `func (o *ScanComparison) SetSameScope(v bool)`
 
 SetSameScope sets SameScope field to given value.
+
+
+### GetScannerDbDiffers
+
+`func (o *ScanComparison) GetScannerDbDiffers() bool`
+
+GetScannerDbDiffers returns the ScannerDbDiffers field if non-nil, zero value otherwise.
+
+### GetScannerDbDiffersOk
+
+`func (o *ScanComparison) GetScannerDbDiffersOk() (*bool, bool)`
+
+GetScannerDbDiffersOk returns a tuple with the ScannerDbDiffers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScannerDbDiffers
+
+`func (o *ScanComparison) SetScannerDbDiffers(v bool)`
+
+SetScannerDbDiffers sets ScannerDbDiffers field to given value.
+
+
+### GetServiceNames
+
+`func (o *ScanComparison) GetServiceNames() []string`
+
+GetServiceNames returns the ServiceNames field if non-nil, zero value otherwise.
+
+### GetServiceNamesOk
+
+`func (o *ScanComparison) GetServiceNamesOk() (*[]string, bool)`
+
+GetServiceNamesOk returns a tuple with the ServiceNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceNames
+
+`func (o *ScanComparison) SetServiceNames(v []string)`
+
+SetServiceNames sets ServiceNames field to given value.
 
 
 ### GetUnchangedCount

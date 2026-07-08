@@ -29,6 +29,8 @@ type ScanComparison struct {
 	FixedVulnerabilities []ImageVulnerability `json:"fixed_vulnerabilities"`
 	NewVulnerabilities []ImageVulnerability `json:"new_vulnerabilities"`
 	SameScope bool `json:"same_scope"`
+	ScannerDbDiffers bool `json:"scanner_db_differs"`
+	ServiceNames []string `json:"service_names"`
 	UnchangedCount int32 `json:"unchanged_count"`
 }
 
@@ -38,7 +40,7 @@ type _ScanComparison ScanComparison
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewScanComparison(baseOnlyImages []string, baseScan NullableImageScan, commonImages []string, compareOnlyImages []string, compareScan NullableImageScan, fixedVulnerabilities []ImageVulnerability, newVulnerabilities []ImageVulnerability, sameScope bool, unchangedCount int32) *ScanComparison {
+func NewScanComparison(baseOnlyImages []string, baseScan NullableImageScan, commonImages []string, compareOnlyImages []string, compareScan NullableImageScan, fixedVulnerabilities []ImageVulnerability, newVulnerabilities []ImageVulnerability, sameScope bool, scannerDbDiffers bool, serviceNames []string, unchangedCount int32) *ScanComparison {
 	this := ScanComparison{}
 	this.BaseOnlyImages = baseOnlyImages
 	this.BaseScan = baseScan
@@ -48,6 +50,8 @@ func NewScanComparison(baseOnlyImages []string, baseScan NullableImageScan, comm
 	this.FixedVulnerabilities = fixedVulnerabilities
 	this.NewVulnerabilities = newVulnerabilities
 	this.SameScope = sameScope
+	this.ScannerDbDiffers = scannerDbDiffers
+	this.ServiceNames = serviceNames
 	this.UnchangedCount = unchangedCount
 	return &this
 }
@@ -256,6 +260,54 @@ func (o *ScanComparison) SetSameScope(v bool) {
 	o.SameScope = v
 }
 
+// GetScannerDbDiffers returns the ScannerDbDiffers field value
+func (o *ScanComparison) GetScannerDbDiffers() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.ScannerDbDiffers
+}
+
+// GetScannerDbDiffersOk returns a tuple with the ScannerDbDiffers field value
+// and a boolean to check if the value has been set.
+func (o *ScanComparison) GetScannerDbDiffersOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ScannerDbDiffers, true
+}
+
+// SetScannerDbDiffers sets field value
+func (o *ScanComparison) SetScannerDbDiffers(v bool) {
+	o.ScannerDbDiffers = v
+}
+
+// GetServiceNames returns the ServiceNames field value
+func (o *ScanComparison) GetServiceNames() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ServiceNames
+}
+
+// GetServiceNamesOk returns a tuple with the ServiceNames field value
+// and a boolean to check if the value has been set.
+func (o *ScanComparison) GetServiceNamesOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ServiceNames, true
+}
+
+// SetServiceNames sets field value
+func (o *ScanComparison) SetServiceNames(v []string) {
+	o.ServiceNames = v
+}
+
 // GetUnchangedCount returns the UnchangedCount field value
 func (o *ScanComparison) GetUnchangedCount() int32 {
 	if o == nil {
@@ -298,6 +350,8 @@ func (o ScanComparison) ToMap() (map[string]interface{}, error) {
 	toSerialize["fixed_vulnerabilities"] = o.FixedVulnerabilities
 	toSerialize["new_vulnerabilities"] = o.NewVulnerabilities
 	toSerialize["same_scope"] = o.SameScope
+	toSerialize["scanner_db_differs"] = o.ScannerDbDiffers
+	toSerialize["service_names"] = o.ServiceNames
 	toSerialize["unchanged_count"] = o.UnchangedCount
 	return toSerialize, nil
 }
@@ -315,6 +369,8 @@ func (o *ScanComparison) UnmarshalJSON(data []byte) (err error) {
 		"fixed_vulnerabilities",
 		"new_vulnerabilities",
 		"same_scope",
+		"scanner_db_differs",
+		"service_names",
 		"unchanged_count",
 	}
 

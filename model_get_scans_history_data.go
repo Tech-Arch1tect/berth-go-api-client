@@ -21,7 +21,10 @@ var _ MappedNullable = &GetScansHistoryData{}
 
 // GetScansHistoryData struct for GetScansHistoryData
 type GetScansHistoryData struct {
+	Page int32 `json:"page"`
+	PageSize int32 `json:"page_size"`
 	Scans []ScanWithSummary `json:"scans"`
+	Total int32 `json:"total"`
 }
 
 type _GetScansHistoryData GetScansHistoryData
@@ -30,9 +33,12 @@ type _GetScansHistoryData GetScansHistoryData
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetScansHistoryData(scans []ScanWithSummary) *GetScansHistoryData {
+func NewGetScansHistoryData(page int32, pageSize int32, scans []ScanWithSummary, total int32) *GetScansHistoryData {
 	this := GetScansHistoryData{}
+	this.Page = page
+	this.PageSize = pageSize
 	this.Scans = scans
+	this.Total = total
 	return &this
 }
 
@@ -42,6 +48,54 @@ func NewGetScansHistoryData(scans []ScanWithSummary) *GetScansHistoryData {
 func NewGetScansHistoryDataWithDefaults() *GetScansHistoryData {
 	this := GetScansHistoryData{}
 	return &this
+}
+
+// GetPage returns the Page field value
+func (o *GetScansHistoryData) GetPage() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Page
+}
+
+// GetPageOk returns a tuple with the Page field value
+// and a boolean to check if the value has been set.
+func (o *GetScansHistoryData) GetPageOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Page, true
+}
+
+// SetPage sets field value
+func (o *GetScansHistoryData) SetPage(v int32) {
+	o.Page = v
+}
+
+// GetPageSize returns the PageSize field value
+func (o *GetScansHistoryData) GetPageSize() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PageSize
+}
+
+// GetPageSizeOk returns a tuple with the PageSize field value
+// and a boolean to check if the value has been set.
+func (o *GetScansHistoryData) GetPageSizeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PageSize, true
+}
+
+// SetPageSize sets field value
+func (o *GetScansHistoryData) SetPageSize(v int32) {
+	o.PageSize = v
 }
 
 // GetScans returns the Scans field value
@@ -68,6 +122,30 @@ func (o *GetScansHistoryData) SetScans(v []ScanWithSummary) {
 	o.Scans = v
 }
 
+// GetTotal returns the Total field value
+func (o *GetScansHistoryData) GetTotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Total
+}
+
+// GetTotalOk returns a tuple with the Total field value
+// and a boolean to check if the value has been set.
+func (o *GetScansHistoryData) GetTotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Total, true
+}
+
+// SetTotal sets field value
+func (o *GetScansHistoryData) SetTotal(v int32) {
+	o.Total = v
+}
+
 func (o GetScansHistoryData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -78,7 +156,10 @@ func (o GetScansHistoryData) MarshalJSON() ([]byte, error) {
 
 func (o GetScansHistoryData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["page"] = o.Page
+	toSerialize["page_size"] = o.PageSize
 	toSerialize["scans"] = o.Scans
+	toSerialize["total"] = o.Total
 	return toSerialize, nil
 }
 
@@ -87,7 +168,10 @@ func (o *GetScansHistoryData) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"page",
+		"page_size",
 		"scans",
+		"total",
 	}
 
 	allProperties := make(map[string]interface{})
