@@ -204,20 +204,20 @@ HasEntrypoint returns a boolean if a field has been set.
 UnsetEntrypoint ensures that no value is present for Entrypoint, not even an explicit nil
 ### GetEnvironment
 
-`func (o *ServiceChanges) GetEnvironment() map[string]string`
+`func (o *ServiceChanges) GetEnvironment() map[string]*string`
 
 GetEnvironment returns the Environment field if non-nil, zero value otherwise.
 
 ### GetEnvironmentOk
 
-`func (o *ServiceChanges) GetEnvironmentOk() (*map[string]string, bool)`
+`func (o *ServiceChanges) GetEnvironmentOk() (*map[string]*string, bool)`
 
 GetEnvironmentOk returns a tuple with the Environment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnvironment
 
-`func (o *ServiceChanges) SetEnvironment(v map[string]string)`
+`func (o *ServiceChanges) SetEnvironment(v map[string]*string)`
 
 SetEnvironment sets Environment field to given value.
 
@@ -299,20 +299,20 @@ HasImage returns a boolean if a field has been set.
 UnsetImage ensures that no value is present for Image, not even an explicit nil
 ### GetLabels
 
-`func (o *ServiceChanges) GetLabels() map[string]string`
+`func (o *ServiceChanges) GetLabels() map[string]*string`
 
 GetLabels returns the Labels field if non-nil, zero value otherwise.
 
 ### GetLabelsOk
 
-`func (o *ServiceChanges) GetLabelsOk() (*map[string]string, bool)`
+`func (o *ServiceChanges) GetLabelsOk() (*map[string]*string, bool)`
 
 GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLabels
 
-`func (o *ServiceChanges) SetLabels(v map[string]string)`
+`func (o *ServiceChanges) SetLabels(v map[string]*string)`
 
 SetLabels sets Labels field to given value.
 
@@ -324,20 +324,20 @@ HasLabels returns a boolean if a field has been set.
 
 ### GetNetworks
 
-`func (o *ServiceChanges) GetNetworks() map[string]ServiceNetworkConfig`
+`func (o *ServiceChanges) GetNetworks() map[string]*ServiceNetworkConfig`
 
 GetNetworks returns the Networks field if non-nil, zero value otherwise.
 
 ### GetNetworksOk
 
-`func (o *ServiceChanges) GetNetworksOk() (*map[string]ServiceNetworkConfig, bool)`
+`func (o *ServiceChanges) GetNetworksOk() (*map[string]*ServiceNetworkConfig, bool)`
 
 GetNetworksOk returns a tuple with the Networks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetworks
 
-`func (o *ServiceChanges) SetNetworks(v map[string]ServiceNetworkConfig)`
+`func (o *ServiceChanges) SetNetworks(v map[string]*ServiceNetworkConfig)`
 
 SetNetworks sets Networks field to given value.
 

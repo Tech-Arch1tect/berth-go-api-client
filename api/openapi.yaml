@@ -1453,6 +1453,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Admin access required
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Revocation would leave no administrator
         "500":
           content:
             application/json:
@@ -1466,6 +1472,71 @@ paths:
       - apiKey: []
       - session: []
       summary: Revoke a role from a user
+      tags:
+      - admin
+  /api/v1/admin/users/{id}:
+    delete:
+      description: "Deletes a user and revokes their sessions, API keys and other\
+        \ credentials. Operation history is retained. Requires admin permissions."
+      parameters:
+      - description: User ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_MessageData"
+          description: User deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request or attempt to delete own account
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin access required
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: User not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Deletion would leave no administrator
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Delete a user
       tags:
       - admin
   /api/v1/admin/users/{id}/roles:

@@ -24,11 +24,11 @@ type ServiceChanges struct {
 	DependsOn *map[string]DependsOnConfig `json:"depends_on,omitempty"`
 	Deploy NullableDeployConfig `json:"deploy,omitempty"`
 	Entrypoint NullableCommandConfig `json:"entrypoint,omitempty"`
-	Environment *map[string]string `json:"environment,omitempty"`
+	Environment *map[string]*string `json:"environment,omitempty"`
 	Healthcheck NullableHealthcheckConfig `json:"healthcheck,omitempty"`
 	Image NullableString `json:"image,omitempty"`
-	Labels *map[string]string `json:"labels,omitempty"`
-	Networks map[string]ServiceNetworkConfig `json:"networks,omitempty"`
+	Labels *map[string]*string `json:"labels,omitempty"`
+	Networks map[string]*ServiceNetworkConfig `json:"networks,omitempty"`
 	Ports []PortMapping `json:"ports,omitempty"`
 	Restart NullableString `json:"restart,omitempty"`
 	Volumes []VolumeMount2 `json:"volumes,omitempty"`
@@ -252,9 +252,9 @@ func (o *ServiceChanges) UnsetEntrypoint() {
 }
 
 // GetEnvironment returns the Environment field value if set, zero value otherwise.
-func (o *ServiceChanges) GetEnvironment() map[string]string {
+func (o *ServiceChanges) GetEnvironment() map[string]*string {
 	if o == nil || IsNil(o.Environment) {
-		var ret map[string]string
+		var ret map[string]*string
 		return ret
 	}
 	return *o.Environment
@@ -262,7 +262,7 @@ func (o *ServiceChanges) GetEnvironment() map[string]string {
 
 // GetEnvironmentOk returns a tuple with the Environment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceChanges) GetEnvironmentOk() (*map[string]string, bool) {
+func (o *ServiceChanges) GetEnvironmentOk() (*map[string]*string, bool) {
 	if o == nil || IsNil(o.Environment) {
 		return nil, false
 	}
@@ -278,8 +278,8 @@ func (o *ServiceChanges) HasEnvironment() bool {
 	return false
 }
 
-// SetEnvironment gets a reference to the given map[string]string and assigns it to the Environment field.
-func (o *ServiceChanges) SetEnvironment(v map[string]string) {
+// SetEnvironment gets a reference to the given map[string]*string and assigns it to the Environment field.
+func (o *ServiceChanges) SetEnvironment(v map[string]*string) {
 	o.Environment = &v
 }
 
@@ -368,9 +368,9 @@ func (o *ServiceChanges) UnsetImage() {
 }
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
-func (o *ServiceChanges) GetLabels() map[string]string {
+func (o *ServiceChanges) GetLabels() map[string]*string {
 	if o == nil || IsNil(o.Labels) {
-		var ret map[string]string
+		var ret map[string]*string
 		return ret
 	}
 	return *o.Labels
@@ -378,7 +378,7 @@ func (o *ServiceChanges) GetLabels() map[string]string {
 
 // GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceChanges) GetLabelsOk() (*map[string]string, bool) {
+func (o *ServiceChanges) GetLabelsOk() (*map[string]*string, bool) {
 	if o == nil || IsNil(o.Labels) {
 		return nil, false
 	}
@@ -394,15 +394,15 @@ func (o *ServiceChanges) HasLabels() bool {
 	return false
 }
 
-// SetLabels gets a reference to the given map[string]string and assigns it to the Labels field.
-func (o *ServiceChanges) SetLabels(v map[string]string) {
+// SetLabels gets a reference to the given map[string]*string and assigns it to the Labels field.
+func (o *ServiceChanges) SetLabels(v map[string]*string) {
 	o.Labels = &v
 }
 
 // GetNetworks returns the Networks field value if set, zero value otherwise.
-func (o *ServiceChanges) GetNetworks() map[string]ServiceNetworkConfig {
+func (o *ServiceChanges) GetNetworks() map[string]*ServiceNetworkConfig {
 	if o == nil || IsNil(o.Networks) {
-		var ret map[string]ServiceNetworkConfig
+		var ret map[string]*ServiceNetworkConfig
 		return ret
 	}
 	return o.Networks
@@ -410,9 +410,9 @@ func (o *ServiceChanges) GetNetworks() map[string]ServiceNetworkConfig {
 
 // GetNetworksOk returns a tuple with the Networks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceChanges) GetNetworksOk() (map[string]ServiceNetworkConfig, bool) {
+func (o *ServiceChanges) GetNetworksOk() (map[string]*ServiceNetworkConfig, bool) {
 	if o == nil || IsNil(o.Networks) {
-		return map[string]ServiceNetworkConfig{}, false
+		return map[string]*ServiceNetworkConfig{}, false
 	}
 	return o.Networks, true
 }
@@ -426,8 +426,8 @@ func (o *ServiceChanges) HasNetworks() bool {
 	return false
 }
 
-// SetNetworks gets a reference to the given map[string]ServiceNetworkConfig and assigns it to the Networks field.
-func (o *ServiceChanges) SetNetworks(v map[string]ServiceNetworkConfig) {
+// SetNetworks gets a reference to the given map[string]*ServiceNetworkConfig and assigns it to the Networks field.
+func (o *ServiceChanges) SetNetworks(v map[string]*ServiceNetworkConfig) {
 	o.Networks = v
 }
 

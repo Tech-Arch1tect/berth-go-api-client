@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 *AdminAPI* | [**ApiV1AdminServersPost**](docs/AdminAPI.md#apiv1adminserverspost) | **Post** /api/v1/admin/servers | Create a new server
 *AdminAPI* | [**ApiV1AdminUsersAssignRolePost**](docs/AdminAPI.md#apiv1adminusersassignrolepost) | **Post** /api/v1/admin/users/assign-role | Assign a role to a user
 *AdminAPI* | [**ApiV1AdminUsersGet**](docs/AdminAPI.md#apiv1adminusersget) | **Get** /api/v1/admin/users | List all users
+*AdminAPI* | [**ApiV1AdminUsersIdDelete**](docs/AdminAPI.md#apiv1adminusersiddelete) | **Delete** /api/v1/admin/users/{id} | Delete a user
 *AdminAPI* | [**ApiV1AdminUsersIdRolesGet**](docs/AdminAPI.md#apiv1adminusersidrolesget) | **Get** /api/v1/admin/users/{id}/roles | Get user with roles
 *AdminAPI* | [**ApiV1AdminUsersPost**](docs/AdminAPI.md#apiv1adminuserspost) | **Post** /api/v1/admin/users | Create a new user
 *AdminAPI* | [**ApiV1AdminUsersRevokeRolePost**](docs/AdminAPI.md#apiv1adminusersrevokerolepost) | **Post** /api/v1/admin/users/revoke-role | Revoke a role from a user

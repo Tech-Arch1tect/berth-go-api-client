@@ -20,13 +20,13 @@ var _ MappedNullable = &ComposeChanges{}
 // ComposeChanges struct for ComposeChanges
 type ComposeChanges struct {
 	AddServices *map[string]NewServiceConfig `json:"add_services,omitempty"`
-	ConfigChanges map[string]ConfigConfig `json:"config_changes,omitempty"`
+	ConfigChanges map[string]*ConfigConfig `json:"config_changes,omitempty"`
 	DeleteServices []string `json:"delete_services,omitempty"`
-	NetworkChanges map[string]NetworkConfig `json:"network_changes,omitempty"`
+	NetworkChanges map[string]*NetworkConfig `json:"network_changes,omitempty"`
 	RenameServices *map[string]string `json:"rename_services,omitempty"`
-	SecretChanges map[string]SecretConfig `json:"secret_changes,omitempty"`
+	SecretChanges map[string]*SecretConfig `json:"secret_changes,omitempty"`
 	ServiceChanges *map[string]ServiceChanges `json:"service_changes,omitempty"`
-	VolumeChanges map[string]VolumeConfig `json:"volume_changes,omitempty"`
+	VolumeChanges map[string]*VolumeConfig `json:"volume_changes,omitempty"`
 }
 
 // NewComposeChanges instantiates a new ComposeChanges object
@@ -79,9 +79,9 @@ func (o *ComposeChanges) SetAddServices(v map[string]NewServiceConfig) {
 }
 
 // GetConfigChanges returns the ConfigChanges field value if set, zero value otherwise.
-func (o *ComposeChanges) GetConfigChanges() map[string]ConfigConfig {
+func (o *ComposeChanges) GetConfigChanges() map[string]*ConfigConfig {
 	if o == nil || IsNil(o.ConfigChanges) {
-		var ret map[string]ConfigConfig
+		var ret map[string]*ConfigConfig
 		return ret
 	}
 	return o.ConfigChanges
@@ -89,9 +89,9 @@ func (o *ComposeChanges) GetConfigChanges() map[string]ConfigConfig {
 
 // GetConfigChangesOk returns a tuple with the ConfigChanges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComposeChanges) GetConfigChangesOk() (map[string]ConfigConfig, bool) {
+func (o *ComposeChanges) GetConfigChangesOk() (map[string]*ConfigConfig, bool) {
 	if o == nil || IsNil(o.ConfigChanges) {
-		return map[string]ConfigConfig{}, false
+		return map[string]*ConfigConfig{}, false
 	}
 	return o.ConfigChanges, true
 }
@@ -105,8 +105,8 @@ func (o *ComposeChanges) HasConfigChanges() bool {
 	return false
 }
 
-// SetConfigChanges gets a reference to the given map[string]ConfigConfig and assigns it to the ConfigChanges field.
-func (o *ComposeChanges) SetConfigChanges(v map[string]ConfigConfig) {
+// SetConfigChanges gets a reference to the given map[string]*ConfigConfig and assigns it to the ConfigChanges field.
+func (o *ComposeChanges) SetConfigChanges(v map[string]*ConfigConfig) {
 	o.ConfigChanges = v
 }
 
@@ -143,9 +143,9 @@ func (o *ComposeChanges) SetDeleteServices(v []string) {
 }
 
 // GetNetworkChanges returns the NetworkChanges field value if set, zero value otherwise.
-func (o *ComposeChanges) GetNetworkChanges() map[string]NetworkConfig {
+func (o *ComposeChanges) GetNetworkChanges() map[string]*NetworkConfig {
 	if o == nil || IsNil(o.NetworkChanges) {
-		var ret map[string]NetworkConfig
+		var ret map[string]*NetworkConfig
 		return ret
 	}
 	return o.NetworkChanges
@@ -153,9 +153,9 @@ func (o *ComposeChanges) GetNetworkChanges() map[string]NetworkConfig {
 
 // GetNetworkChangesOk returns a tuple with the NetworkChanges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComposeChanges) GetNetworkChangesOk() (map[string]NetworkConfig, bool) {
+func (o *ComposeChanges) GetNetworkChangesOk() (map[string]*NetworkConfig, bool) {
 	if o == nil || IsNil(o.NetworkChanges) {
-		return map[string]NetworkConfig{}, false
+		return map[string]*NetworkConfig{}, false
 	}
 	return o.NetworkChanges, true
 }
@@ -169,8 +169,8 @@ func (o *ComposeChanges) HasNetworkChanges() bool {
 	return false
 }
 
-// SetNetworkChanges gets a reference to the given map[string]NetworkConfig and assigns it to the NetworkChanges field.
-func (o *ComposeChanges) SetNetworkChanges(v map[string]NetworkConfig) {
+// SetNetworkChanges gets a reference to the given map[string]*NetworkConfig and assigns it to the NetworkChanges field.
+func (o *ComposeChanges) SetNetworkChanges(v map[string]*NetworkConfig) {
 	o.NetworkChanges = v
 }
 
@@ -207,9 +207,9 @@ func (o *ComposeChanges) SetRenameServices(v map[string]string) {
 }
 
 // GetSecretChanges returns the SecretChanges field value if set, zero value otherwise.
-func (o *ComposeChanges) GetSecretChanges() map[string]SecretConfig {
+func (o *ComposeChanges) GetSecretChanges() map[string]*SecretConfig {
 	if o == nil || IsNil(o.SecretChanges) {
-		var ret map[string]SecretConfig
+		var ret map[string]*SecretConfig
 		return ret
 	}
 	return o.SecretChanges
@@ -217,9 +217,9 @@ func (o *ComposeChanges) GetSecretChanges() map[string]SecretConfig {
 
 // GetSecretChangesOk returns a tuple with the SecretChanges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComposeChanges) GetSecretChangesOk() (map[string]SecretConfig, bool) {
+func (o *ComposeChanges) GetSecretChangesOk() (map[string]*SecretConfig, bool) {
 	if o == nil || IsNil(o.SecretChanges) {
-		return map[string]SecretConfig{}, false
+		return map[string]*SecretConfig{}, false
 	}
 	return o.SecretChanges, true
 }
@@ -233,8 +233,8 @@ func (o *ComposeChanges) HasSecretChanges() bool {
 	return false
 }
 
-// SetSecretChanges gets a reference to the given map[string]SecretConfig and assigns it to the SecretChanges field.
-func (o *ComposeChanges) SetSecretChanges(v map[string]SecretConfig) {
+// SetSecretChanges gets a reference to the given map[string]*SecretConfig and assigns it to the SecretChanges field.
+func (o *ComposeChanges) SetSecretChanges(v map[string]*SecretConfig) {
 	o.SecretChanges = v
 }
 
@@ -271,9 +271,9 @@ func (o *ComposeChanges) SetServiceChanges(v map[string]ServiceChanges) {
 }
 
 // GetVolumeChanges returns the VolumeChanges field value if set, zero value otherwise.
-func (o *ComposeChanges) GetVolumeChanges() map[string]VolumeConfig {
+func (o *ComposeChanges) GetVolumeChanges() map[string]*VolumeConfig {
 	if o == nil || IsNil(o.VolumeChanges) {
-		var ret map[string]VolumeConfig
+		var ret map[string]*VolumeConfig
 		return ret
 	}
 	return o.VolumeChanges
@@ -281,9 +281,9 @@ func (o *ComposeChanges) GetVolumeChanges() map[string]VolumeConfig {
 
 // GetVolumeChangesOk returns a tuple with the VolumeChanges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComposeChanges) GetVolumeChangesOk() (map[string]VolumeConfig, bool) {
+func (o *ComposeChanges) GetVolumeChangesOk() (map[string]*VolumeConfig, bool) {
 	if o == nil || IsNil(o.VolumeChanges) {
-		return map[string]VolumeConfig{}, false
+		return map[string]*VolumeConfig{}, false
 	}
 	return o.VolumeChanges, true
 }
@@ -297,8 +297,8 @@ func (o *ComposeChanges) HasVolumeChanges() bool {
 	return false
 }
 
-// SetVolumeChanges gets a reference to the given map[string]VolumeConfig and assigns it to the VolumeChanges field.
-func (o *ComposeChanges) SetVolumeChanges(v map[string]VolumeConfig) {
+// SetVolumeChanges gets a reference to the given map[string]*VolumeConfig and assigns it to the VolumeChanges field.
+func (o *ComposeChanges) SetVolumeChanges(v map[string]*VolumeConfig) {
 	o.VolumeChanges = v
 }
 

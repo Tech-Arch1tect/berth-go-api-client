@@ -28,6 +28,7 @@ Method | HTTP request | Description
 [**ApiV1AdminServersPost**](AdminAPI.md#ApiV1AdminServersPost) | **Post** /api/v1/admin/servers | Create a new server
 [**ApiV1AdminUsersAssignRolePost**](AdminAPI.md#ApiV1AdminUsersAssignRolePost) | **Post** /api/v1/admin/users/assign-role | Assign a role to a user
 [**ApiV1AdminUsersGet**](AdminAPI.md#ApiV1AdminUsersGet) | **Get** /api/v1/admin/users | List all users
+[**ApiV1AdminUsersIdDelete**](AdminAPI.md#ApiV1AdminUsersIdDelete) | **Delete** /api/v1/admin/users/{id} | Delete a user
 [**ApiV1AdminUsersIdRolesGet**](AdminAPI.md#ApiV1AdminUsersIdRolesGet) | **Get** /api/v1/admin/users/{id}/roles | Get user with roles
 [**ApiV1AdminUsersPost**](AdminAPI.md#ApiV1AdminUsersPost) | **Post** /api/v1/admin/users | Create a new user
 [**ApiV1AdminUsersRevokeRolePost**](AdminAPI.md#ApiV1AdminUsersRevokeRolePost) | **Post** /api/v1/admin/users/revoke-role | Revoke a role from a user
@@ -1665,6 +1666,76 @@ Other parameters are passed through a pointer to a apiApiV1AdminUsersGetRequest 
 ### Return type
 
 [**ResponseListUsersData**](ResponseListUsersData.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1AdminUsersIdDelete
+
+> ResponseMessageData ApiV1AdminUsersIdDelete(ctx, id).Execute()
+
+Delete a user
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	id := int32(56) // int32 | User ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminUsersIdDelete(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminUsersIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminUsersIdDelete`: ResponseMessageData
+	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminUsersIdDelete`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | User ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminUsersIdDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ResponseMessageData**](ResponseMessageData.md)
 
 ### Authorization
 

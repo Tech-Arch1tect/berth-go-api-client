@@ -59,20 +59,20 @@ HasAddServices returns a boolean if a field has been set.
 
 ### GetConfigChanges
 
-`func (o *ComposeChanges) GetConfigChanges() map[string]ConfigConfig`
+`func (o *ComposeChanges) GetConfigChanges() map[string]*ConfigConfig`
 
 GetConfigChanges returns the ConfigChanges field if non-nil, zero value otherwise.
 
 ### GetConfigChangesOk
 
-`func (o *ComposeChanges) GetConfigChangesOk() (*map[string]ConfigConfig, bool)`
+`func (o *ComposeChanges) GetConfigChangesOk() (*map[string]*ConfigConfig, bool)`
 
 GetConfigChangesOk returns a tuple with the ConfigChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfigChanges
 
-`func (o *ComposeChanges) SetConfigChanges(v map[string]ConfigConfig)`
+`func (o *ComposeChanges) SetConfigChanges(v map[string]*ConfigConfig)`
 
 SetConfigChanges sets ConfigChanges field to given value.
 
@@ -109,20 +109,20 @@ HasDeleteServices returns a boolean if a field has been set.
 
 ### GetNetworkChanges
 
-`func (o *ComposeChanges) GetNetworkChanges() map[string]NetworkConfig`
+`func (o *ComposeChanges) GetNetworkChanges() map[string]*NetworkConfig`
 
 GetNetworkChanges returns the NetworkChanges field if non-nil, zero value otherwise.
 
 ### GetNetworkChangesOk
 
-`func (o *ComposeChanges) GetNetworkChangesOk() (*map[string]NetworkConfig, bool)`
+`func (o *ComposeChanges) GetNetworkChangesOk() (*map[string]*NetworkConfig, bool)`
 
 GetNetworkChangesOk returns a tuple with the NetworkChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetworkChanges
 
-`func (o *ComposeChanges) SetNetworkChanges(v map[string]NetworkConfig)`
+`func (o *ComposeChanges) SetNetworkChanges(v map[string]*NetworkConfig)`
 
 SetNetworkChanges sets NetworkChanges field to given value.
 
@@ -159,20 +159,20 @@ HasRenameServices returns a boolean if a field has been set.
 
 ### GetSecretChanges
 
-`func (o *ComposeChanges) GetSecretChanges() map[string]SecretConfig`
+`func (o *ComposeChanges) GetSecretChanges() map[string]*SecretConfig`
 
 GetSecretChanges returns the SecretChanges field if non-nil, zero value otherwise.
 
 ### GetSecretChangesOk
 
-`func (o *ComposeChanges) GetSecretChangesOk() (*map[string]SecretConfig, bool)`
+`func (o *ComposeChanges) GetSecretChangesOk() (*map[string]*SecretConfig, bool)`
 
 GetSecretChangesOk returns a tuple with the SecretChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSecretChanges
 
-`func (o *ComposeChanges) SetSecretChanges(v map[string]SecretConfig)`
+`func (o *ComposeChanges) SetSecretChanges(v map[string]*SecretConfig)`
 
 SetSecretChanges sets SecretChanges field to given value.
 
@@ -209,20 +209,20 @@ HasServiceChanges returns a boolean if a field has been set.
 
 ### GetVolumeChanges
 
-`func (o *ComposeChanges) GetVolumeChanges() map[string]VolumeConfig`
+`func (o *ComposeChanges) GetVolumeChanges() map[string]*VolumeConfig`
 
 GetVolumeChanges returns the VolumeChanges field if non-nil, zero value otherwise.
 
 ### GetVolumeChangesOk
 
-`func (o *ComposeChanges) GetVolumeChangesOk() (*map[string]VolumeConfig, bool)`
+`func (o *ComposeChanges) GetVolumeChangesOk() (*map[string]*VolumeConfig, bool)`
 
 GetVolumeChangesOk returns a tuple with the VolumeChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVolumeChanges
 
-`func (o *ComposeChanges) SetVolumeChanges(v map[string]VolumeConfig)`
+`func (o *ComposeChanges) SetVolumeChanges(v map[string]*VolumeConfig)`
 
 SetVolumeChanges sets VolumeChanges field to given value.
 
