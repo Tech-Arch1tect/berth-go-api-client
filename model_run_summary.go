@@ -17,107 +17,125 @@ import (
 	"fmt"
 )
 
-// checks if the Run type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &Run{}
+// checks if the RunSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RunSummary{}
 
-// Run struct for Run
-type Run struct {
-	Components []Component `json:"components"`
-	Error *string `json:"error,omitempty"`
+// RunSummary struct for RunSummary
+type RunSummary struct {
+	AddedBytes int32 `json:"added_bytes"`
+	ComponentCount int32 `json:"component_count"`
+	ComponentsWithErrors int32 `json:"components_with_errors"`
 	FinishedAt NullableTime `json:"finished_at,omitempty"`
 	Id string `json:"id"`
-	ResticVersion *string `json:"restic_version,omitempty"`
-	Skipped []SkippedMount `json:"skipped,omitempty"`
+	SizeBytes int32 `json:"size_bytes"`
 	StackName string `json:"stack_name"`
 	StartedAt time.Time `json:"started_at"`
 	Status string `json:"status"`
 	StopMode *string `json:"stop_mode,omitempty"`
 	Verified NullableBool `json:"verified,omitempty"`
-	VerifyError *string `json:"verify_error,omitempty"`
 }
 
-type _Run Run
+type _RunSummary RunSummary
 
-// NewRun instantiates a new Run object
+// NewRunSummary instantiates a new RunSummary object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRun(components []Component, id string, stackName string, startedAt time.Time, status string) *Run {
-	this := Run{}
-	this.Components = components
+func NewRunSummary(addedBytes int32, componentCount int32, componentsWithErrors int32, id string, sizeBytes int32, stackName string, startedAt time.Time, status string) *RunSummary {
+	this := RunSummary{}
+	this.AddedBytes = addedBytes
+	this.ComponentCount = componentCount
+	this.ComponentsWithErrors = componentsWithErrors
 	this.Id = id
+	this.SizeBytes = sizeBytes
 	this.StackName = stackName
 	this.StartedAt = startedAt
 	this.Status = status
 	return &this
 }
 
-// NewRunWithDefaults instantiates a new Run object
+// NewRunSummaryWithDefaults instantiates a new RunSummary object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRunWithDefaults() *Run {
-	this := Run{}
+func NewRunSummaryWithDefaults() *RunSummary {
+	this := RunSummary{}
 	return &this
 }
 
-// GetComponents returns the Components field value
-func (o *Run) GetComponents() []Component {
+// GetAddedBytes returns the AddedBytes field value
+func (o *RunSummary) GetAddedBytes() int32 {
 	if o == nil {
-		var ret []Component
+		var ret int32
 		return ret
 	}
 
-	return o.Components
+	return o.AddedBytes
 }
 
-// GetComponentsOk returns a tuple with the Components field value
+// GetAddedBytesOk returns a tuple with the AddedBytes field value
 // and a boolean to check if the value has been set.
-func (o *Run) GetComponentsOk() ([]Component, bool) {
+func (o *RunSummary) GetAddedBytesOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Components, true
+	return &o.AddedBytes, true
 }
 
-// SetComponents sets field value
-func (o *Run) SetComponents(v []Component) {
-	o.Components = v
+// SetAddedBytes sets field value
+func (o *RunSummary) SetAddedBytes(v int32) {
+	o.AddedBytes = v
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
-func (o *Run) GetError() string {
-	if o == nil || IsNil(o.Error) {
-		var ret string
+// GetComponentCount returns the ComponentCount field value
+func (o *RunSummary) GetComponentCount() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.Error
+
+	return o.ComponentCount
 }
 
-// GetErrorOk returns a tuple with the Error field value if set, nil otherwise
+// GetComponentCountOk returns a tuple with the ComponentCount field value
 // and a boolean to check if the value has been set.
-func (o *Run) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+func (o *RunSummary) GetComponentCountOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return &o.ComponentCount, true
 }
 
-// HasError returns a boolean if a field has been set.
-func (o *Run) HasError() bool {
-	if o != nil && !IsNil(o.Error) {
-		return true
+// SetComponentCount sets field value
+func (o *RunSummary) SetComponentCount(v int32) {
+	o.ComponentCount = v
+}
+
+// GetComponentsWithErrors returns the ComponentsWithErrors field value
+func (o *RunSummary) GetComponentsWithErrors() int32 {
+	if o == nil {
+		var ret int32
+		return ret
 	}
 
-	return false
+	return o.ComponentsWithErrors
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
-func (o *Run) SetError(v string) {
-	o.Error = &v
+// GetComponentsWithErrorsOk returns a tuple with the ComponentsWithErrors field value
+// and a boolean to check if the value has been set.
+func (o *RunSummary) GetComponentsWithErrorsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ComponentsWithErrors, true
+}
+
+// SetComponentsWithErrors sets field value
+func (o *RunSummary) SetComponentsWithErrors(v int32) {
+	o.ComponentsWithErrors = v
 }
 
 // GetFinishedAt returns the FinishedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Run) GetFinishedAt() time.Time {
+func (o *RunSummary) GetFinishedAt() time.Time {
 	if o == nil || IsNil(o.FinishedAt.Get()) {
 		var ret time.Time
 		return ret
@@ -128,7 +146,7 @@ func (o *Run) GetFinishedAt() time.Time {
 // GetFinishedAtOk returns a tuple with the FinishedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Run) GetFinishedAtOk() (*time.Time, bool) {
+func (o *RunSummary) GetFinishedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -136,7 +154,7 @@ func (o *Run) GetFinishedAtOk() (*time.Time, bool) {
 }
 
 // HasFinishedAt returns a boolean if a field has been set.
-func (o *Run) HasFinishedAt() bool {
+func (o *RunSummary) HasFinishedAt() bool {
 	if o != nil && o.FinishedAt.IsSet() {
 		return true
 	}
@@ -145,21 +163,21 @@ func (o *Run) HasFinishedAt() bool {
 }
 
 // SetFinishedAt gets a reference to the given NullableTime and assigns it to the FinishedAt field.
-func (o *Run) SetFinishedAt(v time.Time) {
+func (o *RunSummary) SetFinishedAt(v time.Time) {
 	o.FinishedAt.Set(&v)
 }
 // SetFinishedAtNil sets the value for FinishedAt to be an explicit nil
-func (o *Run) SetFinishedAtNil() {
+func (o *RunSummary) SetFinishedAtNil() {
 	o.FinishedAt.Set(nil)
 }
 
 // UnsetFinishedAt ensures that no value is present for FinishedAt, not even an explicit nil
-func (o *Run) UnsetFinishedAt() {
+func (o *RunSummary) UnsetFinishedAt() {
 	o.FinishedAt.Unset()
 }
 
 // GetId returns the Id field value
-func (o *Run) GetId() string {
+func (o *RunSummary) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -170,7 +188,7 @@ func (o *Run) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Run) GetIdOk() (*string, bool) {
+func (o *RunSummary) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -178,76 +196,36 @@ func (o *Run) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *Run) SetId(v string) {
+func (o *RunSummary) SetId(v string) {
 	o.Id = v
 }
 
-// GetResticVersion returns the ResticVersion field value if set, zero value otherwise.
-func (o *Run) GetResticVersion() string {
-	if o == nil || IsNil(o.ResticVersion) {
-		var ret string
+// GetSizeBytes returns the SizeBytes field value
+func (o *RunSummary) GetSizeBytes() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.ResticVersion
+
+	return o.SizeBytes
 }
 
-// GetResticVersionOk returns a tuple with the ResticVersion field value if set, nil otherwise
+// GetSizeBytesOk returns a tuple with the SizeBytes field value
 // and a boolean to check if the value has been set.
-func (o *Run) GetResticVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.ResticVersion) {
+func (o *RunSummary) GetSizeBytesOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResticVersion, true
+	return &o.SizeBytes, true
 }
 
-// HasResticVersion returns a boolean if a field has been set.
-func (o *Run) HasResticVersion() bool {
-	if o != nil && !IsNil(o.ResticVersion) {
-		return true
-	}
-
-	return false
-}
-
-// SetResticVersion gets a reference to the given string and assigns it to the ResticVersion field.
-func (o *Run) SetResticVersion(v string) {
-	o.ResticVersion = &v
-}
-
-// GetSkipped returns the Skipped field value if set, zero value otherwise.
-func (o *Run) GetSkipped() []SkippedMount {
-	if o == nil || IsNil(o.Skipped) {
-		var ret []SkippedMount
-		return ret
-	}
-	return o.Skipped
-}
-
-// GetSkippedOk returns a tuple with the Skipped field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Run) GetSkippedOk() ([]SkippedMount, bool) {
-	if o == nil || IsNil(o.Skipped) {
-		return nil, false
-	}
-	return o.Skipped, true
-}
-
-// HasSkipped returns a boolean if a field has been set.
-func (o *Run) HasSkipped() bool {
-	if o != nil && !IsNil(o.Skipped) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkipped gets a reference to the given []SkippedMount and assigns it to the Skipped field.
-func (o *Run) SetSkipped(v []SkippedMount) {
-	o.Skipped = v
+// SetSizeBytes sets field value
+func (o *RunSummary) SetSizeBytes(v int32) {
+	o.SizeBytes = v
 }
 
 // GetStackName returns the StackName field value
-func (o *Run) GetStackName() string {
+func (o *RunSummary) GetStackName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -258,7 +236,7 @@ func (o *Run) GetStackName() string {
 
 // GetStackNameOk returns a tuple with the StackName field value
 // and a boolean to check if the value has been set.
-func (o *Run) GetStackNameOk() (*string, bool) {
+func (o *RunSummary) GetStackNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -266,12 +244,12 @@ func (o *Run) GetStackNameOk() (*string, bool) {
 }
 
 // SetStackName sets field value
-func (o *Run) SetStackName(v string) {
+func (o *RunSummary) SetStackName(v string) {
 	o.StackName = v
 }
 
 // GetStartedAt returns the StartedAt field value
-func (o *Run) GetStartedAt() time.Time {
+func (o *RunSummary) GetStartedAt() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -282,7 +260,7 @@ func (o *Run) GetStartedAt() time.Time {
 
 // GetStartedAtOk returns a tuple with the StartedAt field value
 // and a boolean to check if the value has been set.
-func (o *Run) GetStartedAtOk() (*time.Time, bool) {
+func (o *RunSummary) GetStartedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -290,12 +268,12 @@ func (o *Run) GetStartedAtOk() (*time.Time, bool) {
 }
 
 // SetStartedAt sets field value
-func (o *Run) SetStartedAt(v time.Time) {
+func (o *RunSummary) SetStartedAt(v time.Time) {
 	o.StartedAt = v
 }
 
 // GetStatus returns the Status field value
-func (o *Run) GetStatus() string {
+func (o *RunSummary) GetStatus() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -306,7 +284,7 @@ func (o *Run) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *Run) GetStatusOk() (*string, bool) {
+func (o *RunSummary) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -314,12 +292,12 @@ func (o *Run) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *Run) SetStatus(v string) {
+func (o *RunSummary) SetStatus(v string) {
 	o.Status = v
 }
 
 // GetStopMode returns the StopMode field value if set, zero value otherwise.
-func (o *Run) GetStopMode() string {
+func (o *RunSummary) GetStopMode() string {
 	if o == nil || IsNil(o.StopMode) {
 		var ret string
 		return ret
@@ -329,7 +307,7 @@ func (o *Run) GetStopMode() string {
 
 // GetStopModeOk returns a tuple with the StopMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Run) GetStopModeOk() (*string, bool) {
+func (o *RunSummary) GetStopModeOk() (*string, bool) {
 	if o == nil || IsNil(o.StopMode) {
 		return nil, false
 	}
@@ -337,7 +315,7 @@ func (o *Run) GetStopModeOk() (*string, bool) {
 }
 
 // HasStopMode returns a boolean if a field has been set.
-func (o *Run) HasStopMode() bool {
+func (o *RunSummary) HasStopMode() bool {
 	if o != nil && !IsNil(o.StopMode) {
 		return true
 	}
@@ -346,12 +324,12 @@ func (o *Run) HasStopMode() bool {
 }
 
 // SetStopMode gets a reference to the given string and assigns it to the StopMode field.
-func (o *Run) SetStopMode(v string) {
+func (o *RunSummary) SetStopMode(v string) {
 	o.StopMode = &v
 }
 
 // GetVerified returns the Verified field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Run) GetVerified() bool {
+func (o *RunSummary) GetVerified() bool {
 	if o == nil || IsNil(o.Verified.Get()) {
 		var ret bool
 		return ret
@@ -362,7 +340,7 @@ func (o *Run) GetVerified() bool {
 // GetVerifiedOk returns a tuple with the Verified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Run) GetVerifiedOk() (*bool, bool) {
+func (o *RunSummary) GetVerifiedOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -370,7 +348,7 @@ func (o *Run) GetVerifiedOk() (*bool, bool) {
 }
 
 // HasVerified returns a boolean if a field has been set.
-func (o *Run) HasVerified() bool {
+func (o *RunSummary) HasVerified() bool {
 	if o != nil && o.Verified.IsSet() {
 		return true
 	}
@@ -379,52 +357,20 @@ func (o *Run) HasVerified() bool {
 }
 
 // SetVerified gets a reference to the given NullableBool and assigns it to the Verified field.
-func (o *Run) SetVerified(v bool) {
+func (o *RunSummary) SetVerified(v bool) {
 	o.Verified.Set(&v)
 }
 // SetVerifiedNil sets the value for Verified to be an explicit nil
-func (o *Run) SetVerifiedNil() {
+func (o *RunSummary) SetVerifiedNil() {
 	o.Verified.Set(nil)
 }
 
 // UnsetVerified ensures that no value is present for Verified, not even an explicit nil
-func (o *Run) UnsetVerified() {
+func (o *RunSummary) UnsetVerified() {
 	o.Verified.Unset()
 }
 
-// GetVerifyError returns the VerifyError field value if set, zero value otherwise.
-func (o *Run) GetVerifyError() string {
-	if o == nil || IsNil(o.VerifyError) {
-		var ret string
-		return ret
-	}
-	return *o.VerifyError
-}
-
-// GetVerifyErrorOk returns a tuple with the VerifyError field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Run) GetVerifyErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.VerifyError) {
-		return nil, false
-	}
-	return o.VerifyError, true
-}
-
-// HasVerifyError returns a boolean if a field has been set.
-func (o *Run) HasVerifyError() bool {
-	if o != nil && !IsNil(o.VerifyError) {
-		return true
-	}
-
-	return false
-}
-
-// SetVerifyError gets a reference to the given string and assigns it to the VerifyError field.
-func (o *Run) SetVerifyError(v string) {
-	o.VerifyError = &v
-}
-
-func (o Run) MarshalJSON() ([]byte, error) {
+func (o RunSummary) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -432,22 +378,16 @@ func (o Run) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Run) ToMap() (map[string]interface{}, error) {
+func (o RunSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["components"] = o.Components
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
-	}
+	toSerialize["added_bytes"] = o.AddedBytes
+	toSerialize["component_count"] = o.ComponentCount
+	toSerialize["components_with_errors"] = o.ComponentsWithErrors
 	if o.FinishedAt.IsSet() {
 		toSerialize["finished_at"] = o.FinishedAt.Get()
 	}
 	toSerialize["id"] = o.Id
-	if !IsNil(o.ResticVersion) {
-		toSerialize["restic_version"] = o.ResticVersion
-	}
-	if !IsNil(o.Skipped) {
-		toSerialize["skipped"] = o.Skipped
-	}
+	toSerialize["size_bytes"] = o.SizeBytes
 	toSerialize["stack_name"] = o.StackName
 	toSerialize["started_at"] = o.StartedAt
 	toSerialize["status"] = o.Status
@@ -457,19 +397,19 @@ func (o Run) ToMap() (map[string]interface{}, error) {
 	if o.Verified.IsSet() {
 		toSerialize["verified"] = o.Verified.Get()
 	}
-	if !IsNil(o.VerifyError) {
-		toSerialize["verify_error"] = o.VerifyError
-	}
 	return toSerialize, nil
 }
 
-func (o *Run) UnmarshalJSON(data []byte) (err error) {
+func (o *RunSummary) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"components",
+		"added_bytes",
+		"component_count",
+		"components_with_errors",
 		"id",
+		"size_bytes",
 		"stack_name",
 		"started_at",
 		"status",
@@ -489,53 +429,53 @@ func (o *Run) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varRun := _Run{}
+	varRunSummary := _RunSummary{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRun)
+	err = decoder.Decode(&varRunSummary)
 
 	if err != nil {
 		return err
 	}
 
-	*o = Run(varRun)
+	*o = RunSummary(varRunSummary)
 
 	return err
 }
 
-type NullableRun struct {
-	value *Run
+type NullableRunSummary struct {
+	value *RunSummary
 	isSet bool
 }
 
-func (v NullableRun) Get() *Run {
+func (v NullableRunSummary) Get() *RunSummary {
 	return v.value
 }
 
-func (v *NullableRun) Set(val *Run) {
+func (v *NullableRunSummary) Set(val *RunSummary) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRun) IsSet() bool {
+func (v NullableRunSummary) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRun) Unset() {
+func (v *NullableRunSummary) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRun(val *Run) *NullableRun {
-	return &NullableRun{value: val, isSet: true}
+func NewNullableRunSummary(val *RunSummary) *NullableRunSummary {
+	return &NullableRunSummary{value: val, isSet: true}
 }
 
-func (v NullableRun) MarshalJSON() ([]byte, error) {
+func (v NullableRunSummary) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRun) UnmarshalJSON(src []byte) error {
+func (v *NullableRunSummary) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -3457,8 +3457,9 @@ paths:
       - stacks
   /api/v1/servers/{serverid}/stacks/{stackname}/backups:
     get:
-      description: "Returns the stack's backup runs recorded on the agent, newest\
-        \ first, and whether backups are configured on the agent"
+      description: "Returns one page of the stack's backup run summaries, newest first,\
+        \ with the total run count and whether backups are configured on the agent;\
+        \ full component detail comes from the single-backup endpoint"
       parameters:
       - description: Server ID
         explode: false
@@ -3476,13 +3477,29 @@ paths:
         schema:
           type: string
         style: simple
+      - description: "Page size (default 20, maximum 100)"
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Number of runs to skip
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Response_ListResponse"
-          description: Backup runs
+          description: Backup run summaries
         "400":
           content:
             application/json:
@@ -3517,6 +3534,86 @@ paths:
       tags:
       - backups
   /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}:
+    delete:
+      description: Deletes a backup run's snapshots from the agent's repository and
+        removes its metadata; reclaims repository space
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Backup run ID
+        explode: false
+        in: path
+        name: backupid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_DeleteResponse"
+          description: Backup deleted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Repository in use by another operation
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Delete a stack backup
+      tags:
+      - backups
     get:
       description: Returns a single backup run including its per-component snapshots
         and any skipped mounts
@@ -7742,6 +7839,15 @@ components:
       required:
       - path
       type: object
+    DeleteResponse:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
     DeleteResult:
       example:
         error: error
@@ -9453,120 +9559,42 @@ components:
       example:
         configured: true
         runs:
-        - components:
-          - bytes_added: 0
-            bytes_processed: 0
-            duration_secs: 1.4658129805029452
-            error: error
-            excludes:
-            - excludes
-            - excludes
-            files_changed: 0
-            files_new: 0
-            files_unmodified: 0
-            id: id
-            kind: kind
-            service: service
-            snapshot_id: snapshot_id
-            source_path: source_path
-            target: target
-            volume_name: volume_name
-          - bytes_added: 0
-            bytes_processed: 0
-            duration_secs: 1.4658129805029452
-            error: error
-            excludes:
-            - excludes
-            - excludes
-            files_changed: 0
-            files_new: 0
-            files_unmodified: 0
-            id: id
-            kind: kind
-            service: service
-            snapshot_id: snapshot_id
-            source_path: source_path
-            target: target
-            volume_name: volume_name
-          error: error
+        - added_bytes: 0
+          component_count: 6
+          components_with_errors: 1
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
-          restic_version: restic_version
-          skipped:
-          - kind: kind
-            reason: reason
-            service: service
-            target: target
-          - kind: kind
-            reason: reason
-            service: service
-            target: target
+          size_bytes: 0
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
           stop_mode: stop_mode
-        - components:
-          - bytes_added: 0
-            bytes_processed: 0
-            duration_secs: 1.4658129805029452
-            error: error
-            excludes:
-            - excludes
-            - excludes
-            files_changed: 0
-            files_new: 0
-            files_unmodified: 0
-            id: id
-            kind: kind
-            service: service
-            snapshot_id: snapshot_id
-            source_path: source_path
-            target: target
-            volume_name: volume_name
-          - bytes_added: 0
-            bytes_processed: 0
-            duration_secs: 1.4658129805029452
-            error: error
-            excludes:
-            - excludes
-            - excludes
-            files_changed: 0
-            files_new: 0
-            files_unmodified: 0
-            id: id
-            kind: kind
-            service: service
-            snapshot_id: snapshot_id
-            source_path: source_path
-            target: target
-            volume_name: volume_name
-          error: error
+          verified: true
+        - added_bytes: 0
+          component_count: 6
+          components_with_errors: 1
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
-          restic_version: restic_version
-          skipped:
-          - kind: kind
-            reason: reason
-            service: service
-            target: target
-          - kind: kind
-            reason: reason
-            service: service
-            target: target
+          size_bytes: 0
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
           stop_mode: stop_mode
+          verified: true
+        total: 5
       properties:
         configured:
           type: boolean
         runs:
           items:
-            $ref: "#/components/schemas/Run"
+            $ref: "#/components/schemas/RunSummary"
           type: array
+        total:
+          type: integer
       required:
       - configured
       - runs
+      - total
       type: object
     ListRoleStackPermissionsData:
       example:
@@ -11891,6 +11919,30 @@ components:
       - data
       - success
       type: object
+    Response_DeleteResponse:
+      example:
+        data:
+          message: message
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/DeleteResponse"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
     Response_DeleteResult:
       example:
         data:
@@ -12967,110 +13019,29 @@ components:
         data:
           configured: true
           runs:
-          - components:
-            - bytes_added: 0
-              bytes_processed: 0
-              duration_secs: 1.4658129805029452
-              error: error
-              excludes:
-              - excludes
-              - excludes
-              files_changed: 0
-              files_new: 0
-              files_unmodified: 0
-              id: id
-              kind: kind
-              service: service
-              snapshot_id: snapshot_id
-              source_path: source_path
-              target: target
-              volume_name: volume_name
-            - bytes_added: 0
-              bytes_processed: 0
-              duration_secs: 1.4658129805029452
-              error: error
-              excludes:
-              - excludes
-              - excludes
-              files_changed: 0
-              files_new: 0
-              files_unmodified: 0
-              id: id
-              kind: kind
-              service: service
-              snapshot_id: snapshot_id
-              source_path: source_path
-              target: target
-              volume_name: volume_name
-            error: error
+          - added_bytes: 0
+            component_count: 6
+            components_with_errors: 1
             finished_at: 2000-01-23T04:56:07.000+00:00
             id: id
-            restic_version: restic_version
-            skipped:
-            - kind: kind
-              reason: reason
-              service: service
-              target: target
-            - kind: kind
-              reason: reason
-              service: service
-              target: target
+            size_bytes: 0
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
             stop_mode: stop_mode
-          - components:
-            - bytes_added: 0
-              bytes_processed: 0
-              duration_secs: 1.4658129805029452
-              error: error
-              excludes:
-              - excludes
-              - excludes
-              files_changed: 0
-              files_new: 0
-              files_unmodified: 0
-              id: id
-              kind: kind
-              service: service
-              snapshot_id: snapshot_id
-              source_path: source_path
-              target: target
-              volume_name: volume_name
-            - bytes_added: 0
-              bytes_processed: 0
-              duration_secs: 1.4658129805029452
-              error: error
-              excludes:
-              - excludes
-              - excludes
-              files_changed: 0
-              files_new: 0
-              files_unmodified: 0
-              id: id
-              kind: kind
-              service: service
-              snapshot_id: snapshot_id
-              source_path: source_path
-              target: target
-              volume_name: volume_name
-            error: error
+            verified: true
+          - added_bytes: 0
+            component_count: 6
+            components_with_errors: 1
             finished_at: 2000-01-23T04:56:07.000+00:00
             id: id
-            restic_version: restic_version
-            skipped:
-            - kind: kind
-              reason: reason
-              service: service
-              target: target
-            - kind: kind
-              reason: reason
-              service: service
-              target: target
+            size_bytes: 0
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
             stop_mode: stop_mode
+            verified: true
+          total: 5
         error: ""
         meta: ""
         success: true
@@ -14269,6 +14240,8 @@ components:
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
           stop_mode: stop_mode
+          verified: true
+          verify_error: verify_error
         error: ""
         meta: ""
         success: true
@@ -15899,6 +15872,8 @@ components:
         started_at: 2000-01-23T04:56:07.000+00:00
         status: status
         stop_mode: stop_mode
+        verified: true
+        verify_error: verify_error
       properties:
         components:
           items:
@@ -15927,9 +15902,66 @@ components:
           type: string
         stop_mode:
           type: string
+        verified:
+          nullable: true
+          type: boolean
+        verify_error:
+          type: string
       required:
       - components
       - id
+      - stack_name
+      - started_at
+      - status
+      type: object
+    RunSummary:
+      example:
+        added_bytes: 0
+        component_count: 6
+        components_with_errors: 1
+        finished_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        size_bytes: 0
+        stack_name: stack_name
+        started_at: 2000-01-23T04:56:07.000+00:00
+        status: status
+        stop_mode: stop_mode
+        verified: true
+      properties:
+        added_bytes:
+          minimum: 0
+          type: integer
+        component_count:
+          type: integer
+        components_with_errors:
+          type: integer
+        finished_at:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          type: string
+        size_bytes:
+          minimum: 0
+          type: integer
+        stack_name:
+          type: string
+        started_at:
+          format: date-time
+          type: string
+        status:
+          type: string
+        stop_mode:
+          type: string
+        verified:
+          nullable: true
+          type: boolean
+      required:
+      - added_bytes
+      - component_count
+      - components_with_errors
+      - id
+      - size_bytes
       - stack_name
       - started_at
       - status

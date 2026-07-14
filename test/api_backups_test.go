@@ -22,6 +22,22 @@ func Test_berth_BackupsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test BackupsAPIService ApiV1ServersServeridStacksStacknameBackupsBackupidDelete", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serverid int32
+		var stackname string
+		var backupid string
+
+		resp, httpRes, err := apiClient.BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsBackupidDelete(context.Background(), serverid, stackname, backupid).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test BackupsAPIService ApiV1ServersServeridStacksStacknameBackupsBackupidGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

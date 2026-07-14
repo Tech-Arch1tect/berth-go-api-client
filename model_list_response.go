@@ -22,7 +22,8 @@ var _ MappedNullable = &ListResponse{}
 // ListResponse struct for ListResponse
 type ListResponse struct {
 	Configured bool `json:"configured"`
-	Runs []Run `json:"runs"`
+	Runs []RunSummary `json:"runs"`
+	Total int32 `json:"total"`
 }
 
 type _ListResponse ListResponse
@@ -31,10 +32,11 @@ type _ListResponse ListResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListResponse(configured bool, runs []Run) *ListResponse {
+func NewListResponse(configured bool, runs []RunSummary, total int32) *ListResponse {
 	this := ListResponse{}
 	this.Configured = configured
 	this.Runs = runs
+	this.Total = total
 	return &this
 }
 
@@ -71,9 +73,9 @@ func (o *ListResponse) SetConfigured(v bool) {
 }
 
 // GetRuns returns the Runs field value
-func (o *ListResponse) GetRuns() []Run {
+func (o *ListResponse) GetRuns() []RunSummary {
 	if o == nil {
-		var ret []Run
+		var ret []RunSummary
 		return ret
 	}
 
@@ -82,7 +84,7 @@ func (o *ListResponse) GetRuns() []Run {
 
 // GetRunsOk returns a tuple with the Runs field value
 // and a boolean to check if the value has been set.
-func (o *ListResponse) GetRunsOk() ([]Run, bool) {
+func (o *ListResponse) GetRunsOk() ([]RunSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,8 +92,32 @@ func (o *ListResponse) GetRunsOk() ([]Run, bool) {
 }
 
 // SetRuns sets field value
-func (o *ListResponse) SetRuns(v []Run) {
+func (o *ListResponse) SetRuns(v []RunSummary) {
 	o.Runs = v
+}
+
+// GetTotal returns the Total field value
+func (o *ListResponse) GetTotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Total
+}
+
+// GetTotalOk returns a tuple with the Total field value
+// and a boolean to check if the value has been set.
+func (o *ListResponse) GetTotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Total, true
+}
+
+// SetTotal sets field value
+func (o *ListResponse) SetTotal(v int32) {
+	o.Total = v
 }
 
 func (o ListResponse) MarshalJSON() ([]byte, error) {
@@ -106,6 +132,7 @@ func (o ListResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["configured"] = o.Configured
 	toSerialize["runs"] = o.Runs
+	toSerialize["total"] = o.Total
 	return toSerialize, nil
 }
 
@@ -116,6 +143,7 @@ func (o *ListResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"configured",
 		"runs",
+		"total",
 	}
 
 	allProperties := make(map[string]interface{})

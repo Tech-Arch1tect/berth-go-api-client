@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**ApiV1AuthResendVerificationPost**](docs/AuthAPI.md#apiv1authresendverificationpost) | **Post** /api/v1/auth/resend-verification | Request a new email verification link
 *AuthAPI* | [**ApiV1AuthTotpVerifyPost**](docs/AuthAPI.md#apiv1authtotpverifypost) | **Post** /api/v1/auth/totp/verify | Verify TOTP code to complete login
 *AuthAPI* | [**ApiV1AuthVerifyEmailPost**](docs/AuthAPI.md#apiv1authverifyemailpost) | **Post** /api/v1/auth/verify-email | Verify an email address
+*BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidDelete**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupiddelete) | **Delete** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Delete a stack backup
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupidget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Get a stack backup
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups | List stack backups
 *ComposeAPI* | [**ApiV1ServersServeridStacksStacknameComposeGet**](docs/ComposeAPI.md#apiv1serversserveridstacksstacknamecomposeget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/compose | Get compose configuration
@@ -240,6 +241,7 @@ Class | Method | HTTP request | Description
  - [DeleteCredentialMessageData](docs/DeleteCredentialMessageData.md)
  - [DeleteRequest](docs/DeleteRequest.md)
  - [DeleteRequest2](docs/DeleteRequest2.md)
+ - [DeleteResponse](docs/DeleteResponse.md)
  - [DeleteResult](docs/DeleteResult.md)
  - [DeletedAt](docs/DeletedAt.md)
  - [DependsOnConfig](docs/DependsOnConfig.md)
@@ -343,6 +345,7 @@ Class | Method | HTTP request | Description
  - [ResponseCreateAPIKeyData](docs/ResponseCreateAPIKeyData.md)
  - [ResponseCreateStackData](docs/ResponseCreateStackData.md)
  - [ResponseDeleteCredentialMessageData](docs/ResponseDeleteCredentialMessageData.md)
+ - [ResponseDeleteResponse](docs/ResponseDeleteResponse.md)
  - [ResponseDeleteResult](docs/ResponseDeleteResult.md)
  - [ResponseDirectoryListing](docs/ResponseDirectoryListing.md)
  - [ResponseDirectoryStats](docs/ResponseDirectoryStats.md)
@@ -412,6 +415,7 @@ Class | Method | HTTP request | Description
  - [RoleWithPermissions](docs/RoleWithPermissions.md)
  - [RootFS](docs/RootFS.md)
  - [Run](docs/Run.md)
+ - [RunSummary](docs/RunSummary.md)
  - [RunningOperationsData](docs/RunningOperationsData.md)
  - [ScanComparison](docs/ScanComparison.md)
  - [ScanScope](docs/ScanScope.md)

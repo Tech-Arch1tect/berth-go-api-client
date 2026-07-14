@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **StartedAt** | **time.Time** |  | 
 **Status** | **string** |  | 
 **StopMode** | Pointer to **string** |  | [optional] 
+**Verified** | Pointer to **NullableBool** |  | [optional] 
+**VerifyError** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -268,6 +270,66 @@ SetStopMode sets StopMode field to given value.
 `func (o *Run) HasStopMode() bool`
 
 HasStopMode returns a boolean if a field has been set.
+
+### GetVerified
+
+`func (o *Run) GetVerified() bool`
+
+GetVerified returns the Verified field if non-nil, zero value otherwise.
+
+### GetVerifiedOk
+
+`func (o *Run) GetVerifiedOk() (*bool, bool)`
+
+GetVerifiedOk returns a tuple with the Verified field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVerified
+
+`func (o *Run) SetVerified(v bool)`
+
+SetVerified sets Verified field to given value.
+
+### HasVerified
+
+`func (o *Run) HasVerified() bool`
+
+HasVerified returns a boolean if a field has been set.
+
+### SetVerifiedNil
+
+`func (o *Run) SetVerifiedNil(b bool)`
+
+ SetVerifiedNil sets the value for Verified to be an explicit nil
+
+### UnsetVerified
+`func (o *Run) UnsetVerified()`
+
+UnsetVerified ensures that no value is present for Verified, not even an explicit nil
+### GetVerifyError
+
+`func (o *Run) GetVerifyError() string`
+
+GetVerifyError returns the VerifyError field if non-nil, zero value otherwise.
+
+### GetVerifyErrorOk
+
+`func (o *Run) GetVerifyErrorOk() (*string, bool)`
+
+GetVerifyErrorOk returns a tuple with the VerifyError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVerifyError
+
+`func (o *Run) SetVerifyError(v string)`
+
+SetVerifyError sets VerifyError field to given value.
+
+### HasVerifyError
+
+`func (o *Run) HasVerifyError() bool`
+
+HasVerifyError returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

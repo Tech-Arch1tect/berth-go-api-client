@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Configured** | **bool** |  | 
-**Runs** | [**[]Run**](Run.md) |  | 
+**Runs** | [**[]RunSummary**](RunSummary.md) |  | 
+**Total** | **int32** |  | 
 
 ## Methods
 
 ### NewListResponse
 
-`func NewListResponse(configured bool, runs []Run, ) *ListResponse`
+`func NewListResponse(configured bool, runs []RunSummary, total int32, ) *ListResponse`
 
 NewListResponse instantiates a new ListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,22 +49,42 @@ SetConfigured sets Configured field to given value.
 
 ### GetRuns
 
-`func (o *ListResponse) GetRuns() []Run`
+`func (o *ListResponse) GetRuns() []RunSummary`
 
 GetRuns returns the Runs field if non-nil, zero value otherwise.
 
 ### GetRunsOk
 
-`func (o *ListResponse) GetRunsOk() (*[]Run, bool)`
+`func (o *ListResponse) GetRunsOk() (*[]RunSummary, bool)`
 
 GetRunsOk returns a tuple with the Runs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRuns
 
-`func (o *ListResponse) SetRuns(v []Run)`
+`func (o *ListResponse) SetRuns(v []RunSummary)`
 
 SetRuns sets Runs field to given value.
+
+
+### GetTotal
+
+`func (o *ListResponse) GetTotal() int32`
+
+GetTotal returns the Total field if non-nil, zero value otherwise.
+
+### GetTotalOk
+
+`func (o *ListResponse) GetTotalOk() (*int32, bool)`
+
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotal
+
+`func (o *ListResponse) SetTotal(v int32)`
+
+SetTotal sets Total field to given value.
 
 
 

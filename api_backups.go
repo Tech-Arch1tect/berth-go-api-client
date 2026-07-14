@@ -23,6 +23,183 @@ import (
 // BackupsAPIService BackupsAPI service
 type BackupsAPIService service
 
+type ApiApiV1ServersServeridStacksStacknameBackupsBackupidDeleteRequest struct {
+	ctx context.Context
+	ApiService *BackupsAPIService
+	serverid int32
+	stackname string
+	backupid string
+}
+
+func (r ApiApiV1ServersServeridStacksStacknameBackupsBackupidDeleteRequest) Execute() (*ResponseDeleteResponse, *http.Response, error) {
+	return r.ApiService.ApiV1ServersServeridStacksStacknameBackupsBackupidDeleteExecute(r)
+}
+
+/*
+ApiV1ServersServeridStacksStacknameBackupsBackupidDelete Delete a stack backup
+
+Deletes a backup run's snapshots from the agent's repository and removes its metadata; reclaims repository space
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serverid Server ID
+ @param stackname Stack name
+ @param backupid Backup run ID
+ @return ApiApiV1ServersServeridStacksStacknameBackupsBackupidDeleteRequest
+*/
+func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidDelete(ctx context.Context, serverid int32, stackname string, backupid string) ApiApiV1ServersServeridStacksStacknameBackupsBackupidDeleteRequest {
+	return ApiApiV1ServersServeridStacksStacknameBackupsBackupidDeleteRequest{
+		ApiService: a,
+		ctx: ctx,
+		serverid: serverid,
+		stackname: stackname,
+		backupid: backupid,
+	}
+}
+
+// Execute executes the request
+//  @return ResponseDeleteResponse
+func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidDeleteExecute(r ApiApiV1ServersServeridStacksStacknameBackupsBackupidDeleteRequest) (*ResponseDeleteResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseDeleteResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupsAPIService.ApiV1ServersServeridStacksStacknameBackupsBackupidDelete")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"serverid"+"}", url.PathEscape(parameterValueToString(r.serverid, "serverid")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"stackname"+"}", url.PathEscape(parameterValueToString(r.stackname, "stackname")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid, "backupid")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiApiV1ServersServeridStacksStacknameBackupsBackupidGetRequest struct {
 	ctx context.Context
 	ApiService *BackupsAPIService
@@ -194,6 +371,20 @@ type ApiApiV1ServersServeridStacksStacknameBackupsGetRequest struct {
 	ApiService *BackupsAPIService
 	serverid int32
 	stackname string
+	limit *int32
+	offset *int32
+}
+
+// Page size (default 20, maximum 100)
+func (r ApiApiV1ServersServeridStacksStacknameBackupsGetRequest) Limit(limit int32) ApiApiV1ServersServeridStacksStacknameBackupsGetRequest {
+	r.limit = &limit
+	return r
+}
+
+// Number of runs to skip
+func (r ApiApiV1ServersServeridStacksStacknameBackupsGetRequest) Offset(offset int32) ApiApiV1ServersServeridStacksStacknameBackupsGetRequest {
+	r.offset = &offset
+	return r
 }
 
 func (r ApiApiV1ServersServeridStacksStacknameBackupsGetRequest) Execute() (*ResponseListResponse, *http.Response, error) {
@@ -203,7 +394,7 @@ func (r ApiApiV1ServersServeridStacksStacknameBackupsGetRequest) Execute() (*Res
 /*
 ApiV1ServersServeridStacksStacknameBackupsGet List stack backups
 
-Returns the stack's backup runs recorded on the agent, newest first, and whether backups are configured on the agent
+Returns one page of the stack's backup run summaries, newest first, with the total run count and whether backups are configured on the agent; full component detail comes from the single-backup endpoint
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serverid Server ID
@@ -242,6 +433,12 @@ func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsGetExecute
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	}
+	if r.offset != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
