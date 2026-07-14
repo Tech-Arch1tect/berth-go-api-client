@@ -6265,6 +6265,7 @@ components:
     AdminCreateServerData:
       example:
         server:
+          backups_enabled: true
           created_at: created_at
           description: description
           host: host
@@ -6283,7 +6284,8 @@ components:
     AdminListServersData:
       example:
         servers:
-        - created_at: created_at
+        - backups_enabled: true
+          created_at: created_at
           description: description
           host: host
           id: 0
@@ -6292,7 +6294,8 @@ components:
           port: 6
           skip_ssl_verification: true
           updated_at: updated_at
-        - created_at: created_at
+        - backups_enabled: true
+          created_at: created_at
           description: description
           host: host
           id: 0
@@ -6312,6 +6315,7 @@ components:
     AdminUpdateServerData:
       example:
         server:
+          backups_enabled: true
           created_at: created_at
           description: description
           host: host
@@ -8690,6 +8694,7 @@ components:
     GetServerData:
       example:
         server:
+          backups_enabled: true
           created_at: created_at
           description: description
           host: host
@@ -9564,6 +9569,7 @@ components:
           components_with_errors: 1
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
+          repo_size_bytes: 0
           size_bytes: 0
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
@@ -9575,13 +9581,14 @@ components:
           components_with_errors: 1
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
+          repo_size_bytes: 0
           size_bytes: 0
           stack_name: stack_name
           started_at: 2000-01-23T04:56:07.000+00:00
           status: status
           stop_mode: stop_mode
           verified: true
-        total: 5
+        total: 2
       properties:
         configured:
           type: boolean
@@ -9709,7 +9716,8 @@ components:
     ListServersData:
       example:
         servers:
-        - created_at: created_at
+        - backups_enabled: true
+          created_at: created_at
           description: description
           host: host
           id: 0
@@ -9718,7 +9726,8 @@ components:
           port: 6
           skip_ssl_verification: true
           updated_at: updated_at
-        - created_at: created_at
+        - backups_enabled: true
+          created_at: created_at
           description: description
           host: host
           id: 0
@@ -10319,6 +10328,7 @@ components:
         operation_id: operation_id
         options: options
         server:
+          backups_enabled: true
           created_at: 2000-01-23T04:56:07.000+00:00
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -10458,6 +10468,7 @@ components:
           options: options
           partial_duration_ms: 5
           server:
+            backups_enabled: true
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -10534,6 +10545,7 @@ components:
             operation_id: operation_id
             options: options
             server:
+              backups_enabled: true
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -10610,6 +10622,7 @@ components:
             operation_id: operation_id
             options: options
             server:
+              backups_enabled: true
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -10695,6 +10708,7 @@ components:
         options: options
         partial_duration_ms: 5
         server:
+          backups_enabled: true
           created_at: 2000-01-23T04:56:07.000+00:00
           deleted_at:
             Time: 2000-01-23T04:56:07.000+00:00
@@ -10861,6 +10875,7 @@ components:
           operation_id: operation_id
           options: options
           server:
+            backups_enabled: true
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -11445,6 +11460,7 @@ components:
       example:
         data:
           server:
+            backups_enabled: true
             created_at: created_at
             description: description
             host: host
@@ -11478,7 +11494,8 @@ components:
       example:
         data:
           servers:
-          - created_at: created_at
+          - backups_enabled: true
+            created_at: created_at
             description: description
             host: host
             id: 0
@@ -11487,7 +11504,8 @@ components:
             port: 6
             skip_ssl_verification: true
             updated_at: updated_at
-          - created_at: created_at
+          - backups_enabled: true
+            created_at: created_at
             description: description
             host: host
             id: 0
@@ -11520,6 +11538,7 @@ components:
       example:
         data:
           server:
+            backups_enabled: true
             created_at: created_at
             description: description
             host: host
@@ -12719,6 +12738,7 @@ components:
       example:
         data:
           server:
+            backups_enabled: true
             created_at: created_at
             description: description
             host: host
@@ -13024,6 +13044,7 @@ components:
             components_with_errors: 1
             finished_at: 2000-01-23T04:56:07.000+00:00
             id: id
+            repo_size_bytes: 0
             size_bytes: 0
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
@@ -13035,13 +13056,14 @@ components:
             components_with_errors: 1
             finished_at: 2000-01-23T04:56:07.000+00:00
             id: id
+            repo_size_bytes: 0
             size_bytes: 0
             stack_name: stack_name
             started_at: 2000-01-23T04:56:07.000+00:00
             status: status
             stop_mode: stop_mode
             verified: true
-          total: 5
+          total: 2
         error: ""
         meta: ""
         success: true
@@ -13189,7 +13211,8 @@ components:
       example:
         data:
           servers:
-          - created_at: created_at
+          - backups_enabled: true
+            created_at: created_at
             description: description
             host: host
             id: 0
@@ -13198,7 +13221,8 @@ components:
             port: 6
             skip_ssl_verification: true
             updated_at: updated_at
-          - created_at: created_at
+          - backups_enabled: true
+            created_at: created_at
             description: description
             host: host
             id: 0
@@ -13610,6 +13634,7 @@ components:
             options: options
             partial_duration_ms: 5
             server:
+              backups_enabled: true
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -13686,6 +13711,7 @@ components:
               operation_id: operation_id
               options: options
               server:
+                backups_enabled: true
                 created_at: 2000-01-23T04:56:07.000+00:00
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
@@ -13762,6 +13788,7 @@ components:
               operation_id: operation_id
               options: options
               server:
+                backups_enabled: true
                 created_at: 2000-01-23T04:56:07.000+00:00
                 deleted_at:
                   Time: 2000-01-23T04:56:07.000+00:00
@@ -13857,6 +13884,7 @@ components:
           options: options
           partial_duration_ms: 5
           server:
+            backups_enabled: true
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -13928,6 +13956,7 @@ components:
           options: options
           partial_duration_ms: 5
           server:
+            backups_enabled: true
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -14226,6 +14255,7 @@ components:
           error: error
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
+          repo_size_bytes: 0
           restic_version: restic_version
           skipped:
           - kind: kind
@@ -14283,6 +14313,7 @@ components:
             options: options
             partial_duration_ms: 5
             server:
+              backups_enabled: true
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -14354,6 +14385,7 @@ components:
             options: options
             partial_duration_ms: 5
             server:
+              backups_enabled: true
               created_at: 2000-01-23T04:56:07.000+00:00
               deleted_at:
                 Time: 2000-01-23T04:56:07.000+00:00
@@ -15858,6 +15890,7 @@ components:
         error: error
         finished_at: 2000-01-23T04:56:07.000+00:00
         id: id
+        repo_size_bytes: 0
         restic_version: restic_version
         skipped:
         - kind: kind
@@ -15887,6 +15920,9 @@ components:
           type: string
         id:
           type: string
+        repo_size_bytes:
+          minimum: 0
+          type: integer
         restic_version:
           type: string
         skipped:
@@ -15921,6 +15957,7 @@ components:
         components_with_errors: 1
         finished_at: 2000-01-23T04:56:07.000+00:00
         id: id
+        repo_size_bytes: 0
         size_bytes: 0
         stack_name: stack_name
         started_at: 2000-01-23T04:56:07.000+00:00
@@ -15941,6 +15978,9 @@ components:
           type: string
         id:
           type: string
+        repo_size_bytes:
+          minimum: 0
+          type: integer
         size_bytes:
           minimum: 0
           type: integer
@@ -15986,6 +16026,7 @@ components:
           options: options
           partial_duration_ms: 5
           server:
+            backups_enabled: true
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -16057,6 +16098,7 @@ components:
           options: options
           partial_duration_ms: 5
           server:
+            backups_enabled: true
             created_at: 2000-01-23T04:56:07.000+00:00
             deleted_at:
               Time: 2000-01-23T04:56:07.000+00:00
@@ -16591,6 +16633,7 @@ components:
       type: object
     Server:
       example:
+        backups_enabled: true
         created_at: 2000-01-23T04:56:07.000+00:00
         deleted_at:
           Time: 2000-01-23T04:56:07.000+00:00
@@ -16604,6 +16647,8 @@ components:
         skip_ssl_verification: true
         updated_at: 2000-01-23T04:56:07.000+00:00
       properties:
+        backups_enabled:
+          type: boolean
         created_at:
           format: date-time
           type: string
@@ -16629,6 +16674,7 @@ components:
           format: date-time
           type: string
       required:
+      - backups_enabled
       - created_at
       - description
       - host
@@ -16641,6 +16687,8 @@ components:
     ServerCreateRequest:
       example:
         access_token: access_token
+        backup_password: backup_password
+        backups_enabled: true
         description: description
         host: host
         is_active: true
@@ -16650,6 +16698,10 @@ components:
       properties:
         access_token:
           type: string
+        backup_password:
+          type: string
+        backups_enabled:
+          type: boolean
         description:
           type: string
         host:
@@ -16671,6 +16723,7 @@ components:
       type: object
     ServerInfo:
       example:
+        backups_enabled: true
         created_at: created_at
         description: description
         host: host
@@ -16681,6 +16734,8 @@ components:
         skip_ssl_verification: true
         updated_at: updated_at
       properties:
+        backups_enabled:
+          type: boolean
         created_at:
           type: string
         description:
@@ -16701,6 +16756,7 @@ components:
         updated_at:
           type: string
       required:
+      - backups_enabled
       - created_at
       - description
       - host
@@ -16756,6 +16812,8 @@ components:
     ServerUpdateRequest:
       example:
         access_token: access_token
+        backup_password: backup_password
+        backups_enabled: true
         description: description
         host: host
         is_active: true
@@ -16765,6 +16823,10 @@ components:
       properties:
         access_token:
           type: string
+        backup_password:
+          type: string
+        backups_enabled:
+          type: boolean
         description:
           type: string
         host:

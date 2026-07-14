@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Error** | Pointer to **string** |  | [optional] 
 **FinishedAt** | Pointer to **NullableTime** |  | [optional] 
 **Id** | **string** |  | 
+**RepoSizeBytes** | Pointer to **int32** |  | [optional] 
 **ResticVersion** | Pointer to **string** |  | [optional] 
 **Skipped** | Pointer to [**[]SkippedMount**](SkippedMount.md) |  | [optional] 
 **StackName** | **string** |  | 
@@ -135,6 +136,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetRepoSizeBytes
+
+`func (o *Run) GetRepoSizeBytes() int32`
+
+GetRepoSizeBytes returns the RepoSizeBytes field if non-nil, zero value otherwise.
+
+### GetRepoSizeBytesOk
+
+`func (o *Run) GetRepoSizeBytesOk() (*int32, bool)`
+
+GetRepoSizeBytesOk returns a tuple with the RepoSizeBytes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRepoSizeBytes
+
+`func (o *Run) SetRepoSizeBytes(v int32)`
+
+SetRepoSizeBytes sets RepoSizeBytes field to given value.
+
+### HasRepoSizeBytes
+
+`func (o *Run) HasRepoSizeBytes() bool`
+
+HasRepoSizeBytes returns a boolean if a field has been set.
 
 ### GetResticVersion
 

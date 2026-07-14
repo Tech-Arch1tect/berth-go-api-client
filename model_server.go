@@ -22,6 +22,7 @@ var _ MappedNullable = &Server{}
 
 // Server struct for Server
 type Server struct {
+	BackupsEnabled bool `json:"backups_enabled"`
 	CreatedAt time.Time `json:"created_at"`
 	DeletedAt *DeletedAt `json:"deleted_at,omitempty"`
 	Description string `json:"description"`
@@ -40,8 +41,9 @@ type _Server Server
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServer(createdAt time.Time, description string, host string, id int32, isActive bool, name string, port int32, updatedAt time.Time) *Server {
+func NewServer(backupsEnabled bool, createdAt time.Time, description string, host string, id int32, isActive bool, name string, port int32, updatedAt time.Time) *Server {
 	this := Server{}
+	this.BackupsEnabled = backupsEnabled
 	this.CreatedAt = createdAt
 	this.Description = description
 	this.Host = host
@@ -59,6 +61,30 @@ func NewServer(createdAt time.Time, description string, host string, id int32, i
 func NewServerWithDefaults() *Server {
 	this := Server{}
 	return &this
+}
+
+// GetBackupsEnabled returns the BackupsEnabled field value
+func (o *Server) GetBackupsEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BackupsEnabled
+}
+
+// GetBackupsEnabledOk returns a tuple with the BackupsEnabled field value
+// and a boolean to check if the value has been set.
+func (o *Server) GetBackupsEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BackupsEnabled, true
+}
+
+// SetBackupsEnabled sets field value
+func (o *Server) SetBackupsEnabled(v bool) {
+	o.BackupsEnabled = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -337,6 +363,7 @@ func (o Server) MarshalJSON() ([]byte, error) {
 
 func (o Server) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["backups_enabled"] = o.BackupsEnabled
 	toSerialize["created_at"] = o.CreatedAt
 	if !IsNil(o.DeletedAt) {
 		toSerialize["deleted_at"] = o.DeletedAt
@@ -359,6 +386,7 @@ func (o *Server) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"backups_enabled",
 		"created_at",
 		"description",
 		"host",

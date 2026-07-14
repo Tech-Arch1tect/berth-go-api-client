@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BackupsEnabled** | **bool** |  | 
 **CreatedAt** | **string** |  | 
 **Description** | **string** |  | 
 **Host** | **string** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewServerInfo
 
-`func NewServerInfo(createdAt string, description string, host string, id int32, isActive bool, name string, port int32, skipSslVerification bool, updatedAt string, ) *ServerInfo`
+`func NewServerInfo(backupsEnabled bool, createdAt string, description string, host string, id int32, isActive bool, name string, port int32, skipSslVerification bool, updatedAt string, ) *ServerInfo`
 
 NewServerInfo instantiates a new ServerInfo object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +33,26 @@ will change when the set of required properties is changed
 NewServerInfoWithDefaults instantiates a new ServerInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBackupsEnabled
+
+`func (o *ServerInfo) GetBackupsEnabled() bool`
+
+GetBackupsEnabled returns the BackupsEnabled field if non-nil, zero value otherwise.
+
+### GetBackupsEnabledOk
+
+`func (o *ServerInfo) GetBackupsEnabledOk() (*bool, bool)`
+
+GetBackupsEnabledOk returns a tuple with the BackupsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupsEnabled
+
+`func (o *ServerInfo) SetBackupsEnabled(v bool)`
+
+SetBackupsEnabled sets BackupsEnabled field to given value.
+
 
 ### GetCreatedAt
 

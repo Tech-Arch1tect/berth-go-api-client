@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BackupsEnabled** | **bool** |  | 
 **CreatedAt** | **time.Time** |  | 
 **DeletedAt** | Pointer to [**DeletedAt**](DeletedAt.md) |  | [optional] 
 **Description** | **string** |  | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewServer
 
-`func NewServer(createdAt time.Time, description string, host string, id int32, isActive bool, name string, port int32, updatedAt time.Time, ) *Server`
+`func NewServer(backupsEnabled bool, createdAt time.Time, description string, host string, id int32, isActive bool, name string, port int32, updatedAt time.Time, ) *Server`
 
 NewServer instantiates a new Server object
 This constructor will assign default values to properties that have it defined,
@@ -33,6 +34,26 @@ will change when the set of required properties is changed
 NewServerWithDefaults instantiates a new Server object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBackupsEnabled
+
+`func (o *Server) GetBackupsEnabled() bool`
+
+GetBackupsEnabled returns the BackupsEnabled field if non-nil, zero value otherwise.
+
+### GetBackupsEnabledOk
+
+`func (o *Server) GetBackupsEnabledOk() (*bool, bool)`
+
+GetBackupsEnabledOk returns a tuple with the BackupsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupsEnabled
+
+`func (o *Server) SetBackupsEnabled(v bool)`
+
+SetBackupsEnabled sets BackupsEnabled field to given value.
+
 
 ### GetCreatedAt
 

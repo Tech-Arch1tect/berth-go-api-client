@@ -22,6 +22,8 @@ var _ MappedNullable = &ServerUpdateRequest{}
 // ServerUpdateRequest struct for ServerUpdateRequest
 type ServerUpdateRequest struct {
 	AccessToken *string `json:"access_token,omitempty"`
+	BackupPassword *string `json:"backup_password,omitempty"`
+	BackupsEnabled *bool `json:"backups_enabled,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Host string `json:"host"`
 	IsActive *bool `json:"is_active,omitempty"`
@@ -82,6 +84,70 @@ func (o *ServerUpdateRequest) HasAccessToken() bool {
 // SetAccessToken gets a reference to the given string and assigns it to the AccessToken field.
 func (o *ServerUpdateRequest) SetAccessToken(v string) {
 	o.AccessToken = &v
+}
+
+// GetBackupPassword returns the BackupPassword field value if set, zero value otherwise.
+func (o *ServerUpdateRequest) GetBackupPassword() string {
+	if o == nil || IsNil(o.BackupPassword) {
+		var ret string
+		return ret
+	}
+	return *o.BackupPassword
+}
+
+// GetBackupPasswordOk returns a tuple with the BackupPassword field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServerUpdateRequest) GetBackupPasswordOk() (*string, bool) {
+	if o == nil || IsNil(o.BackupPassword) {
+		return nil, false
+	}
+	return o.BackupPassword, true
+}
+
+// HasBackupPassword returns a boolean if a field has been set.
+func (o *ServerUpdateRequest) HasBackupPassword() bool {
+	if o != nil && !IsNil(o.BackupPassword) {
+		return true
+	}
+
+	return false
+}
+
+// SetBackupPassword gets a reference to the given string and assigns it to the BackupPassword field.
+func (o *ServerUpdateRequest) SetBackupPassword(v string) {
+	o.BackupPassword = &v
+}
+
+// GetBackupsEnabled returns the BackupsEnabled field value if set, zero value otherwise.
+func (o *ServerUpdateRequest) GetBackupsEnabled() bool {
+	if o == nil || IsNil(o.BackupsEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.BackupsEnabled
+}
+
+// GetBackupsEnabledOk returns a tuple with the BackupsEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServerUpdateRequest) GetBackupsEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.BackupsEnabled) {
+		return nil, false
+	}
+	return o.BackupsEnabled, true
+}
+
+// HasBackupsEnabled returns a boolean if a field has been set.
+func (o *ServerUpdateRequest) HasBackupsEnabled() bool {
+	if o != nil && !IsNil(o.BackupsEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetBackupsEnabled gets a reference to the given bool and assigns it to the BackupsEnabled field.
+func (o *ServerUpdateRequest) SetBackupsEnabled(v bool) {
+	o.BackupsEnabled = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -274,6 +340,12 @@ func (o ServerUpdateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.AccessToken) {
 		toSerialize["access_token"] = o.AccessToken
+	}
+	if !IsNil(o.BackupPassword) {
+		toSerialize["backup_password"] = o.BackupPassword
+	}
+	if !IsNil(o.BackupsEnabled) {
+		toSerialize["backups_enabled"] = o.BackupsEnabled
 	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description

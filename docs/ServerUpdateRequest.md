@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessToken** | Pointer to **string** |  | [optional] 
+**BackupPassword** | Pointer to **string** |  | [optional] 
+**BackupsEnabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Host** | **string** |  | 
 **IsActive** | Pointer to **bool** |  | [optional] 
@@ -55,6 +57,56 @@ SetAccessToken sets AccessToken field to given value.
 `func (o *ServerUpdateRequest) HasAccessToken() bool`
 
 HasAccessToken returns a boolean if a field has been set.
+
+### GetBackupPassword
+
+`func (o *ServerUpdateRequest) GetBackupPassword() string`
+
+GetBackupPassword returns the BackupPassword field if non-nil, zero value otherwise.
+
+### GetBackupPasswordOk
+
+`func (o *ServerUpdateRequest) GetBackupPasswordOk() (*string, bool)`
+
+GetBackupPasswordOk returns a tuple with the BackupPassword field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupPassword
+
+`func (o *ServerUpdateRequest) SetBackupPassword(v string)`
+
+SetBackupPassword sets BackupPassword field to given value.
+
+### HasBackupPassword
+
+`func (o *ServerUpdateRequest) HasBackupPassword() bool`
+
+HasBackupPassword returns a boolean if a field has been set.
+
+### GetBackupsEnabled
+
+`func (o *ServerUpdateRequest) GetBackupsEnabled() bool`
+
+GetBackupsEnabled returns the BackupsEnabled field if non-nil, zero value otherwise.
+
+### GetBackupsEnabledOk
+
+`func (o *ServerUpdateRequest) GetBackupsEnabledOk() (*bool, bool)`
+
+GetBackupsEnabledOk returns a tuple with the BackupsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupsEnabled
+
+`func (o *ServerUpdateRequest) SetBackupsEnabled(v bool)`
+
+SetBackupsEnabled sets BackupsEnabled field to given value.
+
+### HasBackupsEnabled
+
+`func (o *ServerUpdateRequest) HasBackupsEnabled() bool`
+
+HasBackupsEnabled returns a boolean if a field has been set.
 
 ### GetDescription
 

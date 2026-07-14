@@ -27,6 +27,7 @@ type RunSummary struct {
 	ComponentsWithErrors int32 `json:"components_with_errors"`
 	FinishedAt NullableTime `json:"finished_at,omitempty"`
 	Id string `json:"id"`
+	RepoSizeBytes *int32 `json:"repo_size_bytes,omitempty"`
 	SizeBytes int32 `json:"size_bytes"`
 	StackName string `json:"stack_name"`
 	StartedAt time.Time `json:"started_at"`
@@ -198,6 +199,38 @@ func (o *RunSummary) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *RunSummary) SetId(v string) {
 	o.Id = v
+}
+
+// GetRepoSizeBytes returns the RepoSizeBytes field value if set, zero value otherwise.
+func (o *RunSummary) GetRepoSizeBytes() int32 {
+	if o == nil || IsNil(o.RepoSizeBytes) {
+		var ret int32
+		return ret
+	}
+	return *o.RepoSizeBytes
+}
+
+// GetRepoSizeBytesOk returns a tuple with the RepoSizeBytes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RunSummary) GetRepoSizeBytesOk() (*int32, bool) {
+	if o == nil || IsNil(o.RepoSizeBytes) {
+		return nil, false
+	}
+	return o.RepoSizeBytes, true
+}
+
+// HasRepoSizeBytes returns a boolean if a field has been set.
+func (o *RunSummary) HasRepoSizeBytes() bool {
+	if o != nil && !IsNil(o.RepoSizeBytes) {
+		return true
+	}
+
+	return false
+}
+
+// SetRepoSizeBytes gets a reference to the given int32 and assigns it to the RepoSizeBytes field.
+func (o *RunSummary) SetRepoSizeBytes(v int32) {
+	o.RepoSizeBytes = &v
 }
 
 // GetSizeBytes returns the SizeBytes field value
@@ -387,6 +420,9 @@ func (o RunSummary) ToMap() (map[string]interface{}, error) {
 		toSerialize["finished_at"] = o.FinishedAt.Get()
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.RepoSizeBytes) {
+		toSerialize["repo_size_bytes"] = o.RepoSizeBytes
+	}
 	toSerialize["size_bytes"] = o.SizeBytes
 	toSerialize["stack_name"] = o.StackName
 	toSerialize["started_at"] = o.StartedAt

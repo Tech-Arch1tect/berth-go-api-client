@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessToken** | **string** |  | 
+**BackupPassword** | Pointer to **string** |  | [optional] 
+**BackupsEnabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Host** | **string** |  | 
 **IsActive** | Pointer to **bool** |  | [optional] 
@@ -50,6 +52,56 @@ and a boolean to check if the value has been set.
 
 SetAccessToken sets AccessToken field to given value.
 
+
+### GetBackupPassword
+
+`func (o *ServerCreateRequest) GetBackupPassword() string`
+
+GetBackupPassword returns the BackupPassword field if non-nil, zero value otherwise.
+
+### GetBackupPasswordOk
+
+`func (o *ServerCreateRequest) GetBackupPasswordOk() (*string, bool)`
+
+GetBackupPasswordOk returns a tuple with the BackupPassword field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupPassword
+
+`func (o *ServerCreateRequest) SetBackupPassword(v string)`
+
+SetBackupPassword sets BackupPassword field to given value.
+
+### HasBackupPassword
+
+`func (o *ServerCreateRequest) HasBackupPassword() bool`
+
+HasBackupPassword returns a boolean if a field has been set.
+
+### GetBackupsEnabled
+
+`func (o *ServerCreateRequest) GetBackupsEnabled() bool`
+
+GetBackupsEnabled returns the BackupsEnabled field if non-nil, zero value otherwise.
+
+### GetBackupsEnabledOk
+
+`func (o *ServerCreateRequest) GetBackupsEnabledOk() (*bool, bool)`
+
+GetBackupsEnabledOk returns a tuple with the BackupsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupsEnabled
+
+`func (o *ServerCreateRequest) SetBackupsEnabled(v bool)`
+
+SetBackupsEnabled sets BackupsEnabled field to given value.
+
+### HasBackupsEnabled
+
+`func (o *ServerCreateRequest) HasBackupsEnabled() bool`
+
+HasBackupsEnabled returns a boolean if a field has been set.
 
 ### GetDescription
 
