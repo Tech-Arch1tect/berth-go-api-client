@@ -22,6 +22,7 @@ var _ MappedNullable = &ListResponse{}
 // ListResponse struct for ListResponse
 type ListResponse struct {
 	Configured bool `json:"configured"`
+	Enabled bool `json:"enabled"`
 	Runs []RunSummary `json:"runs"`
 	Total int32 `json:"total"`
 }
@@ -32,9 +33,10 @@ type _ListResponse ListResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListResponse(configured bool, runs []RunSummary, total int32) *ListResponse {
+func NewListResponse(configured bool, enabled bool, runs []RunSummary, total int32) *ListResponse {
 	this := ListResponse{}
 	this.Configured = configured
+	this.Enabled = enabled
 	this.Runs = runs
 	this.Total = total
 	return &this
@@ -70,6 +72,30 @@ func (o *ListResponse) GetConfiguredOk() (*bool, bool) {
 // SetConfigured sets field value
 func (o *ListResponse) SetConfigured(v bool) {
 	o.Configured = v
+}
+
+// GetEnabled returns the Enabled field value
+func (o *ListResponse) GetEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Enabled
+}
+
+// GetEnabledOk returns a tuple with the Enabled field value
+// and a boolean to check if the value has been set.
+func (o *ListResponse) GetEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Enabled, true
+}
+
+// SetEnabled sets field value
+func (o *ListResponse) SetEnabled(v bool) {
+	o.Enabled = v
 }
 
 // GetRuns returns the Runs field value
@@ -131,6 +157,7 @@ func (o ListResponse) MarshalJSON() ([]byte, error) {
 func (o ListResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["configured"] = o.Configured
+	toSerialize["enabled"] = o.Enabled
 	toSerialize["runs"] = o.Runs
 	toSerialize["total"] = o.Total
 	return toSerialize, nil
@@ -142,6 +169,7 @@ func (o *ListResponse) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"configured",
+		"enabled",
 		"runs",
 		"total",
 	}

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Configured** | **bool** |  | 
+**Enabled** | **bool** |  | 
 **Runs** | [**[]RunSummary**](RunSummary.md) |  | 
 **Total** | **int32** |  | 
 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewListResponse
 
-`func NewListResponse(configured bool, runs []RunSummary, total int32, ) *ListResponse`
+`func NewListResponse(configured bool, enabled bool, runs []RunSummary, total int32, ) *ListResponse`
 
 NewListResponse instantiates a new ListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +46,26 @@ and a boolean to check if the value has been set.
 `func (o *ListResponse) SetConfigured(v bool)`
 
 SetConfigured sets Configured field to given value.
+
+
+### GetEnabled
+
+`func (o *ListResponse) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *ListResponse) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *ListResponse) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
 
 
 ### GetRuns

@@ -9563,6 +9563,7 @@ components:
     ListResponse:
       example:
         configured: true
+        enabled: true
         runs:
         - added_bytes: 0
           component_count: 6
@@ -9592,6 +9593,8 @@ components:
       properties:
         configured:
           type: boolean
+        enabled:
+          type: boolean
         runs:
           items:
             $ref: "#/components/schemas/RunSummary"
@@ -9600,6 +9603,7 @@ components:
           type: integer
       required:
       - configured
+      - enabled
       - runs
       - total
       type: object
@@ -13038,6 +13042,7 @@ components:
       example:
         data:
           configured: true
+          enabled: true
           runs:
           - added_bytes: 0
             component_count: 6
