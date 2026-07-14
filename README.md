@@ -114,6 +114,8 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**ApiV1AuthResendVerificationPost**](docs/AuthAPI.md#apiv1authresendverificationpost) | **Post** /api/v1/auth/resend-verification | Request a new email verification link
 *AuthAPI* | [**ApiV1AuthTotpVerifyPost**](docs/AuthAPI.md#apiv1authtotpverifypost) | **Post** /api/v1/auth/totp/verify | Verify TOTP code to complete login
 *AuthAPI* | [**ApiV1AuthVerifyEmailPost**](docs/AuthAPI.md#apiv1authverifyemailpost) | **Post** /api/v1/auth/verify-email | Verify an email address
+*BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupidget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Get a stack backup
+*BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups | List stack backups
 *ComposeAPI* | [**ApiV1ServersServeridStacksStacknameComposeGet**](docs/ComposeAPI.md#apiv1serversserveridstacksstacknamecomposeget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/compose | Get compose configuration
 *ComposeAPI* | [**ApiV1ServersServeridStacksStacknameComposePatch**](docs/ComposeAPI.md#apiv1serversserveridstacksstacknamecomposepatch) | **Patch** /api/v1/servers/{serverid}/stacks/{stackname}/compose | Update compose configuration
 *FilesAPI* | [**ApiV1ServersServeridStacksStacknameFilesChmodPost**](docs/FilesAPI.md#apiv1serversserveridstacksstacknamefileschmodpost) | **Post** /api/v1/servers/{serverid}/stacks/{stackname}/files/chmod | Change file permissions
@@ -213,6 +215,7 @@ Class | Method | HTTP request | Description
  - [ChownRequest](docs/ChownRequest.md)
  - [CommandConfig](docs/CommandConfig.md)
  - [CompareScanData](docs/CompareScanData.md)
+ - [Component](docs/Component.md)
  - [ComposeChanges](docs/ComposeChanges.md)
  - [ComposeService](docs/ComposeService.md)
  - [ConfigConfig](docs/ConfigConfig.md)
@@ -279,6 +282,7 @@ Class | Method | HTTP request | Description
  - [IpamPool](docs/IpamPool.md)
  - [ListCredentialsData](docs/ListCredentialsData.md)
  - [ListPermissionsData](docs/ListPermissionsData.md)
+ - [ListResponse](docs/ListResponse.md)
  - [ListRoleStackPermissionsData](docs/ListRoleStackPermissionsData.md)
  - [ListRolesData](docs/ListRolesData.md)
  - [ListServersData](docs/ListServersData.md)
@@ -358,6 +362,7 @@ Class | Method | HTTP request | Description
  - [ResponseImportData](docs/ResponseImportData.md)
  - [ResponseListCredentialsData](docs/ResponseListCredentialsData.md)
  - [ResponseListPermissionsData](docs/ResponseListPermissionsData.md)
+ - [ResponseListResponse](docs/ResponseListResponse.md)
  - [ResponseListRoleStackPermissionsData](docs/ResponseListRoleStackPermissionsData.md)
  - [ResponseListRolesData](docs/ResponseListRolesData.md)
  - [ResponseListServersData](docs/ResponseListServersData.md)
@@ -376,6 +381,7 @@ Class | Method | HTTP request | Description
  - [ResponsePruneResult](docs/ResponsePruneResult.md)
  - [ResponseRawComposeConfig](docs/ResponseRawComposeConfig.md)
  - [ResponseRoleWithPermissions](docs/ResponseRoleWithPermissions.md)
+ - [ResponseRun](docs/ResponseRun.md)
  - [ResponseRunningOperationsData](docs/ResponseRunningOperationsData.md)
  - [ResponseSecurityAuditLogInfo](docs/ResponseSecurityAuditLogInfo.md)
  - [ResponseSecurityAuditLogInfo2](docs/ResponseSecurityAuditLogInfo2.md)
@@ -405,6 +411,7 @@ Class | Method | HTTP request | Description
  - [RoleInfo](docs/RoleInfo.md)
  - [RoleWithPermissions](docs/RoleWithPermissions.md)
  - [RootFS](docs/RootFS.md)
+ - [Run](docs/Run.md)
  - [RunningOperationsData](docs/RunningOperationsData.md)
  - [ScanComparison](docs/ScanComparison.md)
  - [ScanScope](docs/ScanScope.md)
@@ -424,6 +431,7 @@ Class | Method | HTTP request | Description
  - [ServiceNetworkConfig](docs/ServiceNetworkConfig.md)
  - [SessionItem](docs/SessionItem.md)
  - [SessionMessageData](docs/SessionMessageData.md)
+ - [SkippedMount](docs/SkippedMount.md)
  - [Stack](docs/Stack.md)
  - [StackDetails](docs/StackDetails.md)
  - [StackEnvironmentData](docs/StackEnvironmentData.md)

@@ -3455,6 +3455,142 @@ paths:
       summary: Get stack details
       tags:
       - stacks
+  /api/v1/servers/{serverid}/stacks/{stackname}/backups:
+    get:
+      description: "Returns the stack's backup runs recorded on the agent, newest\
+        \ first, and whether backups are configured on the agent"
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_ListResponse"
+          description: Backup runs
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: List stack backups
+      tags:
+      - backups
+  /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}:
+    get:
+      description: Returns a single backup run including its per-component snapshots
+        and any skipped mounts
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Backup run ID
+        explode: false
+        in: path
+        name: backupid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Run"
+          description: Backup run detail
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Get a stack backup
+      tags:
+      - backups
   /api/v1/servers/{serverid}/stacks/{stackname}/compose:
     get:
       description: Returns the parsed Docker Compose configuration for a stack. Requires
@@ -6569,6 +6705,73 @@ components:
       required:
       - comparison
       type: object
+    Component:
+      example:
+        bytes_added: 0
+        bytes_processed: 0
+        duration_secs: 1.4658129805029452
+        error: error
+        excludes:
+        - excludes
+        - excludes
+        files_changed: 0
+        files_new: 0
+        files_unmodified: 0
+        id: id
+        kind: kind
+        service: service
+        snapshot_id: snapshot_id
+        source_path: source_path
+        target: target
+        volume_name: volume_name
+      properties:
+        bytes_added:
+          minimum: 0
+          type: integer
+        bytes_processed:
+          minimum: 0
+          type: integer
+        duration_secs:
+          type: number
+        error:
+          type: string
+        excludes:
+          items:
+            type: string
+          type: array
+        files_changed:
+          minimum: 0
+          type: integer
+        files_new:
+          minimum: 0
+          type: integer
+        files_unmodified:
+          minimum: 0
+          type: integer
+        id:
+          type: string
+        kind:
+          type: string
+        service:
+          type: string
+        snapshot_id:
+          type: string
+        source_path:
+          type: string
+        target:
+          type: string
+        volume_name:
+          type: string
+      required:
+      - bytes_added
+      - bytes_processed
+      - duration_secs
+      - files_changed
+      - files_new
+      - files_unmodified
+      - id
+      - kind
+      type: object
     ComposeChanges:
       example:
         add_services:
@@ -9245,6 +9448,125 @@ components:
           type: array
       required:
       - permissions
+      type: object
+    ListResponse:
+      example:
+        configured: true
+        runs:
+        - components:
+          - bytes_added: 0
+            bytes_processed: 0
+            duration_secs: 1.4658129805029452
+            error: error
+            excludes:
+            - excludes
+            - excludes
+            files_changed: 0
+            files_new: 0
+            files_unmodified: 0
+            id: id
+            kind: kind
+            service: service
+            snapshot_id: snapshot_id
+            source_path: source_path
+            target: target
+            volume_name: volume_name
+          - bytes_added: 0
+            bytes_processed: 0
+            duration_secs: 1.4658129805029452
+            error: error
+            excludes:
+            - excludes
+            - excludes
+            files_changed: 0
+            files_new: 0
+            files_unmodified: 0
+            id: id
+            kind: kind
+            service: service
+            snapshot_id: snapshot_id
+            source_path: source_path
+            target: target
+            volume_name: volume_name
+          error: error
+          finished_at: 2000-01-23T04:56:07.000+00:00
+          id: id
+          restic_version: restic_version
+          skipped:
+          - kind: kind
+            reason: reason
+            service: service
+            target: target
+          - kind: kind
+            reason: reason
+            service: service
+            target: target
+          stack_name: stack_name
+          started_at: 2000-01-23T04:56:07.000+00:00
+          status: status
+          stop_mode: stop_mode
+        - components:
+          - bytes_added: 0
+            bytes_processed: 0
+            duration_secs: 1.4658129805029452
+            error: error
+            excludes:
+            - excludes
+            - excludes
+            files_changed: 0
+            files_new: 0
+            files_unmodified: 0
+            id: id
+            kind: kind
+            service: service
+            snapshot_id: snapshot_id
+            source_path: source_path
+            target: target
+            volume_name: volume_name
+          - bytes_added: 0
+            bytes_processed: 0
+            duration_secs: 1.4658129805029452
+            error: error
+            excludes:
+            - excludes
+            - excludes
+            files_changed: 0
+            files_new: 0
+            files_unmodified: 0
+            id: id
+            kind: kind
+            service: service
+            snapshot_id: snapshot_id
+            source_path: source_path
+            target: target
+            volume_name: volume_name
+          error: error
+          finished_at: 2000-01-23T04:56:07.000+00:00
+          id: id
+          restic_version: restic_version
+          skipped:
+          - kind: kind
+            reason: reason
+            service: service
+            target: target
+          - kind: kind
+            reason: reason
+            service: service
+            target: target
+          stack_name: stack_name
+          started_at: 2000-01-23T04:56:07.000+00:00
+          status: status
+          stop_mode: stop_mode
+      properties:
+        configured:
+          type: boolean
+        runs:
+          items:
+            $ref: "#/components/schemas/Run"
+          type: array
+      required:
+      - configured
+      - runs
       type: object
     ListRoleStackPermissionsData:
       example:
@@ -12640,6 +12962,135 @@ components:
       - data
       - success
       type: object
+    Response_ListResponse:
+      example:
+        data:
+          configured: true
+          runs:
+          - components:
+            - bytes_added: 0
+              bytes_processed: 0
+              duration_secs: 1.4658129805029452
+              error: error
+              excludes:
+              - excludes
+              - excludes
+              files_changed: 0
+              files_new: 0
+              files_unmodified: 0
+              id: id
+              kind: kind
+              service: service
+              snapshot_id: snapshot_id
+              source_path: source_path
+              target: target
+              volume_name: volume_name
+            - bytes_added: 0
+              bytes_processed: 0
+              duration_secs: 1.4658129805029452
+              error: error
+              excludes:
+              - excludes
+              - excludes
+              files_changed: 0
+              files_new: 0
+              files_unmodified: 0
+              id: id
+              kind: kind
+              service: service
+              snapshot_id: snapshot_id
+              source_path: source_path
+              target: target
+              volume_name: volume_name
+            error: error
+            finished_at: 2000-01-23T04:56:07.000+00:00
+            id: id
+            restic_version: restic_version
+            skipped:
+            - kind: kind
+              reason: reason
+              service: service
+              target: target
+            - kind: kind
+              reason: reason
+              service: service
+              target: target
+            stack_name: stack_name
+            started_at: 2000-01-23T04:56:07.000+00:00
+            status: status
+            stop_mode: stop_mode
+          - components:
+            - bytes_added: 0
+              bytes_processed: 0
+              duration_secs: 1.4658129805029452
+              error: error
+              excludes:
+              - excludes
+              - excludes
+              files_changed: 0
+              files_new: 0
+              files_unmodified: 0
+              id: id
+              kind: kind
+              service: service
+              snapshot_id: snapshot_id
+              source_path: source_path
+              target: target
+              volume_name: volume_name
+            - bytes_added: 0
+              bytes_processed: 0
+              duration_secs: 1.4658129805029452
+              error: error
+              excludes:
+              - excludes
+              - excludes
+              files_changed: 0
+              files_new: 0
+              files_unmodified: 0
+              id: id
+              kind: kind
+              service: service
+              snapshot_id: snapshot_id
+              source_path: source_path
+              target: target
+              volume_name: volume_name
+            error: error
+            finished_at: 2000-01-23T04:56:07.000+00:00
+            id: id
+            restic_version: restic_version
+            skipped:
+            - kind: kind
+              reason: reason
+              service: service
+              target: target
+            - kind: kind
+              reason: reason
+              service: service
+              target: target
+            stack_name: stack_name
+            started_at: 2000-01-23T04:56:07.000+00:00
+            status: status
+            stop_mode: stop_mode
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/ListResponse"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
     Response_ListRoleStackPermissionsData:
       example:
         data:
@@ -13749,6 +14200,81 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/RoleWithPermissions"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_Run:
+      example:
+        data:
+          components:
+          - bytes_added: 0
+            bytes_processed: 0
+            duration_secs: 1.4658129805029452
+            error: error
+            excludes:
+            - excludes
+            - excludes
+            files_changed: 0
+            files_new: 0
+            files_unmodified: 0
+            id: id
+            kind: kind
+            service: service
+            snapshot_id: snapshot_id
+            source_path: source_path
+            target: target
+            volume_name: volume_name
+          - bytes_added: 0
+            bytes_processed: 0
+            duration_secs: 1.4658129805029452
+            error: error
+            excludes:
+            - excludes
+            - excludes
+            files_changed: 0
+            files_new: 0
+            files_unmodified: 0
+            id: id
+            kind: kind
+            service: service
+            snapshot_id: snapshot_id
+            source_path: source_path
+            target: target
+            volume_name: volume_name
+          error: error
+          finished_at: 2000-01-23T04:56:07.000+00:00
+          id: id
+          restic_version: restic_version
+          skipped:
+          - kind: kind
+            reason: reason
+            service: service
+            target: target
+          - kind: kind
+            reason: reason
+            service: service
+            target: target
+          stack_name: stack_name
+          started_at: 2000-01-23T04:56:07.000+00:00
+          status: status
+          stop_mode: stop_mode
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/Run"
         error:
           allOf:
           - $ref: "#/components/schemas/Error"
@@ -15319,6 +15845,95 @@ components:
       required:
       - type
       type: object
+    Run:
+      example:
+        components:
+        - bytes_added: 0
+          bytes_processed: 0
+          duration_secs: 1.4658129805029452
+          error: error
+          excludes:
+          - excludes
+          - excludes
+          files_changed: 0
+          files_new: 0
+          files_unmodified: 0
+          id: id
+          kind: kind
+          service: service
+          snapshot_id: snapshot_id
+          source_path: source_path
+          target: target
+          volume_name: volume_name
+        - bytes_added: 0
+          bytes_processed: 0
+          duration_secs: 1.4658129805029452
+          error: error
+          excludes:
+          - excludes
+          - excludes
+          files_changed: 0
+          files_new: 0
+          files_unmodified: 0
+          id: id
+          kind: kind
+          service: service
+          snapshot_id: snapshot_id
+          source_path: source_path
+          target: target
+          volume_name: volume_name
+        error: error
+        finished_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        restic_version: restic_version
+        skipped:
+        - kind: kind
+          reason: reason
+          service: service
+          target: target
+        - kind: kind
+          reason: reason
+          service: service
+          target: target
+        stack_name: stack_name
+        started_at: 2000-01-23T04:56:07.000+00:00
+        status: status
+        stop_mode: stop_mode
+      properties:
+        components:
+          items:
+            $ref: "#/components/schemas/Component"
+          type: array
+        error:
+          type: string
+        finished_at:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          type: string
+        restic_version:
+          type: string
+        skipped:
+          items:
+            $ref: "#/components/schemas/SkippedMount"
+          type: array
+        stack_name:
+          type: string
+        started_at:
+          format: date-time
+          type: string
+        status:
+          type: string
+        stop_mode:
+          type: string
+      required:
+      - components
+      - id
+      - stack_name
+      - started_at
+      - status
+      type: object
     RunningOperationsData:
       example:
         operations:
@@ -16363,6 +16978,25 @@ components:
           type: string
       required:
       - message
+      type: object
+    SkippedMount:
+      example:
+        kind: kind
+        reason: reason
+        service: service
+        target: target
+      properties:
+        kind:
+          type: string
+        reason:
+          type: string
+        service:
+          type: string
+        target:
+          type: string
+      required:
+      - kind
+      - reason
       type: object
     Stack:
       example:
