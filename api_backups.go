@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -80,6 +81,403 @@ func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidDe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest struct {
+	ctx context.Context
+	ApiService *BackupsAPIService
+	serverid int32
+	stackname string
+	backupid string
+	component *string
+	path *string
+}
+
+// Backup component ID
+func (r ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest) Component(component string) ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest {
+	r.component = &component
+	return r
+}
+
+// File or directory to download; repeat for a multi-path selection
+func (r ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest) Path(path string) ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest {
+	r.path = &path
+	return r
+}
+
+func (r ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetExecute(r)
+}
+
+/*
+ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet Download files from a backup
+
+Streams a single selected file as-is, or any folder / multi-path selection as a tar.gz archive. Requires both backups.read and files.read on the stack
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serverid Server ID
+ @param stackname Stack name
+ @param backupid Backup run ID
+ @return ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest
+*/
+func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet(ctx context.Context, serverid int32, stackname string, backupid string) ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest {
+	return ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		serverid: serverid,
+		stackname: stackname,
+		backupid: backupid,
+	}
+}
+
+// Execute executes the request
+//  @return *os.File
+func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetExecute(r ApiApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGetRequest) (*os.File, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *os.File
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupsAPIService.ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/download"
+	localVarPath = strings.Replace(localVarPath, "{"+"serverid"+"}", url.PathEscape(parameterValueToString(r.serverid, "serverid")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"stackname"+"}", url.PathEscape(parameterValueToString(r.stackname, "stackname")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid, "backupid")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.component == nil {
+		return localVarReturnValue, nil, reportError("component is required and must be specified")
+	}
+	if r.path == nil {
+		return localVarReturnValue, nil, reportError("path is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "component", r.component, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "path", r.path, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ResponseEmpty
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest struct {
+	ctx context.Context
+	ApiService *BackupsAPIService
+	serverid int32
+	stackname string
+	backupid string
+	component *string
+	path *string
+}
+
+// Backup component ID
+func (r ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest) Component(component string) ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest {
+	r.component = &component
+	return r
+}
+
+// Directory inside the component (default the component root)
+func (r ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest) Path(path string) ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest {
+	r.path = &path
+	return r
+}
+
+func (r ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest) Execute() (*ResponseBackupFileListing, *http.Response, error) {
+	return r.ApiService.ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetExecute(r)
+}
+
+/*
+ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet List files inside a backup
+
+Returns one directory level of a backup component's snapshot. Requires both backups.read and files.read on the stack
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serverid Server ID
+ @param stackname Stack name
+ @param backupid Backup run ID
+ @return ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest
+*/
+func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet(ctx context.Context, serverid int32, stackname string, backupid string) ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest {
+	return ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		serverid: serverid,
+		stackname: stackname,
+		backupid: backupid,
+	}
+}
+
+// Execute executes the request
+//  @return ResponseBackupFileListing
+func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetExecute(r ApiApiV1ServersServeridStacksStacknameBackupsBackupidFilesGetRequest) (*ResponseBackupFileListing, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseBackupFileListing
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupsAPIService.ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/files"
+	localVarPath = strings.Replace(localVarPath, "{"+"serverid"+"}", url.PathEscape(parameterValueToString(r.serverid, "serverid")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"stackname"+"}", url.PathEscape(parameterValueToString(r.stackname, "stackname")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid, "backupid")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.component == nil {
+		return localVarReturnValue, nil, reportError("component is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "component", r.component, "form", "")
+	if r.path != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "path", r.path, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

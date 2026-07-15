@@ -3688,6 +3688,203 @@ paths:
       summary: Get a stack backup
       tags:
       - backups
+  /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/download:
+    get:
+      description: "Streams a single selected file as-is, or any folder / multi-path\
+        \ selection as a tar.gz archive. Requires both backups.read and files.read\
+        \ on the stack"
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Backup run ID
+        explode: false
+        in: path
+        name: backupid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Backup component ID
+        explode: true
+        in: query
+        name: component
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: File or directory to download; repeat for a multi-path selection
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+          description: "File content, or a tar.gz archive for folder and multi-path\
+            \ selections"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: "Backup, component or path not found"
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: "Backups not enabled for this server, or repository in use"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Download files from a backup
+      tags:
+      - backups
+  /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/files:
+    get:
+      description: Returns one directory level of a backup component's snapshot. Requires
+        both backups.read and files.read on the stack
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Backup run ID
+        explode: false
+        in: path
+        name: backupid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Backup component ID
+        explode: true
+        in: query
+        name: component
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Directory inside the component (default the component root)
+        explode: true
+        in: query
+        name: path
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_BackupFileListing"
+          description: Directory listing
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: "Backup, component or path not found"
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: "Backups not enabled for this server, or repository in use"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: List files inside a backup
+      tags:
+      - backups
   /api/v1/servers/{serverid}/stacks/{stackname}/compose:
     get:
       description: Returns the parsed Docker Compose configuration for a stack. Requires
@@ -6535,6 +6732,52 @@ components:
           type: string
       required:
       - token
+      type: object
+    BackupFileEntry:
+      example:
+        mtime: 2000-01-23T04:56:07.000+00:00
+        name: name
+        size: 0
+        type: type
+      properties:
+        mtime:
+          format: date-time
+          type: string
+        name:
+          type: string
+        size:
+          minimum: 0
+          type: integer
+        type:
+          type: string
+      required:
+      - mtime
+      - name
+      - size
+      - type
+      type: object
+    BackupFileListing:
+      example:
+        entries:
+        - mtime: 2000-01-23T04:56:07.000+00:00
+          name: name
+          size: 0
+          type: type
+        - mtime: 2000-01-23T04:56:07.000+00:00
+          name: name
+          size: 0
+          type: type
+        path: path
+      properties:
+        entries:
+          items:
+            $ref: "#/components/schemas/BackupFileEntry"
+          type: array
+        path:
+          type: string
+      required:
+      - entries
+      - path
       type: object
     BuildCacheInfo:
       example:
@@ -11701,6 +11944,39 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/AuthTOTPRequiredData"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_BackupFileListing:
+      example:
+        data:
+          entries:
+          - mtime: 2000-01-23T04:56:07.000+00:00
+            name: name
+            size: 0
+            type: type
+          - mtime: 2000-01-23T04:56:07.000+00:00
+            name: name
+            size: 0
+            type: type
+          path: path
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/BackupFileListing"
         error:
           allOf:
           - $ref: "#/components/schemas/Error"

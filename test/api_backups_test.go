@@ -38,6 +38,38 @@ func Test_berth_BackupsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test BackupsAPIService ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serverid int32
+		var stackname string
+		var backupid string
+
+		resp, httpRes, err := apiClient.BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet(context.Background(), serverid, stackname, backupid).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test BackupsAPIService ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serverid int32
+		var stackname string
+		var backupid string
+
+		resp, httpRes, err := apiClient.BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet(context.Background(), serverid, stackname, backupid).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test BackupsAPIService ApiV1ServersServeridStacksStacknameBackupsBackupidGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

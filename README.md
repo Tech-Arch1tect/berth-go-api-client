@@ -115,6 +115,8 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**ApiV1AuthTotpVerifyPost**](docs/AuthAPI.md#apiv1authtotpverifypost) | **Post** /api/v1/auth/totp/verify | Verify TOTP code to complete login
 *AuthAPI* | [**ApiV1AuthVerifyEmailPost**](docs/AuthAPI.md#apiv1authverifyemailpost) | **Post** /api/v1/auth/verify-email | Verify an email address
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidDelete**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupiddelete) | **Delete** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Delete a stack backup
+*BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupiddownloadget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/download | Download files from a backup
+*BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupidfilesget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/files | List files inside a backup
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupidget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Get a stack backup
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups | List stack backups
 *ComposeAPI* | [**ApiV1ServersServeridStacksStacknameComposeGet**](docs/ComposeAPI.md#apiv1serversserveridstacksstacknamecomposeget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/compose | Get compose configuration
@@ -208,6 +210,8 @@ Class | Method | HTTP request | Description
  - [AuthTOTPRequiredData](docs/AuthTOTPRequiredData.md)
  - [AuthTOTPVerifyRequest](docs/AuthTOTPVerifyRequest.md)
  - [AuthVerifyEmailRequest](docs/AuthVerifyEmailRequest.md)
+ - [BackupFileEntry](docs/BackupFileEntry.md)
+ - [BackupFileListing](docs/BackupFileListing.md)
  - [BuildCacheInfo](docs/BuildCacheInfo.md)
  - [BuildCacheSummary](docs/BuildCacheSummary.md)
  - [BuildConfig](docs/BuildConfig.md)
@@ -340,6 +344,7 @@ Class | Method | HTTP request | Description
  - [ResponseAuthMessageData](docs/ResponseAuthMessageData.md)
  - [ResponseAuthRefreshData](docs/ResponseAuthRefreshData.md)
  - [ResponseAuthTOTPRequiredData](docs/ResponseAuthTOTPRequiredData.md)
+ - [ResponseBackupFileListing](docs/ResponseBackupFileListing.md)
  - [ResponseCanCreateStackData](docs/ResponseCanCreateStackData.md)
  - [ResponseCompareScanData](docs/ResponseCompareScanData.md)
  - [ResponseCreateAPIKeyData](docs/ResponseCreateAPIKeyData.md)
