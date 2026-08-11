@@ -4,6 +4,9 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV1AdminAgentAuthorityClientCertificatePost**](AdminAPI.md#ApiV1AdminAgentAuthorityClientCertificatePost) | **Post** /api/v1/admin/agent-authority/client-certificate | Reissue the client certificate
+[**ApiV1AdminAgentAuthorityGet**](AdminAPI.md#ApiV1AdminAgentAuthorityGet) | **Get** /api/v1/admin/agent-authority | Get agent certificate authority status
+[**ApiV1AdminAgentAuthorityRotatePost**](AdminAPI.md#ApiV1AdminAgentAuthorityRotatePost) | **Post** /api/v1/admin/agent-authority/rotate | Rotate the certificate authority
 [**ApiV1AdminMigrationExportPost**](AdminAPI.md#ApiV1AdminMigrationExportPost) | **Post** /api/v1/admin/migration/export | Export data
 [**ApiV1AdminMigrationImportPost**](AdminAPI.md#ApiV1AdminMigrationImportPost) | **Post** /api/v1/admin/migration/import | Import data
 [**ApiV1AdminOperationLogsGet**](AdminAPI.md#ApiV1AdminOperationLogsGet) | **Get** /api/v1/admin/operation-logs | List all operation logs
@@ -21,6 +24,7 @@ Method | HTTP request | Description
 [**ApiV1AdminSecurityAuditLogsIdGet**](AdminAPI.md#ApiV1AdminSecurityAuditLogsIdGet) | **Get** /api/v1/admin/security-audit-logs/{id} | Get security audit log details
 [**ApiV1AdminSecurityAuditLogsStatsGet**](AdminAPI.md#ApiV1AdminSecurityAuditLogsStatsGet) | **Get** /api/v1/admin/security-audit-logs/stats | Get security audit statistics
 [**ApiV1AdminServersGet**](AdminAPI.md#ApiV1AdminServersGet) | **Get** /api/v1/admin/servers | List all servers
+[**ApiV1AdminServersIdAgentBundlePost**](AdminAPI.md#ApiV1AdminServersIdAgentBundlePost) | **Post** /api/v1/admin/servers/{id}/agent-bundle | Issue agent certificate bundle
 [**ApiV1AdminServersIdDelete**](AdminAPI.md#ApiV1AdminServersIdDelete) | **Delete** /api/v1/admin/servers/{id} | Delete a server
 [**ApiV1AdminServersIdGet**](AdminAPI.md#ApiV1AdminServersIdGet) | **Get** /api/v1/admin/servers/{id} | Get a server
 [**ApiV1AdminServersIdPut**](AdminAPI.md#ApiV1AdminServersIdPut) | **Put** /api/v1/admin/servers/{id} | Update a server
@@ -33,6 +37,189 @@ Method | HTTP request | Description
 [**ApiV1AdminUsersPost**](AdminAPI.md#ApiV1AdminUsersPost) | **Post** /api/v1/admin/users | Create a new user
 [**ApiV1AdminUsersRevokeRolePost**](AdminAPI.md#ApiV1AdminUsersRevokeRolePost) | **Post** /api/v1/admin/users/revoke-role | Revoke a role from a user
 
+
+
+## ApiV1AdminAgentAuthorityClientCertificatePost
+
+> ResponseMessageData2 ApiV1AdminAgentAuthorityClientCertificatePost(ctx).Execute()
+
+Reissue the client certificate
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminAgentAuthorityClientCertificatePost(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminAgentAuthorityClientCertificatePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminAgentAuthorityClientCertificatePost`: ResponseMessageData2
+	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminAgentAuthorityClientCertificatePost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminAgentAuthorityClientCertificatePostRequest struct via the builder pattern
+
+
+### Return type
+
+[**ResponseMessageData2**](ResponseMessageData2.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1AdminAgentAuthorityGet
+
+> ResponseAgentAuthorityData ApiV1AdminAgentAuthorityGet(ctx).Execute()
+
+Get agent certificate authority status
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminAgentAuthorityGet(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminAgentAuthorityGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminAgentAuthorityGet`: ResponseAgentAuthorityData
+	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminAgentAuthorityGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminAgentAuthorityGetRequest struct via the builder pattern
+
+
+### Return type
+
+[**ResponseAgentAuthorityData**](ResponseAgentAuthorityData.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1AdminAgentAuthorityRotatePost
+
+> ResponseMessageData2 ApiV1AdminAgentAuthorityRotatePost(ctx).Execute()
+
+Rotate the certificate authority
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminAgentAuthorityRotatePost(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminAgentAuthorityRotatePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminAgentAuthorityRotatePost`: ResponseMessageData2
+	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminAgentAuthorityRotatePost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminAgentAuthorityRotatePostRequest struct via the builder pattern
+
+
+### Return type
+
+[**ResponseMessageData2**](ResponseMessageData2.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV1AdminMigrationExportPost
@@ -1200,6 +1387,76 @@ Other parameters are passed through a pointer to a apiApiV1AdminServersGetReques
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1AdminServersIdAgentBundlePost
+
+> *os.File ApiV1AdminServersIdAgentBundlePost(ctx, id).Execute()
+
+Issue agent certificate bundle
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	id := int32(56) // int32 | Server ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdminAPI.ApiV1AdminServersIdAgentBundlePost(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdminAPI.ApiV1AdminServersIdAgentBundlePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminServersIdAgentBundlePost`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `AdminAPI.ApiV1AdminServersIdAgentBundlePost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | Server ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminServersIdAgentBundlePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/gzip, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -22,6 +22,42 @@ func Test_berth_AdminAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test AdminAPIService ApiV1AdminAgentAuthorityClientCertificatePost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPI.ApiV1AdminAgentAuthorityClientCertificatePost(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIService ApiV1AdminAgentAuthorityGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPI.ApiV1AdminAgentAuthorityGet(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIService ApiV1AdminAgentAuthorityRotatePost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPI.ApiV1AdminAgentAuthorityRotatePost(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AdminAPIService ApiV1AdminMigrationExportPost", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -234,6 +270,20 @@ func Test_berth_AdminAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPI.ApiV1AdminServersGet(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIService ApiV1AdminServersIdAgentBundlePost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id int32
+
+		resp, httpRes, err := apiClient.AdminAPI.ApiV1AdminServersIdAgentBundlePost(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -21,6 +21,10 @@ var _ MappedNullable = &ServerInfo{}
 
 // ServerInfo struct for ServerInfo
 type ServerInfo struct {
+	AgentCertAuthorityFingerprint *string `json:"agent_cert_authority_fingerprint,omitempty"`
+	AgentCertExpiresAt *string `json:"agent_cert_expires_at,omitempty"`
+	AgentCertFingerprint *string `json:"agent_cert_fingerprint,omitempty"`
+	AgentCertIssuedAt *string `json:"agent_cert_issued_at,omitempty"`
 	BackupsEnabled bool `json:"backups_enabled"`
 	CreatedAt string `json:"created_at"`
 	Description string `json:"description"`
@@ -60,6 +64,134 @@ func NewServerInfo(backupsEnabled bool, createdAt string, description string, ho
 func NewServerInfoWithDefaults() *ServerInfo {
 	this := ServerInfo{}
 	return &this
+}
+
+// GetAgentCertAuthorityFingerprint returns the AgentCertAuthorityFingerprint field value if set, zero value otherwise.
+func (o *ServerInfo) GetAgentCertAuthorityFingerprint() string {
+	if o == nil || IsNil(o.AgentCertAuthorityFingerprint) {
+		var ret string
+		return ret
+	}
+	return *o.AgentCertAuthorityFingerprint
+}
+
+// GetAgentCertAuthorityFingerprintOk returns a tuple with the AgentCertAuthorityFingerprint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServerInfo) GetAgentCertAuthorityFingerprintOk() (*string, bool) {
+	if o == nil || IsNil(o.AgentCertAuthorityFingerprint) {
+		return nil, false
+	}
+	return o.AgentCertAuthorityFingerprint, true
+}
+
+// HasAgentCertAuthorityFingerprint returns a boolean if a field has been set.
+func (o *ServerInfo) HasAgentCertAuthorityFingerprint() bool {
+	if o != nil && !IsNil(o.AgentCertAuthorityFingerprint) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentCertAuthorityFingerprint gets a reference to the given string and assigns it to the AgentCertAuthorityFingerprint field.
+func (o *ServerInfo) SetAgentCertAuthorityFingerprint(v string) {
+	o.AgentCertAuthorityFingerprint = &v
+}
+
+// GetAgentCertExpiresAt returns the AgentCertExpiresAt field value if set, zero value otherwise.
+func (o *ServerInfo) GetAgentCertExpiresAt() string {
+	if o == nil || IsNil(o.AgentCertExpiresAt) {
+		var ret string
+		return ret
+	}
+	return *o.AgentCertExpiresAt
+}
+
+// GetAgentCertExpiresAtOk returns a tuple with the AgentCertExpiresAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServerInfo) GetAgentCertExpiresAtOk() (*string, bool) {
+	if o == nil || IsNil(o.AgentCertExpiresAt) {
+		return nil, false
+	}
+	return o.AgentCertExpiresAt, true
+}
+
+// HasAgentCertExpiresAt returns a boolean if a field has been set.
+func (o *ServerInfo) HasAgentCertExpiresAt() bool {
+	if o != nil && !IsNil(o.AgentCertExpiresAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentCertExpiresAt gets a reference to the given string and assigns it to the AgentCertExpiresAt field.
+func (o *ServerInfo) SetAgentCertExpiresAt(v string) {
+	o.AgentCertExpiresAt = &v
+}
+
+// GetAgentCertFingerprint returns the AgentCertFingerprint field value if set, zero value otherwise.
+func (o *ServerInfo) GetAgentCertFingerprint() string {
+	if o == nil || IsNil(o.AgentCertFingerprint) {
+		var ret string
+		return ret
+	}
+	return *o.AgentCertFingerprint
+}
+
+// GetAgentCertFingerprintOk returns a tuple with the AgentCertFingerprint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServerInfo) GetAgentCertFingerprintOk() (*string, bool) {
+	if o == nil || IsNil(o.AgentCertFingerprint) {
+		return nil, false
+	}
+	return o.AgentCertFingerprint, true
+}
+
+// HasAgentCertFingerprint returns a boolean if a field has been set.
+func (o *ServerInfo) HasAgentCertFingerprint() bool {
+	if o != nil && !IsNil(o.AgentCertFingerprint) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentCertFingerprint gets a reference to the given string and assigns it to the AgentCertFingerprint field.
+func (o *ServerInfo) SetAgentCertFingerprint(v string) {
+	o.AgentCertFingerprint = &v
+}
+
+// GetAgentCertIssuedAt returns the AgentCertIssuedAt field value if set, zero value otherwise.
+func (o *ServerInfo) GetAgentCertIssuedAt() string {
+	if o == nil || IsNil(o.AgentCertIssuedAt) {
+		var ret string
+		return ret
+	}
+	return *o.AgentCertIssuedAt
+}
+
+// GetAgentCertIssuedAtOk returns a tuple with the AgentCertIssuedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServerInfo) GetAgentCertIssuedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.AgentCertIssuedAt) {
+		return nil, false
+	}
+	return o.AgentCertIssuedAt, true
+}
+
+// HasAgentCertIssuedAt returns a boolean if a field has been set.
+func (o *ServerInfo) HasAgentCertIssuedAt() bool {
+	if o != nil && !IsNil(o.AgentCertIssuedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentCertIssuedAt gets a reference to the given string and assigns it to the AgentCertIssuedAt field.
+func (o *ServerInfo) SetAgentCertIssuedAt(v string) {
+	o.AgentCertIssuedAt = &v
 }
 
 // GetBackupsEnabled returns the BackupsEnabled field value
@@ -312,6 +444,18 @@ func (o ServerInfo) MarshalJSON() ([]byte, error) {
 
 func (o ServerInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AgentCertAuthorityFingerprint) {
+		toSerialize["agent_cert_authority_fingerprint"] = o.AgentCertAuthorityFingerprint
+	}
+	if !IsNil(o.AgentCertExpiresAt) {
+		toSerialize["agent_cert_expires_at"] = o.AgentCertExpiresAt
+	}
+	if !IsNil(o.AgentCertFingerprint) {
+		toSerialize["agent_cert_fingerprint"] = o.AgentCertFingerprint
+	}
+	if !IsNil(o.AgentCertIssuedAt) {
+		toSerialize["agent_cert_issued_at"] = o.AgentCertIssuedAt
+	}
 	toSerialize["backups_enabled"] = o.BackupsEnabled
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["description"] = o.Description

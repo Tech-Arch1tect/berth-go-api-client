@@ -84,7 +84,16 @@ func (dst *WsApiServersServeridStacksStacknameEventsGet101Response) UnmarshalJSO
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(WsApiServersServeridStacksStacknameEventsGet101Response)")
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(WsApiServersServeridStacksStacknameEventsGet101Response): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(WsApiServersServeridStacksStacknameEventsGet101Response)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(WsApiServersServeridStacksStacknameEventsGet101Response): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(WsApiServersServeridStacksStacknameEventsGet101Response)")
+        }
 	}
 }
 

@@ -24,6 +24,124 @@ tags:
 - description: Administrative operations
   name: admin
 paths:
+  /api/v1/admin/agent-authority:
+    get:
+      description: "Return whether berth's agent certificate authority exists, when\
+        \ it expires, and the expiry and fingerprint of the client certificate berth\
+        \ presents to agents. Requires admin access."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_AgentAuthorityData"
+          description: Authority status
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin access required
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Failed to read the agent certificate authority
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Get agent certificate authority status
+      tags:
+      - admin
+  /api/v1/admin/agent-authority/client-certificate:
+    post:
+      description: "Issue a new client certificate for berth to present to agents.\
+        \ Agents trust the certificate authority rather than this certificate, so\
+        \ no agent needs reinstalling or restarting. Requires admin access."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_MessageData2"
+          description: Client certificate reissued
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin access required
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Failed to reissue the client certificate
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Reissue the client certificate
+      tags:
+      - admin
+  /api/v1/admin/agent-authority/rotate:
+    post:
+      description: "Replace the certificate authority and its key, and issue berth\
+        \ a new client certificate under it. Every certificate issued by the previous\
+        \ authority stops being trusted, so berth cannot reach any agent until a new\
+        \ bundle is installed on each one. Requires admin access."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_MessageData2"
+          description: Authority rotated
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin access required
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Failed to rotate the certificate authority
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Rotate the certificate authority
+      tags:
+      - admin
   /api/v1/admin/migration/export:
     post:
       description: "Export all configuration data (users, roles, servers, etc.) as\
@@ -1228,6 +1346,63 @@ paths:
       - apiKey: []
       - session: []
       summary: Update a server
+      tags:
+      - admin
+  /api/v1/admin/servers/{id}/agent-bundle:
+    post:
+      description: "Issue a new signing certificate for this server's agent and return\
+        \ it with its key and the berth certificate authority as a tar.gz. The key\
+        \ is returned once and never stored. Issuing replaces any previously issued\
+        \ certificate for this server, which stops working immediately. Requires admin\
+        \ access."
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/gzip:
+              schema:
+                format: binary
+                type: string
+          description: "Certificate bundle containing agent.crt, agent.key and ca.crt"
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin access required
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Server not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Failed to issue the agent certificate bundle
+        default:
+          description: ""
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Issue agent certificate bundle
       tags:
       - admin
   /api/v1/admin/servers/{id}/test:
@@ -6462,6 +6637,10 @@ components:
     AdminCreateServerData:
       example:
         server:
+          agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+          agent_cert_expires_at: agent_cert_expires_at
+          agent_cert_fingerprint: agent_cert_fingerprint
+          agent_cert_issued_at: agent_cert_issued_at
           backups_enabled: true
           created_at: created_at
           description: description
@@ -6481,7 +6660,11 @@ components:
     AdminListServersData:
       example:
         servers:
-        - backups_enabled: true
+        - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+          agent_cert_expires_at: agent_cert_expires_at
+          agent_cert_fingerprint: agent_cert_fingerprint
+          agent_cert_issued_at: agent_cert_issued_at
+          backups_enabled: true
           created_at: created_at
           description: description
           host: host
@@ -6491,7 +6674,11 @@ components:
           port: 6
           skip_ssl_verification: true
           updated_at: updated_at
-        - backups_enabled: true
+        - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+          agent_cert_expires_at: agent_cert_expires_at
+          agent_cert_fingerprint: agent_cert_fingerprint
+          agent_cert_issued_at: agent_cert_issued_at
+          backups_enabled: true
           created_at: created_at
           description: description
           host: host
@@ -6512,6 +6699,10 @@ components:
     AdminUpdateServerData:
       example:
         server:
+          agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+          agent_cert_expires_at: agent_cert_expires_at
+          agent_cert_fingerprint: agent_cert_fingerprint
+          agent_cert_issued_at: agent_cert_issued_at
           backups_enabled: true
           created_at: created_at
           description: description
@@ -6527,6 +6718,46 @@ components:
           $ref: "#/components/schemas/ServerInfo"
       required:
       - server
+      type: object
+    AgentAuthorityData:
+      example:
+        authority:
+          agents_needing_reissue: 0
+          authority_expires_at: authority_expires_at
+          authority_fingerprint: authority_fingerprint
+          client_expires_at: client_expires_at
+          client_fingerprint: client_fingerprint
+          exists: true
+      properties:
+        authority:
+          $ref: "#/components/schemas/AgentAuthorityStatus"
+      required:
+      - authority
+      type: object
+    AgentAuthorityStatus:
+      example:
+        agents_needing_reissue: 0
+        authority_expires_at: authority_expires_at
+        authority_fingerprint: authority_fingerprint
+        client_expires_at: client_expires_at
+        client_fingerprint: client_fingerprint
+        exists: true
+      properties:
+        agents_needing_reissue:
+          type: integer
+        authority_expires_at:
+          type: string
+        authority_fingerprint:
+          type: string
+        client_expires_at:
+          type: string
+        client_fingerprint:
+          type: string
+        exists:
+          type: boolean
+      required:
+      - agents_needing_reissue
+      - exists
       type: object
     AssignRoleRequest:
       example:
@@ -8937,6 +9168,10 @@ components:
     GetServerData:
       example:
         server:
+          agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+          agent_cert_expires_at: agent_cert_expires_at
+          agent_cert_fingerprint: agent_cert_fingerprint
+          agent_cert_issued_at: agent_cert_issued_at
           backups_enabled: true
           created_at: created_at
           description: description
@@ -9963,7 +10198,11 @@ components:
     ListServersData:
       example:
         servers:
-        - backups_enabled: true
+        - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+          agent_cert_expires_at: agent_cert_expires_at
+          agent_cert_fingerprint: agent_cert_fingerprint
+          agent_cert_issued_at: agent_cert_issued_at
+          backups_enabled: true
           created_at: created_at
           description: description
           host: host
@@ -9973,7 +10212,11 @@ components:
           port: 6
           skip_ssl_verification: true
           updated_at: updated_at
-        - backups_enabled: true
+        - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+          agent_cert_expires_at: agent_cert_expires_at
+          agent_cert_fingerprint: agent_cert_fingerprint
+          agent_cert_issued_at: agent_cert_issued_at
+          backups_enabled: true
           created_at: created_at
           description: description
           host: host
@@ -11707,6 +11950,10 @@ components:
       example:
         data:
           server:
+            agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+            agent_cert_expires_at: agent_cert_expires_at
+            agent_cert_fingerprint: agent_cert_fingerprint
+            agent_cert_issued_at: agent_cert_issued_at
             backups_enabled: true
             created_at: created_at
             description: description
@@ -11741,7 +11988,11 @@ components:
       example:
         data:
           servers:
-          - backups_enabled: true
+          - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+            agent_cert_expires_at: agent_cert_expires_at
+            agent_cert_fingerprint: agent_cert_fingerprint
+            agent_cert_issued_at: agent_cert_issued_at
+            backups_enabled: true
             created_at: created_at
             description: description
             host: host
@@ -11751,7 +12002,11 @@ components:
             port: 6
             skip_ssl_verification: true
             updated_at: updated_at
-          - backups_enabled: true
+          - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+            agent_cert_expires_at: agent_cert_expires_at
+            agent_cert_fingerprint: agent_cert_fingerprint
+            agent_cert_issued_at: agent_cert_issued_at
+            backups_enabled: true
             created_at: created_at
             description: description
             host: host
@@ -11785,6 +12040,10 @@ components:
       example:
         data:
           server:
+            agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+            agent_cert_expires_at: agent_cert_expires_at
+            agent_cert_fingerprint: agent_cert_fingerprint
+            agent_cert_issued_at: agent_cert_issued_at
             backups_enabled: true
             created_at: created_at
             description: description
@@ -11801,6 +12060,36 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/AdminUpdateServerData"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_AgentAuthorityData:
+      example:
+        data:
+          authority:
+            agents_needing_reissue: 0
+            authority_expires_at: authority_expires_at
+            authority_fingerprint: authority_fingerprint
+            client_expires_at: client_expires_at
+            client_fingerprint: client_fingerprint
+            exists: true
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/AgentAuthorityData"
         error:
           allOf:
           - $ref: "#/components/schemas/Error"
@@ -13018,6 +13307,10 @@ components:
       example:
         data:
           server:
+            agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+            agent_cert_expires_at: agent_cert_expires_at
+            agent_cert_fingerprint: agent_cert_fingerprint
+            agent_cert_issued_at: agent_cert_issued_at
             backups_enabled: true
             created_at: created_at
             description: description
@@ -13492,7 +13785,11 @@ components:
       example:
         data:
           servers:
-          - backups_enabled: true
+          - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+            agent_cert_expires_at: agent_cert_expires_at
+            agent_cert_fingerprint: agent_cert_fingerprint
+            agent_cert_issued_at: agent_cert_issued_at
+            backups_enabled: true
             created_at: created_at
             description: description
             host: host
@@ -13502,7 +13799,11 @@ components:
             port: 6
             skip_ssl_verification: true
             updated_at: updated_at
-          - backups_enabled: true
+          - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+            agent_cert_expires_at: agent_cert_expires_at
+            agent_cert_fingerprint: agent_cert_fingerprint
+            agent_cert_issued_at: agent_cert_issued_at
+            backups_enabled: true
             created_at: created_at
             description: description
             host: host
@@ -17004,6 +17305,10 @@ components:
       type: object
     ServerInfo:
       example:
+        agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
+        agent_cert_expires_at: agent_cert_expires_at
+        agent_cert_fingerprint: agent_cert_fingerprint
+        agent_cert_issued_at: agent_cert_issued_at
         backups_enabled: true
         created_at: created_at
         description: description
@@ -17015,6 +17320,14 @@ components:
         skip_ssl_verification: true
         updated_at: updated_at
       properties:
+        agent_cert_authority_fingerprint:
+          type: string
+        agent_cert_expires_at:
+          type: string
+        agent_cert_fingerprint:
+          type: string
+        agent_cert_issued_at:
+          type: string
         backups_enabled:
           type: boolean
         created_at:

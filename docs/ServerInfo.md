@@ -4,6 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgentCertAuthorityFingerprint** | Pointer to **string** |  | [optional] 
+**AgentCertExpiresAt** | Pointer to **string** |  | [optional] 
+**AgentCertFingerprint** | Pointer to **string** |  | [optional] 
+**AgentCertIssuedAt** | Pointer to **string** |  | [optional] 
 **BackupsEnabled** | **bool** |  | 
 **CreatedAt** | **string** |  | 
 **Description** | **string** |  | 
@@ -33,6 +37,106 @@ will change when the set of required properties is changed
 NewServerInfoWithDefaults instantiates a new ServerInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAgentCertAuthorityFingerprint
+
+`func (o *ServerInfo) GetAgentCertAuthorityFingerprint() string`
+
+GetAgentCertAuthorityFingerprint returns the AgentCertAuthorityFingerprint field if non-nil, zero value otherwise.
+
+### GetAgentCertAuthorityFingerprintOk
+
+`func (o *ServerInfo) GetAgentCertAuthorityFingerprintOk() (*string, bool)`
+
+GetAgentCertAuthorityFingerprintOk returns a tuple with the AgentCertAuthorityFingerprint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentCertAuthorityFingerprint
+
+`func (o *ServerInfo) SetAgentCertAuthorityFingerprint(v string)`
+
+SetAgentCertAuthorityFingerprint sets AgentCertAuthorityFingerprint field to given value.
+
+### HasAgentCertAuthorityFingerprint
+
+`func (o *ServerInfo) HasAgentCertAuthorityFingerprint() bool`
+
+HasAgentCertAuthorityFingerprint returns a boolean if a field has been set.
+
+### GetAgentCertExpiresAt
+
+`func (o *ServerInfo) GetAgentCertExpiresAt() string`
+
+GetAgentCertExpiresAt returns the AgentCertExpiresAt field if non-nil, zero value otherwise.
+
+### GetAgentCertExpiresAtOk
+
+`func (o *ServerInfo) GetAgentCertExpiresAtOk() (*string, bool)`
+
+GetAgentCertExpiresAtOk returns a tuple with the AgentCertExpiresAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentCertExpiresAt
+
+`func (o *ServerInfo) SetAgentCertExpiresAt(v string)`
+
+SetAgentCertExpiresAt sets AgentCertExpiresAt field to given value.
+
+### HasAgentCertExpiresAt
+
+`func (o *ServerInfo) HasAgentCertExpiresAt() bool`
+
+HasAgentCertExpiresAt returns a boolean if a field has been set.
+
+### GetAgentCertFingerprint
+
+`func (o *ServerInfo) GetAgentCertFingerprint() string`
+
+GetAgentCertFingerprint returns the AgentCertFingerprint field if non-nil, zero value otherwise.
+
+### GetAgentCertFingerprintOk
+
+`func (o *ServerInfo) GetAgentCertFingerprintOk() (*string, bool)`
+
+GetAgentCertFingerprintOk returns a tuple with the AgentCertFingerprint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentCertFingerprint
+
+`func (o *ServerInfo) SetAgentCertFingerprint(v string)`
+
+SetAgentCertFingerprint sets AgentCertFingerprint field to given value.
+
+### HasAgentCertFingerprint
+
+`func (o *ServerInfo) HasAgentCertFingerprint() bool`
+
+HasAgentCertFingerprint returns a boolean if a field has been set.
+
+### GetAgentCertIssuedAt
+
+`func (o *ServerInfo) GetAgentCertIssuedAt() string`
+
+GetAgentCertIssuedAt returns the AgentCertIssuedAt field if non-nil, zero value otherwise.
+
+### GetAgentCertIssuedAtOk
+
+`func (o *ServerInfo) GetAgentCertIssuedAtOk() (*string, bool)`
+
+GetAgentCertIssuedAtOk returns a tuple with the AgentCertIssuedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentCertIssuedAt
+
+`func (o *ServerInfo) SetAgentCertIssuedAt(v string)`
+
+SetAgentCertIssuedAt sets AgentCertIssuedAt field to given value.
+
+### HasAgentCertIssuedAt
+
+`func (o *ServerInfo) HasAgentCertIssuedAt() bool`
+
+HasAgentCertIssuedAt returns a boolean if a field has been set.
 
 ### GetBackupsEnabled
 
