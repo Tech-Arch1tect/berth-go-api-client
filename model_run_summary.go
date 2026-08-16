@@ -27,6 +27,7 @@ type RunSummary struct {
 	ComponentsWithErrors int32 `json:"components_with_errors"`
 	FinishedAt NullableTime `json:"finished_at,omitempty"`
 	Id string `json:"id"`
+	Label *string `json:"label,omitempty"`
 	RepoSizeBytes *int32 `json:"repo_size_bytes,omitempty"`
 	SizeBytes int32 `json:"size_bytes"`
 	StackName string `json:"stack_name"`
@@ -199,6 +200,38 @@ func (o *RunSummary) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *RunSummary) SetId(v string) {
 	o.Id = v
+}
+
+// GetLabel returns the Label field value if set, zero value otherwise.
+func (o *RunSummary) GetLabel() string {
+	if o == nil || IsNil(o.Label) {
+		var ret string
+		return ret
+	}
+	return *o.Label
+}
+
+// GetLabelOk returns a tuple with the Label field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RunSummary) GetLabelOk() (*string, bool) {
+	if o == nil || IsNil(o.Label) {
+		return nil, false
+	}
+	return o.Label, true
+}
+
+// HasLabel returns a boolean if a field has been set.
+func (o *RunSummary) HasLabel() bool {
+	if o != nil && !IsNil(o.Label) {
+		return true
+	}
+
+	return false
+}
+
+// SetLabel gets a reference to the given string and assigns it to the Label field.
+func (o *RunSummary) SetLabel(v string) {
+	o.Label = &v
 }
 
 // GetRepoSizeBytes returns the RepoSizeBytes field value if set, zero value otherwise.
@@ -420,6 +453,9 @@ func (o RunSummary) ToMap() (map[string]interface{}, error) {
 		toSerialize["finished_at"] = o.FinishedAt.Get()
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.Label) {
+		toSerialize["label"] = o.Label
+	}
 	if !IsNil(o.RepoSizeBytes) {
 		toSerialize["repo_size_bytes"] = o.RepoSizeBytes
 	}

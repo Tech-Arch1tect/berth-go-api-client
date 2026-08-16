@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**ApiV1AuthResendVerificationPost**](docs/AuthAPI.md#apiv1authresendverificationpost) | **Post** /api/v1/auth/resend-verification | Request a new email verification link
 *AuthAPI* | [**ApiV1AuthTotpVerifyPost**](docs/AuthAPI.md#apiv1authtotpverifypost) | **Post** /api/v1/auth/totp/verify | Verify TOTP code to complete login
 *AuthAPI* | [**ApiV1AuthVerifyEmailPost**](docs/AuthAPI.md#apiv1authverifyemailpost) | **Post** /api/v1/auth/verify-email | Verify an email address
+*BackupsAPI* | [**ApiV1BackupsGet**](docs/BackupsAPI.md#apiv1backupsget) | **Get** /api/v1/backups | List backup coverage across every reachable server
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidDelete**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupiddelete) | **Delete** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Delete a stack backup
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupiddownloadget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/download | Download files from a backup
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupidfilesget) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/files | List files inside a backup
@@ -324,6 +325,7 @@ Class | Method | HTTP request | Description
  - [OperationLogStatsData](docs/OperationLogStatsData.md)
  - [OperationRequest](docs/OperationRequest.md)
  - [OperationStartData](docs/OperationStartData.md)
+ - [OverviewResponse](docs/OverviewResponse.md)
  - [PerImageTrend](docs/PerImageTrend.md)
  - [PermissionInfo](docs/PermissionInfo.md)
  - [PermissionsData](docs/PermissionsData.md)
@@ -393,6 +395,7 @@ Class | Method | HTTP request | Description
  - [ResponseOperationLogInfo](docs/ResponseOperationLogInfo.md)
  - [ResponseOperationLogStatsData](docs/ResponseOperationLogStatsData.md)
  - [ResponseOperationStartData](docs/ResponseOperationStartData.md)
+ - [ResponseOverviewResponse](docs/ResponseOverviewResponse.md)
  - [ResponsePermissionsData](docs/ResponsePermissionsData.md)
  - [ResponsePruneResult](docs/ResponsePruneResult.md)
  - [ResponseRawComposeConfig](docs/ResponseRawComposeConfig.md)
@@ -438,6 +441,7 @@ Class | Method | HTTP request | Description
  - [SecretConfig](docs/SecretConfig.md)
  - [SecurityAuditLogInfo](docs/SecurityAuditLogInfo.md)
  - [Server](docs/Server.md)
+ - [ServerBackups](docs/ServerBackups.md)
  - [ServerCreateRequest](docs/ServerCreateRequest.md)
  - [ServerInfo](docs/ServerInfo.md)
  - [ServerInfo2](docs/ServerInfo2.md)
@@ -450,6 +454,7 @@ Class | Method | HTTP request | Description
  - [SessionMessageData](docs/SessionMessageData.md)
  - [SkippedMount](docs/SkippedMount.md)
  - [Stack](docs/Stack.md)
+ - [StackBackupSummary](docs/StackBackupSummary.md)
  - [StackDetails](docs/StackDetails.md)
  - [StackEnvironmentData](docs/StackEnvironmentData.md)
  - [StackHealthDetails](docs/StackHealthDetails.md)

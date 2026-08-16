@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ComponentsWithErrors** | **int32** |  | 
 **FinishedAt** | Pointer to **NullableTime** |  | [optional] 
 **Id** | **string** |  | 
+**Label** | Pointer to **string** |  | [optional] 
 **RepoSizeBytes** | Pointer to **int32** |  | [optional] 
 **SizeBytes** | **int32** |  | 
 **StackName** | **string** |  | 
@@ -150,6 +151,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetLabel
+
+`func (o *RunSummary) GetLabel() string`
+
+GetLabel returns the Label field if non-nil, zero value otherwise.
+
+### GetLabelOk
+
+`func (o *RunSummary) GetLabelOk() (*string, bool)`
+
+GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabel
+
+`func (o *RunSummary) SetLabel(v string)`
+
+SetLabel sets Label field to given value.
+
+### HasLabel
+
+`func (o *RunSummary) HasLabel() bool`
+
+HasLabel returns a boolean if a field has been set.
 
 ### GetRepoSizeBytes
 

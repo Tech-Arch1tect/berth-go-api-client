@@ -4,12 +4,74 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV1BackupsGet**](BackupsAPI.md#ApiV1BackupsGet) | **Get** /api/v1/backups | List backup coverage across every reachable server
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidDelete**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidDelete) | **Delete** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Delete a stack backup
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/download | Download files from a backup
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/files | List files inside a backup
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Get a stack backup
 [**ApiV1ServersServeridStacksStacknameBackupsGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups | List stack backups
 
+
+
+## ApiV1BackupsGet
+
+> ResponseOverviewResponse ApiV1BackupsGet(ctx).Execute()
+
+List backup coverage across every reachable server
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackupsAPI.ApiV1BackupsGet(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackupsAPI.ApiV1BackupsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1BackupsGet`: ResponseOverviewResponse
+	fmt.Fprintf(os.Stdout, "Response from `BackupsAPI.ApiV1BackupsGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1BackupsGetRequest struct via the builder pattern
+
+
+### Return type
+
+[**ResponseOverviewResponse**](ResponseOverviewResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV1ServersServeridStacksStacknameBackupsBackupidDelete

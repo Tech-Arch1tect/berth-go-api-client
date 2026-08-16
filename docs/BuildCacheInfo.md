@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | **string** |  | 
 **Id** | **string** |  | 
 **InUse** | **bool** |  | 
-**LastUsed** | **time.Time** |  | 
+**LastUsed** | **NullableTime** |  | 
 **Removal** | **string** |  | 
 **Shared** | **bool** |  | 
 **Size** | **int32** |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewBuildCacheInfo
 
-`func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed time.Time, removal string, shared bool, size int32, type_ string, usageCount int32, ) *BuildCacheInfo`
+`func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed NullableTime, removal string, shared bool, size int32, type_ string, usageCount int32, ) *BuildCacheInfo`
 
 NewBuildCacheInfo instantiates a new BuildCacheInfo object
 This constructor will assign default values to properties that have it defined,
@@ -134,6 +134,16 @@ and a boolean to check if the value has been set.
 SetLastUsed sets LastUsed field to given value.
 
 
+### SetLastUsedNil
+
+`func (o *BuildCacheInfo) SetLastUsedNil(b bool)`
+
+ SetLastUsedNil sets the value for LastUsed to be an explicit nil
+
+### UnsetLastUsed
+`func (o *BuildCacheInfo) UnsetLastUsed()`
+
+UnsetLastUsed ensures that no value is present for LastUsed, not even an explicit nil
 ### GetRemoval
 
 `func (o *BuildCacheInfo) GetRemoval() string`

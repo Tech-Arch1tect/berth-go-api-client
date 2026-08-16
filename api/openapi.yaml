@@ -2095,7 +2095,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/_api_v1_auth_login_post_200_response"
-          description: Login outcome — full tokens or a TOTP challenge
+          description: "Login outcome: full tokens or a TOTP challenge"
         "400":
           content:
             application/json:
@@ -2418,6 +2418,36 @@ paths:
       summary: Verify an email address
       tags:
       - auth
+  /api/v1/backups:
+    get:
+      description: "Returns each server the caller can see, with the stacks on it\
+        \ that the caller may read backups for. Includes stacks that have never been\
+        \ backed up, and stacks whose directory no longer exists but whose backups\
+        \ remain"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_OverviewResponse"
+          description: Backup coverage per server
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        default:
+          description: ""
+      summary: List backup coverage across every reachable server
+      tags:
+      - backups
   /api/v1/image-updates:
     get:
       description: Returns all container images with available updates across servers
@@ -7047,6 +7077,7 @@ components:
           type: boolean
         last_used:
           format: date-time
+          nullable: true
           type: string
         removal:
           type: string
@@ -10143,6 +10174,7 @@ components:
           components_with_errors: 1
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
+          label: label
           repo_size_bytes: 0
           size_bytes: 0
           stack_name: stack_name
@@ -10155,6 +10187,7 @@ components:
           components_with_errors: 1
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
+          label: label
           repo_size_bytes: 0
           size_bytes: 0
           stack_name: stack_name
@@ -11642,6 +11675,49 @@ components:
           type: string
       required:
       - operationId
+      type: object
+    OverviewResponse:
+      example:
+        servers:
+        - configured: true
+          enabled: true
+          error: error
+          server_id: 0
+          server_name: server_name
+          stacks:
+          - latest_run: ""
+            repo_size_bytes: 0
+            run_count: 1
+            stack_exists: true
+            stack_name: stack_name
+          - latest_run: ""
+            repo_size_bytes: 0
+            run_count: 1
+            stack_exists: true
+            stack_name: stack_name
+        - configured: true
+          enabled: true
+          error: error
+          server_id: 0
+          server_name: server_name
+          stacks:
+          - latest_run: ""
+            repo_size_bytes: 0
+            run_count: 1
+            stack_exists: true
+            stack_name: stack_name
+          - latest_run: ""
+            repo_size_bytes: 0
+            run_count: 1
+            stack_exists: true
+            stack_name: stack_name
+      properties:
+        servers:
+          items:
+            $ref: "#/components/schemas/ServerBackups"
+          type: array
+      required:
+      - servers
       type: object
     PerImageTrend:
       example:
@@ -13723,6 +13799,7 @@ components:
             components_with_errors: 1
             finished_at: 2000-01-23T04:56:07.000+00:00
             id: id
+            label: label
             repo_size_bytes: 0
             size_bytes: 0
             stack_name: stack_name
@@ -13735,6 +13812,7 @@ components:
             components_with_errors: 1
             finished_at: 2000-01-23T04:56:07.000+00:00
             id: id
+            label: label
             repo_size_bytes: 0
             size_bytes: 0
             stack_name: stack_name
@@ -14784,6 +14862,62 @@ components:
       - data
       - success
       type: object
+    Response_OverviewResponse:
+      example:
+        data:
+          servers:
+          - configured: true
+            enabled: true
+            error: error
+            server_id: 0
+            server_name: server_name
+            stacks:
+            - latest_run: ""
+              repo_size_bytes: 0
+              run_count: 1
+              stack_exists: true
+              stack_name: stack_name
+            - latest_run: ""
+              repo_size_bytes: 0
+              run_count: 1
+              stack_exists: true
+              stack_name: stack_name
+          - configured: true
+            enabled: true
+            error: error
+            server_id: 0
+            server_name: server_name
+            stacks:
+            - latest_run: ""
+              repo_size_bytes: 0
+              run_count: 1
+              stack_exists: true
+              stack_name: stack_name
+            - latest_run: ""
+              repo_size_bytes: 0
+              run_count: 1
+              stack_exists: true
+              stack_name: stack_name
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/OverviewResponse"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
     Response_PermissionsData:
       example:
         data:
@@ -14954,6 +15088,7 @@ components:
           error: error
           finished_at: 2000-01-23T04:56:07.000+00:00
           id: id
+          label: label
           repo_size_bytes: 0
           restic_version: restic_version
           skipped:
@@ -16628,6 +16763,7 @@ components:
         error: error
         finished_at: 2000-01-23T04:56:07.000+00:00
         id: id
+        label: label
         repo_size_bytes: 0
         restic_version: restic_version
         skipped:
@@ -16657,6 +16793,8 @@ components:
           nullable: true
           type: string
         id:
+          type: string
+        label:
           type: string
         repo_size_bytes:
           minimum: 0
@@ -16695,6 +16833,7 @@ components:
         components_with_errors: 1
         finished_at: 2000-01-23T04:56:07.000+00:00
         id: id
+        label: label
         repo_size_bytes: 0
         size_bytes: 0
         stack_name: stack_name
@@ -16715,6 +16854,8 @@ components:
           nullable: true
           type: string
         id:
+          type: string
+        label:
           type: string
         repo_size_bytes:
           minimum: 0
@@ -17422,6 +17563,47 @@ components:
       - port
       - updated_at
       type: object
+    ServerBackups:
+      example:
+        configured: true
+        enabled: true
+        error: error
+        server_id: 0
+        server_name: server_name
+        stacks:
+        - latest_run: ""
+          repo_size_bytes: 0
+          run_count: 1
+          stack_exists: true
+          stack_name: stack_name
+        - latest_run: ""
+          repo_size_bytes: 0
+          run_count: 1
+          stack_exists: true
+          stack_name: stack_name
+      properties:
+        configured:
+          type: boolean
+        enabled:
+          type: boolean
+        error:
+          type: string
+        server_id:
+          minimum: 0
+          type: integer
+        server_name:
+          type: string
+        stacks:
+          items:
+            $ref: "#/components/schemas/StackBackupSummary"
+          type: array
+      required:
+      - configured
+      - enabled
+      - server_id
+      - server_name
+      - stacks
+      type: object
     ServerCreateRequest:
       example:
         access_token: access_token
@@ -17884,6 +18066,32 @@ components:
       - server_id
       - server_name
       - total_containers
+      type: object
+    StackBackupSummary:
+      example:
+        latest_run: ""
+        repo_size_bytes: 0
+        run_count: 1
+        stack_exists: true
+        stack_name: stack_name
+      properties:
+        latest_run:
+          allOf:
+          - $ref: "#/components/schemas/RunSummary"
+          nullable: true
+        repo_size_bytes:
+          minimum: 0
+          type: integer
+        run_count:
+          type: integer
+        stack_exists:
+          type: boolean
+        stack_name:
+          type: string
+      required:
+      - run_count
+      - stack_exists
+      - stack_name
       type: object
     StackDetails:
       example:

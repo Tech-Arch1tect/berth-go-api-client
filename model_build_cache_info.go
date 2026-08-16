@@ -26,7 +26,7 @@ type BuildCacheInfo struct {
 	Description string `json:"description"`
 	Id string `json:"id"`
 	InUse bool `json:"in_use"`
-	LastUsed time.Time `json:"last_used"`
+	LastUsed NullableTime `json:"last_used"`
 	Removal string `json:"removal"`
 	Shared bool `json:"shared"`
 	Size int32 `json:"size"`
@@ -40,7 +40,7 @@ type _BuildCacheInfo BuildCacheInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed time.Time, removal string, shared bool, size int32, type_ string, usageCount int32) *BuildCacheInfo {
+func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed NullableTime, removal string, shared bool, size int32, type_ string, usageCount int32) *BuildCacheInfo {
 	this := BuildCacheInfo{}
 	this.Created = created
 	this.Description = description
@@ -160,27 +160,29 @@ func (o *BuildCacheInfo) SetInUse(v bool) {
 }
 
 // GetLastUsed returns the LastUsed field value
+// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *BuildCacheInfo) GetLastUsed() time.Time {
-	if o == nil {
+	if o == nil || o.LastUsed.Get() == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return o.LastUsed
+	return *o.LastUsed.Get()
 }
 
 // GetLastUsedOk returns a tuple with the LastUsed field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BuildCacheInfo) GetLastUsedOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.LastUsed, true
+	return o.LastUsed.Get(), o.LastUsed.IsSet()
 }
 
 // SetLastUsed sets field value
 func (o *BuildCacheInfo) SetLastUsed(v time.Time) {
-	o.LastUsed = v
+	o.LastUsed.Set(&v)
 }
 
 // GetRemoval returns the Removal field value
@@ -317,7 +319,7 @@ func (o BuildCacheInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
 	toSerialize["in_use"] = o.InUse
-	toSerialize["last_used"] = o.LastUsed
+	toSerialize["last_used"] = o.LastUsed.Get()
 	toSerialize["removal"] = o.Removal
 	toSerialize["shared"] = o.Shared
 	toSerialize["size"] = o.Size

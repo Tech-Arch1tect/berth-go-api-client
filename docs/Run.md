@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Error** | Pointer to **string** |  | [optional] 
 **FinishedAt** | Pointer to **NullableTime** |  | [optional] 
 **Id** | **string** |  | 
+**Label** | Pointer to **string** |  | [optional] 
 **RepoSizeBytes** | Pointer to **int32** |  | [optional] 
 **ResticVersion** | Pointer to **string** |  | [optional] 
 **Skipped** | Pointer to [**[]SkippedMount**](SkippedMount.md) |  | [optional] 
@@ -136,6 +137,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetLabel
+
+`func (o *Run) GetLabel() string`
+
+GetLabel returns the Label field if non-nil, zero value otherwise.
+
+### GetLabelOk
+
+`func (o *Run) GetLabelOk() (*string, bool)`
+
+GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabel
+
+`func (o *Run) SetLabel(v string)`
+
+SetLabel sets Label field to given value.
+
+### HasLabel
+
+`func (o *Run) HasLabel() bool`
+
+HasLabel returns a boolean if a field has been set.
 
 ### GetRepoSizeBytes
 
