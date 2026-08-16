@@ -149,7 +149,6 @@ func (a *TotpAPIService) ApiV1TotpDisablePostExecute(r ApiApiV1TotpDisablePostRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -293,7 +292,6 @@ func (a *TotpAPIService) ApiV1TotpEnablePostExecute(r ApiApiV1TotpEnablePostRequ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -425,7 +423,6 @@ func (a *TotpAPIService) ApiV1TotpSetupGetExecute(r ApiApiV1TotpSetupGetRequest)
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -546,7 +543,6 @@ func (a *TotpAPIService) ApiV1TotpStatusGetExecute(r ApiApiV1TotpStatusGetReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

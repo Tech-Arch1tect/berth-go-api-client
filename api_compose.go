@@ -146,7 +146,6 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposeGetExecute
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -309,7 +308,6 @@ func (a *ComposeAPIService) ApiV1ServersServeridStacksStacknameComposePatchExecu
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

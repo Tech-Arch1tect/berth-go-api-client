@@ -54,8 +54,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Failed to read the agent certificate authority
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -93,8 +91,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Failed to reissue the client certificate
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -133,8 +129,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Failed to rotate the certificate authority
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -185,8 +179,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Export failed
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -237,8 +229,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Import failed
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -350,8 +340,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -388,8 +376,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -447,8 +433,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -494,8 +478,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -531,8 +513,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -580,8 +560,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -632,8 +610,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -690,8 +666,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -749,8 +723,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -808,8 +780,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -868,8 +838,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -995,8 +963,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1033,8 +999,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1092,8 +1056,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1129,8 +1091,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1178,8 +1138,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1230,8 +1188,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1275,8 +1231,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Server not found
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1339,8 +1293,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1396,8 +1348,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Failed to issue the agent certificate bundle
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1448,8 +1398,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Connection test failed
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1485,8 +1433,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1534,8 +1480,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1584,8 +1528,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1640,8 +1582,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1705,8 +1645,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1757,8 +1695,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1788,8 +1724,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -1831,8 +1765,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -1876,8 +1808,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: API key not found
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -1920,8 +1850,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: API key not found
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -1965,8 +1893,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: API key not found
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -2011,8 +1937,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Not authenticated
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -2064,8 +1988,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Scope not found
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -2114,8 +2036,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Email not verified
-        default:
-          description: ""
       summary: Login with username and password
       tags:
       - auth
@@ -2153,8 +2073,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Failed to revoke tokens
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -2197,8 +2115,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Password reset is disabled
-        default:
-          description: ""
       summary: Request a password reset email
       tags:
       - auth
@@ -2238,8 +2154,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Password reset is disabled
-        default:
-          description: ""
       summary: Complete a password reset
       tags:
       - auth
@@ -2284,8 +2198,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Token refresh failed
-        default:
-          description: ""
       summary: Refresh access token
       tags:
       - auth
@@ -2326,8 +2238,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Email verification is disabled
-        default:
-          description: ""
       summary: Request a new email verification link
       tags:
       - auth
@@ -2370,8 +2280,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Token generation failed
-        default:
-          description: ""
       security:
       - bearerAuth: []
       summary: Verify TOTP code to complete login
@@ -2413,8 +2321,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Email verification is disabled
-        default:
-          description: ""
       summary: Verify an email address
       tags:
       - auth
@@ -2443,8 +2349,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       summary: List backup coverage across every reachable server
       tags:
       - backups
@@ -2477,8 +2381,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2585,8 +2487,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2638,8 +2538,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2670,8 +2568,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2723,8 +2619,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2756,8 +2650,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2788,8 +2680,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2825,8 +2715,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2884,8 +2772,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2937,8 +2823,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -2984,8 +2868,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3025,8 +2907,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3085,8 +2965,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3145,8 +3023,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3192,8 +3068,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3251,8 +3125,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3311,8 +3183,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3371,8 +3241,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3444,8 +3312,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3491,8 +3357,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3555,8 +3419,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3596,8 +3458,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3651,8 +3511,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3729,8 +3587,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3810,8 +3666,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3884,8 +3738,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -3984,8 +3836,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4081,8 +3931,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4136,8 +3984,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4204,8 +4050,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4304,8 +4148,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4367,8 +4209,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4435,8 +4275,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4502,8 +4340,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4569,8 +4405,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4636,8 +4470,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4703,8 +4535,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4780,8 +4610,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4847,8 +4675,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4915,8 +4741,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -4982,8 +4806,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5045,8 +4867,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5112,8 +4932,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5179,8 +4997,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5233,8 +5049,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5319,8 +5133,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5373,8 +5185,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5441,8 +5251,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5490,8 +5298,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5544,8 +5350,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5598,8 +5402,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5659,8 +5461,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5719,8 +5519,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5774,8 +5572,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5837,8 +5633,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5889,8 +5683,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -5926,8 +5718,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Session service not available
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -5970,8 +5760,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -6014,8 +5802,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -6058,8 +5844,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -6102,8 +5886,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -6139,8 +5921,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -6170,8 +5950,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - session: []
@@ -6194,8 +5972,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Not authenticated
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -6262,8 +6038,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -6309,8 +6083,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Scan not found
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -6362,8 +6134,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -6414,8 +6184,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Insufficient permissions
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -6480,8 +6248,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Operation not found on this server and stack
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []
@@ -6546,8 +6312,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Agent terminal unreachable
-        default:
-          description: ""
       security:
       - bearerAuth: []
       - apiKey: []

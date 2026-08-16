@@ -169,7 +169,6 @@ func (a *OperationsAPIService) ApiV1ServersServeridStacksStacknameOperationsPost
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

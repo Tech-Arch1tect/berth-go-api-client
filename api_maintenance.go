@@ -142,7 +142,6 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceInfoGetExecute(r 
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -267,7 +266,6 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePermissionsGetExe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -426,7 +424,6 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenancePrunePostExecute(
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -585,7 +582,6 @@ func (a *MaintenanceAPIService) ApiV1ServersServeridMaintenanceResourceDeleteExe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

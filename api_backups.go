@@ -128,7 +128,6 @@ func (a *BackupsAPIService) ApiV1BackupsGetExecute(r ApiApiV1BackupsGetRequest) 
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -305,7 +304,6 @@ func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidDe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -504,7 +502,6 @@ func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidDo
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -702,7 +699,6 @@ func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidFi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -868,7 +864,6 @@ func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsBackupidGe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1039,7 +1034,6 @@ func (a *BackupsAPIService) ApiV1ServersServeridStacksStacknameBackupsGetExecute
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

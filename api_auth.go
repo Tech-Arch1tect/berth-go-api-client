@@ -149,7 +149,6 @@ func (a *AuthAPIService) ApiV1AuthLoginPostExecute(r ApiApiV1AuthLoginPostReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -282,7 +281,6 @@ func (a *AuthAPIService) ApiV1AuthLogoutPostExecute(r ApiApiV1AuthLogoutPostRequ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -426,7 +424,6 @@ func (a *AuthAPIService) ApiV1AuthPasswordResetConfirmPostExecute(r ApiApiV1Auth
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -570,7 +567,6 @@ func (a *AuthAPIService) ApiV1AuthPasswordResetPostExecute(r ApiApiV1AuthPasswor
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -714,7 +710,6 @@ func (a *AuthAPIService) ApiV1AuthRefreshPostExecute(r ApiApiV1AuthRefreshPostRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -858,7 +853,6 @@ func (a *AuthAPIService) ApiV1AuthResendVerificationPostExecute(r ApiApiV1AuthRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1002,7 +996,6 @@ func (a *AuthAPIService) ApiV1AuthTotpVerifyPostExecute(r ApiApiV1AuthTotpVerify
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1146,7 +1139,6 @@ func (a *AuthAPIService) ApiV1AuthVerifyEmailPostExecute(r ApiApiV1AuthVerifyEma
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

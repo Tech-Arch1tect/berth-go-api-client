@@ -131,7 +131,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksCanCreateGetExecute(r ApiAp
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -267,7 +266,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksGetExecute(r ApiApiV1Server
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -437,7 +435,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksPostExecute(r ApiApiV1Serve
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -587,7 +584,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameEnvironmentGetExec
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -727,7 +723,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameGetExecute(r ApiAp
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -867,7 +862,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameImagesGetExecute(r
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1007,7 +1001,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameNetworksGetExecute
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1136,7 +1129,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknamePermissionsGetExec
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1276,7 +1268,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameStatsGetExecute(r 
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1416,7 +1407,6 @@ func (a *StacksAPIService) ApiV1ServersServeridStacksStacknameVolumesGetExecute(
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -153,7 +153,6 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsByOperationIdOperationIdGetE
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -362,7 +361,6 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsGetExecute(r ApiApiV1Operati
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -509,7 +507,6 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsIdGetExecute(r ApiApiV1Opera
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -630,7 +627,6 @@ func (a *OperationLogsAPIService) ApiV1OperationLogsStatsGetExecute(r ApiApiV1Op
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -751,7 +747,6 @@ func (a *OperationLogsAPIService) ApiV1RunningOperationsGetExecute(r ApiApiV1Run
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -138,7 +138,6 @@ func (a *ServersAPIService) ApiV1ServersGetExecute(r ApiApiV1ServersGetRequest) 
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -296,7 +295,6 @@ func (a *ServersAPIService) ApiV1ServersServeridGetExecute(r ApiApiV1ServersServ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -443,7 +441,6 @@ func (a *ServersAPIService) ApiV1ServersServeridStatisticsGetExecute(r ApiApiV1S
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

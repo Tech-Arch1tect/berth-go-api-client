@@ -157,7 +157,6 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanGetExecu
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -297,7 +296,6 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanHistoryG
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -449,7 +447,6 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanPostExec
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -599,7 +596,6 @@ func (a *VulnscanAPIService) ApiV1ServersServeridStacksStacknameVulnscanTrendGet
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -761,7 +757,6 @@ func (a *VulnscanAPIService) ApiV1VulnscanCompareBaseScanIdCompareScanIdGetExecu
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -897,7 +892,6 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidGetExecute(r ApiApiV1VulnscanSca
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1044,7 +1038,6 @@ func (a *VulnscanAPIService) ApiV1VulnscanScanidSummaryGetExecute(r ApiApiV1Vuln
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

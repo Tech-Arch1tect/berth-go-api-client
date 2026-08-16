@@ -137,7 +137,6 @@ func (a *SessionsAPIService) ApiV1SessionsGetExecute(r ApiApiV1SessionsGetReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -281,7 +280,6 @@ func (a *SessionsAPIService) ApiV1SessionsRevokeAllOthersPostExecute(r ApiApiV1S
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -425,7 +423,6 @@ func (a *SessionsAPIService) ApiV1SessionsRevokePostExecute(r ApiApiV1SessionsRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

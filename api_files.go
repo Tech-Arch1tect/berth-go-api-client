@@ -170,7 +170,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChmodPostExecu
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -333,7 +332,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesChownPostExecu
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -496,7 +494,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesCopyPostExecut
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -659,7 +656,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDeleteDeleteEx
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -831,7 +827,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesDownloadGetExe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -992,7 +987,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesGetExecute(r A
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1155,7 +1149,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesMkdirPostExecu
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1317,7 +1310,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesReadGetExecute
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1480,7 +1472,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesRenamePostExec
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1630,7 +1621,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesStatsGetExecut
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1814,7 +1804,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesUploadPostExec
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1977,7 +1966,6 @@ func (a *FilesAPIService) ApiV1ServersServeridStacksStacknameFilesWritePostExecu
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

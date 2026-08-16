@@ -142,7 +142,6 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesGetExecute(r ApiApi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -293,7 +292,6 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdDeleteExecute(r A
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -444,7 +442,6 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdGetExecute(r ApiA
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -618,7 +615,6 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesIdPutExecute(r ApiA
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -777,7 +773,6 @@ func (a *RegistriesAPIService) ApiV1ServersServeridRegistriesPostExecute(r ApiAp
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -133,7 +133,6 @@ func (a *WebsocketAPIService) WsApiServersServeridStacksStacknameEventsGetExecut
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -266,7 +265,6 @@ func (a *WebsocketAPIService) WsApiServersServeridStacksStacknameOperationsOpera
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -406,7 +404,6 @@ func (a *WebsocketAPIService) WsApiServersServeridStacksStacknameTerminalGetExec
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}

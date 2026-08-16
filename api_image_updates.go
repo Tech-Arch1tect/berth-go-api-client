@@ -138,7 +138,6 @@ func (a *ImageUpdatesAPIService) ApiV1ImageUpdatesGetExecute(r ApiApiV1ImageUpda
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -285,7 +284,6 @@ func (a *ImageUpdatesAPIService) ApiV1ServersServeridImageUpdatesGetExecute(r Ap
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

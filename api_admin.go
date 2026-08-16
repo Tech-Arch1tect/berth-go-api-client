@@ -139,7 +139,6 @@ func (a *AdminAPIService) ApiV1AdminAgentAuthorityClientCertificatePostExecute(r
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -271,7 +270,6 @@ func (a *AdminAPIService) ApiV1AdminAgentAuthorityGetExecute(r ApiApiV1AdminAgen
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -403,7 +401,6 @@ func (a *AdminAPIService) ApiV1AdminAgentAuthorityRotatePostExecute(r ApiApiV1Ad
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -558,7 +555,6 @@ func (a *AdminAPIService) ApiV1AdminMigrationExportPostExecute(r ApiApiV1AdminMi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -735,7 +731,6 @@ func (a *AdminAPIService) ApiV1AdminMigrationImportPostExecute(r ApiApiV1AdminMi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -955,7 +950,6 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsGetExecute(r ApiApiV1AdminOpera
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1113,7 +1107,6 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsIdGetExecute(r ApiApiV1AdminOpe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1245,7 +1238,6 @@ func (a *AdminAPIService) ApiV1AdminOperationLogsStatsGetExecute(r ApiApiV1Admin
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1387,7 +1379,6 @@ func (a *AdminAPIService) ApiV1AdminPermissionsGetExecute(r ApiApiV1AdminPermiss
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1519,7 +1510,6 @@ func (a *AdminAPIService) ApiV1AdminRolesGetExecute(r ApiApiV1AdminRolesGetReque
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1666,7 +1656,6 @@ func (a *AdminAPIService) ApiV1AdminRolesIdDeleteExecute(r ApiApiV1AdminRolesIdD
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1825,7 +1814,6 @@ func (a *AdminAPIService) ApiV1AdminRolesIdPutExecute(r ApiApiV1AdminRolesIdPutR
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1980,7 +1968,6 @@ func (a *AdminAPIService) ApiV1AdminRolesPostExecute(r ApiApiV1AdminRolesPostReq
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2138,7 +2125,6 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsGetExecute(r ApiA
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2289,7 +2275,6 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPermissionIdDelet
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2448,7 +2433,6 @@ func (a *AdminAPIService) ApiV1AdminRolesRoleIdStackPermissionsPostExecute(r Api
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2699,7 +2683,6 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsGetExecute(r ApiApiV1AdminS
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2857,7 +2840,6 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsIdGetExecute(r ApiApiV1Admi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2989,7 +2971,6 @@ func (a *AdminAPIService) ApiV1AdminSecurityAuditLogsStatsGetExecute(r ApiApiV1A
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3121,7 +3102,6 @@ func (a *AdminAPIService) ApiV1AdminServersGetExecute(r ApiApiV1AdminServersGetR
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3268,7 +3248,6 @@ func (a *AdminAPIService) ApiV1AdminServersIdAgentBundlePostExecute(r ApiApiV1Ad
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3415,7 +3394,6 @@ func (a *AdminAPIService) ApiV1AdminServersIdDeleteExecute(r ApiApiV1AdminServer
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3551,7 +3529,6 @@ func (a *AdminAPIService) ApiV1AdminServersIdGetExecute(r ApiApiV1AdminServersId
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3721,7 +3698,6 @@ func (a *AdminAPIService) ApiV1AdminServersIdPutExecute(r ApiApiV1AdminServersId
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3868,7 +3844,6 @@ func (a *AdminAPIService) ApiV1AdminServersIdTestPostExecute(r ApiApiV1AdminServ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4023,7 +3998,6 @@ func (a *AdminAPIService) ApiV1AdminServersPostExecute(r ApiApiV1AdminServersPos
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4178,7 +4152,6 @@ func (a *AdminAPIService) ApiV1AdminUsersAssignRolePostExecute(r ApiApiV1AdminUs
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4310,7 +4283,6 @@ func (a *AdminAPIService) ApiV1AdminUsersGetExecute(r ApiApiV1AdminUsersGetReque
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4479,7 +4451,6 @@ func (a *AdminAPIService) ApiV1AdminUsersIdDeleteExecute(r ApiApiV1AdminUsersIdD
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4626,7 +4597,6 @@ func (a *AdminAPIService) ApiV1AdminUsersIdRolesGetExecute(r ApiApiV1AdminUsersI
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4781,7 +4751,6 @@ func (a *AdminAPIService) ApiV1AdminUsersPostExecute(r ApiApiV1AdminUsersPostReq
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4947,7 +4916,6 @@ func (a *AdminAPIService) ApiV1AdminUsersRevokeRolePostExecute(r ApiApiV1AdminUs
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

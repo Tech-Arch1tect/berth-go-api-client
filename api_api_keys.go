@@ -127,7 +127,6 @@ func (a *ApiKeysAPIService) ApiV1ApiKeysGetExecute(r ApiApiV1ApiKeysGetRequest) 
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -263,7 +262,6 @@ func (a *ApiKeysAPIService) ApiV1ApiKeysIdDeleteExecute(r ApiApiV1ApiKeysIdDelet
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -399,7 +397,6 @@ func (a *ApiKeysAPIService) ApiV1ApiKeysIdGetExecute(r ApiApiV1ApiKeysIdGetReque
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -535,7 +532,6 @@ func (a *ApiKeysAPIService) ApiV1ApiKeysIdScopesGetExecute(r ApiApiV1ApiKeysIdSc
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -672,7 +668,6 @@ func (a *ApiKeysAPIService) ApiV1ApiKeysIdScopesPostExecute(r ApiApiV1ApiKeysIdS
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -812,7 +807,6 @@ func (a *ApiKeysAPIService) ApiV1ApiKeysIdScopesScopeIdDeleteExecute(r ApiApiV1A
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -956,7 +950,6 @@ func (a *ApiKeysAPIService) ApiV1ApiKeysPostExecute(r ApiApiV1ApiKeysPostRequest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
