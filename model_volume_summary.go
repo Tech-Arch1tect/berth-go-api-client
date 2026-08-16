@@ -21,10 +21,8 @@ var _ MappedNullable = &VolumeSummary{}
 
 // VolumeSummary struct for VolumeSummary
 type VolumeSummary struct {
-	TotalCount int32 `json:"total_count"`
-	TotalSize int32 `json:"total_size"`
-	UnusedCount int32 `json:"unused_count"`
-	UnusedSize int32 `json:"unused_size"`
+	Total Amount `json:"total"`
+	Unused Amount `json:"unused"`
 	Volumes []VolumeInfo `json:"volumes"`
 }
 
@@ -34,12 +32,10 @@ type _VolumeSummary VolumeSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVolumeSummary(totalCount int32, totalSize int32, unusedCount int32, unusedSize int32, volumes []VolumeInfo) *VolumeSummary {
+func NewVolumeSummary(total Amount, unused Amount, volumes []VolumeInfo) *VolumeSummary {
 	this := VolumeSummary{}
-	this.TotalCount = totalCount
-	this.TotalSize = totalSize
-	this.UnusedCount = unusedCount
-	this.UnusedSize = unusedSize
+	this.Total = total
+	this.Unused = unused
 	this.Volumes = volumes
 	return &this
 }
@@ -52,100 +48,52 @@ func NewVolumeSummaryWithDefaults() *VolumeSummary {
 	return &this
 }
 
-// GetTotalCount returns the TotalCount field value
-func (o *VolumeSummary) GetTotalCount() int32 {
+// GetTotal returns the Total field value
+func (o *VolumeSummary) GetTotal() Amount {
 	if o == nil {
-		var ret int32
+		var ret Amount
 		return ret
 	}
 
-	return o.TotalCount
+	return o.Total
 }
 
-// GetTotalCountOk returns a tuple with the TotalCount field value
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *VolumeSummary) GetTotalCountOk() (*int32, bool) {
+func (o *VolumeSummary) GetTotalOk() (*Amount, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TotalCount, true
+	return &o.Total, true
 }
 
-// SetTotalCount sets field value
-func (o *VolumeSummary) SetTotalCount(v int32) {
-	o.TotalCount = v
+// SetTotal sets field value
+func (o *VolumeSummary) SetTotal(v Amount) {
+	o.Total = v
 }
 
-// GetTotalSize returns the TotalSize field value
-func (o *VolumeSummary) GetTotalSize() int32 {
+// GetUnused returns the Unused field value
+func (o *VolumeSummary) GetUnused() Amount {
 	if o == nil {
-		var ret int32
+		var ret Amount
 		return ret
 	}
 
-	return o.TotalSize
+	return o.Unused
 }
 
-// GetTotalSizeOk returns a tuple with the TotalSize field value
+// GetUnusedOk returns a tuple with the Unused field value
 // and a boolean to check if the value has been set.
-func (o *VolumeSummary) GetTotalSizeOk() (*int32, bool) {
+func (o *VolumeSummary) GetUnusedOk() (*Amount, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TotalSize, true
+	return &o.Unused, true
 }
 
-// SetTotalSize sets field value
-func (o *VolumeSummary) SetTotalSize(v int32) {
-	o.TotalSize = v
-}
-
-// GetUnusedCount returns the UnusedCount field value
-func (o *VolumeSummary) GetUnusedCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.UnusedCount
-}
-
-// GetUnusedCountOk returns a tuple with the UnusedCount field value
-// and a boolean to check if the value has been set.
-func (o *VolumeSummary) GetUnusedCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.UnusedCount, true
-}
-
-// SetUnusedCount sets field value
-func (o *VolumeSummary) SetUnusedCount(v int32) {
-	o.UnusedCount = v
-}
-
-// GetUnusedSize returns the UnusedSize field value
-func (o *VolumeSummary) GetUnusedSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.UnusedSize
-}
-
-// GetUnusedSizeOk returns a tuple with the UnusedSize field value
-// and a boolean to check if the value has been set.
-func (o *VolumeSummary) GetUnusedSizeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.UnusedSize, true
-}
-
-// SetUnusedSize sets field value
-func (o *VolumeSummary) SetUnusedSize(v int32) {
-	o.UnusedSize = v
+// SetUnused sets field value
+func (o *VolumeSummary) SetUnused(v Amount) {
+	o.Unused = v
 }
 
 // GetVolumes returns the Volumes field value
@@ -182,10 +130,8 @@ func (o VolumeSummary) MarshalJSON() ([]byte, error) {
 
 func (o VolumeSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["total_count"] = o.TotalCount
-	toSerialize["total_size"] = o.TotalSize
-	toSerialize["unused_count"] = o.UnusedCount
-	toSerialize["unused_size"] = o.UnusedSize
+	toSerialize["total"] = o.Total
+	toSerialize["unused"] = o.Unused
 	toSerialize["volumes"] = o.Volumes
 	return toSerialize, nil
 }
@@ -195,10 +141,8 @@ func (o *VolumeSummary) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"total_count",
-		"total_size",
-		"unused_count",
-		"unused_size",
+		"total",
+		"unused",
 		"volumes",
 	}
 

@@ -24,10 +24,10 @@ var _ MappedNullable = &MaintenanceInfo{}
 type MaintenanceInfo struct {
 	BuildCacheSummary BuildCacheSummary `json:"build_cache_summary"`
 	ContainerSummary ContainerSummary `json:"container_summary"`
-	DiskUsage DiskUsage `json:"disk_usage"`
 	ImageSummary ImageSummary `json:"image_summary"`
 	LastUpdated time.Time `json:"last_updated"`
 	NetworkSummary NetworkSummary `json:"network_summary"`
+	SystemCleanupCovers []string `json:"system_cleanup_covers"`
 	SystemInfo SystemInfo `json:"system_info"`
 	VolumeSummary VolumeSummary `json:"volume_summary"`
 }
@@ -38,14 +38,14 @@ type _MaintenanceInfo MaintenanceInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMaintenanceInfo(buildCacheSummary BuildCacheSummary, containerSummary ContainerSummary, diskUsage DiskUsage, imageSummary ImageSummary, lastUpdated time.Time, networkSummary NetworkSummary, systemInfo SystemInfo, volumeSummary VolumeSummary) *MaintenanceInfo {
+func NewMaintenanceInfo(buildCacheSummary BuildCacheSummary, containerSummary ContainerSummary, imageSummary ImageSummary, lastUpdated time.Time, networkSummary NetworkSummary, systemCleanupCovers []string, systemInfo SystemInfo, volumeSummary VolumeSummary) *MaintenanceInfo {
 	this := MaintenanceInfo{}
 	this.BuildCacheSummary = buildCacheSummary
 	this.ContainerSummary = containerSummary
-	this.DiskUsage = diskUsage
 	this.ImageSummary = imageSummary
 	this.LastUpdated = lastUpdated
 	this.NetworkSummary = networkSummary
+	this.SystemCleanupCovers = systemCleanupCovers
 	this.SystemInfo = systemInfo
 	this.VolumeSummary = volumeSummary
 	return &this
@@ -105,30 +105,6 @@ func (o *MaintenanceInfo) GetContainerSummaryOk() (*ContainerSummary, bool) {
 // SetContainerSummary sets field value
 func (o *MaintenanceInfo) SetContainerSummary(v ContainerSummary) {
 	o.ContainerSummary = v
-}
-
-// GetDiskUsage returns the DiskUsage field value
-func (o *MaintenanceInfo) GetDiskUsage() DiskUsage {
-	if o == nil {
-		var ret DiskUsage
-		return ret
-	}
-
-	return o.DiskUsage
-}
-
-// GetDiskUsageOk returns a tuple with the DiskUsage field value
-// and a boolean to check if the value has been set.
-func (o *MaintenanceInfo) GetDiskUsageOk() (*DiskUsage, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DiskUsage, true
-}
-
-// SetDiskUsage sets field value
-func (o *MaintenanceInfo) SetDiskUsage(v DiskUsage) {
-	o.DiskUsage = v
 }
 
 // GetImageSummary returns the ImageSummary field value
@@ -203,6 +179,30 @@ func (o *MaintenanceInfo) SetNetworkSummary(v NetworkSummary) {
 	o.NetworkSummary = v
 }
 
+// GetSystemCleanupCovers returns the SystemCleanupCovers field value
+func (o *MaintenanceInfo) GetSystemCleanupCovers() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.SystemCleanupCovers
+}
+
+// GetSystemCleanupCoversOk returns a tuple with the SystemCleanupCovers field value
+// and a boolean to check if the value has been set.
+func (o *MaintenanceInfo) GetSystemCleanupCoversOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SystemCleanupCovers, true
+}
+
+// SetSystemCleanupCovers sets field value
+func (o *MaintenanceInfo) SetSystemCleanupCovers(v []string) {
+	o.SystemCleanupCovers = v
+}
+
 // GetSystemInfo returns the SystemInfo field value
 func (o *MaintenanceInfo) GetSystemInfo() SystemInfo {
 	if o == nil {
@@ -263,10 +263,10 @@ func (o MaintenanceInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["build_cache_summary"] = o.BuildCacheSummary
 	toSerialize["container_summary"] = o.ContainerSummary
-	toSerialize["disk_usage"] = o.DiskUsage
 	toSerialize["image_summary"] = o.ImageSummary
 	toSerialize["last_updated"] = o.LastUpdated
 	toSerialize["network_summary"] = o.NetworkSummary
+	toSerialize["system_cleanup_covers"] = o.SystemCleanupCovers
 	toSerialize["system_info"] = o.SystemInfo
 	toSerialize["volume_summary"] = o.VolumeSummary
 	return toSerialize, nil
@@ -279,10 +279,10 @@ func (o *MaintenanceInfo) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"build_cache_summary",
 		"container_summary",
-		"disk_usage",
 		"image_summary",
 		"last_updated",
 		"network_summary",
+		"system_cleanup_covers",
 		"system_info",
 		"volume_summary",
 	}

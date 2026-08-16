@@ -6759,6 +6759,19 @@ components:
       - agents_needing_reissue
       - exists
       type: object
+    Amount:
+      example:
+        count: 1
+        size: 5
+      properties:
+        count:
+          type: integer
+        size:
+          type: integer
+      required:
+      - count
+      - size
+      type: object
     AssignRoleRequest:
       example:
         role_id: 0
@@ -7017,7 +7030,7 @@ components:
         id: id
         in_use: true
         last_used: 2000-01-23T04:56:07.000+00:00
-        parent: parent
+        removal: removal
         shared: true
         size: 0
         type: type
@@ -7035,7 +7048,7 @@ components:
         last_used:
           format: date-time
           type: string
-        parent:
+        removal:
           type: string
         shared:
           type: boolean
@@ -7051,6 +7064,7 @@ components:
       - id
       - in_use
       - last_used
+      - removal
       - shared
       - size
       - type
@@ -7064,7 +7078,7 @@ components:
           id: id
           in_use: true
           last_used: 2000-01-23T04:56:07.000+00:00
-          parent: parent
+          removal: removal
           shared: true
           size: 0
           type: type
@@ -7074,26 +7088,24 @@ components:
           id: id
           in_use: true
           last_used: 2000-01-23T04:56:07.000+00:00
-          parent: parent
+          removal: removal
           shared: true
           size: 0
           type: type
           usage_count: 6
-        total_count: 1
-        total_size: 5
+        total:
+          count: 1
+          size: 5
       properties:
         cache:
           items:
             $ref: "#/components/schemas/BuildCacheInfo"
           type: array
-        total_count:
-          type: integer
-        total_size:
-          type: integer
+        total:
+          $ref: "#/components/schemas/Amount"
       required:
       - cache
-      - total_count
-      - total_size
+      - total
       type: object
     BuildConfig:
       properties:
@@ -7815,6 +7827,7 @@ components:
         labels:
           key: labels
         name: name
+        removal: removal
         size: 5
         state: state
         status: status
@@ -7832,6 +7845,8 @@ components:
           type: object
         name:
           type: string
+        removal:
+          type: string
         size:
           type: integer
         state:
@@ -7844,6 +7859,7 @@ components:
       - image
       - labels
       - name
+      - removal
       - size
       - state
       - status
@@ -7909,62 +7925,111 @@ components:
     ContainerStats:
       example:
         block_read_bytes: 0
+        block_read_bytes_per_second: 6.027456183070403
         block_read_ops: 0
         block_write_bytes: 0
+        block_write_bytes_per_second: 5.637376656633329
         block_write_ops: 0
-        cpu_percent: 5.637376656633329
+        cpu_percent_of_host: 7.061401241503109
+        cpu_percent_of_quota: 9.301444243932576
+        cpu_quota_cores: 3.616076749251911
         cpu_system_time: 0
+        cpu_throttled_percent: 4.145608029883936
+        cpu_usage_cores: 7.386281948385884
         cpu_user_time: 0
-        memory_cache: 0
+        memory_anon: 0
+        memory_current: 0
+        memory_file: 0
+        memory_inactive_file: 0
         memory_limit: 0
-        memory_percent: 2.027123023002322
-        memory_rss: 0
+        memory_limit_hits: 0
+        memory_peak: 0
+        memory_percent_of_host: 9.965781217890562
+        memory_percent_of_limit: 9.369310271410669
         memory_swap: 0
-        memory_usage: 0
+        memory_working_set: 0
         name: name
         network_rx_bytes: 0
+        network_rx_bytes_per_second: 6.438423552598547
         network_rx_packets: 0
         network_tx_bytes: 0
+        network_tx_bytes_per_second: 1.284659006116532
         network_tx_packets: 0
+        oom_kills: 0
         page_faults: 0
         page_major_faults: 0
         service_name: service_name
+        state: state
       properties:
         block_read_bytes:
           minimum: 0
           type: integer
+        block_read_bytes_per_second:
+          nullable: true
+          type: number
         block_read_ops:
           minimum: 0
           type: integer
         block_write_bytes:
           minimum: 0
           type: integer
+        block_write_bytes_per_second:
+          nullable: true
+          type: number
         block_write_ops:
           minimum: 0
           type: integer
-        cpu_percent:
+        cpu_percent_of_host:
+          nullable: true
+          type: number
+        cpu_percent_of_quota:
+          nullable: true
+          type: number
+        cpu_quota_cores:
           type: number
         cpu_system_time:
           minimum: 0
           type: integer
+        cpu_throttled_percent:
+          nullable: true
+          type: number
+        cpu_usage_cores:
+          nullable: true
+          type: number
         cpu_user_time:
           minimum: 0
           type: integer
-        memory_cache:
+        memory_anon:
+          minimum: 0
+          type: integer
+        memory_current:
+          minimum: 0
+          type: integer
+        memory_file:
+          minimum: 0
+          type: integer
+        memory_inactive_file:
           minimum: 0
           type: integer
         memory_limit:
           minimum: 0
           type: integer
-        memory_percent:
-          type: number
-        memory_rss:
+        memory_limit_hits:
           minimum: 0
           type: integer
+        memory_peak:
+          minimum: 0
+          type: integer
+        memory_percent_of_host:
+          nullable: true
+          type: number
+        memory_percent_of_limit:
+          nullable: true
+          type: number
         memory_swap:
           minimum: 0
           type: integer
-        memory_usage:
+        memory_working_set:
           minimum: 0
           type: integer
         name:
@@ -7972,13 +8037,22 @@ components:
         network_rx_bytes:
           minimum: 0
           type: integer
+        network_rx_bytes_per_second:
+          nullable: true
+          type: number
         network_rx_packets:
           minimum: 0
           type: integer
         network_tx_bytes:
           minimum: 0
           type: integer
+        network_tx_bytes_per_second:
+          nullable: true
+          type: number
         network_tx_packets:
+          minimum: 0
+          type: integer
+        oom_kills:
           minimum: 0
           type: integer
         page_faults:
@@ -7989,28 +8063,45 @@ components:
           type: integer
         service_name:
           type: string
+        state:
+          type: string
       required:
       - block_read_bytes
+      - block_read_bytes_per_second
       - block_read_ops
       - block_write_bytes
+      - block_write_bytes_per_second
       - block_write_ops
-      - cpu_percent
+      - cpu_percent_of_host
+      - cpu_percent_of_quota
+      - cpu_quota_cores
       - cpu_system_time
+      - cpu_throttled_percent
+      - cpu_usage_cores
       - cpu_user_time
-      - memory_cache
+      - memory_anon
+      - memory_current
+      - memory_file
+      - memory_inactive_file
       - memory_limit
-      - memory_percent
-      - memory_rss
+      - memory_limit_hits
+      - memory_peak
+      - memory_percent_of_host
+      - memory_percent_of_limit
       - memory_swap
-      - memory_usage
+      - memory_working_set
       - name
       - network_rx_bytes
+      - network_rx_bytes_per_second
       - network_rx_packets
       - network_tx_bytes
+      - network_tx_bytes_per_second
       - network_tx_packets
+      - oom_kills
       - page_faults
       - page_major_faults
       - service_name
+      - state
       type: object
     ContainerStatusEvent:
       example:
@@ -8076,6 +8167,7 @@ components:
           labels:
             key: labels
           name: name
+          removal: removal
           size: 5
           state: state
           status: status
@@ -8085,13 +8177,14 @@ components:
           labels:
             key: labels
           name: name
+          removal: removal
           size: 5
           state: state
           status: status
         running_count: 2
-        stopped_count: 7
-        total_count: 9
-        total_size: 3
+        total:
+          count: 1
+          size: 5
       properties:
         containers:
           items:
@@ -8099,18 +8192,12 @@ components:
           type: array
         running_count:
           type: integer
-        stopped_count:
-          type: integer
-        total_count:
-          type: integer
-        total_size:
-          type: integer
+        total:
+          $ref: "#/components/schemas/Amount"
       required:
       - containers
       - running_count
-      - stopped_count
-      - total_count
-      - total_size
+      - total
       type: object
     CopyRequest:
       example:
@@ -8467,35 +8554,6 @@ components:
       - most_common_mode
       - most_common_owner
       - path
-      type: object
-    DiskUsage:
-      example:
-        build_cache_size: 2
-        containers_size: 4
-        images_size: 7
-        layers_size: 1
-        total_size: 1
-        volumes_size: 1
-      properties:
-        build_cache_size:
-          type: integer
-        containers_size:
-          type: integer
-        images_size:
-          type: integer
-        layers_size:
-          type: integer
-        total_size:
-          type: integer
-        volumes_size:
-          type: integer
-      required:
-      - build_cache_size
-      - containers_size
-      - images_size
-      - layers_size
-      - total_size
-      - volumes_size
       type: object
     EnvironmentVariable:
       example:
@@ -9326,6 +9384,37 @@ components:
         timeout:
           type: string
       type: object
+    HostStats:
+      example:
+        cpu_cores: 6
+        load_1: 3.353193347011243
+        load_15: 3.0937452626664474
+        load_5: 7.143538047012306
+        memory_available: 0
+        memory_total: 0
+      properties:
+        cpu_cores:
+          type: integer
+        load_1:
+          type: number
+        load_15:
+          type: number
+        load_5:
+          type: number
+        memory_available:
+          minimum: 0
+          type: integer
+        memory_total:
+          minimum: 0
+          type: integer
+      required:
+      - cpu_cores
+      - load_1
+      - load_15
+      - load_5
+      - memory_available
+      - memory_total
+      type: object
     ImageConfig:
       example:
         cmd:
@@ -9402,14 +9491,20 @@ components:
       type: object
     ImageInfo:
       example:
+        containers: 7
         created: 2000-01-23T04:56:07.000+00:00
         dangling: true
         id: id
-        repository: repository
-        size: 1
-        tag: tag
+        removal: removal
+        shared_size: 9
+        size: 3
+        tags:
+        - tags
+        - tags
         unused: true
       properties:
+        containers:
+          type: integer
         created:
           format: date-time
           type: string
@@ -9417,21 +9512,27 @@ components:
           type: boolean
         id:
           type: string
-        repository:
+        removal:
           type: string
+        shared_size:
+          type: integer
         size:
           type: integer
-        tag:
-          type: string
+        tags:
+          items:
+            type: string
+          type: array
         unused:
           type: boolean
       required:
+      - containers
       - created
       - dangling
       - id
-      - repository
+      - removal
+      - shared_size
       - size
-      - tag
+      - tags
       - unused
       type: object
     ImageInspectInfo:
@@ -9694,52 +9795,46 @@ components:
       type: object
     ImageSummary:
       example:
-        dangling_count: 6
-        dangling_size: 7
         images:
-        - created: 2000-01-23T04:56:07.000+00:00
+        - containers: 7
+          created: 2000-01-23T04:56:07.000+00:00
           dangling: true
           id: id
-          repository: repository
-          size: 1
-          tag: tag
+          removal: removal
+          shared_size: 9
+          size: 3
+          tags:
+          - tags
+          - tags
           unused: true
-        - created: 2000-01-23T04:56:07.000+00:00
+        - containers: 7
+          created: 2000-01-23T04:56:07.000+00:00
           dangling: true
           id: id
-          repository: repository
-          size: 1
-          tag: tag
+          removal: removal
+          shared_size: 9
+          size: 3
+          tags:
+          - tags
+          - tags
           unused: true
-        total_count: 4
-        total_size: 5
-        unused_count: 9
-        unused_size: 9
+        total:
+          count: 1
+          size: 5
+        unused_count: 2
       properties:
-        dangling_count:
-          type: integer
-        dangling_size:
-          type: integer
         images:
           items:
             $ref: "#/components/schemas/ImageInfo"
           type: array
-        total_count:
-          type: integer
-        total_size:
-          type: integer
+        total:
+          $ref: "#/components/schemas/Amount"
         unused_count:
           type: integer
-        unused_size:
-          type: integer
       required:
-      - dangling_count
-      - dangling_size
       - images
-      - total_count
-      - total_size
+      - total
       - unused_count
-      - unused_size
       type: object
     ImageTrendPoint:
       example:
@@ -10357,7 +10452,7 @@ components:
             id: id
             in_use: true
             last_used: 2000-01-23T04:56:07.000+00:00
-            parent: parent
+            removal: removal
             shared: true
             size: 0
             type: type
@@ -10367,13 +10462,14 @@ components:
             id: id
             in_use: true
             last_used: 2000-01-23T04:56:07.000+00:00
-            parent: parent
+            removal: removal
             shared: true
             size: 0
             type: type
             usage_count: 6
-          total_count: 1
-          total_size: 5
+          total:
+            count: 1
+            size: 5
         container_summary:
           containers:
           - created: 2000-01-23T04:56:07.000+00:00
@@ -10382,6 +10478,7 @@ components:
             labels:
               key: labels
             name: name
+            removal: removal
             size: 5
             state: state
             status: status
@@ -10391,42 +10488,42 @@ components:
             labels:
               key: labels
             name: name
+            removal: removal
             size: 5
             state: state
             status: status
           running_count: 2
-          stopped_count: 7
-          total_count: 9
-          total_size: 3
-        disk_usage:
-          build_cache_size: 2
-          containers_size: 4
-          images_size: 7
-          layers_size: 1
-          total_size: 1
-          volumes_size: 1
+          total:
+            count: 1
+            size: 5
         image_summary:
-          dangling_count: 6
-          dangling_size: 7
           images:
-          - created: 2000-01-23T04:56:07.000+00:00
+          - containers: 7
+            created: 2000-01-23T04:56:07.000+00:00
             dangling: true
             id: id
-            repository: repository
-            size: 1
-            tag: tag
+            removal: removal
+            shared_size: 9
+            size: 3
+            tags:
+            - tags
+            - tags
             unused: true
-          - created: 2000-01-23T04:56:07.000+00:00
+          - containers: 7
+            created: 2000-01-23T04:56:07.000+00:00
             dangling: true
             id: id
-            repository: repository
-            size: 1
-            tag: tag
+            removal: removal
+            shared_size: 9
+            size: 3
+            tags:
+            - tags
+            - tags
             unused: true
-          total_count: 4
-          total_size: 5
-          unused_count: 9
-          unused_size: 9
+          total:
+            count: 1
+            size: 5
+          unused_count: 2
         last_updated: 2000-01-23T04:56:07.000+00:00
         network_summary:
           networks:
@@ -10437,6 +10534,7 @@ components:
             labels:
               key: labels
             name: name
+            removal: removal
             scope: scope
             subnet: subnet
             unused: true
@@ -10447,51 +10545,58 @@ components:
             labels:
               key: labels
             name: name
+            removal: removal
             scope: scope
             subnet: subnet
             unused: true
-          total_count: 6
-          unused_count: 8
+          total_count: 4
+          unused_count: 7
+        system_cleanup_covers:
+        - system_cleanup_covers
+        - system_cleanup_covers
         system_info:
           api_version: api_version
           architecture: architecture
           docker_root_dir: docker_root_dir
           kernel_version: kernel_version
-          ncpu: 9
+          ncpu: 1
           os: os
-          server_version: server_version
           storage_driver: storage_driver
-          total_memory: 6
+          total_memory: 1
           version: version
         volume_summary:
-          total_count: 3
-          total_size: 6
-          unused_count: 1
-          unused_size: 2
+          total:
+            count: 1
+            size: 5
+          unused:
+            count: 1
+            size: 5
           volumes:
-          - created: 2000-01-23T04:56:07.000+00:00
+          - anonymous: true
+            created: 2000-01-23T04:56:07.000+00:00
             driver: driver
             labels:
               key: labels
             mountpoint: mountpoint
             name: name
-            size: 6
+            removal: removal
+            size: 1
             unused: true
-          - created: 2000-01-23T04:56:07.000+00:00
+          - anonymous: true
+            created: 2000-01-23T04:56:07.000+00:00
             driver: driver
             labels:
               key: labels
             mountpoint: mountpoint
             name: name
-            size: 6
+            removal: removal
+            size: 1
             unused: true
       properties:
         build_cache_summary:
           $ref: "#/components/schemas/BuildCacheSummary"
         container_summary:
           $ref: "#/components/schemas/ContainerSummary"
-        disk_usage:
-          $ref: "#/components/schemas/DiskUsage"
         image_summary:
           $ref: "#/components/schemas/ImageSummary"
         last_updated:
@@ -10499,6 +10604,10 @@ components:
           type: string
         network_summary:
           $ref: "#/components/schemas/NetworkSummary"
+        system_cleanup_covers:
+          items:
+            type: string
+          type: array
         system_info:
           $ref: "#/components/schemas/SystemInfo"
         volume_summary:
@@ -10506,10 +10615,10 @@ components:
       required:
       - build_cache_summary
       - container_summary
-      - disk_usage
       - image_summary
       - last_updated
       - network_summary
+      - system_cleanup_covers
       - system_info
       - volume_summary
       type: object
@@ -10684,6 +10793,7 @@ components:
         labels:
           key: labels
         name: name
+        removal: removal
         scope: scope
         subnet: subnet
         unused: true
@@ -10703,6 +10813,8 @@ components:
           type: object
         name:
           type: string
+        removal:
+          type: string
         scope:
           type: string
         subnet:
@@ -10716,6 +10828,7 @@ components:
       - internal
       - labels
       - name
+      - removal
       - scope
       - subnet
       - unused
@@ -10730,6 +10843,7 @@ components:
           labels:
             key: labels
           name: name
+          removal: removal
           scope: scope
           subnet: subnet
           unused: true
@@ -10740,11 +10854,12 @@ components:
           labels:
             key: labels
           name: name
+          removal: removal
           scope: scope
           subnet: subnet
           unused: true
-        total_count: 6
-        unused_count: 8
+        total_count: 4
+        unused_count: 7
       properties:
         networks:
           items:
@@ -11645,22 +11760,14 @@ components:
     PruneRequest:
       example:
         all: true
-        filters: filters
-        force: true
         type: type
       properties:
         all:
-          type: boolean
-        filters:
-          type: string
-        force:
           type: boolean
         type:
           type: string
       required:
       - all
-      - filters
-      - force
       - type
       type: object
     PruneResult:
@@ -11799,13 +11906,11 @@ components:
       type: object
     ResourceLimits:
       properties:
-        cpu_period:
-          type: integer
-        cpu_quota:
-          type: integer
-        cpu_shares:
-          type: integer
+        cpu_cores:
+          type: number
         memory:
+          type: integer
+        memory_reservation:
           type: integer
         memory_swap:
           type: integer
@@ -13975,7 +14080,7 @@ components:
               id: id
               in_use: true
               last_used: 2000-01-23T04:56:07.000+00:00
-              parent: parent
+              removal: removal
               shared: true
               size: 0
               type: type
@@ -13985,13 +14090,14 @@ components:
               id: id
               in_use: true
               last_used: 2000-01-23T04:56:07.000+00:00
-              parent: parent
+              removal: removal
               shared: true
               size: 0
               type: type
               usage_count: 6
-            total_count: 1
-            total_size: 5
+            total:
+              count: 1
+              size: 5
           container_summary:
             containers:
             - created: 2000-01-23T04:56:07.000+00:00
@@ -14000,6 +14106,7 @@ components:
               labels:
                 key: labels
               name: name
+              removal: removal
               size: 5
               state: state
               status: status
@@ -14009,42 +14116,42 @@ components:
               labels:
                 key: labels
               name: name
+              removal: removal
               size: 5
               state: state
               status: status
             running_count: 2
-            stopped_count: 7
-            total_count: 9
-            total_size: 3
-          disk_usage:
-            build_cache_size: 2
-            containers_size: 4
-            images_size: 7
-            layers_size: 1
-            total_size: 1
-            volumes_size: 1
+            total:
+              count: 1
+              size: 5
           image_summary:
-            dangling_count: 6
-            dangling_size: 7
             images:
-            - created: 2000-01-23T04:56:07.000+00:00
+            - containers: 7
+              created: 2000-01-23T04:56:07.000+00:00
               dangling: true
               id: id
-              repository: repository
-              size: 1
-              tag: tag
+              removal: removal
+              shared_size: 9
+              size: 3
+              tags:
+              - tags
+              - tags
               unused: true
-            - created: 2000-01-23T04:56:07.000+00:00
+            - containers: 7
+              created: 2000-01-23T04:56:07.000+00:00
               dangling: true
               id: id
-              repository: repository
-              size: 1
-              tag: tag
+              removal: removal
+              shared_size: 9
+              size: 3
+              tags:
+              - tags
+              - tags
               unused: true
-            total_count: 4
-            total_size: 5
-            unused_count: 9
-            unused_size: 9
+            total:
+              count: 1
+              size: 5
+            unused_count: 2
           last_updated: 2000-01-23T04:56:07.000+00:00
           network_summary:
             networks:
@@ -14055,6 +14162,7 @@ components:
               labels:
                 key: labels
               name: name
+              removal: removal
               scope: scope
               subnet: subnet
               unused: true
@@ -14065,43 +14173,52 @@ components:
               labels:
                 key: labels
               name: name
+              removal: removal
               scope: scope
               subnet: subnet
               unused: true
-            total_count: 6
-            unused_count: 8
+            total_count: 4
+            unused_count: 7
+          system_cleanup_covers:
+          - system_cleanup_covers
+          - system_cleanup_covers
           system_info:
             api_version: api_version
             architecture: architecture
             docker_root_dir: docker_root_dir
             kernel_version: kernel_version
-            ncpu: 9
+            ncpu: 1
             os: os
-            server_version: server_version
             storage_driver: storage_driver
-            total_memory: 6
+            total_memory: 1
             version: version
           volume_summary:
-            total_count: 3
-            total_size: 6
-            unused_count: 1
-            unused_size: 2
+            total:
+              count: 1
+              size: 5
+            unused:
+              count: 1
+              size: 5
             volumes:
-            - created: 2000-01-23T04:56:07.000+00:00
+            - anonymous: true
+              created: 2000-01-23T04:56:07.000+00:00
               driver: driver
               labels:
                 key: labels
               mountpoint: mountpoint
               name: name
-              size: 6
+              removal: removal
+              size: 1
               unused: true
-            - created: 2000-01-23T04:56:07.000+00:00
+            - anonymous: true
+              created: 2000-01-23T04:56:07.000+00:00
               driver: driver
               labels:
                 key: labels
               mountpoint: mountpoint
               name: name
-              size: 6
+              removal: removal
+              size: 1
               unused: true
         error: ""
         meta: ""
@@ -15738,49 +15855,88 @@ components:
     Response_StackStats:
       example:
         data:
+          collected_at: 2000-01-23T04:56:07.000+00:00
           containers:
           - block_read_bytes: 0
+            block_read_bytes_per_second: 6.027456183070403
             block_read_ops: 0
             block_write_bytes: 0
+            block_write_bytes_per_second: 5.637376656633329
             block_write_ops: 0
-            cpu_percent: 5.637376656633329
+            cpu_percent_of_host: 7.061401241503109
+            cpu_percent_of_quota: 9.301444243932576
+            cpu_quota_cores: 3.616076749251911
             cpu_system_time: 0
+            cpu_throttled_percent: 4.145608029883936
+            cpu_usage_cores: 7.386281948385884
             cpu_user_time: 0
-            memory_cache: 0
+            memory_anon: 0
+            memory_current: 0
+            memory_file: 0
+            memory_inactive_file: 0
             memory_limit: 0
-            memory_percent: 2.027123023002322
-            memory_rss: 0
+            memory_limit_hits: 0
+            memory_peak: 0
+            memory_percent_of_host: 9.965781217890562
+            memory_percent_of_limit: 9.369310271410669
             memory_swap: 0
-            memory_usage: 0
+            memory_working_set: 0
             name: name
             network_rx_bytes: 0
+            network_rx_bytes_per_second: 6.438423552598547
             network_rx_packets: 0
             network_tx_bytes: 0
+            network_tx_bytes_per_second: 1.284659006116532
             network_tx_packets: 0
+            oom_kills: 0
             page_faults: 0
             page_major_faults: 0
             service_name: service_name
+            state: state
           - block_read_bytes: 0
+            block_read_bytes_per_second: 6.027456183070403
             block_read_ops: 0
             block_write_bytes: 0
+            block_write_bytes_per_second: 5.637376656633329
             block_write_ops: 0
-            cpu_percent: 5.637376656633329
+            cpu_percent_of_host: 7.061401241503109
+            cpu_percent_of_quota: 9.301444243932576
+            cpu_quota_cores: 3.616076749251911
             cpu_system_time: 0
+            cpu_throttled_percent: 4.145608029883936
+            cpu_usage_cores: 7.386281948385884
             cpu_user_time: 0
-            memory_cache: 0
+            memory_anon: 0
+            memory_current: 0
+            memory_file: 0
+            memory_inactive_file: 0
             memory_limit: 0
-            memory_percent: 2.027123023002322
-            memory_rss: 0
+            memory_limit_hits: 0
+            memory_peak: 0
+            memory_percent_of_host: 9.965781217890562
+            memory_percent_of_limit: 9.369310271410669
             memory_swap: 0
-            memory_usage: 0
+            memory_working_set: 0
             name: name
             network_rx_bytes: 0
+            network_rx_bytes_per_second: 6.438423552598547
             network_rx_packets: 0
             network_tx_bytes: 0
+            network_tx_bytes_per_second: 1.284659006116532
             network_tx_packets: 0
+            oom_kills: 0
             page_faults: 0
             page_major_faults: 0
             service_name: service_name
+            state: state
+          host:
+            cpu_cores: 6
+            load_1: 3.353193347011243
+            load_15: 3.0937452626664474
+            load_5: 7.143538047012306
+            memory_available: 0
+            memory_total: 0
+          sample_window_seconds: 6.519180951018382
           stack_name: stack_name
         error: ""
         meta: ""
@@ -18284,59 +18440,109 @@ components:
       type: object
     StackStats:
       example:
+        collected_at: 2000-01-23T04:56:07.000+00:00
         containers:
         - block_read_bytes: 0
+          block_read_bytes_per_second: 6.027456183070403
           block_read_ops: 0
           block_write_bytes: 0
+          block_write_bytes_per_second: 5.637376656633329
           block_write_ops: 0
-          cpu_percent: 5.637376656633329
+          cpu_percent_of_host: 7.061401241503109
+          cpu_percent_of_quota: 9.301444243932576
+          cpu_quota_cores: 3.616076749251911
           cpu_system_time: 0
+          cpu_throttled_percent: 4.145608029883936
+          cpu_usage_cores: 7.386281948385884
           cpu_user_time: 0
-          memory_cache: 0
+          memory_anon: 0
+          memory_current: 0
+          memory_file: 0
+          memory_inactive_file: 0
           memory_limit: 0
-          memory_percent: 2.027123023002322
-          memory_rss: 0
+          memory_limit_hits: 0
+          memory_peak: 0
+          memory_percent_of_host: 9.965781217890562
+          memory_percent_of_limit: 9.369310271410669
           memory_swap: 0
-          memory_usage: 0
+          memory_working_set: 0
           name: name
           network_rx_bytes: 0
+          network_rx_bytes_per_second: 6.438423552598547
           network_rx_packets: 0
           network_tx_bytes: 0
+          network_tx_bytes_per_second: 1.284659006116532
           network_tx_packets: 0
+          oom_kills: 0
           page_faults: 0
           page_major_faults: 0
           service_name: service_name
+          state: state
         - block_read_bytes: 0
+          block_read_bytes_per_second: 6.027456183070403
           block_read_ops: 0
           block_write_bytes: 0
+          block_write_bytes_per_second: 5.637376656633329
           block_write_ops: 0
-          cpu_percent: 5.637376656633329
+          cpu_percent_of_host: 7.061401241503109
+          cpu_percent_of_quota: 9.301444243932576
+          cpu_quota_cores: 3.616076749251911
           cpu_system_time: 0
+          cpu_throttled_percent: 4.145608029883936
+          cpu_usage_cores: 7.386281948385884
           cpu_user_time: 0
-          memory_cache: 0
+          memory_anon: 0
+          memory_current: 0
+          memory_file: 0
+          memory_inactive_file: 0
           memory_limit: 0
-          memory_percent: 2.027123023002322
-          memory_rss: 0
+          memory_limit_hits: 0
+          memory_peak: 0
+          memory_percent_of_host: 9.965781217890562
+          memory_percent_of_limit: 9.369310271410669
           memory_swap: 0
-          memory_usage: 0
+          memory_working_set: 0
           name: name
           network_rx_bytes: 0
+          network_rx_bytes_per_second: 6.438423552598547
           network_rx_packets: 0
           network_tx_bytes: 0
+          network_tx_bytes_per_second: 1.284659006116532
           network_tx_packets: 0
+          oom_kills: 0
           page_faults: 0
           page_major_faults: 0
           service_name: service_name
+          state: state
+        host:
+          cpu_cores: 6
+          load_1: 3.353193347011243
+          load_15: 3.0937452626664474
+          load_5: 7.143538047012306
+          memory_available: 0
+          memory_total: 0
+        sample_window_seconds: 6.519180951018382
         stack_name: stack_name
       properties:
+        collected_at:
+          format: date-time
+          type: string
         containers:
           items:
             $ref: "#/components/schemas/ContainerStats"
           type: array
+        host:
+          $ref: "#/components/schemas/HostStats"
+        sample_window_seconds:
+          nullable: true
+          type: number
         stack_name:
           type: string
       required:
+      - collected_at
       - containers
+      - host
+      - sample_window_seconds
       - stack_name
       type: object
     StackStatusEvent:
@@ -18673,11 +18879,10 @@ components:
         architecture: architecture
         docker_root_dir: docker_root_dir
         kernel_version: kernel_version
-        ncpu: 9
+        ncpu: 1
         os: os
-        server_version: server_version
         storage_driver: storage_driver
-        total_memory: 6
+        total_memory: 1
         version: version
       properties:
         api_version:
@@ -18692,8 +18897,6 @@ components:
           type: integer
         os:
           type: string
-        server_version:
-          type: string
         storage_driver:
           type: string
         total_memory:
@@ -18707,7 +18910,6 @@ components:
       - kernel_version
       - ncpu
       - os
-      - server_version
       - storage_driver
       - total_memory
       - version
@@ -19285,15 +19487,19 @@ components:
       type: object
     VolumeInfo:
       example:
+        anonymous: true
         created: 2000-01-23T04:56:07.000+00:00
         driver: driver
         labels:
           key: labels
         mountpoint: mountpoint
         name: name
-        size: 6
+        removal: removal
+        size: 1
         unused: true
       properties:
+        anonymous:
+          type: boolean
         created:
           format: date-time
           type: string
@@ -19307,16 +19513,20 @@ components:
           type: string
         name:
           type: string
+        removal:
+          type: string
         size:
           type: integer
         unused:
           type: boolean
       required:
+      - anonymous
       - created
       - driver
       - labels
       - mountpoint
       - name
+      - removal
       - size
       - unused
       type: object
@@ -19374,45 +19584,45 @@ components:
       type: object
     VolumeSummary:
       example:
-        total_count: 3
-        total_size: 6
-        unused_count: 1
-        unused_size: 2
+        total:
+          count: 1
+          size: 5
+        unused:
+          count: 1
+          size: 5
         volumes:
-        - created: 2000-01-23T04:56:07.000+00:00
+        - anonymous: true
+          created: 2000-01-23T04:56:07.000+00:00
           driver: driver
           labels:
             key: labels
           mountpoint: mountpoint
           name: name
-          size: 6
+          removal: removal
+          size: 1
           unused: true
-        - created: 2000-01-23T04:56:07.000+00:00
+        - anonymous: true
+          created: 2000-01-23T04:56:07.000+00:00
           driver: driver
           labels:
             key: labels
           mountpoint: mountpoint
           name: name
-          size: 6
+          removal: removal
+          size: 1
           unused: true
       properties:
-        total_count:
-          type: integer
-        total_size:
-          type: integer
-        unused_count:
-          type: integer
-        unused_size:
-          type: integer
+        total:
+          $ref: "#/components/schemas/Amount"
+        unused:
+          $ref: "#/components/schemas/Amount"
         volumes:
           items:
             $ref: "#/components/schemas/VolumeInfo"
           type: array
       required:
-      - total_count
-      - total_size
-      - unused_count
-      - unused_size
+      - total
+      - unused
       - volumes
       type: object
     VolumeUsage:

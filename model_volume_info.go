@@ -22,11 +22,13 @@ var _ MappedNullable = &VolumeInfo{}
 
 // VolumeInfo struct for VolumeInfo
 type VolumeInfo struct {
+	Anonymous bool `json:"anonymous"`
 	Created time.Time `json:"created"`
 	Driver string `json:"driver"`
 	Labels map[string]string `json:"labels"`
 	Mountpoint string `json:"mountpoint"`
 	Name string `json:"name"`
+	Removal string `json:"removal"`
 	Size int32 `json:"size"`
 	Unused bool `json:"unused"`
 }
@@ -37,13 +39,15 @@ type _VolumeInfo VolumeInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVolumeInfo(created time.Time, driver string, labels map[string]string, mountpoint string, name string, size int32, unused bool) *VolumeInfo {
+func NewVolumeInfo(anonymous bool, created time.Time, driver string, labels map[string]string, mountpoint string, name string, removal string, size int32, unused bool) *VolumeInfo {
 	this := VolumeInfo{}
+	this.Anonymous = anonymous
 	this.Created = created
 	this.Driver = driver
 	this.Labels = labels
 	this.Mountpoint = mountpoint
 	this.Name = name
+	this.Removal = removal
 	this.Size = size
 	this.Unused = unused
 	return &this
@@ -55,6 +59,30 @@ func NewVolumeInfo(created time.Time, driver string, labels map[string]string, m
 func NewVolumeInfoWithDefaults() *VolumeInfo {
 	this := VolumeInfo{}
 	return &this
+}
+
+// GetAnonymous returns the Anonymous field value
+func (o *VolumeInfo) GetAnonymous() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Anonymous
+}
+
+// GetAnonymousOk returns a tuple with the Anonymous field value
+// and a boolean to check if the value has been set.
+func (o *VolumeInfo) GetAnonymousOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Anonymous, true
+}
+
+// SetAnonymous sets field value
+func (o *VolumeInfo) SetAnonymous(v bool) {
+	o.Anonymous = v
 }
 
 // GetCreated returns the Created field value
@@ -177,6 +205,30 @@ func (o *VolumeInfo) SetName(v string) {
 	o.Name = v
 }
 
+// GetRemoval returns the Removal field value
+func (o *VolumeInfo) GetRemoval() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Removal
+}
+
+// GetRemovalOk returns a tuple with the Removal field value
+// and a boolean to check if the value has been set.
+func (o *VolumeInfo) GetRemovalOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Removal, true
+}
+
+// SetRemoval sets field value
+func (o *VolumeInfo) SetRemoval(v string) {
+	o.Removal = v
+}
+
 // GetSize returns the Size field value
 func (o *VolumeInfo) GetSize() int32 {
 	if o == nil {
@@ -235,11 +287,13 @@ func (o VolumeInfo) MarshalJSON() ([]byte, error) {
 
 func (o VolumeInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["anonymous"] = o.Anonymous
 	toSerialize["created"] = o.Created
 	toSerialize["driver"] = o.Driver
 	toSerialize["labels"] = o.Labels
 	toSerialize["mountpoint"] = o.Mountpoint
 	toSerialize["name"] = o.Name
+	toSerialize["removal"] = o.Removal
 	toSerialize["size"] = o.Size
 	toSerialize["unused"] = o.Unused
 	return toSerialize, nil
@@ -250,11 +304,13 @@ func (o *VolumeInfo) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"anonymous",
 		"created",
 		"driver",
 		"labels",
 		"mountpoint",
 		"name",
+		"removal",
 		"size",
 		"unused",
 	}

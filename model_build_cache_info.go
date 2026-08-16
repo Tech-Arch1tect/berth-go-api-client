@@ -27,7 +27,7 @@ type BuildCacheInfo struct {
 	Id string `json:"id"`
 	InUse bool `json:"in_use"`
 	LastUsed time.Time `json:"last_used"`
-	Parent *string `json:"parent,omitempty"`
+	Removal string `json:"removal"`
 	Shared bool `json:"shared"`
 	Size int32 `json:"size"`
 	Type string `json:"type"`
@@ -40,13 +40,14 @@ type _BuildCacheInfo BuildCacheInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed time.Time, shared bool, size int32, type_ string, usageCount int32) *BuildCacheInfo {
+func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed time.Time, removal string, shared bool, size int32, type_ string, usageCount int32) *BuildCacheInfo {
 	this := BuildCacheInfo{}
 	this.Created = created
 	this.Description = description
 	this.Id = id
 	this.InUse = inUse
 	this.LastUsed = lastUsed
+	this.Removal = removal
 	this.Shared = shared
 	this.Size = size
 	this.Type = type_
@@ -182,36 +183,28 @@ func (o *BuildCacheInfo) SetLastUsed(v time.Time) {
 	o.LastUsed = v
 }
 
-// GetParent returns the Parent field value if set, zero value otherwise.
-func (o *BuildCacheInfo) GetParent() string {
-	if o == nil || IsNil(o.Parent) {
+// GetRemoval returns the Removal field value
+func (o *BuildCacheInfo) GetRemoval() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Parent
+
+	return o.Removal
 }
 
-// GetParentOk returns a tuple with the Parent field value if set, nil otherwise
+// GetRemovalOk returns a tuple with the Removal field value
 // and a boolean to check if the value has been set.
-func (o *BuildCacheInfo) GetParentOk() (*string, bool) {
-	if o == nil || IsNil(o.Parent) {
+func (o *BuildCacheInfo) GetRemovalOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Parent, true
+	return &o.Removal, true
 }
 
-// HasParent returns a boolean if a field has been set.
-func (o *BuildCacheInfo) HasParent() bool {
-	if o != nil && !IsNil(o.Parent) {
-		return true
-	}
-
-	return false
-}
-
-// SetParent gets a reference to the given string and assigns it to the Parent field.
-func (o *BuildCacheInfo) SetParent(v string) {
-	o.Parent = &v
+// SetRemoval sets field value
+func (o *BuildCacheInfo) SetRemoval(v string) {
+	o.Removal = v
 }
 
 // GetShared returns the Shared field value
@@ -325,9 +318,7 @@ func (o BuildCacheInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["in_use"] = o.InUse
 	toSerialize["last_used"] = o.LastUsed
-	if !IsNil(o.Parent) {
-		toSerialize["parent"] = o.Parent
-	}
+	toSerialize["removal"] = o.Removal
 	toSerialize["shared"] = o.Shared
 	toSerialize["size"] = o.Size
 	toSerialize["type"] = o.Type
@@ -345,6 +336,7 @@ func (o *BuildCacheInfo) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"in_use",
 		"last_used",
+		"removal",
 		"shared",
 		"size",
 		"type",

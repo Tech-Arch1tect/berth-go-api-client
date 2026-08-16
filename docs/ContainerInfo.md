@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Image** | **string** |  | 
 **Labels** | **map[string]string** |  | 
 **Name** | **string** |  | 
+**Removal** | **string** |  | 
 **Size** | **int32** |  | 
 **State** | **string** |  | 
 **Status** | **string** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewContainerInfo
 
-`func NewContainerInfo(created time.Time, id string, image string, labels map[string]string, name string, size int32, state string, status string, ) *ContainerInfo`
+`func NewContainerInfo(created time.Time, id string, image string, labels map[string]string, name string, removal string, size int32, state string, status string, ) *ContainerInfo`
 
 NewContainerInfo instantiates a new ContainerInfo object
 This constructor will assign default values to properties that have it defined,
@@ -130,6 +131,26 @@ and a boolean to check if the value has been set.
 `func (o *ContainerInfo) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetRemoval
+
+`func (o *ContainerInfo) GetRemoval() string`
+
+GetRemoval returns the Removal field if non-nil, zero value otherwise.
+
+### GetRemovalOk
+
+`func (o *ContainerInfo) GetRemovalOk() (*string, bool)`
+
+GetRemovalOk returns a tuple with the Removal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemoval
+
+`func (o *ContainerInfo) SetRemoval(v string)`
+
+SetRemoval sets Removal field to given value.
 
 
 ### GetSize

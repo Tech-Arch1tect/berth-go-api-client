@@ -21,13 +21,9 @@ var _ MappedNullable = &ImageSummary{}
 
 // ImageSummary struct for ImageSummary
 type ImageSummary struct {
-	DanglingCount int32 `json:"dangling_count"`
-	DanglingSize int32 `json:"dangling_size"`
 	Images []ImageInfo `json:"images"`
-	TotalCount int32 `json:"total_count"`
-	TotalSize int32 `json:"total_size"`
+	Total Amount `json:"total"`
 	UnusedCount int32 `json:"unused_count"`
-	UnusedSize int32 `json:"unused_size"`
 }
 
 type _ImageSummary ImageSummary
@@ -36,15 +32,11 @@ type _ImageSummary ImageSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageSummary(danglingCount int32, danglingSize int32, images []ImageInfo, totalCount int32, totalSize int32, unusedCount int32, unusedSize int32) *ImageSummary {
+func NewImageSummary(images []ImageInfo, total Amount, unusedCount int32) *ImageSummary {
 	this := ImageSummary{}
-	this.DanglingCount = danglingCount
-	this.DanglingSize = danglingSize
 	this.Images = images
-	this.TotalCount = totalCount
-	this.TotalSize = totalSize
+	this.Total = total
 	this.UnusedCount = unusedCount
-	this.UnusedSize = unusedSize
 	return &this
 }
 
@@ -54,54 +46,6 @@ func NewImageSummary(danglingCount int32, danglingSize int32, images []ImageInfo
 func NewImageSummaryWithDefaults() *ImageSummary {
 	this := ImageSummary{}
 	return &this
-}
-
-// GetDanglingCount returns the DanglingCount field value
-func (o *ImageSummary) GetDanglingCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.DanglingCount
-}
-
-// GetDanglingCountOk returns a tuple with the DanglingCount field value
-// and a boolean to check if the value has been set.
-func (o *ImageSummary) GetDanglingCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DanglingCount, true
-}
-
-// SetDanglingCount sets field value
-func (o *ImageSummary) SetDanglingCount(v int32) {
-	o.DanglingCount = v
-}
-
-// GetDanglingSize returns the DanglingSize field value
-func (o *ImageSummary) GetDanglingSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.DanglingSize
-}
-
-// GetDanglingSizeOk returns a tuple with the DanglingSize field value
-// and a boolean to check if the value has been set.
-func (o *ImageSummary) GetDanglingSizeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DanglingSize, true
-}
-
-// SetDanglingSize sets field value
-func (o *ImageSummary) SetDanglingSize(v int32) {
-	o.DanglingSize = v
 }
 
 // GetImages returns the Images field value
@@ -128,52 +72,28 @@ func (o *ImageSummary) SetImages(v []ImageInfo) {
 	o.Images = v
 }
 
-// GetTotalCount returns the TotalCount field value
-func (o *ImageSummary) GetTotalCount() int32 {
+// GetTotal returns the Total field value
+func (o *ImageSummary) GetTotal() Amount {
 	if o == nil {
-		var ret int32
+		var ret Amount
 		return ret
 	}
 
-	return o.TotalCount
+	return o.Total
 }
 
-// GetTotalCountOk returns a tuple with the TotalCount field value
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *ImageSummary) GetTotalCountOk() (*int32, bool) {
+func (o *ImageSummary) GetTotalOk() (*Amount, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TotalCount, true
+	return &o.Total, true
 }
 
-// SetTotalCount sets field value
-func (o *ImageSummary) SetTotalCount(v int32) {
-	o.TotalCount = v
-}
-
-// GetTotalSize returns the TotalSize field value
-func (o *ImageSummary) GetTotalSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.TotalSize
-}
-
-// GetTotalSizeOk returns a tuple with the TotalSize field value
-// and a boolean to check if the value has been set.
-func (o *ImageSummary) GetTotalSizeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TotalSize, true
-}
-
-// SetTotalSize sets field value
-func (o *ImageSummary) SetTotalSize(v int32) {
-	o.TotalSize = v
+// SetTotal sets field value
+func (o *ImageSummary) SetTotal(v Amount) {
+	o.Total = v
 }
 
 // GetUnusedCount returns the UnusedCount field value
@@ -200,30 +120,6 @@ func (o *ImageSummary) SetUnusedCount(v int32) {
 	o.UnusedCount = v
 }
 
-// GetUnusedSize returns the UnusedSize field value
-func (o *ImageSummary) GetUnusedSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.UnusedSize
-}
-
-// GetUnusedSizeOk returns a tuple with the UnusedSize field value
-// and a boolean to check if the value has been set.
-func (o *ImageSummary) GetUnusedSizeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.UnusedSize, true
-}
-
-// SetUnusedSize sets field value
-func (o *ImageSummary) SetUnusedSize(v int32) {
-	o.UnusedSize = v
-}
-
 func (o ImageSummary) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -234,13 +130,9 @@ func (o ImageSummary) MarshalJSON() ([]byte, error) {
 
 func (o ImageSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["dangling_count"] = o.DanglingCount
-	toSerialize["dangling_size"] = o.DanglingSize
 	toSerialize["images"] = o.Images
-	toSerialize["total_count"] = o.TotalCount
-	toSerialize["total_size"] = o.TotalSize
+	toSerialize["total"] = o.Total
 	toSerialize["unused_count"] = o.UnusedCount
-	toSerialize["unused_size"] = o.UnusedSize
 	return toSerialize, nil
 }
 
@@ -249,13 +141,9 @@ func (o *ImageSummary) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"dangling_count",
-		"dangling_size",
 		"images",
-		"total_count",
-		"total_size",
+		"total",
 		"unused_count",
-		"unused_size",
 	}
 
 	allProperties := make(map[string]interface{})

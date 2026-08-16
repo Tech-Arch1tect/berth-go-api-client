@@ -22,26 +22,41 @@ var _ MappedNullable = &ContainerStats{}
 // ContainerStats struct for ContainerStats
 type ContainerStats struct {
 	BlockReadBytes int32 `json:"block_read_bytes"`
+	BlockReadBytesPerSecond NullableFloat32 `json:"block_read_bytes_per_second"`
 	BlockReadOps int32 `json:"block_read_ops"`
 	BlockWriteBytes int32 `json:"block_write_bytes"`
+	BlockWriteBytesPerSecond NullableFloat32 `json:"block_write_bytes_per_second"`
 	BlockWriteOps int32 `json:"block_write_ops"`
-	CpuPercent float32 `json:"cpu_percent"`
+	CpuPercentOfHost NullableFloat32 `json:"cpu_percent_of_host"`
+	CpuPercentOfQuota NullableFloat32 `json:"cpu_percent_of_quota"`
+	CpuQuotaCores float32 `json:"cpu_quota_cores"`
 	CpuSystemTime int32 `json:"cpu_system_time"`
+	CpuThrottledPercent NullableFloat32 `json:"cpu_throttled_percent"`
+	CpuUsageCores NullableFloat32 `json:"cpu_usage_cores"`
 	CpuUserTime int32 `json:"cpu_user_time"`
-	MemoryCache int32 `json:"memory_cache"`
+	MemoryAnon int32 `json:"memory_anon"`
+	MemoryCurrent int32 `json:"memory_current"`
+	MemoryFile int32 `json:"memory_file"`
+	MemoryInactiveFile int32 `json:"memory_inactive_file"`
 	MemoryLimit int32 `json:"memory_limit"`
-	MemoryPercent float32 `json:"memory_percent"`
-	MemoryRss int32 `json:"memory_rss"`
+	MemoryLimitHits int32 `json:"memory_limit_hits"`
+	MemoryPeak int32 `json:"memory_peak"`
+	MemoryPercentOfHost NullableFloat32 `json:"memory_percent_of_host"`
+	MemoryPercentOfLimit NullableFloat32 `json:"memory_percent_of_limit"`
 	MemorySwap int32 `json:"memory_swap"`
-	MemoryUsage int32 `json:"memory_usage"`
+	MemoryWorkingSet int32 `json:"memory_working_set"`
 	Name string `json:"name"`
 	NetworkRxBytes int32 `json:"network_rx_bytes"`
+	NetworkRxBytesPerSecond NullableFloat32 `json:"network_rx_bytes_per_second"`
 	NetworkRxPackets int32 `json:"network_rx_packets"`
 	NetworkTxBytes int32 `json:"network_tx_bytes"`
+	NetworkTxBytesPerSecond NullableFloat32 `json:"network_tx_bytes_per_second"`
 	NetworkTxPackets int32 `json:"network_tx_packets"`
+	OomKills int32 `json:"oom_kills"`
 	PageFaults int32 `json:"page_faults"`
 	PageMajorFaults int32 `json:"page_major_faults"`
 	ServiceName string `json:"service_name"`
+	State string `json:"state"`
 }
 
 type _ContainerStats ContainerStats
@@ -50,29 +65,44 @@ type _ContainerStats ContainerStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerStats(blockReadBytes int32, blockReadOps int32, blockWriteBytes int32, blockWriteOps int32, cpuPercent float32, cpuSystemTime int32, cpuUserTime int32, memoryCache int32, memoryLimit int32, memoryPercent float32, memoryRss int32, memorySwap int32, memoryUsage int32, name string, networkRxBytes int32, networkRxPackets int32, networkTxBytes int32, networkTxPackets int32, pageFaults int32, pageMajorFaults int32, serviceName string) *ContainerStats {
+func NewContainerStats(blockReadBytes int32, blockReadBytesPerSecond NullableFloat32, blockReadOps int32, blockWriteBytes int32, blockWriteBytesPerSecond NullableFloat32, blockWriteOps int32, cpuPercentOfHost NullableFloat32, cpuPercentOfQuota NullableFloat32, cpuQuotaCores float32, cpuSystemTime int32, cpuThrottledPercent NullableFloat32, cpuUsageCores NullableFloat32, cpuUserTime int32, memoryAnon int32, memoryCurrent int32, memoryFile int32, memoryInactiveFile int32, memoryLimit int32, memoryLimitHits int32, memoryPeak int32, memoryPercentOfHost NullableFloat32, memoryPercentOfLimit NullableFloat32, memorySwap int32, memoryWorkingSet int32, name string, networkRxBytes int32, networkRxBytesPerSecond NullableFloat32, networkRxPackets int32, networkTxBytes int32, networkTxBytesPerSecond NullableFloat32, networkTxPackets int32, oomKills int32, pageFaults int32, pageMajorFaults int32, serviceName string, state string) *ContainerStats {
 	this := ContainerStats{}
 	this.BlockReadBytes = blockReadBytes
+	this.BlockReadBytesPerSecond = blockReadBytesPerSecond
 	this.BlockReadOps = blockReadOps
 	this.BlockWriteBytes = blockWriteBytes
+	this.BlockWriteBytesPerSecond = blockWriteBytesPerSecond
 	this.BlockWriteOps = blockWriteOps
-	this.CpuPercent = cpuPercent
+	this.CpuPercentOfHost = cpuPercentOfHost
+	this.CpuPercentOfQuota = cpuPercentOfQuota
+	this.CpuQuotaCores = cpuQuotaCores
 	this.CpuSystemTime = cpuSystemTime
+	this.CpuThrottledPercent = cpuThrottledPercent
+	this.CpuUsageCores = cpuUsageCores
 	this.CpuUserTime = cpuUserTime
-	this.MemoryCache = memoryCache
+	this.MemoryAnon = memoryAnon
+	this.MemoryCurrent = memoryCurrent
+	this.MemoryFile = memoryFile
+	this.MemoryInactiveFile = memoryInactiveFile
 	this.MemoryLimit = memoryLimit
-	this.MemoryPercent = memoryPercent
-	this.MemoryRss = memoryRss
+	this.MemoryLimitHits = memoryLimitHits
+	this.MemoryPeak = memoryPeak
+	this.MemoryPercentOfHost = memoryPercentOfHost
+	this.MemoryPercentOfLimit = memoryPercentOfLimit
 	this.MemorySwap = memorySwap
-	this.MemoryUsage = memoryUsage
+	this.MemoryWorkingSet = memoryWorkingSet
 	this.Name = name
 	this.NetworkRxBytes = networkRxBytes
+	this.NetworkRxBytesPerSecond = networkRxBytesPerSecond
 	this.NetworkRxPackets = networkRxPackets
 	this.NetworkTxBytes = networkTxBytes
+	this.NetworkTxBytesPerSecond = networkTxBytesPerSecond
 	this.NetworkTxPackets = networkTxPackets
+	this.OomKills = oomKills
 	this.PageFaults = pageFaults
 	this.PageMajorFaults = pageMajorFaults
 	this.ServiceName = serviceName
+	this.State = state
 	return &this
 }
 
@@ -106,6 +136,32 @@ func (o *ContainerStats) GetBlockReadBytesOk() (*int32, bool) {
 // SetBlockReadBytes sets field value
 func (o *ContainerStats) SetBlockReadBytes(v int32) {
 	o.BlockReadBytes = v
+}
+
+// GetBlockReadBytesPerSecond returns the BlockReadBytesPerSecond field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetBlockReadBytesPerSecond() float32 {
+	if o == nil || o.BlockReadBytesPerSecond.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.BlockReadBytesPerSecond.Get()
+}
+
+// GetBlockReadBytesPerSecondOk returns a tuple with the BlockReadBytesPerSecond field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetBlockReadBytesPerSecondOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BlockReadBytesPerSecond.Get(), o.BlockReadBytesPerSecond.IsSet()
+}
+
+// SetBlockReadBytesPerSecond sets field value
+func (o *ContainerStats) SetBlockReadBytesPerSecond(v float32) {
+	o.BlockReadBytesPerSecond.Set(&v)
 }
 
 // GetBlockReadOps returns the BlockReadOps field value
@@ -156,6 +212,32 @@ func (o *ContainerStats) SetBlockWriteBytes(v int32) {
 	o.BlockWriteBytes = v
 }
 
+// GetBlockWriteBytesPerSecond returns the BlockWriteBytesPerSecond field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetBlockWriteBytesPerSecond() float32 {
+	if o == nil || o.BlockWriteBytesPerSecond.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.BlockWriteBytesPerSecond.Get()
+}
+
+// GetBlockWriteBytesPerSecondOk returns a tuple with the BlockWriteBytesPerSecond field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetBlockWriteBytesPerSecondOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BlockWriteBytesPerSecond.Get(), o.BlockWriteBytesPerSecond.IsSet()
+}
+
+// SetBlockWriteBytesPerSecond sets field value
+func (o *ContainerStats) SetBlockWriteBytesPerSecond(v float32) {
+	o.BlockWriteBytesPerSecond.Set(&v)
+}
+
 // GetBlockWriteOps returns the BlockWriteOps field value
 func (o *ContainerStats) GetBlockWriteOps() int32 {
 	if o == nil {
@@ -180,28 +262,80 @@ func (o *ContainerStats) SetBlockWriteOps(v int32) {
 	o.BlockWriteOps = v
 }
 
-// GetCpuPercent returns the CpuPercent field value
-func (o *ContainerStats) GetCpuPercent() float32 {
+// GetCpuPercentOfHost returns the CpuPercentOfHost field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetCpuPercentOfHost() float32 {
+	if o == nil || o.CpuPercentOfHost.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.CpuPercentOfHost.Get()
+}
+
+// GetCpuPercentOfHostOk returns a tuple with the CpuPercentOfHost field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetCpuPercentOfHostOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CpuPercentOfHost.Get(), o.CpuPercentOfHost.IsSet()
+}
+
+// SetCpuPercentOfHost sets field value
+func (o *ContainerStats) SetCpuPercentOfHost(v float32) {
+	o.CpuPercentOfHost.Set(&v)
+}
+
+// GetCpuPercentOfQuota returns the CpuPercentOfQuota field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetCpuPercentOfQuota() float32 {
+	if o == nil || o.CpuPercentOfQuota.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.CpuPercentOfQuota.Get()
+}
+
+// GetCpuPercentOfQuotaOk returns a tuple with the CpuPercentOfQuota field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetCpuPercentOfQuotaOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CpuPercentOfQuota.Get(), o.CpuPercentOfQuota.IsSet()
+}
+
+// SetCpuPercentOfQuota sets field value
+func (o *ContainerStats) SetCpuPercentOfQuota(v float32) {
+	o.CpuPercentOfQuota.Set(&v)
+}
+
+// GetCpuQuotaCores returns the CpuQuotaCores field value
+func (o *ContainerStats) GetCpuQuotaCores() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.CpuPercent
+	return o.CpuQuotaCores
 }
 
-// GetCpuPercentOk returns a tuple with the CpuPercent field value
+// GetCpuQuotaCoresOk returns a tuple with the CpuQuotaCores field value
 // and a boolean to check if the value has been set.
-func (o *ContainerStats) GetCpuPercentOk() (*float32, bool) {
+func (o *ContainerStats) GetCpuQuotaCoresOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CpuPercent, true
+	return &o.CpuQuotaCores, true
 }
 
-// SetCpuPercent sets field value
-func (o *ContainerStats) SetCpuPercent(v float32) {
-	o.CpuPercent = v
+// SetCpuQuotaCores sets field value
+func (o *ContainerStats) SetCpuQuotaCores(v float32) {
+	o.CpuQuotaCores = v
 }
 
 // GetCpuSystemTime returns the CpuSystemTime field value
@@ -228,6 +362,58 @@ func (o *ContainerStats) SetCpuSystemTime(v int32) {
 	o.CpuSystemTime = v
 }
 
+// GetCpuThrottledPercent returns the CpuThrottledPercent field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetCpuThrottledPercent() float32 {
+	if o == nil || o.CpuThrottledPercent.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.CpuThrottledPercent.Get()
+}
+
+// GetCpuThrottledPercentOk returns a tuple with the CpuThrottledPercent field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetCpuThrottledPercentOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CpuThrottledPercent.Get(), o.CpuThrottledPercent.IsSet()
+}
+
+// SetCpuThrottledPercent sets field value
+func (o *ContainerStats) SetCpuThrottledPercent(v float32) {
+	o.CpuThrottledPercent.Set(&v)
+}
+
+// GetCpuUsageCores returns the CpuUsageCores field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetCpuUsageCores() float32 {
+	if o == nil || o.CpuUsageCores.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.CpuUsageCores.Get()
+}
+
+// GetCpuUsageCoresOk returns a tuple with the CpuUsageCores field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetCpuUsageCoresOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CpuUsageCores.Get(), o.CpuUsageCores.IsSet()
+}
+
+// SetCpuUsageCores sets field value
+func (o *ContainerStats) SetCpuUsageCores(v float32) {
+	o.CpuUsageCores.Set(&v)
+}
+
 // GetCpuUserTime returns the CpuUserTime field value
 func (o *ContainerStats) GetCpuUserTime() int32 {
 	if o == nil {
@@ -252,28 +438,100 @@ func (o *ContainerStats) SetCpuUserTime(v int32) {
 	o.CpuUserTime = v
 }
 
-// GetMemoryCache returns the MemoryCache field value
-func (o *ContainerStats) GetMemoryCache() int32 {
+// GetMemoryAnon returns the MemoryAnon field value
+func (o *ContainerStats) GetMemoryAnon() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.MemoryCache
+	return o.MemoryAnon
 }
 
-// GetMemoryCacheOk returns a tuple with the MemoryCache field value
+// GetMemoryAnonOk returns a tuple with the MemoryAnon field value
 // and a boolean to check if the value has been set.
-func (o *ContainerStats) GetMemoryCacheOk() (*int32, bool) {
+func (o *ContainerStats) GetMemoryAnonOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MemoryCache, true
+	return &o.MemoryAnon, true
 }
 
-// SetMemoryCache sets field value
-func (o *ContainerStats) SetMemoryCache(v int32) {
-	o.MemoryCache = v
+// SetMemoryAnon sets field value
+func (o *ContainerStats) SetMemoryAnon(v int32) {
+	o.MemoryAnon = v
+}
+
+// GetMemoryCurrent returns the MemoryCurrent field value
+func (o *ContainerStats) GetMemoryCurrent() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.MemoryCurrent
+}
+
+// GetMemoryCurrentOk returns a tuple with the MemoryCurrent field value
+// and a boolean to check if the value has been set.
+func (o *ContainerStats) GetMemoryCurrentOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MemoryCurrent, true
+}
+
+// SetMemoryCurrent sets field value
+func (o *ContainerStats) SetMemoryCurrent(v int32) {
+	o.MemoryCurrent = v
+}
+
+// GetMemoryFile returns the MemoryFile field value
+func (o *ContainerStats) GetMemoryFile() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.MemoryFile
+}
+
+// GetMemoryFileOk returns a tuple with the MemoryFile field value
+// and a boolean to check if the value has been set.
+func (o *ContainerStats) GetMemoryFileOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MemoryFile, true
+}
+
+// SetMemoryFile sets field value
+func (o *ContainerStats) SetMemoryFile(v int32) {
+	o.MemoryFile = v
+}
+
+// GetMemoryInactiveFile returns the MemoryInactiveFile field value
+func (o *ContainerStats) GetMemoryInactiveFile() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.MemoryInactiveFile
+}
+
+// GetMemoryInactiveFileOk returns a tuple with the MemoryInactiveFile field value
+// and a boolean to check if the value has been set.
+func (o *ContainerStats) GetMemoryInactiveFileOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MemoryInactiveFile, true
+}
+
+// SetMemoryInactiveFile sets field value
+func (o *ContainerStats) SetMemoryInactiveFile(v int32) {
+	o.MemoryInactiveFile = v
 }
 
 // GetMemoryLimit returns the MemoryLimit field value
@@ -300,52 +558,104 @@ func (o *ContainerStats) SetMemoryLimit(v int32) {
 	o.MemoryLimit = v
 }
 
-// GetMemoryPercent returns the MemoryPercent field value
-func (o *ContainerStats) GetMemoryPercent() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.MemoryPercent
-}
-
-// GetMemoryPercentOk returns a tuple with the MemoryPercent field value
-// and a boolean to check if the value has been set.
-func (o *ContainerStats) GetMemoryPercentOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MemoryPercent, true
-}
-
-// SetMemoryPercent sets field value
-func (o *ContainerStats) SetMemoryPercent(v float32) {
-	o.MemoryPercent = v
-}
-
-// GetMemoryRss returns the MemoryRss field value
-func (o *ContainerStats) GetMemoryRss() int32 {
+// GetMemoryLimitHits returns the MemoryLimitHits field value
+func (o *ContainerStats) GetMemoryLimitHits() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.MemoryRss
+	return o.MemoryLimitHits
 }
 
-// GetMemoryRssOk returns a tuple with the MemoryRss field value
+// GetMemoryLimitHitsOk returns a tuple with the MemoryLimitHits field value
 // and a boolean to check if the value has been set.
-func (o *ContainerStats) GetMemoryRssOk() (*int32, bool) {
+func (o *ContainerStats) GetMemoryLimitHitsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MemoryRss, true
+	return &o.MemoryLimitHits, true
 }
 
-// SetMemoryRss sets field value
-func (o *ContainerStats) SetMemoryRss(v int32) {
-	o.MemoryRss = v
+// SetMemoryLimitHits sets field value
+func (o *ContainerStats) SetMemoryLimitHits(v int32) {
+	o.MemoryLimitHits = v
+}
+
+// GetMemoryPeak returns the MemoryPeak field value
+func (o *ContainerStats) GetMemoryPeak() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.MemoryPeak
+}
+
+// GetMemoryPeakOk returns a tuple with the MemoryPeak field value
+// and a boolean to check if the value has been set.
+func (o *ContainerStats) GetMemoryPeakOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MemoryPeak, true
+}
+
+// SetMemoryPeak sets field value
+func (o *ContainerStats) SetMemoryPeak(v int32) {
+	o.MemoryPeak = v
+}
+
+// GetMemoryPercentOfHost returns the MemoryPercentOfHost field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetMemoryPercentOfHost() float32 {
+	if o == nil || o.MemoryPercentOfHost.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.MemoryPercentOfHost.Get()
+}
+
+// GetMemoryPercentOfHostOk returns a tuple with the MemoryPercentOfHost field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetMemoryPercentOfHostOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MemoryPercentOfHost.Get(), o.MemoryPercentOfHost.IsSet()
+}
+
+// SetMemoryPercentOfHost sets field value
+func (o *ContainerStats) SetMemoryPercentOfHost(v float32) {
+	o.MemoryPercentOfHost.Set(&v)
+}
+
+// GetMemoryPercentOfLimit returns the MemoryPercentOfLimit field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetMemoryPercentOfLimit() float32 {
+	if o == nil || o.MemoryPercentOfLimit.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.MemoryPercentOfLimit.Get()
+}
+
+// GetMemoryPercentOfLimitOk returns a tuple with the MemoryPercentOfLimit field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetMemoryPercentOfLimitOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MemoryPercentOfLimit.Get(), o.MemoryPercentOfLimit.IsSet()
+}
+
+// SetMemoryPercentOfLimit sets field value
+func (o *ContainerStats) SetMemoryPercentOfLimit(v float32) {
+	o.MemoryPercentOfLimit.Set(&v)
 }
 
 // GetMemorySwap returns the MemorySwap field value
@@ -372,28 +682,28 @@ func (o *ContainerStats) SetMemorySwap(v int32) {
 	o.MemorySwap = v
 }
 
-// GetMemoryUsage returns the MemoryUsage field value
-func (o *ContainerStats) GetMemoryUsage() int32 {
+// GetMemoryWorkingSet returns the MemoryWorkingSet field value
+func (o *ContainerStats) GetMemoryWorkingSet() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.MemoryUsage
+	return o.MemoryWorkingSet
 }
 
-// GetMemoryUsageOk returns a tuple with the MemoryUsage field value
+// GetMemoryWorkingSetOk returns a tuple with the MemoryWorkingSet field value
 // and a boolean to check if the value has been set.
-func (o *ContainerStats) GetMemoryUsageOk() (*int32, bool) {
+func (o *ContainerStats) GetMemoryWorkingSetOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MemoryUsage, true
+	return &o.MemoryWorkingSet, true
 }
 
-// SetMemoryUsage sets field value
-func (o *ContainerStats) SetMemoryUsage(v int32) {
-	o.MemoryUsage = v
+// SetMemoryWorkingSet sets field value
+func (o *ContainerStats) SetMemoryWorkingSet(v int32) {
+	o.MemoryWorkingSet = v
 }
 
 // GetName returns the Name field value
@@ -444,6 +754,32 @@ func (o *ContainerStats) SetNetworkRxBytes(v int32) {
 	o.NetworkRxBytes = v
 }
 
+// GetNetworkRxBytesPerSecond returns the NetworkRxBytesPerSecond field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetNetworkRxBytesPerSecond() float32 {
+	if o == nil || o.NetworkRxBytesPerSecond.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.NetworkRxBytesPerSecond.Get()
+}
+
+// GetNetworkRxBytesPerSecondOk returns a tuple with the NetworkRxBytesPerSecond field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetNetworkRxBytesPerSecondOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NetworkRxBytesPerSecond.Get(), o.NetworkRxBytesPerSecond.IsSet()
+}
+
+// SetNetworkRxBytesPerSecond sets field value
+func (o *ContainerStats) SetNetworkRxBytesPerSecond(v float32) {
+	o.NetworkRxBytesPerSecond.Set(&v)
+}
+
 // GetNetworkRxPackets returns the NetworkRxPackets field value
 func (o *ContainerStats) GetNetworkRxPackets() int32 {
 	if o == nil {
@@ -492,6 +828,32 @@ func (o *ContainerStats) SetNetworkTxBytes(v int32) {
 	o.NetworkTxBytes = v
 }
 
+// GetNetworkTxBytesPerSecond returns the NetworkTxBytesPerSecond field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ContainerStats) GetNetworkTxBytesPerSecond() float32 {
+	if o == nil || o.NetworkTxBytesPerSecond.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.NetworkTxBytesPerSecond.Get()
+}
+
+// GetNetworkTxBytesPerSecondOk returns a tuple with the NetworkTxBytesPerSecond field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerStats) GetNetworkTxBytesPerSecondOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NetworkTxBytesPerSecond.Get(), o.NetworkTxBytesPerSecond.IsSet()
+}
+
+// SetNetworkTxBytesPerSecond sets field value
+func (o *ContainerStats) SetNetworkTxBytesPerSecond(v float32) {
+	o.NetworkTxBytesPerSecond.Set(&v)
+}
+
 // GetNetworkTxPackets returns the NetworkTxPackets field value
 func (o *ContainerStats) GetNetworkTxPackets() int32 {
 	if o == nil {
@@ -514,6 +876,30 @@ func (o *ContainerStats) GetNetworkTxPacketsOk() (*int32, bool) {
 // SetNetworkTxPackets sets field value
 func (o *ContainerStats) SetNetworkTxPackets(v int32) {
 	o.NetworkTxPackets = v
+}
+
+// GetOomKills returns the OomKills field value
+func (o *ContainerStats) GetOomKills() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.OomKills
+}
+
+// GetOomKillsOk returns a tuple with the OomKills field value
+// and a boolean to check if the value has been set.
+func (o *ContainerStats) GetOomKillsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OomKills, true
+}
+
+// SetOomKills sets field value
+func (o *ContainerStats) SetOomKills(v int32) {
+	o.OomKills = v
 }
 
 // GetPageFaults returns the PageFaults field value
@@ -588,6 +974,30 @@ func (o *ContainerStats) SetServiceName(v string) {
 	o.ServiceName = v
 }
 
+// GetState returns the State field value
+func (o *ContainerStats) GetState() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.State
+}
+
+// GetStateOk returns a tuple with the State field value
+// and a boolean to check if the value has been set.
+func (o *ContainerStats) GetStateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.State, true
+}
+
+// SetState sets field value
+func (o *ContainerStats) SetState(v string) {
+	o.State = v
+}
+
 func (o ContainerStats) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -599,26 +1009,41 @@ func (o ContainerStats) MarshalJSON() ([]byte, error) {
 func (o ContainerStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["block_read_bytes"] = o.BlockReadBytes
+	toSerialize["block_read_bytes_per_second"] = o.BlockReadBytesPerSecond.Get()
 	toSerialize["block_read_ops"] = o.BlockReadOps
 	toSerialize["block_write_bytes"] = o.BlockWriteBytes
+	toSerialize["block_write_bytes_per_second"] = o.BlockWriteBytesPerSecond.Get()
 	toSerialize["block_write_ops"] = o.BlockWriteOps
-	toSerialize["cpu_percent"] = o.CpuPercent
+	toSerialize["cpu_percent_of_host"] = o.CpuPercentOfHost.Get()
+	toSerialize["cpu_percent_of_quota"] = o.CpuPercentOfQuota.Get()
+	toSerialize["cpu_quota_cores"] = o.CpuQuotaCores
 	toSerialize["cpu_system_time"] = o.CpuSystemTime
+	toSerialize["cpu_throttled_percent"] = o.CpuThrottledPercent.Get()
+	toSerialize["cpu_usage_cores"] = o.CpuUsageCores.Get()
 	toSerialize["cpu_user_time"] = o.CpuUserTime
-	toSerialize["memory_cache"] = o.MemoryCache
+	toSerialize["memory_anon"] = o.MemoryAnon
+	toSerialize["memory_current"] = o.MemoryCurrent
+	toSerialize["memory_file"] = o.MemoryFile
+	toSerialize["memory_inactive_file"] = o.MemoryInactiveFile
 	toSerialize["memory_limit"] = o.MemoryLimit
-	toSerialize["memory_percent"] = o.MemoryPercent
-	toSerialize["memory_rss"] = o.MemoryRss
+	toSerialize["memory_limit_hits"] = o.MemoryLimitHits
+	toSerialize["memory_peak"] = o.MemoryPeak
+	toSerialize["memory_percent_of_host"] = o.MemoryPercentOfHost.Get()
+	toSerialize["memory_percent_of_limit"] = o.MemoryPercentOfLimit.Get()
 	toSerialize["memory_swap"] = o.MemorySwap
-	toSerialize["memory_usage"] = o.MemoryUsage
+	toSerialize["memory_working_set"] = o.MemoryWorkingSet
 	toSerialize["name"] = o.Name
 	toSerialize["network_rx_bytes"] = o.NetworkRxBytes
+	toSerialize["network_rx_bytes_per_second"] = o.NetworkRxBytesPerSecond.Get()
 	toSerialize["network_rx_packets"] = o.NetworkRxPackets
 	toSerialize["network_tx_bytes"] = o.NetworkTxBytes
+	toSerialize["network_tx_bytes_per_second"] = o.NetworkTxBytesPerSecond.Get()
 	toSerialize["network_tx_packets"] = o.NetworkTxPackets
+	toSerialize["oom_kills"] = o.OomKills
 	toSerialize["page_faults"] = o.PageFaults
 	toSerialize["page_major_faults"] = o.PageMajorFaults
 	toSerialize["service_name"] = o.ServiceName
+	toSerialize["state"] = o.State
 	return toSerialize, nil
 }
 
@@ -628,26 +1053,41 @@ func (o *ContainerStats) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"block_read_bytes",
+		"block_read_bytes_per_second",
 		"block_read_ops",
 		"block_write_bytes",
+		"block_write_bytes_per_second",
 		"block_write_ops",
-		"cpu_percent",
+		"cpu_percent_of_host",
+		"cpu_percent_of_quota",
+		"cpu_quota_cores",
 		"cpu_system_time",
+		"cpu_throttled_percent",
+		"cpu_usage_cores",
 		"cpu_user_time",
-		"memory_cache",
+		"memory_anon",
+		"memory_current",
+		"memory_file",
+		"memory_inactive_file",
 		"memory_limit",
-		"memory_percent",
-		"memory_rss",
+		"memory_limit_hits",
+		"memory_peak",
+		"memory_percent_of_host",
+		"memory_percent_of_limit",
 		"memory_swap",
-		"memory_usage",
+		"memory_working_set",
 		"name",
 		"network_rx_bytes",
+		"network_rx_bytes_per_second",
 		"network_rx_packets",
 		"network_tx_bytes",
+		"network_tx_bytes_per_second",
 		"network_tx_packets",
+		"oom_kills",
 		"page_faults",
 		"page_major_faults",
 		"service_name",
+		"state",
 	}
 
 	allProperties := make(map[string]interface{})

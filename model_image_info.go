@@ -22,12 +22,14 @@ var _ MappedNullable = &ImageInfo{}
 
 // ImageInfo struct for ImageInfo
 type ImageInfo struct {
+	Containers int32 `json:"containers"`
 	Created time.Time `json:"created"`
 	Dangling bool `json:"dangling"`
 	Id string `json:"id"`
-	Repository string `json:"repository"`
+	Removal string `json:"removal"`
+	SharedSize int32 `json:"shared_size"`
 	Size int32 `json:"size"`
-	Tag string `json:"tag"`
+	Tags []string `json:"tags"`
 	Unused bool `json:"unused"`
 }
 
@@ -37,14 +39,16 @@ type _ImageInfo ImageInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageInfo(created time.Time, dangling bool, id string, repository string, size int32, tag string, unused bool) *ImageInfo {
+func NewImageInfo(containers int32, created time.Time, dangling bool, id string, removal string, sharedSize int32, size int32, tags []string, unused bool) *ImageInfo {
 	this := ImageInfo{}
+	this.Containers = containers
 	this.Created = created
 	this.Dangling = dangling
 	this.Id = id
-	this.Repository = repository
+	this.Removal = removal
+	this.SharedSize = sharedSize
 	this.Size = size
-	this.Tag = tag
+	this.Tags = tags
 	this.Unused = unused
 	return &this
 }
@@ -55,6 +59,30 @@ func NewImageInfo(created time.Time, dangling bool, id string, repository string
 func NewImageInfoWithDefaults() *ImageInfo {
 	this := ImageInfo{}
 	return &this
+}
+
+// GetContainers returns the Containers field value
+func (o *ImageInfo) GetContainers() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Containers
+}
+
+// GetContainersOk returns a tuple with the Containers field value
+// and a boolean to check if the value has been set.
+func (o *ImageInfo) GetContainersOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Containers, true
+}
+
+// SetContainers sets field value
+func (o *ImageInfo) SetContainers(v int32) {
+	o.Containers = v
 }
 
 // GetCreated returns the Created field value
@@ -129,28 +157,52 @@ func (o *ImageInfo) SetId(v string) {
 	o.Id = v
 }
 
-// GetRepository returns the Repository field value
-func (o *ImageInfo) GetRepository() string {
+// GetRemoval returns the Removal field value
+func (o *ImageInfo) GetRemoval() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Repository
+	return o.Removal
 }
 
-// GetRepositoryOk returns a tuple with the Repository field value
+// GetRemovalOk returns a tuple with the Removal field value
 // and a boolean to check if the value has been set.
-func (o *ImageInfo) GetRepositoryOk() (*string, bool) {
+func (o *ImageInfo) GetRemovalOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Repository, true
+	return &o.Removal, true
 }
 
-// SetRepository sets field value
-func (o *ImageInfo) SetRepository(v string) {
-	o.Repository = v
+// SetRemoval sets field value
+func (o *ImageInfo) SetRemoval(v string) {
+	o.Removal = v
+}
+
+// GetSharedSize returns the SharedSize field value
+func (o *ImageInfo) GetSharedSize() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.SharedSize
+}
+
+// GetSharedSizeOk returns a tuple with the SharedSize field value
+// and a boolean to check if the value has been set.
+func (o *ImageInfo) GetSharedSizeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SharedSize, true
+}
+
+// SetSharedSize sets field value
+func (o *ImageInfo) SetSharedSize(v int32) {
+	o.SharedSize = v
 }
 
 // GetSize returns the Size field value
@@ -177,28 +229,28 @@ func (o *ImageInfo) SetSize(v int32) {
 	o.Size = v
 }
 
-// GetTag returns the Tag field value
-func (o *ImageInfo) GetTag() string {
+// GetTags returns the Tags field value
+func (o *ImageInfo) GetTags() []string {
 	if o == nil {
-		var ret string
+		var ret []string
 		return ret
 	}
 
-	return o.Tag
+	return o.Tags
 }
 
-// GetTagOk returns a tuple with the Tag field value
+// GetTagsOk returns a tuple with the Tags field value
 // and a boolean to check if the value has been set.
-func (o *ImageInfo) GetTagOk() (*string, bool) {
+func (o *ImageInfo) GetTagsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Tag, true
+	return o.Tags, true
 }
 
-// SetTag sets field value
-func (o *ImageInfo) SetTag(v string) {
-	o.Tag = v
+// SetTags sets field value
+func (o *ImageInfo) SetTags(v []string) {
+	o.Tags = v
 }
 
 // GetUnused returns the Unused field value
@@ -235,12 +287,14 @@ func (o ImageInfo) MarshalJSON() ([]byte, error) {
 
 func (o ImageInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["containers"] = o.Containers
 	toSerialize["created"] = o.Created
 	toSerialize["dangling"] = o.Dangling
 	toSerialize["id"] = o.Id
-	toSerialize["repository"] = o.Repository
+	toSerialize["removal"] = o.Removal
+	toSerialize["shared_size"] = o.SharedSize
 	toSerialize["size"] = o.Size
-	toSerialize["tag"] = o.Tag
+	toSerialize["tags"] = o.Tags
 	toSerialize["unused"] = o.Unused
 	return toSerialize, nil
 }
@@ -250,12 +304,14 @@ func (o *ImageInfo) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"containers",
 		"created",
 		"dangling",
 		"id",
-		"repository",
+		"removal",
+		"shared_size",
 		"size",
-		"tag",
+		"tags",
 		"unused",
 	}
 

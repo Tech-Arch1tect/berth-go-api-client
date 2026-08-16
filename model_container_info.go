@@ -27,6 +27,7 @@ type ContainerInfo struct {
 	Image string `json:"image"`
 	Labels map[string]string `json:"labels"`
 	Name string `json:"name"`
+	Removal string `json:"removal"`
 	Size int32 `json:"size"`
 	State string `json:"state"`
 	Status string `json:"status"`
@@ -38,13 +39,14 @@ type _ContainerInfo ContainerInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerInfo(created time.Time, id string, image string, labels map[string]string, name string, size int32, state string, status string) *ContainerInfo {
+func NewContainerInfo(created time.Time, id string, image string, labels map[string]string, name string, removal string, size int32, state string, status string) *ContainerInfo {
 	this := ContainerInfo{}
 	this.Created = created
 	this.Id = id
 	this.Image = image
 	this.Labels = labels
 	this.Name = name
+	this.Removal = removal
 	this.Size = size
 	this.State = state
 	this.Status = status
@@ -179,6 +181,30 @@ func (o *ContainerInfo) SetName(v string) {
 	o.Name = v
 }
 
+// GetRemoval returns the Removal field value
+func (o *ContainerInfo) GetRemoval() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Removal
+}
+
+// GetRemovalOk returns a tuple with the Removal field value
+// and a boolean to check if the value has been set.
+func (o *ContainerInfo) GetRemovalOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Removal, true
+}
+
+// SetRemoval sets field value
+func (o *ContainerInfo) SetRemoval(v string) {
+	o.Removal = v
+}
+
 // GetSize returns the Size field value
 func (o *ContainerInfo) GetSize() int32 {
 	if o == nil {
@@ -266,6 +292,7 @@ func (o ContainerInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["image"] = o.Image
 	toSerialize["labels"] = o.Labels
 	toSerialize["name"] = o.Name
+	toSerialize["removal"] = o.Removal
 	toSerialize["size"] = o.Size
 	toSerialize["state"] = o.State
 	toSerialize["status"] = o.Status
@@ -282,6 +309,7 @@ func (o *ContainerInfo) UnmarshalJSON(data []byte) (err error) {
 		"image",
 		"labels",
 		"name",
+		"removal",
 		"size",
 		"state",
 		"status",

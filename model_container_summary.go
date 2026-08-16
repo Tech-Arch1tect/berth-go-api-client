@@ -23,9 +23,7 @@ var _ MappedNullable = &ContainerSummary{}
 type ContainerSummary struct {
 	Containers []ContainerInfo `json:"containers"`
 	RunningCount int32 `json:"running_count"`
-	StoppedCount int32 `json:"stopped_count"`
-	TotalCount int32 `json:"total_count"`
-	TotalSize int32 `json:"total_size"`
+	Total Amount `json:"total"`
 }
 
 type _ContainerSummary ContainerSummary
@@ -34,13 +32,11 @@ type _ContainerSummary ContainerSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerSummary(containers []ContainerInfo, runningCount int32, stoppedCount int32, totalCount int32, totalSize int32) *ContainerSummary {
+func NewContainerSummary(containers []ContainerInfo, runningCount int32, total Amount) *ContainerSummary {
 	this := ContainerSummary{}
 	this.Containers = containers
 	this.RunningCount = runningCount
-	this.StoppedCount = stoppedCount
-	this.TotalCount = totalCount
-	this.TotalSize = totalSize
+	this.Total = total
 	return &this
 }
 
@@ -100,76 +96,28 @@ func (o *ContainerSummary) SetRunningCount(v int32) {
 	o.RunningCount = v
 }
 
-// GetStoppedCount returns the StoppedCount field value
-func (o *ContainerSummary) GetStoppedCount() int32 {
+// GetTotal returns the Total field value
+func (o *ContainerSummary) GetTotal() Amount {
 	if o == nil {
-		var ret int32
+		var ret Amount
 		return ret
 	}
 
-	return o.StoppedCount
+	return o.Total
 }
 
-// GetStoppedCountOk returns a tuple with the StoppedCount field value
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *ContainerSummary) GetStoppedCountOk() (*int32, bool) {
+func (o *ContainerSummary) GetTotalOk() (*Amount, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.StoppedCount, true
+	return &o.Total, true
 }
 
-// SetStoppedCount sets field value
-func (o *ContainerSummary) SetStoppedCount(v int32) {
-	o.StoppedCount = v
-}
-
-// GetTotalCount returns the TotalCount field value
-func (o *ContainerSummary) GetTotalCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.TotalCount
-}
-
-// GetTotalCountOk returns a tuple with the TotalCount field value
-// and a boolean to check if the value has been set.
-func (o *ContainerSummary) GetTotalCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TotalCount, true
-}
-
-// SetTotalCount sets field value
-func (o *ContainerSummary) SetTotalCount(v int32) {
-	o.TotalCount = v
-}
-
-// GetTotalSize returns the TotalSize field value
-func (o *ContainerSummary) GetTotalSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.TotalSize
-}
-
-// GetTotalSizeOk returns a tuple with the TotalSize field value
-// and a boolean to check if the value has been set.
-func (o *ContainerSummary) GetTotalSizeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TotalSize, true
-}
-
-// SetTotalSize sets field value
-func (o *ContainerSummary) SetTotalSize(v int32) {
-	o.TotalSize = v
+// SetTotal sets field value
+func (o *ContainerSummary) SetTotal(v Amount) {
+	o.Total = v
 }
 
 func (o ContainerSummary) MarshalJSON() ([]byte, error) {
@@ -184,9 +132,7 @@ func (o ContainerSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["containers"] = o.Containers
 	toSerialize["running_count"] = o.RunningCount
-	toSerialize["stopped_count"] = o.StoppedCount
-	toSerialize["total_count"] = o.TotalCount
-	toSerialize["total_size"] = o.TotalSize
+	toSerialize["total"] = o.Total
 	return toSerialize, nil
 }
 
@@ -197,9 +143,7 @@ func (o *ContainerSummary) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"containers",
 		"running_count",
-		"stopped_count",
-		"total_count",
-		"total_size",
+		"total",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -5,14 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cache** | [**[]BuildCacheInfo**](BuildCacheInfo.md) |  | 
-**TotalCount** | **int32** |  | 
-**TotalSize** | **int32** |  | 
+**Total** | [**Amount**](Amount.md) |  | 
 
 ## Methods
 
 ### NewBuildCacheSummary
 
-`func NewBuildCacheSummary(cache []BuildCacheInfo, totalCount int32, totalSize int32, ) *BuildCacheSummary`
+`func NewBuildCacheSummary(cache []BuildCacheInfo, total Amount, ) *BuildCacheSummary`
 
 NewBuildCacheSummary instantiates a new BuildCacheSummary object
 This constructor will assign default values to properties that have it defined,
@@ -47,44 +46,24 @@ and a boolean to check if the value has been set.
 SetCache sets Cache field to given value.
 
 
-### GetTotalCount
+### GetTotal
 
-`func (o *BuildCacheSummary) GetTotalCount() int32`
+`func (o *BuildCacheSummary) GetTotal() Amount`
 
-GetTotalCount returns the TotalCount field if non-nil, zero value otherwise.
+GetTotal returns the Total field if non-nil, zero value otherwise.
 
-### GetTotalCountOk
+### GetTotalOk
 
-`func (o *BuildCacheSummary) GetTotalCountOk() (*int32, bool)`
+`func (o *BuildCacheSummary) GetTotalOk() (*Amount, bool)`
 
-GetTotalCountOk returns a tuple with the TotalCount field if it's non-nil, zero value otherwise
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalCount
+### SetTotal
 
-`func (o *BuildCacheSummary) SetTotalCount(v int32)`
+`func (o *BuildCacheSummary) SetTotal(v Amount)`
 
-SetTotalCount sets TotalCount field to given value.
-
-
-### GetTotalSize
-
-`func (o *BuildCacheSummary) GetTotalSize() int32`
-
-GetTotalSize returns the TotalSize field if non-nil, zero value otherwise.
-
-### GetTotalSizeOk
-
-`func (o *BuildCacheSummary) GetTotalSizeOk() (*int32, bool)`
-
-GetTotalSizeOk returns a tuple with the TotalSize field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalSize
-
-`func (o *BuildCacheSummary) SetTotalSize(v int32)`
-
-SetTotalSize sets TotalSize field to given value.
+SetTotal sets Total field to given value.
 
 
 

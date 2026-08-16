@@ -19,10 +19,9 @@ var _ MappedNullable = &ResourceLimits{}
 
 // ResourceLimits struct for ResourceLimits
 type ResourceLimits struct {
-	CpuPeriod *int32 `json:"cpu_period,omitempty"`
-	CpuQuota *int32 `json:"cpu_quota,omitempty"`
-	CpuShares *int32 `json:"cpu_shares,omitempty"`
+	CpuCores *float32 `json:"cpu_cores,omitempty"`
 	Memory *int32 `json:"memory,omitempty"`
+	MemoryReservation *int32 `json:"memory_reservation,omitempty"`
 	MemorySwap *int32 `json:"memory_swap,omitempty"`
 }
 
@@ -43,100 +42,36 @@ func NewResourceLimitsWithDefaults() *ResourceLimits {
 	return &this
 }
 
-// GetCpuPeriod returns the CpuPeriod field value if set, zero value otherwise.
-func (o *ResourceLimits) GetCpuPeriod() int32 {
-	if o == nil || IsNil(o.CpuPeriod) {
-		var ret int32
+// GetCpuCores returns the CpuCores field value if set, zero value otherwise.
+func (o *ResourceLimits) GetCpuCores() float32 {
+	if o == nil || IsNil(o.CpuCores) {
+		var ret float32
 		return ret
 	}
-	return *o.CpuPeriod
+	return *o.CpuCores
 }
 
-// GetCpuPeriodOk returns a tuple with the CpuPeriod field value if set, nil otherwise
+// GetCpuCoresOk returns a tuple with the CpuCores field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ResourceLimits) GetCpuPeriodOk() (*int32, bool) {
-	if o == nil || IsNil(o.CpuPeriod) {
+func (o *ResourceLimits) GetCpuCoresOk() (*float32, bool) {
+	if o == nil || IsNil(o.CpuCores) {
 		return nil, false
 	}
-	return o.CpuPeriod, true
+	return o.CpuCores, true
 }
 
-// HasCpuPeriod returns a boolean if a field has been set.
-func (o *ResourceLimits) HasCpuPeriod() bool {
-	if o != nil && !IsNil(o.CpuPeriod) {
+// HasCpuCores returns a boolean if a field has been set.
+func (o *ResourceLimits) HasCpuCores() bool {
+	if o != nil && !IsNil(o.CpuCores) {
 		return true
 	}
 
 	return false
 }
 
-// SetCpuPeriod gets a reference to the given int32 and assigns it to the CpuPeriod field.
-func (o *ResourceLimits) SetCpuPeriod(v int32) {
-	o.CpuPeriod = &v
-}
-
-// GetCpuQuota returns the CpuQuota field value if set, zero value otherwise.
-func (o *ResourceLimits) GetCpuQuota() int32 {
-	if o == nil || IsNil(o.CpuQuota) {
-		var ret int32
-		return ret
-	}
-	return *o.CpuQuota
-}
-
-// GetCpuQuotaOk returns a tuple with the CpuQuota field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ResourceLimits) GetCpuQuotaOk() (*int32, bool) {
-	if o == nil || IsNil(o.CpuQuota) {
-		return nil, false
-	}
-	return o.CpuQuota, true
-}
-
-// HasCpuQuota returns a boolean if a field has been set.
-func (o *ResourceLimits) HasCpuQuota() bool {
-	if o != nil && !IsNil(o.CpuQuota) {
-		return true
-	}
-
-	return false
-}
-
-// SetCpuQuota gets a reference to the given int32 and assigns it to the CpuQuota field.
-func (o *ResourceLimits) SetCpuQuota(v int32) {
-	o.CpuQuota = &v
-}
-
-// GetCpuShares returns the CpuShares field value if set, zero value otherwise.
-func (o *ResourceLimits) GetCpuShares() int32 {
-	if o == nil || IsNil(o.CpuShares) {
-		var ret int32
-		return ret
-	}
-	return *o.CpuShares
-}
-
-// GetCpuSharesOk returns a tuple with the CpuShares field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ResourceLimits) GetCpuSharesOk() (*int32, bool) {
-	if o == nil || IsNil(o.CpuShares) {
-		return nil, false
-	}
-	return o.CpuShares, true
-}
-
-// HasCpuShares returns a boolean if a field has been set.
-func (o *ResourceLimits) HasCpuShares() bool {
-	if o != nil && !IsNil(o.CpuShares) {
-		return true
-	}
-
-	return false
-}
-
-// SetCpuShares gets a reference to the given int32 and assigns it to the CpuShares field.
-func (o *ResourceLimits) SetCpuShares(v int32) {
-	o.CpuShares = &v
+// SetCpuCores gets a reference to the given float32 and assigns it to the CpuCores field.
+func (o *ResourceLimits) SetCpuCores(v float32) {
+	o.CpuCores = &v
 }
 
 // GetMemory returns the Memory field value if set, zero value otherwise.
@@ -169,6 +104,38 @@ func (o *ResourceLimits) HasMemory() bool {
 // SetMemory gets a reference to the given int32 and assigns it to the Memory field.
 func (o *ResourceLimits) SetMemory(v int32) {
 	o.Memory = &v
+}
+
+// GetMemoryReservation returns the MemoryReservation field value if set, zero value otherwise.
+func (o *ResourceLimits) GetMemoryReservation() int32 {
+	if o == nil || IsNil(o.MemoryReservation) {
+		var ret int32
+		return ret
+	}
+	return *o.MemoryReservation
+}
+
+// GetMemoryReservationOk returns a tuple with the MemoryReservation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceLimits) GetMemoryReservationOk() (*int32, bool) {
+	if o == nil || IsNil(o.MemoryReservation) {
+		return nil, false
+	}
+	return o.MemoryReservation, true
+}
+
+// HasMemoryReservation returns a boolean if a field has been set.
+func (o *ResourceLimits) HasMemoryReservation() bool {
+	if o != nil && !IsNil(o.MemoryReservation) {
+		return true
+	}
+
+	return false
+}
+
+// SetMemoryReservation gets a reference to the given int32 and assigns it to the MemoryReservation field.
+func (o *ResourceLimits) SetMemoryReservation(v int32) {
+	o.MemoryReservation = &v
 }
 
 // GetMemorySwap returns the MemorySwap field value if set, zero value otherwise.
@@ -213,17 +180,14 @@ func (o ResourceLimits) MarshalJSON() ([]byte, error) {
 
 func (o ResourceLimits) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CpuPeriod) {
-		toSerialize["cpu_period"] = o.CpuPeriod
-	}
-	if !IsNil(o.CpuQuota) {
-		toSerialize["cpu_quota"] = o.CpuQuota
-	}
-	if !IsNil(o.CpuShares) {
-		toSerialize["cpu_shares"] = o.CpuShares
+	if !IsNil(o.CpuCores) {
+		toSerialize["cpu_cores"] = o.CpuCores
 	}
 	if !IsNil(o.Memory) {
 		toSerialize["memory"] = o.Memory
+	}
+	if !IsNil(o.MemoryReservation) {
+		toSerialize["memory_reservation"] = o.MemoryReservation
 	}
 	if !IsNil(o.MemorySwap) {
 		toSerialize["memory_swap"] = o.MemorySwap

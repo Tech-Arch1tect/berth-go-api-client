@@ -6,15 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Containers** | [**[]ContainerInfo**](ContainerInfo.md) |  | 
 **RunningCount** | **int32** |  | 
-**StoppedCount** | **int32** |  | 
-**TotalCount** | **int32** |  | 
-**TotalSize** | **int32** |  | 
+**Total** | [**Amount**](Amount.md) |  | 
 
 ## Methods
 
 ### NewContainerSummary
 
-`func NewContainerSummary(containers []ContainerInfo, runningCount int32, stoppedCount int32, totalCount int32, totalSize int32, ) *ContainerSummary`
+`func NewContainerSummary(containers []ContainerInfo, runningCount int32, total Amount, ) *ContainerSummary`
 
 NewContainerSummary instantiates a new ContainerSummary object
 This constructor will assign default values to properties that have it defined,
@@ -69,64 +67,24 @@ and a boolean to check if the value has been set.
 SetRunningCount sets RunningCount field to given value.
 
 
-### GetStoppedCount
+### GetTotal
 
-`func (o *ContainerSummary) GetStoppedCount() int32`
+`func (o *ContainerSummary) GetTotal() Amount`
 
-GetStoppedCount returns the StoppedCount field if non-nil, zero value otherwise.
+GetTotal returns the Total field if non-nil, zero value otherwise.
 
-### GetStoppedCountOk
+### GetTotalOk
 
-`func (o *ContainerSummary) GetStoppedCountOk() (*int32, bool)`
+`func (o *ContainerSummary) GetTotalOk() (*Amount, bool)`
 
-GetStoppedCountOk returns a tuple with the StoppedCount field if it's non-nil, zero value otherwise
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStoppedCount
+### SetTotal
 
-`func (o *ContainerSummary) SetStoppedCount(v int32)`
+`func (o *ContainerSummary) SetTotal(v Amount)`
 
-SetStoppedCount sets StoppedCount field to given value.
-
-
-### GetTotalCount
-
-`func (o *ContainerSummary) GetTotalCount() int32`
-
-GetTotalCount returns the TotalCount field if non-nil, zero value otherwise.
-
-### GetTotalCountOk
-
-`func (o *ContainerSummary) GetTotalCountOk() (*int32, bool)`
-
-GetTotalCountOk returns a tuple with the TotalCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalCount
-
-`func (o *ContainerSummary) SetTotalCount(v int32)`
-
-SetTotalCount sets TotalCount field to given value.
-
-
-### GetTotalSize
-
-`func (o *ContainerSummary) GetTotalSize() int32`
-
-GetTotalSize returns the TotalSize field if non-nil, zero value otherwise.
-
-### GetTotalSizeOk
-
-`func (o *ContainerSummary) GetTotalSizeOk() (*int32, bool)`
-
-GetTotalSizeOk returns a tuple with the TotalSize field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalSize
-
-`func (o *ContainerSummary) SetTotalSize(v int32)`
-
-SetTotalSize sets TotalSize field to given value.
+SetTotal sets Total field to given value.
 
 
 

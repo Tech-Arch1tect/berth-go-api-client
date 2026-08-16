@@ -5,32 +5,47 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BlockReadBytes** | **int32** |  | 
+**BlockReadBytesPerSecond** | **NullableFloat32** |  | 
 **BlockReadOps** | **int32** |  | 
 **BlockWriteBytes** | **int32** |  | 
+**BlockWriteBytesPerSecond** | **NullableFloat32** |  | 
 **BlockWriteOps** | **int32** |  | 
-**CpuPercent** | **float32** |  | 
+**CpuPercentOfHost** | **NullableFloat32** |  | 
+**CpuPercentOfQuota** | **NullableFloat32** |  | 
+**CpuQuotaCores** | **float32** |  | 
 **CpuSystemTime** | **int32** |  | 
+**CpuThrottledPercent** | **NullableFloat32** |  | 
+**CpuUsageCores** | **NullableFloat32** |  | 
 **CpuUserTime** | **int32** |  | 
-**MemoryCache** | **int32** |  | 
+**MemoryAnon** | **int32** |  | 
+**MemoryCurrent** | **int32** |  | 
+**MemoryFile** | **int32** |  | 
+**MemoryInactiveFile** | **int32** |  | 
 **MemoryLimit** | **int32** |  | 
-**MemoryPercent** | **float32** |  | 
-**MemoryRss** | **int32** |  | 
+**MemoryLimitHits** | **int32** |  | 
+**MemoryPeak** | **int32** |  | 
+**MemoryPercentOfHost** | **NullableFloat32** |  | 
+**MemoryPercentOfLimit** | **NullableFloat32** |  | 
 **MemorySwap** | **int32** |  | 
-**MemoryUsage** | **int32** |  | 
+**MemoryWorkingSet** | **int32** |  | 
 **Name** | **string** |  | 
 **NetworkRxBytes** | **int32** |  | 
+**NetworkRxBytesPerSecond** | **NullableFloat32** |  | 
 **NetworkRxPackets** | **int32** |  | 
 **NetworkTxBytes** | **int32** |  | 
+**NetworkTxBytesPerSecond** | **NullableFloat32** |  | 
 **NetworkTxPackets** | **int32** |  | 
+**OomKills** | **int32** |  | 
 **PageFaults** | **int32** |  | 
 **PageMajorFaults** | **int32** |  | 
 **ServiceName** | **string** |  | 
+**State** | **string** |  | 
 
 ## Methods
 
 ### NewContainerStats
 
-`func NewContainerStats(blockReadBytes int32, blockReadOps int32, blockWriteBytes int32, blockWriteOps int32, cpuPercent float32, cpuSystemTime int32, cpuUserTime int32, memoryCache int32, memoryLimit int32, memoryPercent float32, memoryRss int32, memorySwap int32, memoryUsage int32, name string, networkRxBytes int32, networkRxPackets int32, networkTxBytes int32, networkTxPackets int32, pageFaults int32, pageMajorFaults int32, serviceName string, ) *ContainerStats`
+`func NewContainerStats(blockReadBytes int32, blockReadBytesPerSecond NullableFloat32, blockReadOps int32, blockWriteBytes int32, blockWriteBytesPerSecond NullableFloat32, blockWriteOps int32, cpuPercentOfHost NullableFloat32, cpuPercentOfQuota NullableFloat32, cpuQuotaCores float32, cpuSystemTime int32, cpuThrottledPercent NullableFloat32, cpuUsageCores NullableFloat32, cpuUserTime int32, memoryAnon int32, memoryCurrent int32, memoryFile int32, memoryInactiveFile int32, memoryLimit int32, memoryLimitHits int32, memoryPeak int32, memoryPercentOfHost NullableFloat32, memoryPercentOfLimit NullableFloat32, memorySwap int32, memoryWorkingSet int32, name string, networkRxBytes int32, networkRxBytesPerSecond NullableFloat32, networkRxPackets int32, networkTxBytes int32, networkTxBytesPerSecond NullableFloat32, networkTxPackets int32, oomKills int32, pageFaults int32, pageMajorFaults int32, serviceName string, state string, ) *ContainerStats`
 
 NewContainerStats instantiates a new ContainerStats object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +80,36 @@ and a boolean to check if the value has been set.
 SetBlockReadBytes sets BlockReadBytes field to given value.
 
 
+### GetBlockReadBytesPerSecond
+
+`func (o *ContainerStats) GetBlockReadBytesPerSecond() float32`
+
+GetBlockReadBytesPerSecond returns the BlockReadBytesPerSecond field if non-nil, zero value otherwise.
+
+### GetBlockReadBytesPerSecondOk
+
+`func (o *ContainerStats) GetBlockReadBytesPerSecondOk() (*float32, bool)`
+
+GetBlockReadBytesPerSecondOk returns a tuple with the BlockReadBytesPerSecond field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBlockReadBytesPerSecond
+
+`func (o *ContainerStats) SetBlockReadBytesPerSecond(v float32)`
+
+SetBlockReadBytesPerSecond sets BlockReadBytesPerSecond field to given value.
+
+
+### SetBlockReadBytesPerSecondNil
+
+`func (o *ContainerStats) SetBlockReadBytesPerSecondNil(b bool)`
+
+ SetBlockReadBytesPerSecondNil sets the value for BlockReadBytesPerSecond to be an explicit nil
+
+### UnsetBlockReadBytesPerSecond
+`func (o *ContainerStats) UnsetBlockReadBytesPerSecond()`
+
+UnsetBlockReadBytesPerSecond ensures that no value is present for BlockReadBytesPerSecond, not even an explicit nil
 ### GetBlockReadOps
 
 `func (o *ContainerStats) GetBlockReadOps() int32`
@@ -105,6 +150,36 @@ and a boolean to check if the value has been set.
 SetBlockWriteBytes sets BlockWriteBytes field to given value.
 
 
+### GetBlockWriteBytesPerSecond
+
+`func (o *ContainerStats) GetBlockWriteBytesPerSecond() float32`
+
+GetBlockWriteBytesPerSecond returns the BlockWriteBytesPerSecond field if non-nil, zero value otherwise.
+
+### GetBlockWriteBytesPerSecondOk
+
+`func (o *ContainerStats) GetBlockWriteBytesPerSecondOk() (*float32, bool)`
+
+GetBlockWriteBytesPerSecondOk returns a tuple with the BlockWriteBytesPerSecond field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBlockWriteBytesPerSecond
+
+`func (o *ContainerStats) SetBlockWriteBytesPerSecond(v float32)`
+
+SetBlockWriteBytesPerSecond sets BlockWriteBytesPerSecond field to given value.
+
+
+### SetBlockWriteBytesPerSecondNil
+
+`func (o *ContainerStats) SetBlockWriteBytesPerSecondNil(b bool)`
+
+ SetBlockWriteBytesPerSecondNil sets the value for BlockWriteBytesPerSecond to be an explicit nil
+
+### UnsetBlockWriteBytesPerSecond
+`func (o *ContainerStats) UnsetBlockWriteBytesPerSecond()`
+
+UnsetBlockWriteBytesPerSecond ensures that no value is present for BlockWriteBytesPerSecond, not even an explicit nil
 ### GetBlockWriteOps
 
 `func (o *ContainerStats) GetBlockWriteOps() int32`
@@ -125,24 +200,84 @@ and a boolean to check if the value has been set.
 SetBlockWriteOps sets BlockWriteOps field to given value.
 
 
-### GetCpuPercent
+### GetCpuPercentOfHost
 
-`func (o *ContainerStats) GetCpuPercent() float32`
+`func (o *ContainerStats) GetCpuPercentOfHost() float32`
 
-GetCpuPercent returns the CpuPercent field if non-nil, zero value otherwise.
+GetCpuPercentOfHost returns the CpuPercentOfHost field if non-nil, zero value otherwise.
 
-### GetCpuPercentOk
+### GetCpuPercentOfHostOk
 
-`func (o *ContainerStats) GetCpuPercentOk() (*float32, bool)`
+`func (o *ContainerStats) GetCpuPercentOfHostOk() (*float32, bool)`
 
-GetCpuPercentOk returns a tuple with the CpuPercent field if it's non-nil, zero value otherwise
+GetCpuPercentOfHostOk returns a tuple with the CpuPercentOfHost field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCpuPercent
+### SetCpuPercentOfHost
 
-`func (o *ContainerStats) SetCpuPercent(v float32)`
+`func (o *ContainerStats) SetCpuPercentOfHost(v float32)`
 
-SetCpuPercent sets CpuPercent field to given value.
+SetCpuPercentOfHost sets CpuPercentOfHost field to given value.
+
+
+### SetCpuPercentOfHostNil
+
+`func (o *ContainerStats) SetCpuPercentOfHostNil(b bool)`
+
+ SetCpuPercentOfHostNil sets the value for CpuPercentOfHost to be an explicit nil
+
+### UnsetCpuPercentOfHost
+`func (o *ContainerStats) UnsetCpuPercentOfHost()`
+
+UnsetCpuPercentOfHost ensures that no value is present for CpuPercentOfHost, not even an explicit nil
+### GetCpuPercentOfQuota
+
+`func (o *ContainerStats) GetCpuPercentOfQuota() float32`
+
+GetCpuPercentOfQuota returns the CpuPercentOfQuota field if non-nil, zero value otherwise.
+
+### GetCpuPercentOfQuotaOk
+
+`func (o *ContainerStats) GetCpuPercentOfQuotaOk() (*float32, bool)`
+
+GetCpuPercentOfQuotaOk returns a tuple with the CpuPercentOfQuota field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCpuPercentOfQuota
+
+`func (o *ContainerStats) SetCpuPercentOfQuota(v float32)`
+
+SetCpuPercentOfQuota sets CpuPercentOfQuota field to given value.
+
+
+### SetCpuPercentOfQuotaNil
+
+`func (o *ContainerStats) SetCpuPercentOfQuotaNil(b bool)`
+
+ SetCpuPercentOfQuotaNil sets the value for CpuPercentOfQuota to be an explicit nil
+
+### UnsetCpuPercentOfQuota
+`func (o *ContainerStats) UnsetCpuPercentOfQuota()`
+
+UnsetCpuPercentOfQuota ensures that no value is present for CpuPercentOfQuota, not even an explicit nil
+### GetCpuQuotaCores
+
+`func (o *ContainerStats) GetCpuQuotaCores() float32`
+
+GetCpuQuotaCores returns the CpuQuotaCores field if non-nil, zero value otherwise.
+
+### GetCpuQuotaCoresOk
+
+`func (o *ContainerStats) GetCpuQuotaCoresOk() (*float32, bool)`
+
+GetCpuQuotaCoresOk returns a tuple with the CpuQuotaCores field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCpuQuotaCores
+
+`func (o *ContainerStats) SetCpuQuotaCores(v float32)`
+
+SetCpuQuotaCores sets CpuQuotaCores field to given value.
 
 
 ### GetCpuSystemTime
@@ -165,6 +300,66 @@ and a boolean to check if the value has been set.
 SetCpuSystemTime sets CpuSystemTime field to given value.
 
 
+### GetCpuThrottledPercent
+
+`func (o *ContainerStats) GetCpuThrottledPercent() float32`
+
+GetCpuThrottledPercent returns the CpuThrottledPercent field if non-nil, zero value otherwise.
+
+### GetCpuThrottledPercentOk
+
+`func (o *ContainerStats) GetCpuThrottledPercentOk() (*float32, bool)`
+
+GetCpuThrottledPercentOk returns a tuple with the CpuThrottledPercent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCpuThrottledPercent
+
+`func (o *ContainerStats) SetCpuThrottledPercent(v float32)`
+
+SetCpuThrottledPercent sets CpuThrottledPercent field to given value.
+
+
+### SetCpuThrottledPercentNil
+
+`func (o *ContainerStats) SetCpuThrottledPercentNil(b bool)`
+
+ SetCpuThrottledPercentNil sets the value for CpuThrottledPercent to be an explicit nil
+
+### UnsetCpuThrottledPercent
+`func (o *ContainerStats) UnsetCpuThrottledPercent()`
+
+UnsetCpuThrottledPercent ensures that no value is present for CpuThrottledPercent, not even an explicit nil
+### GetCpuUsageCores
+
+`func (o *ContainerStats) GetCpuUsageCores() float32`
+
+GetCpuUsageCores returns the CpuUsageCores field if non-nil, zero value otherwise.
+
+### GetCpuUsageCoresOk
+
+`func (o *ContainerStats) GetCpuUsageCoresOk() (*float32, bool)`
+
+GetCpuUsageCoresOk returns a tuple with the CpuUsageCores field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCpuUsageCores
+
+`func (o *ContainerStats) SetCpuUsageCores(v float32)`
+
+SetCpuUsageCores sets CpuUsageCores field to given value.
+
+
+### SetCpuUsageCoresNil
+
+`func (o *ContainerStats) SetCpuUsageCoresNil(b bool)`
+
+ SetCpuUsageCoresNil sets the value for CpuUsageCores to be an explicit nil
+
+### UnsetCpuUsageCores
+`func (o *ContainerStats) UnsetCpuUsageCores()`
+
+UnsetCpuUsageCores ensures that no value is present for CpuUsageCores, not even an explicit nil
 ### GetCpuUserTime
 
 `func (o *ContainerStats) GetCpuUserTime() int32`
@@ -185,24 +380,84 @@ and a boolean to check if the value has been set.
 SetCpuUserTime sets CpuUserTime field to given value.
 
 
-### GetMemoryCache
+### GetMemoryAnon
 
-`func (o *ContainerStats) GetMemoryCache() int32`
+`func (o *ContainerStats) GetMemoryAnon() int32`
 
-GetMemoryCache returns the MemoryCache field if non-nil, zero value otherwise.
+GetMemoryAnon returns the MemoryAnon field if non-nil, zero value otherwise.
 
-### GetMemoryCacheOk
+### GetMemoryAnonOk
 
-`func (o *ContainerStats) GetMemoryCacheOk() (*int32, bool)`
+`func (o *ContainerStats) GetMemoryAnonOk() (*int32, bool)`
 
-GetMemoryCacheOk returns a tuple with the MemoryCache field if it's non-nil, zero value otherwise
+GetMemoryAnonOk returns a tuple with the MemoryAnon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMemoryCache
+### SetMemoryAnon
 
-`func (o *ContainerStats) SetMemoryCache(v int32)`
+`func (o *ContainerStats) SetMemoryAnon(v int32)`
 
-SetMemoryCache sets MemoryCache field to given value.
+SetMemoryAnon sets MemoryAnon field to given value.
+
+
+### GetMemoryCurrent
+
+`func (o *ContainerStats) GetMemoryCurrent() int32`
+
+GetMemoryCurrent returns the MemoryCurrent field if non-nil, zero value otherwise.
+
+### GetMemoryCurrentOk
+
+`func (o *ContainerStats) GetMemoryCurrentOk() (*int32, bool)`
+
+GetMemoryCurrentOk returns a tuple with the MemoryCurrent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryCurrent
+
+`func (o *ContainerStats) SetMemoryCurrent(v int32)`
+
+SetMemoryCurrent sets MemoryCurrent field to given value.
+
+
+### GetMemoryFile
+
+`func (o *ContainerStats) GetMemoryFile() int32`
+
+GetMemoryFile returns the MemoryFile field if non-nil, zero value otherwise.
+
+### GetMemoryFileOk
+
+`func (o *ContainerStats) GetMemoryFileOk() (*int32, bool)`
+
+GetMemoryFileOk returns a tuple with the MemoryFile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryFile
+
+`func (o *ContainerStats) SetMemoryFile(v int32)`
+
+SetMemoryFile sets MemoryFile field to given value.
+
+
+### GetMemoryInactiveFile
+
+`func (o *ContainerStats) GetMemoryInactiveFile() int32`
+
+GetMemoryInactiveFile returns the MemoryInactiveFile field if non-nil, zero value otherwise.
+
+### GetMemoryInactiveFileOk
+
+`func (o *ContainerStats) GetMemoryInactiveFileOk() (*int32, bool)`
+
+GetMemoryInactiveFileOk returns a tuple with the MemoryInactiveFile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryInactiveFile
+
+`func (o *ContainerStats) SetMemoryInactiveFile(v int32)`
+
+SetMemoryInactiveFile sets MemoryInactiveFile field to given value.
 
 
 ### GetMemoryLimit
@@ -225,46 +480,106 @@ and a boolean to check if the value has been set.
 SetMemoryLimit sets MemoryLimit field to given value.
 
 
-### GetMemoryPercent
+### GetMemoryLimitHits
 
-`func (o *ContainerStats) GetMemoryPercent() float32`
+`func (o *ContainerStats) GetMemoryLimitHits() int32`
 
-GetMemoryPercent returns the MemoryPercent field if non-nil, zero value otherwise.
+GetMemoryLimitHits returns the MemoryLimitHits field if non-nil, zero value otherwise.
 
-### GetMemoryPercentOk
+### GetMemoryLimitHitsOk
 
-`func (o *ContainerStats) GetMemoryPercentOk() (*float32, bool)`
+`func (o *ContainerStats) GetMemoryLimitHitsOk() (*int32, bool)`
 
-GetMemoryPercentOk returns a tuple with the MemoryPercent field if it's non-nil, zero value otherwise
+GetMemoryLimitHitsOk returns a tuple with the MemoryLimitHits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMemoryPercent
+### SetMemoryLimitHits
 
-`func (o *ContainerStats) SetMemoryPercent(v float32)`
+`func (o *ContainerStats) SetMemoryLimitHits(v int32)`
 
-SetMemoryPercent sets MemoryPercent field to given value.
+SetMemoryLimitHits sets MemoryLimitHits field to given value.
 
 
-### GetMemoryRss
+### GetMemoryPeak
 
-`func (o *ContainerStats) GetMemoryRss() int32`
+`func (o *ContainerStats) GetMemoryPeak() int32`
 
-GetMemoryRss returns the MemoryRss field if non-nil, zero value otherwise.
+GetMemoryPeak returns the MemoryPeak field if non-nil, zero value otherwise.
 
-### GetMemoryRssOk
+### GetMemoryPeakOk
 
-`func (o *ContainerStats) GetMemoryRssOk() (*int32, bool)`
+`func (o *ContainerStats) GetMemoryPeakOk() (*int32, bool)`
 
-GetMemoryRssOk returns a tuple with the MemoryRss field if it's non-nil, zero value otherwise
+GetMemoryPeakOk returns a tuple with the MemoryPeak field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMemoryRss
+### SetMemoryPeak
 
-`func (o *ContainerStats) SetMemoryRss(v int32)`
+`func (o *ContainerStats) SetMemoryPeak(v int32)`
 
-SetMemoryRss sets MemoryRss field to given value.
+SetMemoryPeak sets MemoryPeak field to given value.
 
 
+### GetMemoryPercentOfHost
+
+`func (o *ContainerStats) GetMemoryPercentOfHost() float32`
+
+GetMemoryPercentOfHost returns the MemoryPercentOfHost field if non-nil, zero value otherwise.
+
+### GetMemoryPercentOfHostOk
+
+`func (o *ContainerStats) GetMemoryPercentOfHostOk() (*float32, bool)`
+
+GetMemoryPercentOfHostOk returns a tuple with the MemoryPercentOfHost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryPercentOfHost
+
+`func (o *ContainerStats) SetMemoryPercentOfHost(v float32)`
+
+SetMemoryPercentOfHost sets MemoryPercentOfHost field to given value.
+
+
+### SetMemoryPercentOfHostNil
+
+`func (o *ContainerStats) SetMemoryPercentOfHostNil(b bool)`
+
+ SetMemoryPercentOfHostNil sets the value for MemoryPercentOfHost to be an explicit nil
+
+### UnsetMemoryPercentOfHost
+`func (o *ContainerStats) UnsetMemoryPercentOfHost()`
+
+UnsetMemoryPercentOfHost ensures that no value is present for MemoryPercentOfHost, not even an explicit nil
+### GetMemoryPercentOfLimit
+
+`func (o *ContainerStats) GetMemoryPercentOfLimit() float32`
+
+GetMemoryPercentOfLimit returns the MemoryPercentOfLimit field if non-nil, zero value otherwise.
+
+### GetMemoryPercentOfLimitOk
+
+`func (o *ContainerStats) GetMemoryPercentOfLimitOk() (*float32, bool)`
+
+GetMemoryPercentOfLimitOk returns a tuple with the MemoryPercentOfLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryPercentOfLimit
+
+`func (o *ContainerStats) SetMemoryPercentOfLimit(v float32)`
+
+SetMemoryPercentOfLimit sets MemoryPercentOfLimit field to given value.
+
+
+### SetMemoryPercentOfLimitNil
+
+`func (o *ContainerStats) SetMemoryPercentOfLimitNil(b bool)`
+
+ SetMemoryPercentOfLimitNil sets the value for MemoryPercentOfLimit to be an explicit nil
+
+### UnsetMemoryPercentOfLimit
+`func (o *ContainerStats) UnsetMemoryPercentOfLimit()`
+
+UnsetMemoryPercentOfLimit ensures that no value is present for MemoryPercentOfLimit, not even an explicit nil
 ### GetMemorySwap
 
 `func (o *ContainerStats) GetMemorySwap() int32`
@@ -285,24 +600,24 @@ and a boolean to check if the value has been set.
 SetMemorySwap sets MemorySwap field to given value.
 
 
-### GetMemoryUsage
+### GetMemoryWorkingSet
 
-`func (o *ContainerStats) GetMemoryUsage() int32`
+`func (o *ContainerStats) GetMemoryWorkingSet() int32`
 
-GetMemoryUsage returns the MemoryUsage field if non-nil, zero value otherwise.
+GetMemoryWorkingSet returns the MemoryWorkingSet field if non-nil, zero value otherwise.
 
-### GetMemoryUsageOk
+### GetMemoryWorkingSetOk
 
-`func (o *ContainerStats) GetMemoryUsageOk() (*int32, bool)`
+`func (o *ContainerStats) GetMemoryWorkingSetOk() (*int32, bool)`
 
-GetMemoryUsageOk returns a tuple with the MemoryUsage field if it's non-nil, zero value otherwise
+GetMemoryWorkingSetOk returns a tuple with the MemoryWorkingSet field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMemoryUsage
+### SetMemoryWorkingSet
 
-`func (o *ContainerStats) SetMemoryUsage(v int32)`
+`func (o *ContainerStats) SetMemoryWorkingSet(v int32)`
 
-SetMemoryUsage sets MemoryUsage field to given value.
+SetMemoryWorkingSet sets MemoryWorkingSet field to given value.
 
 
 ### GetName
@@ -345,6 +660,36 @@ and a boolean to check if the value has been set.
 SetNetworkRxBytes sets NetworkRxBytes field to given value.
 
 
+### GetNetworkRxBytesPerSecond
+
+`func (o *ContainerStats) GetNetworkRxBytesPerSecond() float32`
+
+GetNetworkRxBytesPerSecond returns the NetworkRxBytesPerSecond field if non-nil, zero value otherwise.
+
+### GetNetworkRxBytesPerSecondOk
+
+`func (o *ContainerStats) GetNetworkRxBytesPerSecondOk() (*float32, bool)`
+
+GetNetworkRxBytesPerSecondOk returns a tuple with the NetworkRxBytesPerSecond field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkRxBytesPerSecond
+
+`func (o *ContainerStats) SetNetworkRxBytesPerSecond(v float32)`
+
+SetNetworkRxBytesPerSecond sets NetworkRxBytesPerSecond field to given value.
+
+
+### SetNetworkRxBytesPerSecondNil
+
+`func (o *ContainerStats) SetNetworkRxBytesPerSecondNil(b bool)`
+
+ SetNetworkRxBytesPerSecondNil sets the value for NetworkRxBytesPerSecond to be an explicit nil
+
+### UnsetNetworkRxBytesPerSecond
+`func (o *ContainerStats) UnsetNetworkRxBytesPerSecond()`
+
+UnsetNetworkRxBytesPerSecond ensures that no value is present for NetworkRxBytesPerSecond, not even an explicit nil
 ### GetNetworkRxPackets
 
 `func (o *ContainerStats) GetNetworkRxPackets() int32`
@@ -385,6 +730,36 @@ and a boolean to check if the value has been set.
 SetNetworkTxBytes sets NetworkTxBytes field to given value.
 
 
+### GetNetworkTxBytesPerSecond
+
+`func (o *ContainerStats) GetNetworkTxBytesPerSecond() float32`
+
+GetNetworkTxBytesPerSecond returns the NetworkTxBytesPerSecond field if non-nil, zero value otherwise.
+
+### GetNetworkTxBytesPerSecondOk
+
+`func (o *ContainerStats) GetNetworkTxBytesPerSecondOk() (*float32, bool)`
+
+GetNetworkTxBytesPerSecondOk returns a tuple with the NetworkTxBytesPerSecond field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkTxBytesPerSecond
+
+`func (o *ContainerStats) SetNetworkTxBytesPerSecond(v float32)`
+
+SetNetworkTxBytesPerSecond sets NetworkTxBytesPerSecond field to given value.
+
+
+### SetNetworkTxBytesPerSecondNil
+
+`func (o *ContainerStats) SetNetworkTxBytesPerSecondNil(b bool)`
+
+ SetNetworkTxBytesPerSecondNil sets the value for NetworkTxBytesPerSecond to be an explicit nil
+
+### UnsetNetworkTxBytesPerSecond
+`func (o *ContainerStats) UnsetNetworkTxBytesPerSecond()`
+
+UnsetNetworkTxBytesPerSecond ensures that no value is present for NetworkTxBytesPerSecond, not even an explicit nil
 ### GetNetworkTxPackets
 
 `func (o *ContainerStats) GetNetworkTxPackets() int32`
@@ -403,6 +778,26 @@ and a boolean to check if the value has been set.
 `func (o *ContainerStats) SetNetworkTxPackets(v int32)`
 
 SetNetworkTxPackets sets NetworkTxPackets field to given value.
+
+
+### GetOomKills
+
+`func (o *ContainerStats) GetOomKills() int32`
+
+GetOomKills returns the OomKills field if non-nil, zero value otherwise.
+
+### GetOomKillsOk
+
+`func (o *ContainerStats) GetOomKillsOk() (*int32, bool)`
+
+GetOomKillsOk returns a tuple with the OomKills field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOomKills
+
+`func (o *ContainerStats) SetOomKills(v int32)`
+
+SetOomKills sets OomKills field to given value.
 
 
 ### GetPageFaults
@@ -463,6 +858,26 @@ and a boolean to check if the value has been set.
 `func (o *ContainerStats) SetServiceName(v string)`
 
 SetServiceName sets ServiceName field to given value.
+
+
+### GetState
+
+`func (o *ContainerStats) GetState() string`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *ContainerStats) GetStateOk() (*string, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *ContainerStats) SetState(v string)`
+
+SetState sets State field to given value.
 
 
 

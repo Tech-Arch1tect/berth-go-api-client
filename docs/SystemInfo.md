@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **KernelVersion** | **string** |  | 
 **Ncpu** | **int32** |  | 
 **Os** | **string** |  | 
-**ServerVersion** | **string** |  | 
 **StorageDriver** | **string** |  | 
 **TotalMemory** | **int32** |  | 
 **Version** | **string** |  | 
@@ -19,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewSystemInfo
 
-`func NewSystemInfo(apiVersion string, architecture string, dockerRootDir string, kernelVersion string, ncpu int32, os string, serverVersion string, storageDriver string, totalMemory int32, version string, ) *SystemInfo`
+`func NewSystemInfo(apiVersion string, architecture string, dockerRootDir string, kernelVersion string, ncpu int32, os string, storageDriver string, totalMemory int32, version string, ) *SystemInfo`
 
 NewSystemInfo instantiates a new SystemInfo object
 This constructor will assign default values to properties that have it defined,
@@ -152,26 +151,6 @@ and a boolean to check if the value has been set.
 `func (o *SystemInfo) SetOs(v string)`
 
 SetOs sets Os field to given value.
-
-
-### GetServerVersion
-
-`func (o *SystemInfo) GetServerVersion() string`
-
-GetServerVersion returns the ServerVersion field if non-nil, zero value otherwise.
-
-### GetServerVersionOk
-
-`func (o *SystemInfo) GetServerVersionOk() (*string, bool)`
-
-GetServerVersionOk returns a tuple with the ServerVersion field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServerVersion
-
-`func (o *SystemInfo) SetServerVersion(v string)`
-
-SetServerVersion sets ServerVersion field to given value.
 
 
 ### GetStorageDriver

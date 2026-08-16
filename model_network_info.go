@@ -28,6 +28,7 @@ type NetworkInfo struct {
 	Internal bool `json:"internal"`
 	Labels map[string]string `json:"labels"`
 	Name string `json:"name"`
+	Removal string `json:"removal"`
 	Scope string `json:"scope"`
 	Subnet string `json:"subnet"`
 	Unused bool `json:"unused"`
@@ -39,7 +40,7 @@ type _NetworkInfo NetworkInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNetworkInfo(created time.Time, driver string, id string, internal bool, labels map[string]string, name string, scope string, subnet string, unused bool) *NetworkInfo {
+func NewNetworkInfo(created time.Time, driver string, id string, internal bool, labels map[string]string, name string, removal string, scope string, subnet string, unused bool) *NetworkInfo {
 	this := NetworkInfo{}
 	this.Created = created
 	this.Driver = driver
@@ -47,6 +48,7 @@ func NewNetworkInfo(created time.Time, driver string, id string, internal bool, 
 	this.Internal = internal
 	this.Labels = labels
 	this.Name = name
+	this.Removal = removal
 	this.Scope = scope
 	this.Subnet = subnet
 	this.Unused = unused
@@ -205,6 +207,30 @@ func (o *NetworkInfo) SetName(v string) {
 	o.Name = v
 }
 
+// GetRemoval returns the Removal field value
+func (o *NetworkInfo) GetRemoval() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Removal
+}
+
+// GetRemovalOk returns a tuple with the Removal field value
+// and a boolean to check if the value has been set.
+func (o *NetworkInfo) GetRemovalOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Removal, true
+}
+
+// SetRemoval sets field value
+func (o *NetworkInfo) SetRemoval(v string) {
+	o.Removal = v
+}
+
 // GetScope returns the Scope field value
 func (o *NetworkInfo) GetScope() string {
 	if o == nil {
@@ -293,6 +319,7 @@ func (o NetworkInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["internal"] = o.Internal
 	toSerialize["labels"] = o.Labels
 	toSerialize["name"] = o.Name
+	toSerialize["removal"] = o.Removal
 	toSerialize["scope"] = o.Scope
 	toSerialize["subnet"] = o.Subnet
 	toSerialize["unused"] = o.Unused
@@ -310,6 +337,7 @@ func (o *NetworkInfo) UnmarshalJSON(data []byte) (err error) {
 		"internal",
 		"labels",
 		"name",
+		"removal",
 		"scope",
 		"subnet",
 		"unused",

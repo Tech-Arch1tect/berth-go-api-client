@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Internal** | **bool** |  | 
 **Labels** | **map[string]string** |  | 
 **Name** | **string** |  | 
+**Removal** | **string** |  | 
 **Scope** | **string** |  | 
 **Subnet** | **string** |  | 
 **Unused** | **bool** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewNetworkInfo
 
-`func NewNetworkInfo(created time.Time, driver string, id string, internal bool, labels map[string]string, name string, scope string, subnet string, unused bool, ) *NetworkInfo`
+`func NewNetworkInfo(created time.Time, driver string, id string, internal bool, labels map[string]string, name string, removal string, scope string, subnet string, unused bool, ) *NetworkInfo`
 
 NewNetworkInfo instantiates a new NetworkInfo object
 This constructor will assign default values to properties that have it defined,
@@ -151,6 +152,26 @@ and a boolean to check if the value has been set.
 `func (o *NetworkInfo) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetRemoval
+
+`func (o *NetworkInfo) GetRemoval() string`
+
+GetRemoval returns the Removal field if non-nil, zero value otherwise.
+
+### GetRemovalOk
+
+`func (o *NetworkInfo) GetRemovalOk() (*string, bool)`
+
+GetRemovalOk returns a tuple with the Removal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemoval
+
+`func (o *NetworkInfo) SetRemoval(v string)`
+
+SetRemoval sets Removal field to given value.
 
 
 ### GetScope

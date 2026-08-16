@@ -27,7 +27,6 @@ type SystemInfo struct {
 	KernelVersion string `json:"kernel_version"`
 	Ncpu int32 `json:"ncpu"`
 	Os string `json:"os"`
-	ServerVersion string `json:"server_version"`
 	StorageDriver string `json:"storage_driver"`
 	TotalMemory int32 `json:"total_memory"`
 	Version string `json:"version"`
@@ -39,7 +38,7 @@ type _SystemInfo SystemInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSystemInfo(apiVersion string, architecture string, dockerRootDir string, kernelVersion string, ncpu int32, os string, serverVersion string, storageDriver string, totalMemory int32, version string) *SystemInfo {
+func NewSystemInfo(apiVersion string, architecture string, dockerRootDir string, kernelVersion string, ncpu int32, os string, storageDriver string, totalMemory int32, version string) *SystemInfo {
 	this := SystemInfo{}
 	this.ApiVersion = apiVersion
 	this.Architecture = architecture
@@ -47,7 +46,6 @@ func NewSystemInfo(apiVersion string, architecture string, dockerRootDir string,
 	this.KernelVersion = kernelVersion
 	this.Ncpu = ncpu
 	this.Os = os
-	this.ServerVersion = serverVersion
 	this.StorageDriver = storageDriver
 	this.TotalMemory = totalMemory
 	this.Version = version
@@ -206,30 +204,6 @@ func (o *SystemInfo) SetOs(v string) {
 	o.Os = v
 }
 
-// GetServerVersion returns the ServerVersion field value
-func (o *SystemInfo) GetServerVersion() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServerVersion
-}
-
-// GetServerVersionOk returns a tuple with the ServerVersion field value
-// and a boolean to check if the value has been set.
-func (o *SystemInfo) GetServerVersionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServerVersion, true
-}
-
-// SetServerVersion sets field value
-func (o *SystemInfo) SetServerVersion(v string) {
-	o.ServerVersion = v
-}
-
 // GetStorageDriver returns the StorageDriver field value
 func (o *SystemInfo) GetStorageDriver() string {
 	if o == nil {
@@ -318,7 +292,6 @@ func (o SystemInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["kernel_version"] = o.KernelVersion
 	toSerialize["ncpu"] = o.Ncpu
 	toSerialize["os"] = o.Os
-	toSerialize["server_version"] = o.ServerVersion
 	toSerialize["storage_driver"] = o.StorageDriver
 	toSerialize["total_memory"] = o.TotalMemory
 	toSerialize["version"] = o.Version
@@ -336,7 +309,6 @@ func (o *SystemInfo) UnmarshalJSON(data []byte) (err error) {
 		"kernel_version",
 		"ncpu",
 		"os",
-		"server_version",
 		"storage_driver",
 		"total_memory",
 		"version",

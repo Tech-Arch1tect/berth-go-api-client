@@ -12,6 +12,7 @@ package berth
 
 import (
 	"encoding/json"
+	"time"
 	"bytes"
 	"fmt"
 )
@@ -21,7 +22,10 @@ var _ MappedNullable = &StackStats{}
 
 // StackStats struct for StackStats
 type StackStats struct {
+	CollectedAt time.Time `json:"collected_at"`
 	Containers []ContainerStats `json:"containers"`
+	Host HostStats `json:"host"`
+	SampleWindowSeconds NullableFloat32 `json:"sample_window_seconds"`
 	StackName string `json:"stack_name"`
 }
 
@@ -31,9 +35,12 @@ type _StackStats StackStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStackStats(containers []ContainerStats, stackName string) *StackStats {
+func NewStackStats(collectedAt time.Time, containers []ContainerStats, host HostStats, sampleWindowSeconds NullableFloat32, stackName string) *StackStats {
 	this := StackStats{}
+	this.CollectedAt = collectedAt
 	this.Containers = containers
+	this.Host = host
+	this.SampleWindowSeconds = sampleWindowSeconds
 	this.StackName = stackName
 	return &this
 }
@@ -44,6 +51,30 @@ func NewStackStats(containers []ContainerStats, stackName string) *StackStats {
 func NewStackStatsWithDefaults() *StackStats {
 	this := StackStats{}
 	return &this
+}
+
+// GetCollectedAt returns the CollectedAt field value
+func (o *StackStats) GetCollectedAt() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CollectedAt
+}
+
+// GetCollectedAtOk returns a tuple with the CollectedAt field value
+// and a boolean to check if the value has been set.
+func (o *StackStats) GetCollectedAtOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CollectedAt, true
+}
+
+// SetCollectedAt sets field value
+func (o *StackStats) SetCollectedAt(v time.Time) {
+	o.CollectedAt = v
 }
 
 // GetContainers returns the Containers field value
@@ -68,6 +99,56 @@ func (o *StackStats) GetContainersOk() ([]ContainerStats, bool) {
 // SetContainers sets field value
 func (o *StackStats) SetContainers(v []ContainerStats) {
 	o.Containers = v
+}
+
+// GetHost returns the Host field value
+func (o *StackStats) GetHost() HostStats {
+	if o == nil {
+		var ret HostStats
+		return ret
+	}
+
+	return o.Host
+}
+
+// GetHostOk returns a tuple with the Host field value
+// and a boolean to check if the value has been set.
+func (o *StackStats) GetHostOk() (*HostStats, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Host, true
+}
+
+// SetHost sets field value
+func (o *StackStats) SetHost(v HostStats) {
+	o.Host = v
+}
+
+// GetSampleWindowSeconds returns the SampleWindowSeconds field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *StackStats) GetSampleWindowSeconds() float32 {
+	if o == nil || o.SampleWindowSeconds.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.SampleWindowSeconds.Get()
+}
+
+// GetSampleWindowSecondsOk returns a tuple with the SampleWindowSeconds field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StackStats) GetSampleWindowSecondsOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SampleWindowSeconds.Get(), o.SampleWindowSeconds.IsSet()
+}
+
+// SetSampleWindowSeconds sets field value
+func (o *StackStats) SetSampleWindowSeconds(v float32) {
+	o.SampleWindowSeconds.Set(&v)
 }
 
 // GetStackName returns the StackName field value
@@ -104,7 +185,10 @@ func (o StackStats) MarshalJSON() ([]byte, error) {
 
 func (o StackStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["collected_at"] = o.CollectedAt
 	toSerialize["containers"] = o.Containers
+	toSerialize["host"] = o.Host
+	toSerialize["sample_window_seconds"] = o.SampleWindowSeconds.Get()
 	toSerialize["stack_name"] = o.StackName
 	return toSerialize, nil
 }
@@ -114,7 +198,10 @@ func (o *StackStats) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"collected_at",
 		"containers",
+		"host",
+		"sample_window_seconds",
 		"stack_name",
 	}
 

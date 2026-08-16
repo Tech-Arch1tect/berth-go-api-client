@@ -22,8 +22,7 @@ var _ MappedNullable = &BuildCacheSummary{}
 // BuildCacheSummary struct for BuildCacheSummary
 type BuildCacheSummary struct {
 	Cache []BuildCacheInfo `json:"cache"`
-	TotalCount int32 `json:"total_count"`
-	TotalSize int32 `json:"total_size"`
+	Total Amount `json:"total"`
 }
 
 type _BuildCacheSummary BuildCacheSummary
@@ -32,11 +31,10 @@ type _BuildCacheSummary BuildCacheSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildCacheSummary(cache []BuildCacheInfo, totalCount int32, totalSize int32) *BuildCacheSummary {
+func NewBuildCacheSummary(cache []BuildCacheInfo, total Amount) *BuildCacheSummary {
 	this := BuildCacheSummary{}
 	this.Cache = cache
-	this.TotalCount = totalCount
-	this.TotalSize = totalSize
+	this.Total = total
 	return &this
 }
 
@@ -72,52 +70,28 @@ func (o *BuildCacheSummary) SetCache(v []BuildCacheInfo) {
 	o.Cache = v
 }
 
-// GetTotalCount returns the TotalCount field value
-func (o *BuildCacheSummary) GetTotalCount() int32 {
+// GetTotal returns the Total field value
+func (o *BuildCacheSummary) GetTotal() Amount {
 	if o == nil {
-		var ret int32
+		var ret Amount
 		return ret
 	}
 
-	return o.TotalCount
+	return o.Total
 }
 
-// GetTotalCountOk returns a tuple with the TotalCount field value
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *BuildCacheSummary) GetTotalCountOk() (*int32, bool) {
+func (o *BuildCacheSummary) GetTotalOk() (*Amount, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TotalCount, true
+	return &o.Total, true
 }
 
-// SetTotalCount sets field value
-func (o *BuildCacheSummary) SetTotalCount(v int32) {
-	o.TotalCount = v
-}
-
-// GetTotalSize returns the TotalSize field value
-func (o *BuildCacheSummary) GetTotalSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.TotalSize
-}
-
-// GetTotalSizeOk returns a tuple with the TotalSize field value
-// and a boolean to check if the value has been set.
-func (o *BuildCacheSummary) GetTotalSizeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TotalSize, true
-}
-
-// SetTotalSize sets field value
-func (o *BuildCacheSummary) SetTotalSize(v int32) {
-	o.TotalSize = v
+// SetTotal sets field value
+func (o *BuildCacheSummary) SetTotal(v Amount) {
+	o.Total = v
 }
 
 func (o BuildCacheSummary) MarshalJSON() ([]byte, error) {
@@ -131,8 +105,7 @@ func (o BuildCacheSummary) MarshalJSON() ([]byte, error) {
 func (o BuildCacheSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cache"] = o.Cache
-	toSerialize["total_count"] = o.TotalCount
-	toSerialize["total_size"] = o.TotalSize
+	toSerialize["total"] = o.Total
 	return toSerialize, nil
 }
 
@@ -142,8 +115,7 @@ func (o *BuildCacheSummary) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"cache",
-		"total_count",
-		"total_size",
+		"total",
 	}
 
 	allProperties := make(map[string]interface{})

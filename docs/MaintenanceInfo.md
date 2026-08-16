@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BuildCacheSummary** | [**BuildCacheSummary**](BuildCacheSummary.md) |  | 
 **ContainerSummary** | [**ContainerSummary**](ContainerSummary.md) |  | 
-**DiskUsage** | [**DiskUsage**](DiskUsage.md) |  | 
 **ImageSummary** | [**ImageSummary**](ImageSummary.md) |  | 
 **LastUpdated** | **time.Time** |  | 
 **NetworkSummary** | [**NetworkSummary**](NetworkSummary.md) |  | 
+**SystemCleanupCovers** | **[]string** |  | 
 **SystemInfo** | [**SystemInfo**](SystemInfo.md) |  | 
 **VolumeSummary** | [**VolumeSummary**](VolumeSummary.md) |  | 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewMaintenanceInfo
 
-`func NewMaintenanceInfo(buildCacheSummary BuildCacheSummary, containerSummary ContainerSummary, diskUsage DiskUsage, imageSummary ImageSummary, lastUpdated time.Time, networkSummary NetworkSummary, systemInfo SystemInfo, volumeSummary VolumeSummary, ) *MaintenanceInfo`
+`func NewMaintenanceInfo(buildCacheSummary BuildCacheSummary, containerSummary ContainerSummary, imageSummary ImageSummary, lastUpdated time.Time, networkSummary NetworkSummary, systemCleanupCovers []string, systemInfo SystemInfo, volumeSummary VolumeSummary, ) *MaintenanceInfo`
 
 NewMaintenanceInfo instantiates a new MaintenanceInfo object
 This constructor will assign default values to properties that have it defined,
@@ -70,26 +70,6 @@ and a boolean to check if the value has been set.
 `func (o *MaintenanceInfo) SetContainerSummary(v ContainerSummary)`
 
 SetContainerSummary sets ContainerSummary field to given value.
-
-
-### GetDiskUsage
-
-`func (o *MaintenanceInfo) GetDiskUsage() DiskUsage`
-
-GetDiskUsage returns the DiskUsage field if non-nil, zero value otherwise.
-
-### GetDiskUsageOk
-
-`func (o *MaintenanceInfo) GetDiskUsageOk() (*DiskUsage, bool)`
-
-GetDiskUsageOk returns a tuple with the DiskUsage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDiskUsage
-
-`func (o *MaintenanceInfo) SetDiskUsage(v DiskUsage)`
-
-SetDiskUsage sets DiskUsage field to given value.
 
 
 ### GetImageSummary
@@ -150,6 +130,26 @@ and a boolean to check if the value has been set.
 `func (o *MaintenanceInfo) SetNetworkSummary(v NetworkSummary)`
 
 SetNetworkSummary sets NetworkSummary field to given value.
+
+
+### GetSystemCleanupCovers
+
+`func (o *MaintenanceInfo) GetSystemCleanupCovers() []string`
+
+GetSystemCleanupCovers returns the SystemCleanupCovers field if non-nil, zero value otherwise.
+
+### GetSystemCleanupCoversOk
+
+`func (o *MaintenanceInfo) GetSystemCleanupCoversOk() (*[]string, bool)`
+
+GetSystemCleanupCoversOk returns a tuple with the SystemCleanupCovers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSystemCleanupCovers
+
+`func (o *MaintenanceInfo) SetSystemCleanupCovers(v []string)`
+
+SetSystemCleanupCovers sets SystemCleanupCovers field to given value.
 
 
 ### GetSystemInfo

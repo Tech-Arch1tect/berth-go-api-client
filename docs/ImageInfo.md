@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Containers** | **int32** |  | 
 **Created** | **time.Time** |  | 
 **Dangling** | **bool** |  | 
 **Id** | **string** |  | 
-**Repository** | **string** |  | 
+**Removal** | **string** |  | 
+**SharedSize** | **int32** |  | 
 **Size** | **int32** |  | 
-**Tag** | **string** |  | 
+**Tags** | **[]string** |  | 
 **Unused** | **bool** |  | 
 
 ## Methods
 
 ### NewImageInfo
 
-`func NewImageInfo(created time.Time, dangling bool, id string, repository string, size int32, tag string, unused bool, ) *ImageInfo`
+`func NewImageInfo(containers int32, created time.Time, dangling bool, id string, removal string, sharedSize int32, size int32, tags []string, unused bool, ) *ImageInfo`
 
 NewImageInfo instantiates a new ImageInfo object
 This constructor will assign default values to properties that have it defined,
@@ -30,6 +32,26 @@ will change when the set of required properties is changed
 NewImageInfoWithDefaults instantiates a new ImageInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetContainers
+
+`func (o *ImageInfo) GetContainers() int32`
+
+GetContainers returns the Containers field if non-nil, zero value otherwise.
+
+### GetContainersOk
+
+`func (o *ImageInfo) GetContainersOk() (*int32, bool)`
+
+GetContainersOk returns a tuple with the Containers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainers
+
+`func (o *ImageInfo) SetContainers(v int32)`
+
+SetContainers sets Containers field to given value.
+
 
 ### GetCreated
 
@@ -91,24 +113,44 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetRepository
+### GetRemoval
 
-`func (o *ImageInfo) GetRepository() string`
+`func (o *ImageInfo) GetRemoval() string`
 
-GetRepository returns the Repository field if non-nil, zero value otherwise.
+GetRemoval returns the Removal field if non-nil, zero value otherwise.
 
-### GetRepositoryOk
+### GetRemovalOk
 
-`func (o *ImageInfo) GetRepositoryOk() (*string, bool)`
+`func (o *ImageInfo) GetRemovalOk() (*string, bool)`
 
-GetRepositoryOk returns a tuple with the Repository field if it's non-nil, zero value otherwise
+GetRemovalOk returns a tuple with the Removal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRepository
+### SetRemoval
 
-`func (o *ImageInfo) SetRepository(v string)`
+`func (o *ImageInfo) SetRemoval(v string)`
 
-SetRepository sets Repository field to given value.
+SetRemoval sets Removal field to given value.
+
+
+### GetSharedSize
+
+`func (o *ImageInfo) GetSharedSize() int32`
+
+GetSharedSize returns the SharedSize field if non-nil, zero value otherwise.
+
+### GetSharedSizeOk
+
+`func (o *ImageInfo) GetSharedSizeOk() (*int32, bool)`
+
+GetSharedSizeOk returns a tuple with the SharedSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedSize
+
+`func (o *ImageInfo) SetSharedSize(v int32)`
+
+SetSharedSize sets SharedSize field to given value.
 
 
 ### GetSize
@@ -131,24 +173,24 @@ and a boolean to check if the value has been set.
 SetSize sets Size field to given value.
 
 
-### GetTag
+### GetTags
 
-`func (o *ImageInfo) GetTag() string`
+`func (o *ImageInfo) GetTags() []string`
 
-GetTag returns the Tag field if non-nil, zero value otherwise.
+GetTags returns the Tags field if non-nil, zero value otherwise.
 
-### GetTagOk
+### GetTagsOk
 
-`func (o *ImageInfo) GetTagOk() (*string, bool)`
+`func (o *ImageInfo) GetTagsOk() (*[]string, bool)`
 
-GetTagOk returns a tuple with the Tag field if it's non-nil, zero value otherwise
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTag
+### SetTags
 
-`func (o *ImageInfo) SetTag(v string)`
+`func (o *ImageInfo) SetTags(v []string)`
 
-SetTag sets Tag field to given value.
+SetTags sets Tags field to given value.
 
 
 ### GetUnused

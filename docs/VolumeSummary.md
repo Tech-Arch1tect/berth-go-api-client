@@ -4,17 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalCount** | **int32** |  | 
-**TotalSize** | **int32** |  | 
-**UnusedCount** | **int32** |  | 
-**UnusedSize** | **int32** |  | 
+**Total** | [**Amount**](Amount.md) |  | 
+**Unused** | [**Amount**](Amount.md) |  | 
 **Volumes** | [**[]VolumeInfo**](VolumeInfo.md) |  | 
 
 ## Methods
 
 ### NewVolumeSummary
 
-`func NewVolumeSummary(totalCount int32, totalSize int32, unusedCount int32, unusedSize int32, volumes []VolumeInfo, ) *VolumeSummary`
+`func NewVolumeSummary(total Amount, unused Amount, volumes []VolumeInfo, ) *VolumeSummary`
 
 NewVolumeSummary instantiates a new VolumeSummary object
 This constructor will assign default values to properties that have it defined,
@@ -29,84 +27,44 @@ NewVolumeSummaryWithDefaults instantiates a new VolumeSummary object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTotalCount
+### GetTotal
 
-`func (o *VolumeSummary) GetTotalCount() int32`
+`func (o *VolumeSummary) GetTotal() Amount`
 
-GetTotalCount returns the TotalCount field if non-nil, zero value otherwise.
+GetTotal returns the Total field if non-nil, zero value otherwise.
 
-### GetTotalCountOk
+### GetTotalOk
 
-`func (o *VolumeSummary) GetTotalCountOk() (*int32, bool)`
+`func (o *VolumeSummary) GetTotalOk() (*Amount, bool)`
 
-GetTotalCountOk returns a tuple with the TotalCount field if it's non-nil, zero value otherwise
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalCount
+### SetTotal
 
-`func (o *VolumeSummary) SetTotalCount(v int32)`
+`func (o *VolumeSummary) SetTotal(v Amount)`
 
-SetTotalCount sets TotalCount field to given value.
+SetTotal sets Total field to given value.
 
 
-### GetTotalSize
+### GetUnused
 
-`func (o *VolumeSummary) GetTotalSize() int32`
+`func (o *VolumeSummary) GetUnused() Amount`
 
-GetTotalSize returns the TotalSize field if non-nil, zero value otherwise.
+GetUnused returns the Unused field if non-nil, zero value otherwise.
 
-### GetTotalSizeOk
+### GetUnusedOk
 
-`func (o *VolumeSummary) GetTotalSizeOk() (*int32, bool)`
+`func (o *VolumeSummary) GetUnusedOk() (*Amount, bool)`
 
-GetTotalSizeOk returns a tuple with the TotalSize field if it's non-nil, zero value otherwise
+GetUnusedOk returns a tuple with the Unused field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalSize
+### SetUnused
 
-`func (o *VolumeSummary) SetTotalSize(v int32)`
+`func (o *VolumeSummary) SetUnused(v Amount)`
 
-SetTotalSize sets TotalSize field to given value.
-
-
-### GetUnusedCount
-
-`func (o *VolumeSummary) GetUnusedCount() int32`
-
-GetUnusedCount returns the UnusedCount field if non-nil, zero value otherwise.
-
-### GetUnusedCountOk
-
-`func (o *VolumeSummary) GetUnusedCountOk() (*int32, bool)`
-
-GetUnusedCountOk returns a tuple with the UnusedCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUnusedCount
-
-`func (o *VolumeSummary) SetUnusedCount(v int32)`
-
-SetUnusedCount sets UnusedCount field to given value.
-
-
-### GetUnusedSize
-
-`func (o *VolumeSummary) GetUnusedSize() int32`
-
-GetUnusedSize returns the UnusedSize field if non-nil, zero value otherwise.
-
-### GetUnusedSizeOk
-
-`func (o *VolumeSummary) GetUnusedSizeOk() (*int32, bool)`
-
-GetUnusedSizeOk returns a tuple with the UnusedSize field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUnusedSize
-
-`func (o *VolumeSummary) SetUnusedSize(v int32)`
-
-SetUnusedSize sets UnusedSize field to given value.
+SetUnused sets Unused field to given value.
 
 
 ### GetVolumes

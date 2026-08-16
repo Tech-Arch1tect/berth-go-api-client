@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **InUse** | **bool** |  | 
 **LastUsed** | **time.Time** |  | 
-**Parent** | Pointer to **string** |  | [optional] 
+**Removal** | **string** |  | 
 **Shared** | **bool** |  | 
 **Size** | **int32** |  | 
 **Type** | **string** |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewBuildCacheInfo
 
-`func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed time.Time, shared bool, size int32, type_ string, usageCount int32, ) *BuildCacheInfo`
+`func NewBuildCacheInfo(created time.Time, description string, id string, inUse bool, lastUsed time.Time, removal string, shared bool, size int32, type_ string, usageCount int32, ) *BuildCacheInfo`
 
 NewBuildCacheInfo instantiates a new BuildCacheInfo object
 This constructor will assign default values to properties that have it defined,
@@ -134,30 +134,25 @@ and a boolean to check if the value has been set.
 SetLastUsed sets LastUsed field to given value.
 
 
-### GetParent
+### GetRemoval
 
-`func (o *BuildCacheInfo) GetParent() string`
+`func (o *BuildCacheInfo) GetRemoval() string`
 
-GetParent returns the Parent field if non-nil, zero value otherwise.
+GetRemoval returns the Removal field if non-nil, zero value otherwise.
 
-### GetParentOk
+### GetRemovalOk
 
-`func (o *BuildCacheInfo) GetParentOk() (*string, bool)`
+`func (o *BuildCacheInfo) GetRemovalOk() (*string, bool)`
 
-GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+GetRemovalOk returns a tuple with the Removal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParent
+### SetRemoval
 
-`func (o *BuildCacheInfo) SetParent(v string)`
+`func (o *BuildCacheInfo) SetRemoval(v string)`
 
-SetParent sets Parent field to given value.
+SetRemoval sets Removal field to given value.
 
-### HasParent
-
-`func (o *BuildCacheInfo) HasParent() bool`
-
-HasParent returns a boolean if a field has been set.
 
 ### GetShared
 

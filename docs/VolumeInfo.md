@@ -4,11 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Anonymous** | **bool** |  | 
 **Created** | **time.Time** |  | 
 **Driver** | **string** |  | 
 **Labels** | **map[string]string** |  | 
 **Mountpoint** | **string** |  | 
 **Name** | **string** |  | 
+**Removal** | **string** |  | 
 **Size** | **int32** |  | 
 **Unused** | **bool** |  | 
 
@@ -16,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewVolumeInfo
 
-`func NewVolumeInfo(created time.Time, driver string, labels map[string]string, mountpoint string, name string, size int32, unused bool, ) *VolumeInfo`
+`func NewVolumeInfo(anonymous bool, created time.Time, driver string, labels map[string]string, mountpoint string, name string, removal string, size int32, unused bool, ) *VolumeInfo`
 
 NewVolumeInfo instantiates a new VolumeInfo object
 This constructor will assign default values to properties that have it defined,
@@ -30,6 +32,26 @@ will change when the set of required properties is changed
 NewVolumeInfoWithDefaults instantiates a new VolumeInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAnonymous
+
+`func (o *VolumeInfo) GetAnonymous() bool`
+
+GetAnonymous returns the Anonymous field if non-nil, zero value otherwise.
+
+### GetAnonymousOk
+
+`func (o *VolumeInfo) GetAnonymousOk() (*bool, bool)`
+
+GetAnonymousOk returns a tuple with the Anonymous field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAnonymous
+
+`func (o *VolumeInfo) SetAnonymous(v bool)`
+
+SetAnonymous sets Anonymous field to given value.
+
 
 ### GetCreated
 
@@ -129,6 +151,26 @@ and a boolean to check if the value has been set.
 `func (o *VolumeInfo) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetRemoval
+
+`func (o *VolumeInfo) GetRemoval() string`
+
+GetRemoval returns the Removal field if non-nil, zero value otherwise.
+
+### GetRemovalOk
+
+`func (o *VolumeInfo) GetRemovalOk() (*string, bool)`
+
+GetRemovalOk returns a tuple with the Removal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemoval
+
+`func (o *VolumeInfo) SetRemoval(v string)`
+
+SetRemoval sets Removal field to given value.
 
 
 ### GetSize

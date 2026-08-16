@@ -22,8 +22,6 @@ var _ MappedNullable = &PruneRequest{}
 // PruneRequest struct for PruneRequest
 type PruneRequest struct {
 	All bool `json:"all"`
-	Filters string `json:"filters"`
-	Force bool `json:"force"`
 	Type string `json:"type"`
 }
 
@@ -33,11 +31,9 @@ type _PruneRequest PruneRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPruneRequest(all bool, filters string, force bool, type_ string) *PruneRequest {
+func NewPruneRequest(all bool, type_ string) *PruneRequest {
 	this := PruneRequest{}
 	this.All = all
-	this.Filters = filters
-	this.Force = force
 	this.Type = type_
 	return &this
 }
@@ -72,54 +68,6 @@ func (o *PruneRequest) GetAllOk() (*bool, bool) {
 // SetAll sets field value
 func (o *PruneRequest) SetAll(v bool) {
 	o.All = v
-}
-
-// GetFilters returns the Filters field value
-func (o *PruneRequest) GetFilters() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Filters
-}
-
-// GetFiltersOk returns a tuple with the Filters field value
-// and a boolean to check if the value has been set.
-func (o *PruneRequest) GetFiltersOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Filters, true
-}
-
-// SetFilters sets field value
-func (o *PruneRequest) SetFilters(v string) {
-	o.Filters = v
-}
-
-// GetForce returns the Force field value
-func (o *PruneRequest) GetForce() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.Force
-}
-
-// GetForceOk returns a tuple with the Force field value
-// and a boolean to check if the value has been set.
-func (o *PruneRequest) GetForceOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Force, true
-}
-
-// SetForce sets field value
-func (o *PruneRequest) SetForce(v bool) {
-	o.Force = v
 }
 
 // GetType returns the Type field value
@@ -157,8 +105,6 @@ func (o PruneRequest) MarshalJSON() ([]byte, error) {
 func (o PruneRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["all"] = o.All
-	toSerialize["filters"] = o.Filters
-	toSerialize["force"] = o.Force
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
 }
@@ -169,8 +115,6 @@ func (o *PruneRequest) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"all",
-		"filters",
-		"force",
 		"type",
 	}
 

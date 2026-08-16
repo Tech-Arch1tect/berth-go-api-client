@@ -173,7 +173,7 @@ import (
 
 func main() {
 	serverid := int32(56) // int32 | Server ID
-	pruneRequest := *openapiclient.NewPruneRequest(false, "Filters_example", false, "Type_example") // PruneRequest | Prune request specifying the resource type to prune
+	pruneRequest := *openapiclient.NewPruneRequest(false, "Type_example") // PruneRequest | Prune request specifying the resource type to prune
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -4,10 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CpuPeriod** | Pointer to **int32** |  | [optional] 
-**CpuQuota** | Pointer to **int32** |  | [optional] 
-**CpuShares** | Pointer to **int32** |  | [optional] 
+**CpuCores** | Pointer to **float32** |  | [optional] 
 **Memory** | Pointer to **int32** |  | [optional] 
+**MemoryReservation** | Pointer to **int32** |  | [optional] 
 **MemorySwap** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -29,80 +28,30 @@ NewResourceLimitsWithDefaults instantiates a new ResourceLimits object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCpuPeriod
+### GetCpuCores
 
-`func (o *ResourceLimits) GetCpuPeriod() int32`
+`func (o *ResourceLimits) GetCpuCores() float32`
 
-GetCpuPeriod returns the CpuPeriod field if non-nil, zero value otherwise.
+GetCpuCores returns the CpuCores field if non-nil, zero value otherwise.
 
-### GetCpuPeriodOk
+### GetCpuCoresOk
 
-`func (o *ResourceLimits) GetCpuPeriodOk() (*int32, bool)`
+`func (o *ResourceLimits) GetCpuCoresOk() (*float32, bool)`
 
-GetCpuPeriodOk returns a tuple with the CpuPeriod field if it's non-nil, zero value otherwise
+GetCpuCoresOk returns a tuple with the CpuCores field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCpuPeriod
+### SetCpuCores
 
-`func (o *ResourceLimits) SetCpuPeriod(v int32)`
+`func (o *ResourceLimits) SetCpuCores(v float32)`
 
-SetCpuPeriod sets CpuPeriod field to given value.
+SetCpuCores sets CpuCores field to given value.
 
-### HasCpuPeriod
+### HasCpuCores
 
-`func (o *ResourceLimits) HasCpuPeriod() bool`
+`func (o *ResourceLimits) HasCpuCores() bool`
 
-HasCpuPeriod returns a boolean if a field has been set.
-
-### GetCpuQuota
-
-`func (o *ResourceLimits) GetCpuQuota() int32`
-
-GetCpuQuota returns the CpuQuota field if non-nil, zero value otherwise.
-
-### GetCpuQuotaOk
-
-`func (o *ResourceLimits) GetCpuQuotaOk() (*int32, bool)`
-
-GetCpuQuotaOk returns a tuple with the CpuQuota field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCpuQuota
-
-`func (o *ResourceLimits) SetCpuQuota(v int32)`
-
-SetCpuQuota sets CpuQuota field to given value.
-
-### HasCpuQuota
-
-`func (o *ResourceLimits) HasCpuQuota() bool`
-
-HasCpuQuota returns a boolean if a field has been set.
-
-### GetCpuShares
-
-`func (o *ResourceLimits) GetCpuShares() int32`
-
-GetCpuShares returns the CpuShares field if non-nil, zero value otherwise.
-
-### GetCpuSharesOk
-
-`func (o *ResourceLimits) GetCpuSharesOk() (*int32, bool)`
-
-GetCpuSharesOk returns a tuple with the CpuShares field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCpuShares
-
-`func (o *ResourceLimits) SetCpuShares(v int32)`
-
-SetCpuShares sets CpuShares field to given value.
-
-### HasCpuShares
-
-`func (o *ResourceLimits) HasCpuShares() bool`
-
-HasCpuShares returns a boolean if a field has been set.
+HasCpuCores returns a boolean if a field has been set.
 
 ### GetMemory
 
@@ -128,6 +77,31 @@ SetMemory sets Memory field to given value.
 `func (o *ResourceLimits) HasMemory() bool`
 
 HasMemory returns a boolean if a field has been set.
+
+### GetMemoryReservation
+
+`func (o *ResourceLimits) GetMemoryReservation() int32`
+
+GetMemoryReservation returns the MemoryReservation field if non-nil, zero value otherwise.
+
+### GetMemoryReservationOk
+
+`func (o *ResourceLimits) GetMemoryReservationOk() (*int32, bool)`
+
+GetMemoryReservationOk returns a tuple with the MemoryReservation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryReservation
+
+`func (o *ResourceLimits) SetMemoryReservation(v int32)`
+
+SetMemoryReservation sets MemoryReservation field to given value.
+
+### HasMemoryReservation
+
+`func (o *ResourceLimits) HasMemoryReservation() bool`
+
+HasMemoryReservation returns a boolean if a field has been set.
 
 ### GetMemorySwap
 
