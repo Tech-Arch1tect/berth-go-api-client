@@ -845,6 +845,223 @@ paths:
       summary: Delete a role stack permission
       tags:
       - admin
+  /api/v1/admin/s3-buckets:
+    get:
+      description: Returns every configured S3 bucket for backup storage. The secret
+        access key is never included
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_BucketResponse"
+          description: List of bucket configurations
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: List S3 bucket configurations
+      tags:
+      - s3-buckets
+    post:
+      description: "Stores an S3 endpoint, bucket name and credentials for backup\
+        \ storage; the secret access key is encrypted at rest and never returned"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRequest"
+        description: Bucket configuration including the secret access key
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_BucketResponse2"
+          description: Created bucket configuration
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Create an S3 bucket configuration
+      tags:
+      - s3-buckets
+  /api/v1/admin/s3-buckets/{id}:
+    delete:
+      description: Deletes the stored credentials and settings; the bucket and its
+        contents in S3 are untouched
+      parameters:
+      - description: Bucket configuration ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Bucket configuration deleted
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Bucket configuration not found
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Delete an S3 bucket configuration
+      tags:
+      - s3-buckets
+    get:
+      parameters:
+      - description: Bucket configuration ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_BucketResponse2"
+          description: Bucket configuration
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Bucket configuration not found
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Get an S3 bucket configuration
+      tags:
+      - s3-buckets
+    put:
+      description: Updates the bucket configuration; an empty secret access key keeps
+        the stored one
+      parameters:
+      - description: Bucket configuration ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateRequest"
+        description: Bucket configuration; empty secret access key keeps the stored
+          secret
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_BucketResponse2"
+          description: Updated bucket configuration
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Bucket configuration not found
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Update an S3 bucket configuration
+      tags:
+      - s3-buckets
   /api/v1/admin/security-audit-logs:
     get:
       description: Returns paginated list of security audit logs. Requires admin permissions.
@@ -1355,6 +1572,75 @@ paths:
       summary: Issue agent certificate bundle
       tags:
       - admin
+  /api/v1/admin/servers/{id}/backup-storage:
+    get:
+      description: Returns exact agent-local backup history counts for storage lifecycle
+        decisions. Requires admin server read access.
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_HistoryState"
+          description: Authoritative backup storage history status
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid server ID
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin server read access required
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Server not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup activity is running
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup storage status could not be established
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Read a server's backup storage history status
+      tags:
+      - backups
   /api/v1/admin/servers/{id}/test:
     post:
       description: Test the connection to a server. Requires admin access.
@@ -3592,6 +3878,73 @@ paths:
       - apiKey: []
       - session: []
       summary: List stack backups
+      tags:
+      - backups
+  /api/v1/servers/{serverid}/stacks/{stackname}/backups/rebuild:
+    post:
+      description: Reads the stack's restic repository on the agent and adds any backup
+        runs that are missing from the agent's metadata; existing metadata is never
+        overwritten. Requires backups to be enabled with an encryption password on
+        the server
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: serverid
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Stack name
+        explode: false
+        in: path
+        name: stackname
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_RebuildResult"
+          description: Rebuild result with run counts and agent output
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Insufficient permissions
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backups not enabled for this server
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Rebuild a stack's backup history from its repository
       tags:
       - backups
   /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}:
@@ -6443,6 +6796,7 @@ components:
           is_active: true
           name: name
           port: 6
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: updated_at
       properties:
@@ -6466,6 +6820,7 @@ components:
           is_active: true
           name: name
           port: 6
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: updated_at
         - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
@@ -6480,6 +6835,7 @@ components:
           is_active: true
           name: name
           port: 6
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: updated_at
       properties:
@@ -6505,6 +6861,7 @@ components:
           is_active: true
           name: name
           port: 6
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: updated_at
       properties:
@@ -6816,6 +7173,36 @@ components:
       required:
       - entries
       - path
+      type: object
+    BucketResponse:
+      example:
+        access_key_id: access_key_id
+        bucket_name: bucket_name
+        endpoint: endpoint
+        id: 0
+        label: label
+        region: region
+      properties:
+        access_key_id:
+          type: string
+        bucket_name:
+          type: string
+        endpoint:
+          type: string
+        id:
+          minimum: 0
+          type: integer
+        label:
+          type: string
+        region:
+          type: string
+      required:
+      - access_key_id
+      - bucket_name
+      - endpoint
+      - id
+      - label
+      - region
       type: object
     BuildCacheInfo:
       example:
@@ -8091,6 +8478,35 @@ components:
       required:
       - path
       type: object
+    CreateRequest:
+      example:
+        access_key_id: access_key_id
+        bucket_name: bucket_name
+        endpoint: endpoint
+        label: label
+        region: region
+        secret_access_key: secret_access_key
+      properties:
+        access_key_id:
+          type: string
+        bucket_name:
+          type: string
+        endpoint:
+          type: string
+        label:
+          type: string
+        region:
+          type: string
+        secret_access_key:
+          type: string
+      required:
+      - access_key_id
+      - bucket_name
+      - endpoint
+      - label
+      - region
+      - secret_access_key
+      type: object
     CreateRoleRequest:
       example:
         description: description
@@ -9033,6 +9449,7 @@ components:
           is_active: true
           name: name
           port: 6
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: updated_at
       properties:
@@ -9178,6 +9595,27 @@ components:
           type: array
         timeout:
           type: string
+      type: object
+    HistoryState:
+      example:
+        empty: true
+        record_count: 0
+        stack_count: 6
+        unreadable_record_count: 1
+      properties:
+        empty:
+          type: boolean
+        record_count:
+          type: integer
+        stack_count:
+          type: integer
+        unreadable_record_count:
+          type: integer
+      required:
+      - empty
+      - record_count
+      - stack_count
+      - unreadable_record_count
       type: object
     HostStats:
       example:
@@ -10102,6 +10540,7 @@ components:
           is_active: true
           name: name
           port: 6
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: updated_at
         - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
@@ -10116,6 +10555,7 @@ components:
           is_active: true
           name: name
           port: 6
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: updated_at
       properties:
@@ -10741,6 +11181,7 @@ components:
           is_active: true
           name: name
           port: 7
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: 2000-01-23T04:56:07.000+00:00
         server_id: 0
@@ -10881,6 +11322,7 @@ components:
             is_active: true
             name: name
             port: 7
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
@@ -10958,6 +11400,7 @@ components:
               is_active: true
               name: name
               port: 7
+              s3_bucket_id: 0
               skip_ssl_verification: true
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
@@ -11035,6 +11478,7 @@ components:
               is_active: true
               name: name
               port: 7
+              s3_bucket_id: 0
               skip_ssl_verification: true
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
@@ -11121,6 +11565,7 @@ components:
           is_active: true
           name: name
           port: 7
+          s3_bucket_id: 0
           skip_ssl_verification: true
           updated_at: 2000-01-23T04:56:07.000+00:00
         server_id: 0
@@ -11288,6 +11733,7 @@ components:
             is_active: true
             name: name
             port: 7
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
@@ -11674,6 +12120,27 @@ components:
       - compose_file
       - services
       type: object
+    RebuildResult:
+      example:
+        output:
+        - output
+        - output
+        runs_added: 0
+        runs_in_repository: 6
+      properties:
+        output:
+          items:
+            type: string
+          type: array
+        runs_added:
+          type: integer
+        runs_in_repository:
+          type: integer
+      required:
+      - output
+      - runs_added
+      - runs_in_repository
+      type: object
     RegistryCredential:
       example:
         password: password
@@ -11907,6 +12374,7 @@ components:
             is_active: true
             name: name
             port: 6
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: updated_at
         error: ""
@@ -11945,6 +12413,7 @@ components:
             is_active: true
             name: name
             port: 6
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: updated_at
           - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
@@ -11959,6 +12428,7 @@ components:
             is_active: true
             name: name
             port: 6
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: updated_at
         error: ""
@@ -11997,6 +12467,7 @@ components:
             is_active: true
             name: name
             port: 6
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: updated_at
         error: ""
@@ -12211,6 +12682,72 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/BackupFileListing"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_BucketResponse:
+      example:
+        data:
+        - access_key_id: access_key_id
+          bucket_name: bucket_name
+          endpoint: endpoint
+          id: 0
+          label: label
+          region: region
+        - access_key_id: access_key_id
+          bucket_name: bucket_name
+          endpoint: endpoint
+          id: 0
+          label: label
+          region: region
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/BucketResponse"
+          type: array
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_BucketResponse2:
+      example:
+        data:
+          access_key_id: access_key_id
+          bucket_name: bucket_name
+          endpoint: endpoint
+          id: 0
+          label: label
+          region: region
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/BucketResponse"
         error:
           allOf:
           - $ref: "#/components/schemas/Error"
@@ -13264,6 +13801,7 @@ components:
             is_active: true
             name: name
             port: 6
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: updated_at
         error: ""
@@ -13384,6 +13922,33 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/GetUserRolesData"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_HistoryState:
+      example:
+        data:
+          empty: true
+          record_count: 0
+          stack_count: 6
+          unreadable_record_count: 1
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/HistoryState"
         error:
           allOf:
           - $ref: "#/components/schemas/Error"
@@ -13744,6 +14309,7 @@ components:
             is_active: true
             name: name
             port: 6
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: updated_at
           - agent_cert_authority_fingerprint: agent_cert_authority_fingerprint
@@ -13758,6 +14324,7 @@ components:
             is_active: true
             name: name
             port: 6
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: updated_at
         error: ""
@@ -14186,6 +14753,7 @@ components:
               is_active: true
               name: name
               port: 7
+              s3_bucket_id: 0
               skip_ssl_verification: true
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
@@ -14263,6 +14831,7 @@ components:
                 is_active: true
                 name: name
                 port: 7
+                s3_bucket_id: 0
                 skip_ssl_verification: true
                 updated_at: 2000-01-23T04:56:07.000+00:00
               server_id: 0
@@ -14340,6 +14909,7 @@ components:
                 is_active: true
                 name: name
                 port: 7
+                s3_bucket_id: 0
                 skip_ssl_verification: true
                 updated_at: 2000-01-23T04:56:07.000+00:00
               server_id: 0
@@ -14436,6 +15006,7 @@ components:
             is_active: true
             name: name
             port: 7
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
@@ -14508,6 +15079,7 @@ components:
             is_active: true
             name: name
             port: 7
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
@@ -14771,6 +15343,34 @@ components:
       - data
       - success
       type: object
+    Response_RebuildResult:
+      example:
+        data:
+          output:
+          - output
+          - output
+          runs_added: 0
+          runs_in_repository: 6
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/RebuildResult"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
     Response_RoleWithPermissions:
       example:
         data:
@@ -14922,6 +15522,7 @@ components:
               is_active: true
               name: name
               port: 7
+              s3_bucket_id: 0
               skip_ssl_verification: true
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
@@ -14994,6 +15595,7 @@ components:
               is_active: true
               name: name
               port: 7
+              s3_bucket_id: 0
               skip_ssl_verification: true
               updated_at: 2000-01-23T04:56:07.000+00:00
             server_id: 0
@@ -16680,6 +17282,7 @@ components:
             is_active: true
             name: name
             port: 7
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
@@ -16752,6 +17355,7 @@ components:
             is_active: true
             name: name
             port: 7
+            s3_bucket_id: 0
             skip_ssl_verification: true
             updated_at: 2000-01-23T04:56:07.000+00:00
           server_id: 0
@@ -17287,6 +17891,7 @@ components:
         is_active: true
         name: name
         port: 7
+        s3_bucket_id: 0
         skip_ssl_verification: true
         updated_at: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17309,6 +17914,10 @@ components:
         name:
           type: string
         port:
+          type: integer
+        s3_bucket_id:
+          minimum: 0
+          nullable: true
           type: integer
         skip_ssl_verification:
           nullable: true
@@ -17419,6 +18028,7 @@ components:
         is_active: true
         name: name
         port: 6
+        s3_bucket_id: 0
         skip_ssl_verification: true
         updated_at: updated_at
       properties:
@@ -17446,6 +18056,10 @@ components:
         name:
           type: string
         port:
+          type: integer
+        s3_bucket_id:
+          minimum: 0
+          nullable: true
           type: integer
         skip_ssl_verification:
           type: boolean
@@ -17515,6 +18129,7 @@ components:
         is_active: true
         name: name
         port: 0
+        s3_bucket_id: 0
         skip_ssl_verification: true
       properties:
         access_token:
@@ -17532,6 +18147,10 @@ components:
         name:
           type: string
         port:
+          type: integer
+        s3_bucket_id:
+          minimum: 0
+          nullable: true
           type: integer
         skip_ssl_verification:
           nullable: true
@@ -19190,6 +19809,35 @@ components:
       required:
       - registry_url
       - username
+      type: object
+    UpdateRequest:
+      example:
+        access_key_id: access_key_id
+        bucket_name: bucket_name
+        endpoint: endpoint
+        label: label
+        region: region
+        secret_access_key: secret_access_key
+      properties:
+        access_key_id:
+          type: string
+        bucket_name:
+          type: string
+        endpoint:
+          type: string
+        label:
+          type: string
+        region:
+          type: string
+        secret_access_key:
+          type: string
+      required:
+      - access_key_id
+      - bucket_name
+      - endpoint
+      - label
+      - region
+      - secret_access_key
       type: object
     UpdateRoleRequest:
       example:

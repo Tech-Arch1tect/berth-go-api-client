@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **IsActive** | Pointer to **bool** |  | [optional] 
 **Name** | **string** |  | 
 **Port** | **int32** |  | 
+**S3BucketId** | Pointer to **NullableInt32** |  | [optional] 
 **SkipSslVerification** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
@@ -218,6 +219,41 @@ and a boolean to check if the value has been set.
 SetPort sets Port field to given value.
 
 
+### GetS3BucketId
+
+`func (o *ServerUpdateRequest) GetS3BucketId() int32`
+
+GetS3BucketId returns the S3BucketId field if non-nil, zero value otherwise.
+
+### GetS3BucketIdOk
+
+`func (o *ServerUpdateRequest) GetS3BucketIdOk() (*int32, bool)`
+
+GetS3BucketIdOk returns a tuple with the S3BucketId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetS3BucketId
+
+`func (o *ServerUpdateRequest) SetS3BucketId(v int32)`
+
+SetS3BucketId sets S3BucketId field to given value.
+
+### HasS3BucketId
+
+`func (o *ServerUpdateRequest) HasS3BucketId() bool`
+
+HasS3BucketId returns a boolean if a field has been set.
+
+### SetS3BucketIdNil
+
+`func (o *ServerUpdateRequest) SetS3BucketIdNil(b bool)`
+
+ SetS3BucketIdNil sets the value for S3BucketId to be an explicit nil
+
+### UnsetS3BucketId
+`func (o *ServerUpdateRequest) UnsetS3BucketId()`
+
+UnsetS3BucketId ensures that no value is present for S3BucketId, not even an explicit nil
 ### GetSkipSslVerification
 
 `func (o *ServerUpdateRequest) GetSkipSslVerification() bool`

@@ -22,6 +22,20 @@ func Test_berth_BackupsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test BackupsAPIService ApiV1AdminServersIdBackupStorageGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id int32
+
+		resp, httpRes, err := apiClient.BackupsAPI.ApiV1AdminServersIdBackupStorageGet(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test BackupsAPIService ApiV1BackupsGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -106,6 +120,21 @@ func Test_berth_BackupsAPIService(t *testing.T) {
 		var stackname string
 
 		resp, httpRes, err := apiClient.BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsGet(context.Background(), serverid, stackname).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test BackupsAPIService ApiV1ServersServeridStacksStacknameBackupsRebuildPost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serverid int32
+		var stackname string
+
+		resp, httpRes, err := apiClient.BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsRebuildPost(context.Background(), serverid, stackname).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

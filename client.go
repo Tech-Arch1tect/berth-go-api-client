@@ -75,6 +75,8 @@ type APIClient struct {
 
 	RegistriesAPI *RegistriesAPIService
 
+	S3BucketsAPI *S3BucketsAPIService
+
 	ServersAPI *ServersAPIService
 
 	SessionsAPI *SessionsAPIService
@@ -119,6 +121,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.OperationsAPI = (*OperationsAPIService)(&c.common)
 	c.ProfileAPI = (*ProfileAPIService)(&c.common)
 	c.RegistriesAPI = (*RegistriesAPIService)(&c.common)
+	c.S3BucketsAPI = (*S3BucketsAPIService)(&c.common)
 	c.ServersAPI = (*ServersAPIService)(&c.common)
 	c.SessionsAPI = (*SessionsAPIService)(&c.common)
 	c.StacksAPI = (*StacksAPIService)(&c.common)

@@ -4,13 +4,85 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV1AdminServersIdBackupStorageGet**](BackupsAPI.md#ApiV1AdminServersIdBackupStorageGet) | **Get** /api/v1/admin/servers/{id}/backup-storage | Read a server&#39;s backup storage history status
 [**ApiV1BackupsGet**](BackupsAPI.md#ApiV1BackupsGet) | **Get** /api/v1/backups | List backup coverage across every reachable server
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidDelete**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidDelete) | **Delete** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Delete a stack backup
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidDownloadGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/download | Download files from a backup
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidFilesGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid}/files | List files inside a backup
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Get a stack backup
 [**ApiV1ServersServeridStacksStacknameBackupsGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups | List stack backups
+[**ApiV1ServersServeridStacksStacknameBackupsRebuildPost**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsRebuildPost) | **Post** /api/v1/servers/{serverid}/stacks/{stackname}/backups/rebuild | Rebuild a stack&#39;s backup history from its repository
 
+
+
+## ApiV1AdminServersIdBackupStorageGet
+
+> ResponseHistoryState ApiV1AdminServersIdBackupStorageGet(ctx, id).Execute()
+
+Read a server's backup storage history status
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	id := int32(56) // int32 | Server ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackupsAPI.ApiV1AdminServersIdBackupStorageGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackupsAPI.ApiV1AdminServersIdBackupStorageGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminServersIdBackupStorageGet`: ResponseHistoryState
+	fmt.Fprintf(os.Stdout, "Response from `BackupsAPI.ApiV1AdminServersIdBackupStorageGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | Server ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminServersIdBackupStorageGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ResponseHistoryState**](ResponseHistoryState.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV1BackupsGet
@@ -448,6 +520,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseListResponse**](ResponseListResponse.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1ServersServeridStacksStacknameBackupsRebuildPost
+
+> ResponseRebuildResult ApiV1ServersServeridStacksStacknameBackupsRebuildPost(ctx, serverid, stackname).Execute()
+
+Rebuild a stack's backup history from its repository
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	serverid := int32(56) // int32 | Server ID
+	stackname := "stackname_example" // string | Stack name
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsRebuildPost(context.Background(), serverid, stackname).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsRebuildPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1ServersServeridStacksStacknameBackupsRebuildPost`: ResponseRebuildResult
+	fmt.Fprintf(os.Stdout, "Response from `BackupsAPI.ApiV1ServersServeridStacksStacknameBackupsRebuildPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serverid** | **int32** | Server ID | 
+**stackname** | **string** | Stack name | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1ServersServeridStacksStacknameBackupsRebuildPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ResponseRebuildResult**](ResponseRebuildResult.md)
 
 ### Authorization
 

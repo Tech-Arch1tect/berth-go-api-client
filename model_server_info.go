@@ -33,6 +33,7 @@ type ServerInfo struct {
 	IsActive bool `json:"is_active"`
 	Name string `json:"name"`
 	Port int32 `json:"port"`
+	S3BucketId NullableInt32 `json:"s3_bucket_id,omitempty"`
 	SkipSslVerification bool `json:"skip_ssl_verification"`
 	UpdatedAt string `json:"updated_at"`
 }
@@ -386,6 +387,48 @@ func (o *ServerInfo) SetPort(v int32) {
 	o.Port = v
 }
 
+// GetS3BucketId returns the S3BucketId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ServerInfo) GetS3BucketId() int32 {
+	if o == nil || IsNil(o.S3BucketId.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.S3BucketId.Get()
+}
+
+// GetS3BucketIdOk returns a tuple with the S3BucketId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ServerInfo) GetS3BucketIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.S3BucketId.Get(), o.S3BucketId.IsSet()
+}
+
+// HasS3BucketId returns a boolean if a field has been set.
+func (o *ServerInfo) HasS3BucketId() bool {
+	if o != nil && o.S3BucketId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetS3BucketId gets a reference to the given NullableInt32 and assigns it to the S3BucketId field.
+func (o *ServerInfo) SetS3BucketId(v int32) {
+	o.S3BucketId.Set(&v)
+}
+// SetS3BucketIdNil sets the value for S3BucketId to be an explicit nil
+func (o *ServerInfo) SetS3BucketIdNil() {
+	o.S3BucketId.Set(nil)
+}
+
+// UnsetS3BucketId ensures that no value is present for S3BucketId, not even an explicit nil
+func (o *ServerInfo) UnsetS3BucketId() {
+	o.S3BucketId.Unset()
+}
+
 // GetSkipSslVerification returns the SkipSslVerification field value
 func (o *ServerInfo) GetSkipSslVerification() bool {
 	if o == nil {
@@ -464,6 +507,9 @@ func (o ServerInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["is_active"] = o.IsActive
 	toSerialize["name"] = o.Name
 	toSerialize["port"] = o.Port
+	if o.S3BucketId.IsSet() {
+		toSerialize["s3_bucket_id"] = o.S3BucketId.Get()
+	}
 	toSerialize["skip_ssl_verification"] = o.SkipSslVerification
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
