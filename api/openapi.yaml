@@ -1005,8 +1005,9 @@ paths:
       tags:
       - s3-buckets
     put:
-      description: Updates the bucket configuration; an empty secret access key keeps
-        the stored one
+      description: Updates the bucket configuration. Endpoint or bucket-name changes
+        require exact empty backup history on every assigned server; an empty secret
+        access key keeps the stored one
       parameters:
       - description: Bucket configuration ID
         explode: false
@@ -1055,6 +1056,25 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Bucket configuration not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: "Assigned server history remains, backup activity is running,\
+            \ or another storage assignment or bucket mutation is active"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: An assigned server's backup storage status could not be established
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1364,7 +1384,9 @@ paths:
       - admin
   /api/v1/admin/servers/{id}:
     delete:
-      description: Delete a server connection. Requires admin access.
+      description: Delete a server connection after confirming its agent-local backup
+        history is empty. Backup repository data is never deleted by this action.
+        Requires admin access.
       parameters:
       - description: Server ID
         explode: false
@@ -1399,12 +1421,24 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Server not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup history remains or backup activity is running
         "500":
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Response_Empty"
           description: Internal server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup storage status could not be established
       security:
       - bearerAuth: []
       - apiKey: []
@@ -1639,6 +1673,148 @@ paths:
       - apiKey: []
       - session: []
       summary: Read a server's backup storage history status
+      tags:
+      - backups
+  /api/v1/admin/servers/{id}/backup-storage/abandon:
+    post:
+      description: Removes the agent-local backup history used by Berth without reading
+        or deleting repository data. Returns exact full or partial results; an HTTP
+        200 does not mean every history entry was removed. The request body must contain
+        zero bytes. Requires admin server write access.
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_AbandonBackupStorageResult"
+          description: Authoritative full or partial abandonment result
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid server ID or non-empty request body
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin server write access required
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Server not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup activity is running
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: A signed authoritative abandonment result could not be established
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Abandon a server's backup history
+      tags:
+      - backups
+  /api/v1/admin/servers/{id}/backup-storage/delete-all:
+    post:
+      description: Attempts every stack repository using the server's stored backup
+        password and storage assignment. Returns exact full or partial results; an
+        HTTP 200 does not mean every backup was deleted. Requires admin server write
+        access.
+      parameters:
+      - description: Server ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_DeleteAllResult"
+          description: Authoritative full or partial deletion result
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Invalid server ID or non-empty request body
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Not authenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Admin server write access required
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Server not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Backup activity is running or no backup password is configured
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: Internal server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Empty"
+          description: A signed authoritative deletion result could not be established
+      security:
+      - bearerAuth: []
+      - apiKey: []
+      - session: []
+      summary: Delete every backup for a server
       tags:
       - backups
   /api/v1/admin/servers/{id}/test:
@@ -6763,6 +6939,39 @@ components:
       - stack_pattern
       - updated_at
       type: object
+    AbandonBackupStorageResult:
+      example:
+        after:
+          empty: true
+          record_count: 0
+          stack_count: 6
+          unreadable_record_count: 1
+        before:
+          empty: true
+          record_count: 0
+          stack_count: 6
+          unreadable_record_count: 1
+        complete: true
+        errors:
+        - errors
+        - errors
+      properties:
+        after:
+          $ref: "#/components/schemas/HistoryState"
+        before:
+          $ref: "#/components/schemas/HistoryState"
+        complete:
+          type: boolean
+        errors:
+          items:
+            type: string
+          type: array
+      required:
+      - after
+      - before
+      - complete
+      - errors
+      type: object
     AddScopeRequest:
       example:
         permission: permission
@@ -8583,6 +8792,106 @@ components:
       - password
       - password_confirm
       - username
+      type: object
+    DeleteAllResult:
+      example:
+        after:
+          empty: true
+          record_count: 0
+          stack_count: 6
+          unreadable_record_count: 1
+        before:
+          empty: true
+          record_count: 0
+          stack_count: 6
+          unreadable_record_count: 1
+        complete: true
+        errors:
+        - errors
+        - errors
+        stacks:
+        - attempted: true
+          errors:
+          - errors
+          - errors
+          prune_status: prune_status
+          records_before: 0
+          records_deleted: 6
+          records_remaining: 1
+          snapshots_forgotten: 5
+          stack_name: stack_name
+        - attempted: true
+          errors:
+          - errors
+          - errors
+          prune_status: prune_status
+          records_before: 0
+          records_deleted: 6
+          records_remaining: 1
+          snapshots_forgotten: 5
+          stack_name: stack_name
+      properties:
+        after:
+          $ref: "#/components/schemas/HistoryState"
+        before:
+          $ref: "#/components/schemas/HistoryState"
+        complete:
+          type: boolean
+        errors:
+          items:
+            type: string
+          type: array
+        stacks:
+          items:
+            $ref: "#/components/schemas/DeleteAllStackResult"
+          type: array
+      required:
+      - after
+      - before
+      - complete
+      - errors
+      - stacks
+      type: object
+    DeleteAllStackResult:
+      example:
+        attempted: true
+        errors:
+        - errors
+        - errors
+        prune_status: prune_status
+        records_before: 0
+        records_deleted: 6
+        records_remaining: 1
+        snapshots_forgotten: 5
+        stack_name: stack_name
+      properties:
+        attempted:
+          type: boolean
+        errors:
+          items:
+            type: string
+          type: array
+        prune_status:
+          type: string
+        records_before:
+          type: integer
+        records_deleted:
+          type: integer
+        records_remaining:
+          type: integer
+        snapshots_forgotten:
+          type: integer
+        stack_name:
+          type: string
+      required:
+      - attempted
+      - errors
+      - prune_status
+      - records_before
+      - records_deleted
+      - records_remaining
+      - snapshots_forgotten
+      - stack_name
       type: object
     DeleteCredentialMessageData:
       example:
@@ -12358,6 +12667,43 @@ components:
       - data
       - success
       type: object
+    Response_AbandonBackupStorageResult:
+      example:
+        data:
+          after:
+            empty: true
+            record_count: 0
+            stack_count: 6
+            unreadable_record_count: 1
+          before:
+            empty: true
+            record_count: 0
+            stack_count: 6
+            unreadable_record_count: 1
+          complete: true
+          errors:
+          - errors
+          - errors
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/AbandonBackupStorageResult"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
     Response_AdminCreateServerData:
       example:
         data:
@@ -12951,6 +13297,64 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/CreateStackData"
+        error:
+          allOf:
+          - $ref: "#/components/schemas/Error"
+          nullable: true
+        meta:
+          allOf:
+          - $ref: "#/components/schemas/Meta"
+          nullable: true
+        success:
+          type: boolean
+      required:
+      - data
+      - success
+      type: object
+    Response_DeleteAllResult:
+      example:
+        data:
+          after:
+            empty: true
+            record_count: 0
+            stack_count: 6
+            unreadable_record_count: 1
+          before:
+            empty: true
+            record_count: 0
+            stack_count: 6
+            unreadable_record_count: 1
+          complete: true
+          errors:
+          - errors
+          - errors
+          stacks:
+          - attempted: true
+            errors:
+            - errors
+            - errors
+            prune_status: prune_status
+            records_before: 0
+            records_deleted: 6
+            records_remaining: 1
+            snapshots_forgotten: 5
+            stack_name: stack_name
+          - attempted: true
+            errors:
+            - errors
+            - errors
+            prune_status: prune_status
+            records_before: 0
+            records_deleted: 6
+            records_remaining: 1
+            snapshots_forgotten: 5
+            stack_name: stack_name
+        error: ""
+        meta: ""
+        success: true
+      properties:
+        data:
+          $ref: "#/components/schemas/DeleteAllResult"
         error:
           allOf:
           - $ref: "#/components/schemas/Error"

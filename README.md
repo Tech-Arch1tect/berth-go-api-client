@@ -118,6 +118,8 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**ApiV1AuthResendVerificationPost**](docs/AuthAPI.md#apiv1authresendverificationpost) | **Post** /api/v1/auth/resend-verification | Request a new email verification link
 *AuthAPI* | [**ApiV1AuthTotpVerifyPost**](docs/AuthAPI.md#apiv1authtotpverifypost) | **Post** /api/v1/auth/totp/verify | Verify TOTP code to complete login
 *AuthAPI* | [**ApiV1AuthVerifyEmailPost**](docs/AuthAPI.md#apiv1authverifyemailpost) | **Post** /api/v1/auth/verify-email | Verify an email address
+*BackupsAPI* | [**ApiV1AdminServersIdBackupStorageAbandonPost**](docs/BackupsAPI.md#apiv1adminserversidbackupstorageabandonpost) | **Post** /api/v1/admin/servers/{id}/backup-storage/abandon | Abandon a server&#39;s backup history
+*BackupsAPI* | [**ApiV1AdminServersIdBackupStorageDeleteAllPost**](docs/BackupsAPI.md#apiv1adminserversidbackupstoragedeleteallpost) | **Post** /api/v1/admin/servers/{id}/backup-storage/delete-all | Delete every backup for a server
 *BackupsAPI* | [**ApiV1AdminServersIdBackupStorageGet**](docs/BackupsAPI.md#apiv1adminserversidbackupstorageget) | **Get** /api/v1/admin/servers/{id}/backup-storage | Read a server&#39;s backup storage history status
 *BackupsAPI* | [**ApiV1BackupsGet**](docs/BackupsAPI.md#apiv1backupsget) | **Get** /api/v1/backups | List backup coverage across every reachable server
 *BackupsAPI* | [**ApiV1ServersServeridStacksStacknameBackupsBackupidDelete**](docs/BackupsAPI.md#apiv1serversserveridstacksstacknamebackupsbackupiddelete) | **Delete** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Delete a stack backup
@@ -202,6 +204,7 @@ Class | Method | HTTP request | Description
 
  - [APIKeyInfo](docs/APIKeyInfo.md)
  - [APIKeyScopeInfo](docs/APIKeyScopeInfo.md)
+ - [AbandonBackupStorageResult](docs/AbandonBackupStorageResult.md)
  - [AddScopeRequest](docs/AddScopeRequest.md)
  - [AdminCreateServerData](docs/AdminCreateServerData.md)
  - [AdminListServersData](docs/AdminListServersData.md)
@@ -259,6 +262,8 @@ Class | Method | HTTP request | Description
  - [CreateStackPermissionRequest](docs/CreateStackPermissionRequest.md)
  - [CreateStackRequest](docs/CreateStackRequest.md)
  - [CreateUserRequest](docs/CreateUserRequest.md)
+ - [DeleteAllResult](docs/DeleteAllResult.md)
+ - [DeleteAllStackResult](docs/DeleteAllStackResult.md)
  - [DeleteCredentialMessageData](docs/DeleteCredentialMessageData.md)
  - [DeleteRequest](docs/DeleteRequest.md)
  - [DeleteRequest2](docs/DeleteRequest2.md)
@@ -356,6 +361,7 @@ Class | Method | HTTP request | Description
  - [ResponseAPIKeyInfo](docs/ResponseAPIKeyInfo.md)
  - [ResponseAPIKeyInfo2](docs/ResponseAPIKeyInfo2.md)
  - [ResponseAPIKeyScopeInfo](docs/ResponseAPIKeyScopeInfo.md)
+ - [ResponseAbandonBackupStorageResult](docs/ResponseAbandonBackupStorageResult.md)
  - [ResponseAdminCreateServerData](docs/ResponseAdminCreateServerData.md)
  - [ResponseAdminListServersData](docs/ResponseAdminListServersData.md)
  - [ResponseAdminUpdateServerData](docs/ResponseAdminUpdateServerData.md)
@@ -372,6 +378,7 @@ Class | Method | HTTP request | Description
  - [ResponseCompareScanData](docs/ResponseCompareScanData.md)
  - [ResponseCreateAPIKeyData](docs/ResponseCreateAPIKeyData.md)
  - [ResponseCreateStackData](docs/ResponseCreateStackData.md)
+ - [ResponseDeleteAllResult](docs/ResponseDeleteAllResult.md)
  - [ResponseDeleteCredentialMessageData](docs/ResponseDeleteCredentialMessageData.md)
  - [ResponseDeleteResponse](docs/ResponseDeleteResponse.md)
  - [ResponseDeleteResult](docs/ResponseDeleteResult.md)

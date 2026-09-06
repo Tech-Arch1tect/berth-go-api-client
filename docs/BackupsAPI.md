@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV1AdminServersIdBackupStorageAbandonPost**](BackupsAPI.md#ApiV1AdminServersIdBackupStorageAbandonPost) | **Post** /api/v1/admin/servers/{id}/backup-storage/abandon | Abandon a server&#39;s backup history
+[**ApiV1AdminServersIdBackupStorageDeleteAllPost**](BackupsAPI.md#ApiV1AdminServersIdBackupStorageDeleteAllPost) | **Post** /api/v1/admin/servers/{id}/backup-storage/delete-all | Delete every backup for a server
 [**ApiV1AdminServersIdBackupStorageGet**](BackupsAPI.md#ApiV1AdminServersIdBackupStorageGet) | **Get** /api/v1/admin/servers/{id}/backup-storage | Read a server&#39;s backup storage history status
 [**ApiV1BackupsGet**](BackupsAPI.md#ApiV1BackupsGet) | **Get** /api/v1/backups | List backup coverage across every reachable server
 [**ApiV1ServersServeridStacksStacknameBackupsBackupidDelete**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsBackupidDelete) | **Delete** /api/v1/servers/{serverid}/stacks/{stackname}/backups/{backupid} | Delete a stack backup
@@ -13,6 +15,146 @@ Method | HTTP request | Description
 [**ApiV1ServersServeridStacksStacknameBackupsGet**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsGet) | **Get** /api/v1/servers/{serverid}/stacks/{stackname}/backups | List stack backups
 [**ApiV1ServersServeridStacksStacknameBackupsRebuildPost**](BackupsAPI.md#ApiV1ServersServeridStacksStacknameBackupsRebuildPost) | **Post** /api/v1/servers/{serverid}/stacks/{stackname}/backups/rebuild | Rebuild a stack&#39;s backup history from its repository
 
+
+
+## ApiV1AdminServersIdBackupStorageAbandonPost
+
+> ResponseAbandonBackupStorageResult ApiV1AdminServersIdBackupStorageAbandonPost(ctx, id).Execute()
+
+Abandon a server's backup history
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	id := int32(56) // int32 | Server ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackupsAPI.ApiV1AdminServersIdBackupStorageAbandonPost(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackupsAPI.ApiV1AdminServersIdBackupStorageAbandonPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminServersIdBackupStorageAbandonPost`: ResponseAbandonBackupStorageResult
+	fmt.Fprintf(os.Stdout, "Response from `BackupsAPI.ApiV1AdminServersIdBackupStorageAbandonPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | Server ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminServersIdBackupStorageAbandonPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ResponseAbandonBackupStorageResult**](ResponseAbandonBackupStorageResult.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV1AdminServersIdBackupStorageDeleteAllPost
+
+> ResponseDeleteAllResult ApiV1AdminServersIdBackupStorageDeleteAllPost(ctx, id).Execute()
+
+Delete every backup for a server
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/tech-arch1tect/berth-go-api-client"
+)
+
+func main() {
+	id := int32(56) // int32 | Server ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackupsAPI.ApiV1AdminServersIdBackupStorageDeleteAllPost(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackupsAPI.ApiV1AdminServersIdBackupStorageDeleteAllPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV1AdminServersIdBackupStorageDeleteAllPost`: ResponseDeleteAllResult
+	fmt.Fprintf(os.Stdout, "Response from `BackupsAPI.ApiV1AdminServersIdBackupStorageDeleteAllPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | Server ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV1AdminServersIdBackupStorageDeleteAllPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ResponseDeleteAllResult**](ResponseDeleteAllResult.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [session](../README.md#session), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV1AdminServersIdBackupStorageGet
